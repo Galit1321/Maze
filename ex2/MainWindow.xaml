@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 ﻿<Window x:Class="View.MainWindow"
+=======
+﻿<Window x:Class="ex2.MainWindow"
+>>>>>>> 747d63cc31d4418a04eb15640b0340fc98b4ab2f
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+<<<<<<< HEAD
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="Menu"  Height="348.684" Width="397.368">
@@ -35,5 +40,12 @@
         </Button>
         <Button x:Name="Setting" VerticalAlignment="Center" Content="Setting"  HorizontalAlignment="Center" Margin="128,136,10,146"  Width="110" RenderTransformOrigin="-0.257,-0.108" Height="36" Grid.Column="1"/>
         <Label x:Name="label" Content="Hello" HorizontalAlignment="Center" Margin="10,33,132,0" VerticalAlignment="Top" Width="106" TextBlock.TextAlignment="Center" TextBlock.FontSize="30" Height="50" Grid.Column="1"/>
+=======
+        xmlns:local="clr-namespace:ex2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        
+>>>>>>> 747d63cc31d4418a04eb15640b0340fc98b4ab2f
     </Grid>
 </Window>
