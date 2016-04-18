@@ -58,6 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model.cs" />
+    <Compile Include="Pair.cs" />
     <Compile Include="IModelable.cs" />
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
@@ -65,6 +67,7 @@
     <Compile Include="SingalGame.xaml.cs">
       <DependentUpon>SingalGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +122,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{bd6ff908-67fd-4522-9d98-1ebd15bad0b0}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

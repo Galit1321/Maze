@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ex2
 {
-    interface IModelable
+    interface IModelable: INotifyPropertyChanged
     {
         
             void connect(string ip, int port);
@@ -16,12 +17,12 @@ namespace ex2
             //proprties here
             int Port { get; set; }
             string ip { get; set; }
-            string Order { get; set; }
-            
+            string Maze { get; set; }
+           Pair posetion { get; set; }
             //active method
             void move(string direction);
             string getClue();
-            
+            string createMaze();
 
         
     }
