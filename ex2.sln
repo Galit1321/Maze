@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
+<<<<<<< HEAD
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "ex2\View.csproj", "{18B5BF8C-BFD8-4353-A2AA-BA91B8E77C10}"
+=======
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex2", "ex2\ex2.csproj", "{18B5BF8C-BFD8-4353-A2AA-BA91B8E77C10}"
+>>>>>>> 747d63cc31d4418a04eb15640b0340fc98b4ab2f
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{BD6FF908-67FD-4522-9D98-1EBD15BAD0B0}"
 EndProject
