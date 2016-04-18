@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37581256-722F-4A84-BB38-12441B475A1A}</ProjectGuid>
+    <ProjectGuid>{CB78BD59-A75A-4B97-A798-18699EB8AD94}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mazelib</RootNamespace>
