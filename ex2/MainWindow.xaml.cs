@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ex2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace View
 {
     /// <summary>
@@ -21,9 +21,11 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModel vm;
         public MainWindow()
         {
             InitializeComponent();
-        }
+            vm = new ViewModel();
+            DataContext = vm;
     }
 }
