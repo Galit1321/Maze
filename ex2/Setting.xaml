@@ -14,15 +14,17 @@
             </RadialGradientBrush>
         </Grid.Background>
 
-        <TextBox x:Name="IP" TextChanged="TextBox_TextChanged" HorizontalAlignment="Center" Height="25" Margin="85,51,87,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextBlock.FontSize="14"/>
-        <WrapPanel Margin="0,10">
-            <TextBlock   Text="Port1: " FontWeight="Bold" Foreground="White" Height="30" Width="44"/>
+       
+        <WrapPanel Margin="10,10">
+            <TextBlock   Text="Port: " HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Height="30" Width="44"/>
             <TextBox Text="{Binding Path=Port1, UpdateSourceTrigger=PropertyChanged}" Width="150" TextChanged="TextBox_TextChanged_1" />
         </WrapPanel>
+        <WrapPanel Margin="10,100">
+            <TextBlock   Text="IP: " FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Height="30" Width="44"/>
+            <TextBox Text="{Binding Path=ip, UpdateSourceTrigger=PropertyChanged}" Width="150" TextChanged="TextBox_TextChanged_1" />
+        </WrapPanel>
            
-        <Label x:Name="IPlbl" Content="IP " FontFamily="Cooper Black" HorizontalAlignment="Center" TextBlock.Foreground="White" Margin="22,51,238,0" VerticalAlignment="Top" Width="32"/>
-        <Label x:Name="Portlb" FontFamily="Cooper Black" Content="Port"  HorizontalAlignment="center" Margin="22,147,225,92" VerticalAlignment="Center" RenderTransformOrigin="0.072,0.479" TextBlock.TextAlignment="Center" TextBlock.Foreground="White" TextBlock.FontSize="14" Height="30" Width="45"/>
-        <TextBox x:Name="Port" TextChanged="TextBox_TextChanged" HorizontalAlignment="Center" Height="26" Margin="85,152,87,91" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" TextBlock.FontSize="14"/>
+        
 
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="50,218,50,20" VerticalAlignment="Bottom" Width="75">
             <Button.Background>
