@@ -11,7 +11,7 @@ namespace Server.View
     /// <summary>
     /// Handle a specific client
     /// </summary>
-    class ClientHandler
+    public class ClientHandler
     {
         public event change clientRecive;
         private Socket client;
