@@ -59,6 +59,7 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="IView.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="MazeByGraph.cs" />
     <Compile Include="MazeSolved.cs" />
     <Compile Include="Multiplayer.cs" />
