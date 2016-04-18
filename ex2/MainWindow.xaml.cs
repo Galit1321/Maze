@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ex2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,20 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-<<<<<<< HEAD
 namespace View
-=======
-namespace ex2
->>>>>>> 747d63cc31d4418a04eb15640b0340fc98b4ab2f
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModel vm;
         public MainWindow()
         {
             InitializeComponent();
-        }
+            vm = new ViewModel();
+            DataContext = vm;
     }
 }
