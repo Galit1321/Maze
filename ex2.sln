@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex2", "ex2\ex2.csproj", "{18B5BF8C-BFD8-4353-A2AA-BA91B8E77C10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{BD6FF908-67FD-4522-9D98-1EBD15BAD0B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mazelib", "Mazelib\Mazelib.csproj", "{CB78BD59-A75A-4B97-A798-18699EB8AD94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18B5BF8C-BFD8-4353-A2AA-BA91B8E77C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18B5BF8C-BFD8-4353-A2AA-BA91B8E77C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18B5BF8C-BFD8-4353-A2AA-BA91B8E77C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18B5BF8C-BFD8-4353-A2AA-BA91B8E77C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD6FF908-67FD-4522-9D98-1EBD15BAD0B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD6FF908-67FD-4522-9D98-1EBD15BAD0B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD6FF908-67FD-4522-9D98-1EBD15BAD0B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD6FF908-67FD-4522-9D98-1EBD15BAD0B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB78BD59-A75A-4B97-A798-18699EB8AD94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB78BD59-A75A-4B97-A798-18699EB8AD94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB78BD59-A75A-4B97-A798-18699EB8AD94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB78BD59-A75A-4B97-A798-18699EB8AD94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
