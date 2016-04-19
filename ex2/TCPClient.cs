@@ -27,8 +27,11 @@ namespace View
         ~TCPClient()
         {
             run = false;
-            Sock.Shutdown(SocketShutdown.Both);
-            Sock.Close();
+            if (Sock != null)
+            {
+                Sock.Shutdown(SocketShutdown.Both);
+                Sock.Close();
+            }
         }
         
         public void Connect(string ip,int port)

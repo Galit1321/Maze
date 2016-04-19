@@ -28,5 +28,10 @@ namespace View
         {
 
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

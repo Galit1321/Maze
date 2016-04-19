@@ -44,6 +44,7 @@ namespace ex2.controls
                 ColumnDefinition c = new ColumnDefinition();
                 g.ColumnDefinitions.Add(c);
             }
+            this.Content = g;
         }
     }
 }
