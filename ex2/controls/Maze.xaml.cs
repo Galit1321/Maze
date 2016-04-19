@@ -14,16 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ex2
+namespace ex2.controls
 {
     /// <summary>
-    /// Interaction logic for maze.xaml
+    /// Interaction logic for Maze.xaml
     /// </summary>
-    public partial class maze : UserControl
+    public partial class Maze : UserControl
     {
-        public maze()
+        public Maze()
         {
             InitializeComponent();
+            init();
         }
         public void init()
         {

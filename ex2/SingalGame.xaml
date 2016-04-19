@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
+       xmlns:Controls="clr-namespace:ex2.controls"
         mc:Ignorable="d"
         Title="SingalGame" Height="300" Width="300">
     <Grid>
@@ -21,6 +22,6 @@
             </Button.Background>
         </Button>
         <Button x:Name="Back" Content="Back" Grid.Column="1" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Height="20" Width="75"/>
-
+        <Controls:Maze Grid.ColumnSpan="2" Margin="0,60,10,0"/>
     </Grid>
 </Window>
