@@ -16,7 +16,7 @@ namespace View
     interface ICommuntable
     {
         string ReceviveMsg();
-        void SendMsg();
+        void SendMsg(string msn);
 
     }
 }

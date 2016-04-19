@@ -133,7 +133,12 @@ namespace View
 
         public void move(string direction)
         {
-            throw new NotImplementedException();
+            char[] maze = this.Maze.ToCharArray();
+            switch (direction)
+            {
+                case "up":
+                    if ((this.Coordinate.Row-2<0) && )
+            }
         }
 
         public void start()
