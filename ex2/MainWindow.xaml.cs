@@ -25,7 +25,7 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
-            vm = new ViewModel();
+            vm = new ViewModel(new Model(new TCPClient()));
             DataContext = vm;
         }
 

@@ -22,6 +22,6 @@
             </Button.Background>
         </Button>
         <Button x:Name="Back" Content="Back" Grid.Column="1" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Height="20" Width="75"/>
-        <Controls:Maze Name="maze" Margin="0,-10,0,10"/>
+        <Controls:Maze x:Name="maze" Grid.ColumnSpan="2" Margin="0,95,0,0"/>
     </Grid>
 </Window>

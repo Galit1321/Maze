@@ -23,5 +23,10 @@ namespace View
         {
             InitializeComponent();
         }
+
+        private void maze_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
