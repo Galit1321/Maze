@@ -15,11 +15,6 @@ namespace View
     /// </summary>
     class Program
     {
-        public enum direction { up, down, left, right };
-        static void Main(string[] args)
-        {
-            
-            
-        }
+      
     }
 }

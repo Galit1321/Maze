@@ -16,12 +16,16 @@ namespace View
         volatile bool stop;
         private string ip;
         private int port;
+        private int Heigth;
+        private int Width;
         public Model(TCPClient client)
         {
             this.Client = client;
             stop = false;
             this.ip= ConfigurationManager.AppSettings["IP"];
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
+            this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
+            this.Heigth= Int32.Parse(ConfigurationManager.AppSettings["Height"]);
         }
        public string IP
         {
@@ -130,14 +134,44 @@ namespace View
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// move on the maze to given direction if 
+        /// possible
+        /// </summary>
+        /// <param name="direction">which arrow key was press</param>
         public void move(string direction)
         {
             char[] maze = this.Maze.ToCharArray();
             switch (direction)
             {
                 case "up":
-                    if ((this.Coordinate.Row-2<0) && )
+                    if ((this.Coordinate.Row-2>0)&& (maze[this.Coordinate.Row - Width] != '1'))
+                    {
+                        Client.SendMsg("play " + direction);
+                        this.Coordinate = new Pair(this.coordinate.Row - 2, this.Coordinate.Col);
+                    }
+                    break;
+                case "down":
+                    if ((this.Coordinate.Row + 2 > 2*Heigth-1) && (maze[this.Coordinate.Row + Width] != '1'))
+                    {
+                        Client.SendMsg("play " + direction);
+                        this.Coordinate = new Pair(this.coordinate.Row + 2, this.Coordinate.Col);
+                    }
+                    break;
+                case "right":
+                    if ((this.Coordinate.Col + 2 >2* Width-1) && (maze[this.Coordinate.Col + 1] != '1'))
+                    {
+                        Client.SendMsg("play " + direction);
+                        this.Coordinate = new Pair(this.coordinate.Row , this.Coordinate.Col+2);
+                    }
+                    break;
+                case "left":
+                    if ((this.Coordinate.Col - 2 >0) && (maze[this.Coordinate.Col - 1] != '1'))
+                    {
+                        Client.SendMsg("play " + direction);
+                        this.Coordinate = new Pair(this.coordinate.Row , this.Coordinate.Col-2);
+                    }
+                    break;
             }
         }
 
