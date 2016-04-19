@@ -61,15 +61,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="controls\Maze.xaml.cs">
+      <DependentUpon>Maze.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ICommuntable.cs" />
     <Compile Include="SingleMaze.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Pair.cs" />
     <Compile Include="IModelable.cs" />
-    <Compile Include="maze.xaml.cs">
-      <DependentUpon>maze.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
@@ -78,6 +77,10 @@
     </Compile>
     <Compile Include="TCPClient.cs" />
     <Compile Include="ViewModel.cs" />
+    <Page Include="controls\Maze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,10 +93,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="maze.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Setting.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

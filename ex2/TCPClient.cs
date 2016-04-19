@@ -70,5 +70,10 @@ namespace View
             }
             
         }
+
+        public void SendMsg()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
