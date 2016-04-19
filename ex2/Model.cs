@@ -136,7 +136,8 @@ namespace View
         }
         /// <summary>
         /// move on the maze to given direction if 
-        /// possible
+        /// possible, we dont need the ans from server just to
+        /// send that we move in case of an multiplayer game
         /// </summary>
         /// <param name="direction">which arrow key was press</param>
         public void move(string direction)
@@ -147,7 +148,7 @@ namespace View
                 case "up":
                     if ((this.Coordinate.Row-2>0)&& (maze[this.Coordinate.Row - Width] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play " + direction); 
                         this.Coordinate = new Pair(this.coordinate.Row - 2, this.Coordinate.Col);
                     }
                     break;
