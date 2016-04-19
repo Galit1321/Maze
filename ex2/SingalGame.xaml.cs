@@ -20,6 +20,7 @@ namespace View
     /// </summary>
     public partial class SingalGame : Window
     {
+
         public SingalGame()
         {
             InitializeComponent();
@@ -27,7 +28,6 @@ namespace View
             grid.Children.Add(m);
             Grid.SetColumn(m, 0);
             Grid.SetRow(m, 1);
-
         }
 
         private void maze_Loaded(object sender, RoutedEventArgs e)
