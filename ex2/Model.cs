@@ -41,7 +41,7 @@ namespace View
             }
         }
         private string maze;
-        public string Maze
+        public string MazeString
         {
             get
             {
@@ -120,7 +120,7 @@ namespace View
             string str = Client.ReceviveMsg();
             JavaScriptSerializer ser = new JavaScriptSerializer();
             SingleMaze maze = ser.Deserialize<SingleMaze>(str);
-            this.Maze = maze.GetMaze();
+            this.MazeString = maze.GetMaze();
             this.Coordinate = maze.GetStart();
             this.MazeName = maze.Name;
         }
@@ -142,7 +142,7 @@ namespace View
         /// <param name="direction">which arrow key was press</param>
         public void move(string direction)
         {
-            char[] maze = this.Maze.ToCharArray();
+            char[] maze = this.MazeString.ToCharArray();
             switch (direction)
             {
                 case "up":

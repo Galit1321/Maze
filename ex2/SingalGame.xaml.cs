@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ex2.controls;
 
 namespace View
 {
@@ -22,11 +23,17 @@ namespace View
         public SingalGame()
         {
             InitializeComponent();
+            Maze m = new Maze();
+            grid.Children.Add(m);
+            Grid.SetColumn(m, 0);
+            Grid.SetRow(m, 1);
         }
 
         private void maze_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
+
+        
     }
 }

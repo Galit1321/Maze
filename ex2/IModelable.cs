@@ -17,7 +17,7 @@ namespace View
             //proprties here
             int Port { get; set; }
             string IP { get; set; }
-            string Maze { get; set; }
+            string MazeString { get; set; }
            Pair Coordinate { get; set; }
         string MazeName { get; set; }
             //active method
