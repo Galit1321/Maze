@@ -7,6 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        
+        <Grid.Background>
+            <SolidColorBrush Color="Aqua">
+            </SolidColorBrush>
+        </Grid.Background>
     </Grid>
 </UserControl>
