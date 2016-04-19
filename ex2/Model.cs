@@ -136,8 +136,8 @@ namespace View
             char[] maze = this.Maze.ToCharArray();
             switch (direction)
             {
-                case "up":
-                    if ((this.Coordinate.Row-2<0) && )
+            //    case "up":
+          //          if ((this.Coordinate.Row-2<0) && )
             }
         }
 

@@ -14,7 +14,7 @@
             </RadialGradientBrush>
         </Grid.Background>
 
-       
+
         <WrapPanel Margin="10,10">
             <TextBlock   Text="Port: " HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Height="30" Width="44"/>
             <TextBox Text="{Binding Path=Port, UpdateSourceTrigger=PropertyChanged}" Width="150" TextChanged="TextBox_TextChanged_1" />
@@ -23,8 +23,8 @@
             <TextBlock   Text="IP: " FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Height="30" Width="44"/>
             <TextBox Text="{Binding Path=ip, UpdateSourceTrigger=PropertyChanged}" Width="150"  />
         </WrapPanel>
-           
-        
+
+
 
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="50,218,50,20" VerticalAlignment="Bottom" Width="75">
             <Button.Background>
@@ -35,7 +35,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Right" Margin="50,218,50,20" VerticalAlignment="Bottom" Width="75" RenderTransformOrigin="-0.29,-0.9">
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,52,20" VerticalAlignment="Bottom" Width="80" RenderTransformOrigin="-0.29,-0.9" Height="20" Click="Cancel_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFD190" Offset="0.2"/>

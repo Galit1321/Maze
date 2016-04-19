@@ -28,5 +28,17 @@ namespace View
             vm = new ViewModel();
             DataContext = vm;
         }
+
+        private void Setting_Click(object sender, RoutedEventArgs e)
+        {
+            Window s = new Setting();
+            s.ShowDialog();
+        }
+
+        private void SingalPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            Window s = new SingalGame();
+            s.ShowDialog();
+        }
     }
 }

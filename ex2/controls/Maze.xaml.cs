@@ -26,6 +26,7 @@ namespace ex2.controls
             InitializeComponent();
             init();
         }
+
         public void init()
         {
             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
