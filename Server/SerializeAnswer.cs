@@ -13,7 +13,7 @@ namespace Server.Modle
     /// </summary>
     public class SerializeAnswer
     {
-        [ScriptIgnore]
+        
         public int Type { get; set; }
         public IAnswer Content { get; set; }
 

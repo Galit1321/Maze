@@ -30,6 +30,7 @@ namespace View
             Sock.Shutdown(SocketShutdown.Both);
             Sock.Close();
         }
+        
         public void Connect(string ip,int port)
         {
             IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(ip), port);
