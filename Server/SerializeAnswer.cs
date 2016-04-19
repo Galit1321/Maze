@@ -13,6 +13,7 @@ namespace Server.Modle
     /// </summary>
     public class SerializeAnswer
     {
+        [ScriptIgnore]
         public int Type { get; set; }
         public IAnswer Content { get; set; }
 
@@ -39,7 +40,7 @@ namespace Server.Modle
         public string Serialize()
         {
             JavaScriptSerializer ser = new JavaScriptSerializer();
-            return ser.Serialize(this);
+            return ser.Serialize(this.Content);
         }
     }
 }

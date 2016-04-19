@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ex2
+namespace View
 {
     class ViewModel : INotifyPropertyChanged
     {

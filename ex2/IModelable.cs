@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ex2
+namespace View
 {
     interface IModelable: INotifyPropertyChanged
     {
@@ -16,13 +16,14 @@ namespace ex2
 
             //proprties here
             int Port { get; set; }
-            string ip { get; set; }
+            string IP { get; set; }
             string Maze { get; set; }
-           Pair posetion { get; set; }
+           Pair Coordinate { get; set; }
+        string MazeName { get; set; }
             //active method
             void move(string direction);
             string getClue();
-            string createMaze();
+            void createMaze();
 
         
     }

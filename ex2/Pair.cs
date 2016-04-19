@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ex2
+namespace View
 {
-    class Pair
+    public class Pair
     {
         public int Row;
         public int Col;

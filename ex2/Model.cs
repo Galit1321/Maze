@@ -3,37 +3,52 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using Server.View;
+using System.Web.Script.Serialization;
+using System.Configuration;
 using System.Threading.Tasks;
+using System.Threading;
 
-namespace ex2
+namespace View
 {
     class Model : IModelable
     {
-        
-        public string ip
+        TCPClient Client;
+        volatile bool stop;
+        private string ip;
+        private int port;
+        public Model(TCPClient client)
+        {
+            this.Client = client;
+            stop = false;
+            this.ip= ConfigurationManager.AppSettings["IP"];
+            this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
+        }
+       public string IP
         {
             get
             {
-                throw new NotImplementedException();
+                return ip;
             }
 
             set
             {
-                throw new NotImplementedException();
+                ip = value;
+                NotifyPropertyChanged("IP");
             }
         }
-
+        private string maze;
         public string Maze
         {
             get
             {
-                throw new NotImplementedException();
+                return maze;
             }
 
             set
             {
-                throw new NotImplementedException();
+               maze= value;
+               NotifyPropertyChanged("Maze");
+
             }
         }
 
@@ -41,43 +56,74 @@ namespace ex2
         {
             get
             {
-                throw new NotImplementedException();
+                return port;
             }
 
             set
             {
-                throw new NotImplementedException();
+                port = value;
+                NotifyPropertyChanged("Port");
             }
         }
-
-        public Pair posetion
+        private Pair coordinate;
+        public Pair Coordinate
         {
             get
             {
-                throw new NotImplementedException();
+                return coordinate;
             }
 
             set
             {
-                throw new NotImplementedException();
+                coordinate = value;
+                NotifyPropertyChanged("Coordinate");
+            }
+        }
+        private string  name;
+        public string MazeName
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+                NotifyPropertyChanged("MazeName");
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// helper method to the event 
+        /// </summary>
+        /// <param name="propName">the pro that was changed</param>
+        public void NotifyPropertyChanged(string propName)
+        {
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
 
         public void connect(string ip, int port)
         {
-            throw new NotImplementedException();
+            this.Client.Connect(IP, Port);
         }
 
-        public string createMaze()
+        public void createMaze()
         {
-            
+            Client.SendMsg("generate maze" + Coordinate + "0");
+            string str = Client.ReceviveMsg();
+            JavaScriptSerializer ser = new JavaScriptSerializer();
+            SingleMaze maze = ser.Deserialize<SingleMaze>(str);
+            this.Maze = maze.GetMaze();
+            this.Coordinate = maze.GetStart();
+            this.MazeName = maze.Name;
         }
 
         public void disconnect()
         {
-            client.Send("close");
+            stop = true;
         }
 
         public string getClue()
@@ -92,7 +138,7 @@ namespace ex2
 
         public void start()
         {
-            throw new NotImplementedException();
+   
         }
     }
 }
