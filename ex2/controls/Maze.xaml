@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ex2.controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid x:Name="mazeGrid">
         <Grid.Background>
             <SolidColorBrush Color="Aqua">
             </SolidColorBrush>

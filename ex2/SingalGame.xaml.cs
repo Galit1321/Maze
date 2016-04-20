@@ -24,10 +24,10 @@ namespace View
         public SingalGame()
         {
             InitializeComponent();
-            Maze m = new Maze();
-            grid.Children.Add(m);
-            Grid.SetColumn(m, 0);
-            Grid.SetRow(m, 1);
+            UserControl m = new Maze();
+           // grid.Children.Add(m);
+          //  Grid.SetColumn(m, 0);
+           // Grid.SetRow(m, 1);
         }
 
         private void maze_Loaded(object sender, RoutedEventArgs e)
@@ -36,7 +36,8 @@ namespace View
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
+
     }
 }

@@ -31,20 +31,31 @@ namespace ex2.controls
         {
             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             int columNum = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
-            Grid g = new Grid();
+
             //create the rows.
             for (int i = 0; i < rowsNum; i++)
             {
                 RowDefinition rw1 = new RowDefinition();
-                g.RowDefinitions.Add(rw1);
+                mazeGrid.RowDefinitions.Add(rw1);
             }
             //create the column
             for (int i = 0; i < columNum; i++)
             {
                 ColumnDefinition c = new ColumnDefinition();
-                g.ColumnDefinitions.Add(c);
+                mazeGrid.ColumnDefinitions.Add(c);
             }
-            this.Content = g;
+            for (int i = 0; i <rowsNum; i++)
+            {
+                for (int j = 0; j < columNum; j++)
+                {
+                    Rectangle r = new Rectangle();
+                    r.Stroke = new SolidColorBrush(Color.FromRgb(2, 2, 50));
+                    r.Fill = new SolidColorBrush(Color.FromRgb(50, 0, 5));
+                    Grid.SetRow(r, i);
+                    Grid.SetColumn(r, j);
+                    mazeGrid.Children.Add(r);
+                }
+            }
         }
     }
 }
