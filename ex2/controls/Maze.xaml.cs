@@ -31,7 +31,8 @@ namespace ex2.controls
         {
             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             int columNum = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
-
+            rowsNum = (rowsNum * 2) + 1;
+            columNum = (columNum * 2) + 1;
             //create the rows.
             for (int i = 0; i < rowsNum; i++)
             {

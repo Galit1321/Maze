@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:View"
        xmlns:Controls="clr-namespace:ex2.controls"
         mc:Ignorable="d"
-        Title="SingalGame" Height="300" Width="300">
+        Title="SingalGame" Height="412" Width="469">
     <Grid Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30*"/>
