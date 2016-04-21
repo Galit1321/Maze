@@ -12,7 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Media;
+using System.IO;
 
 namespace View
 {
@@ -27,6 +28,20 @@ namespace View
             InitializeComponent();
             vm = new ViewModel(new Model(new TCPClient()));
             DataContext = vm;
+            SoundPlayer song;
+            try
+            {
+                song = new System.Media.SoundPlayer();
+                string path = Path.GetFullPath(".");
+                path += "\\music.wav";
+                song.SoundLocation = path;
+                song.Load();
+                song.Play();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void Setting_Click(object sender, RoutedEventArgs e)
