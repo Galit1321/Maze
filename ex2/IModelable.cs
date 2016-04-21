@@ -22,6 +22,7 @@ namespace View
            Pair Yriv_Cor { get; set; }
         string MazeName { get; set; }
         bool Winner { get; set; }
+        bool Loser { get; set; }
             //active method
             void move(string direction,Pair cor);
             string getClue();

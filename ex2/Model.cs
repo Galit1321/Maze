@@ -30,7 +30,7 @@ namespace View
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             this.Heigth= Int32.Parse(ConfigurationManager.AppSettings["Height"]);
-            Winner = false;
+            
         }
         private string ip;
         public string IP
@@ -131,7 +131,18 @@ namespace View
                 NotifyPropertyChanged("Winner");
             }
         }
-
+        private bool lost;
+        public bool Loser
+        {
+            get
+            {
+                return lost;
+            }
+            set {
+                lost = value;
+                NotifyPropertyChanged("Loser");
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// helper method to the event 
@@ -157,6 +168,7 @@ namespace View
         public void createMaze()
         {
             Winner = false;
+            Loser = false;
             Client.SendMsg("generate maze" + Coordinate + "0");
             string str = Client.ReceviveMsg();
             MyMaze = ser.Deserialize<SingleMaze>(str);
@@ -176,7 +188,8 @@ namespace View
         /// <returns></returns>
         public string getClue()
         {
-            throw new NotImplementedException();
+            Client.SendMsg("solve " + MyMaze.Name + " 0");
+            
         }
         /// <summary>
         /// move on the maze to given direction if 
@@ -225,7 +238,7 @@ namespace View
             } else if ((cor.Equals(this.yrivcor)) && (cor.Equals(YarivMaze.End)))//if yariv won the game
             {
                 stop = true;
-                
+                Loser = true;
             }
         }
 
@@ -237,15 +250,17 @@ namespace View
                 msn = Client.ReceviveMsg();
                 if (msn.Contains("{You"))
                 {
-                    //Game g= ser.Deserialize<Game>(msn);
-                    //MyMaze = g.You;
-                   // YarivMaze = g.Other;
-                    //this.Coordinate = MyMaze.Start;
-                    //this.Yriv_Cor = YarivMaze.Start;
+                    Game g= ser.Deserialize<Game>(msn);
+                    MyMaze = g.You;
+                    YarivMaze = g.Other;
+                    this.Coordinate = MyMaze.Start;
+                    this.Yriv_Cor = YarivMaze.Start;
                 }
                 else
                 {
-                    
+                    Play m = ser.Deserialize<Play>(msn);
+                    string d = m.Move;
+                    move(d, this.Yriv_Cor);
                 }
             }
         }
@@ -257,6 +272,8 @@ namespace View
         /// <returns></returns>
         public string CreateGame(string name)
         {
+            Winner = false;
+            Loser = false;
             int num = rnd.Next(0, Port);
             Client.SendMsg("multiplayer " +name);
             string ans=Client.ReceviveMsg();
