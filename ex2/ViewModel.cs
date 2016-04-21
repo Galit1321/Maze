@@ -12,13 +12,18 @@ namespace View
         private static ViewModel instance;
         private IModelable model;
         //proprties here
-        int Port_vm { get; set; }
-        string IP_vm { get; set; }
-        string MazeString_vm { get; set; }
-        Pair Coordinate_vm { get; set; }
-        Pair Yriv_Cor_vm { get; set; }
-        string MazeName_vm { get; set; }
-        bool Winner_vm { get; set; }
+        int VM_Port { get; set; }
+        string VM_IP { get; set; }
+        string VM_MazeString { get; set; }
+        Pair VM_Coordinate
+        {
+            get
+            {
+                return model.Coordinate;
+            } }
+        Pair VM_Yriv_Cor { get; set; }
+        string VM_MazeName { get; set; }
+        bool VM_Winner { get; set; }
         private ViewModel() { }
 
         public static ViewModel Instance
