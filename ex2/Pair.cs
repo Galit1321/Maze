@@ -20,28 +20,11 @@ namespace View
             this.Row = i;
             this.Col = j;
         }
-        /// <summary>
-        /// change the row and col according to d 
-        /// </summary>
-        /// <param name="d">the direction we go in martix</param>
-        public void move(string d)
+
+        public override bool Equals(object obj)
         {
-            switch (d)
-            {
-                case "up":
-                    this.Row -= 2;
-                    break;
-                case "down":
-                    this.Row += 2;
-                    break;
-                case "right":
-                    this.Col += 2;
-                    break;
-                case "left":
-                    this.Col -= 2;
-                    break;
-                
-            }
+           Pair l = obj as Pair;
+            return (this.Row.Equals(l.Row)) && (this.Col.Equals(l.Col));
         }
     }
 }
