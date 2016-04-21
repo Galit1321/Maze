@@ -21,11 +21,12 @@ namespace View
            Pair Coordinate { get; set; }
            Pair Yriv_Cor { get; set; }
         string MazeName { get; set; }
+        bool Winner { get; set; }
             //active method
             void move(string direction);
             string getClue();
             void createMaze();
-            void CreateGame();
+            string CreateGame();
         
     }
 }

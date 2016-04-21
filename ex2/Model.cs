@@ -14,10 +14,9 @@ namespace View
     {
         TCPClient Client;
         volatile bool stop;
-        private string ip;
-        private int port;
         private int Heigth;
         private int Width;
+        public SingleMaze MyMaze;
         public Model(TCPClient client)
         {
             this.Client = client;
@@ -26,8 +25,10 @@ namespace View
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             this.Heigth= Int32.Parse(ConfigurationManager.AppSettings["Height"]);
+            Winner = false;
         }
-       public string IP
+        private string ip;
+        public string IP
         {
             get
             {
@@ -55,7 +56,7 @@ namespace View
 
             }
         }
-
+        private int port;
         public int Port
         {
             get
@@ -111,6 +112,20 @@ namespace View
                 NotifyPropertyChanged("Yriv_Cor");
             }
         }
+        private bool win;
+        public bool Winner
+        {
+            get
+            {
+                return win;
+            }
+
+            set
+            {
+                win = value;
+                NotifyPropertyChanged("Winner");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
@@ -122,14 +137,21 @@ namespace View
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
-
+        /// <summary>
+        /// connect to client
+        /// </summary>
+        /// <param name="ip">ip address from app.cnp</param>
+        /// <param name="port">port number</param>
         public void connect(string ip, int port)
         {
             this.Client.Connect(IP, Port);
         }
-
+        /// <summary>
+        /// create a maze for player
+        /// </summary>
         public void createMaze()
         {
+            Winner = false;
             Client.SendMsg("generate maze" + Coordinate + "0");
             string str = Client.ReceviveMsg();
             JavaScriptSerializer ser = new JavaScriptSerializer();
@@ -191,16 +213,30 @@ namespace View
                     }
                     break;
             }
+            if (this.Coordinate.Equals(MyMaze.End))
+            {
+                Winner = true;
+            }
         }
 
         public void start()
         {
-   
+           
         }
-
-        public void CreateGame()
+        private Random rnd = new Random();
+        public string CreateGame()
         {
-            throw new NotImplementedException();
+            int num = rnd.Next(0, Port);
+            Client.SendMsg("multiplayer game" + num);
+            string ans=Client.ReceviveMsg();
+            if (ans.Equals("one player"))
+            {
+                start();
+                return "wait";
+            }else
+            {
+                return "game on";
+            }
         }
     }
 }

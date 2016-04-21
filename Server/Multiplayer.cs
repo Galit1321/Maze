@@ -39,6 +39,7 @@ namespace Server.Modle
                 game.Maze1 = mazeAndSol;
                 game.Client1 = TaskId;
                 db.Games.Add(args[1], game);
+                commendChange(game.Client1, "one player");
             }
             else
             {

@@ -20,10 +20,11 @@ namespace View
             this.Row = i;
             this.Col = j;
         }
-        /// <summary>
-        /// change the row and col according to d 
-        /// </summary>
-        /// <param name="d">the direction we go in martix</param>
-        
+
+        public override bool Equals(object obj)
+        {
+           Pair l = obj as Pair;
+            return (this.Row.Equals(l.Row)) && (this.Col.Equals(l.Col));
+        }
     }
 }
