@@ -7,10 +7,10 @@
        xmlns:Controls="clr-namespace:ex2.controls"
         mc:Ignorable="d"
         Title="SingalGame" Height="412" Width="469">
-    <Grid Name="grid">
+    <Grid Name="grid" Margin="0,2,0,-2">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30*"/>
-            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>

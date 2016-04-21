@@ -250,11 +250,11 @@ namespace View
                 msn = Client.ReceviveMsg();
                 if (msn.Contains("{You"))
                 {
-                    Game g= ser.Deserialize<Game>(msn);
-                    MyMaze = g.You;
-                    YarivMaze = g.Other;
-                    this.Coordinate = MyMaze.Start;
-                    this.Yriv_Cor = YarivMaze.Start;
+                    //Game g= ser.Deserialize<Game>(msn);
+                    //MyMaze = g.You;
+                   // YarivMaze = g.Other;
+                    //this.Coordinate = MyMaze.Start;
+                    //this.Yriv_Cor = YarivMaze.Start;
                 }
                 else
                 {
