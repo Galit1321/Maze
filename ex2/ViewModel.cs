@@ -10,7 +10,15 @@ namespace View
     class ViewModel : INotifyPropertyChanged
     {
         private IModelable model;
-         public ViewModel(IModelable model)
+        //proprties here
+        int Port_vm { get; set; }
+        string IP_vm { get; set; }
+        string MazeString_vm { get; set; }
+        Pair Coordinate_vm { get; set; }
+        Pair Yriv_Cor_vm { get; set; }
+        string MazeName_vm { get; set; }
+        bool Winner_vm { get; set; }
+        public ViewModel(IModelable model)
         {
             this.model = model;
             model.PropertyChanged +=

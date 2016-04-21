@@ -26,7 +26,6 @@ namespace View
         {
             InitializeComponent();
             UserControl m = new Maze();
-            
         }
 
         private void maze_Loaded(object sender, RoutedEventArgs e)
