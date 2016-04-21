@@ -168,6 +168,7 @@ namespace View
         public void disconnect()
         {
             stop = true;
+            Client.disconnect();
         }
         /// <summary>
         /// get a clue from server where to go
@@ -220,9 +221,11 @@ namespace View
             if ((cor.Equals(this.Coordinate))&&(cor.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
+                stop = true;
             } else if ((cor.Equals(this.yrivcor)) && (cor.Equals(YarivMaze.End)))//if yariv won the game
             {
-
+                stop = true;
+                
             }
         }
 
@@ -259,7 +262,8 @@ namespace View
             string ans=Client.ReceviveMsg();
             if (ans.Equals("one player"))
             {
-                start();
+                Thread t = new Thread(start);//creating a thread to make connection 
+                t.Start();
                 return "wait";
             }else
             {
