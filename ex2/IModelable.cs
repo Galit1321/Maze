@@ -19,12 +19,13 @@ namespace View
             string IP { get; set; }
             string MazeString { get; set; }
            Pair Coordinate { get; set; }
+           Pair Yriv_Cor { get; set; }
         string MazeName { get; set; }
             //active method
             void move(string direction);
             string getClue();
             void createMaze();
-
+            void CreateGame();
         
     }
 }

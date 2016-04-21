@@ -97,6 +97,20 @@ namespace View
                 NotifyPropertyChanged("MazeName");
             }
         }
+        private Pair yrivcor;
+        public Pair Yriv_Cor
+        {
+            get
+            {
+                return yrivcor;
+            }
+
+            set
+            {
+                yrivcor = value;
+                NotifyPropertyChanged("Yriv_Cor");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
@@ -129,7 +143,10 @@ namespace View
         {
             stop = true;
         }
-
+        /// <summary>
+        /// get a clue from server where to go
+        /// </summary>
+        /// <returns></returns>
         public string getClue()
         {
             throw new NotImplementedException();
@@ -179,6 +196,11 @@ namespace View
         public void start()
         {
    
+        }
+
+        public void CreateGame()
+        {
+            throw new NotImplementedException();
         }
     }
 }
