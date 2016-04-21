@@ -9,6 +9,7 @@ namespace View
 {
     class ViewModel : INotifyPropertyChanged
     {
+        private static ViewModel instance;
         private IModelable model;
         //proprties here
         int Port_vm { get; set; }
@@ -18,8 +19,22 @@ namespace View
         Pair Yriv_Cor_vm { get; set; }
         string MazeName_vm { get; set; }
         bool Winner_vm { get; set; }
-        public ViewModel(IModelable model)
+        private ViewModel() { }
+
+        public static ViewModel Instance
         {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ViewModel();
+                }
+                return instance;
+            }
+        }
+        public void Init(IModelable model)
+        {
+
             this.model = model;
             model.PropertyChanged +=
           delegate (Object sender, PropertyChangedEventArgs e) {

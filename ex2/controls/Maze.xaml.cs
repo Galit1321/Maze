@@ -57,6 +57,7 @@ namespace ex2.controls
                     mazeGrid.Children.Add(r);
                 }
             }
+            
         }
     }
 }
