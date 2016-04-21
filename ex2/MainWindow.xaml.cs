@@ -33,7 +33,7 @@ namespace View
             {
                 song = new System.Media.SoundPlayer();
                 string path = Path.GetFullPath(".");
-                path += "\\music.wav";
+                path += "\\BeginAgain.wav";
                 song.SoundLocation = path;
                 song.Load();
                 song.Play();
