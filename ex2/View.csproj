@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="ICommuntable.cs" />
+    <Compile Include="Play.cs" />
     <Compile Include="SingleMaze.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Pair.cs" />
