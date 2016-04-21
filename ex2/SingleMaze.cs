@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace View
 {
@@ -12,7 +13,11 @@ namespace View
         public Pair End;
         public string Name;
         public string Maze;
-
+        public SingleMaze()
+        {
+            
+        }
+        
         public SingleMaze(Pair start, Pair end,string maze,string name)
         {
             this.Start = start;

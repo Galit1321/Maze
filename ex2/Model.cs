@@ -13,14 +13,19 @@ namespace View
     class Model : IModelable
     {
         TCPClient Client;
+        private JavaScriptSerializer ser;
         volatile bool stop;
         private int Heigth;
         private int Width;
         public SingleMaze MyMaze;
+        public SingleMaze YarivMaze;
         public Model(TCPClient client)
         {
             this.Client = client;
             stop = false;
+            MyMaze = new SingleMaze();
+            YarivMaze = new SingleMaze();
+            ser = new JavaScriptSerializer();
             this.ip= ConfigurationManager.AppSettings["IP"];
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
@@ -41,17 +46,17 @@ namespace View
                 NotifyPropertyChanged("IP");
             }
         }
-        private string maze;
+        private string mazestr;
         public string MazeString
         {
             get
             {
-                return maze;
+                return mazestr;
             }
 
             set
             {
-               maze= value;
+               mazestr= value;
                NotifyPropertyChanged("Maze");
 
             }
@@ -154,11 +159,10 @@ namespace View
             Winner = false;
             Client.SendMsg("generate maze" + Coordinate + "0");
             string str = Client.ReceviveMsg();
-            JavaScriptSerializer ser = new JavaScriptSerializer();
-            SingleMaze maze = ser.Deserialize<SingleMaze>(str);
-            this.MazeString = maze.GetMaze();
-            this.Coordinate = maze.GetStart();
-            this.MazeName = maze.Name;
+            MyMaze = ser.Deserialize<SingleMaze>(str);
+            this.MazeString = MyMaze.GetMaze();
+            this.Coordinate = MyMaze.GetStart();
+            this.MazeName = MyMaze.Name;
         }
 
         public void disconnect()
@@ -179,7 +183,7 @@ namespace View
         /// send that we move in case of an multiplayer game
         /// </summary>
         /// <param name="direction">which arrow key was press</param>
-        public void move(string direction)
+        public void move(string direction,Pair cor)
         {
             char[] maze = this.MazeString.ToCharArray();
             switch (direction)
@@ -188,46 +192,70 @@ namespace View
                     if ((this.Coordinate.Row-2>0)&& (maze[this.Coordinate.Row - Width] != '1'))
                     {
                         Client.SendMsg("play " + direction); 
-                        this.Coordinate = new Pair(this.coordinate.Row - 2, this.Coordinate.Col);
+                        cor = new Pair(this.coordinate.Row - 2, this.Coordinate.Col);
                     }
                     break;
                 case "down":
                     if ((this.Coordinate.Row + 2 > 2*Heigth-1) && (maze[this.Coordinate.Row + Width] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        this.Coordinate = new Pair(this.coordinate.Row + 2, this.Coordinate.Col);
+                        cor = new Pair(this.coordinate.Row + 2, this.Coordinate.Col);
                     }
                     break;
                 case "right":
                     if ((this.Coordinate.Col + 2 >2* Width-1) && (maze[this.Coordinate.Col + 1] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        this.Coordinate = new Pair(this.coordinate.Row , this.Coordinate.Col+2);
+                        cor = new Pair(this.coordinate.Row , this.Coordinate.Col+2);
                     }
                     break;
                 case "left":
                     if ((this.Coordinate.Col - 2 >0) && (maze[this.Coordinate.Col - 1] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        this.Coordinate = new Pair(this.coordinate.Row , this.Coordinate.Col-2);
+                        cor= new Pair(this.coordinate.Row , this.Coordinate.Col-2);
                     }
                     break;
             }
-            if (this.Coordinate.Equals(MyMaze.End))
+            if ((cor.Equals(this.Coordinate))&&(cor.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
+            } else if ((cor.Equals(this.yrivcor)) && (cor.Equals(YarivMaze.End)))//if yariv won the game
+            {
+
             }
         }
 
         public void start()
         {
-           
+            while (!stop)
+            {
+                string msn = "";
+                msn = Client.ReceviveMsg();
+                if (msn.Contains("{You"))
+                {
+                    Game g= ser.Deserialize<Game>(msn);
+                    MyMaze = g.You;
+                    YarivMaze = g.Other;
+                    this.Coordinate = MyMaze.Start;
+                    this.Yriv_Cor = YarivMaze.Start;
+                }
+                else
+                {
+                    
+                }
+            }
         }
         private Random rnd = new Random();
-        public string CreateGame()
+        /// <summary>
+        /// create new game 
+        /// </summary>
+        /// <param name="name">game name </param>
+        /// <returns></returns>
+        public string CreateGame(string name)
         {
             int num = rnd.Next(0, Port);
-            Client.SendMsg("multiplayer game" + num);
+            Client.SendMsg("multiplayer " +name);
             string ans=Client.ReceviveMsg();
             if (ans.Equals("one player"))
             {
