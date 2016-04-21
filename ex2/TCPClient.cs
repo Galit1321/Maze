@@ -13,20 +13,17 @@ namespace View
     class TCPClient : ICommuntable
     {
         private Socket Sock;
-        public bool run { get; set; }
+        
         public TCPClient()
         {
-            run = true;
-            
-            
-            
+           
         }
         /// <summary>
         /// deconstructor of class
         /// </summary>
         ~TCPClient()
         {
-            run = false;
+            
             if (Sock != null)
             {
                 Sock.Shutdown(SocketShutdown.Both);
@@ -40,6 +37,14 @@ namespace View
             this.Sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             this.Sock.Connect(ipep);
             
+        }
+        public void disconnect()
+        {
+            if (Sock != null)
+            {
+                Sock.Shutdown(SocketShutdown.Both);
+                Sock.Close();
+            }
         }
         /// <summary>
         /// recived a message from the server 
@@ -59,9 +64,6 @@ namespace View
         /// </summary>
         public void SendMsg(string msn)
         {
-            while (run)
-            {
-                
                 try
                 {
                     Sock.Send(Encoding.ASCII.GetBytes(msn));
@@ -70,13 +72,8 @@ namespace View
                 {
 
                 }
-            }
-            
         }
 
-        public void SendMsg()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
