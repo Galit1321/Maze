@@ -23,10 +23,10 @@ namespace View
         string MazeName { get; set; }
         bool Winner { get; set; }
             //active method
-            void move(string direction);
+            void move(string direction,Pair cor);
             string getClue();
             void createMaze();
-            string CreateGame();
+            string CreateGame(string name);
         
     }
 }
