@@ -22,7 +22,7 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
-        ViewModel vm;
+        public ViewModel vm;
         public MainWindow()
         {
             InitializeComponent();

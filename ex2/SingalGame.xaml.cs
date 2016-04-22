@@ -25,7 +25,7 @@ namespace View
         public SingalGame()
         {
             InitializeComponent();
-            UserControl m = new Maze();
+            UserControl m = new Maze(); 
         }
 
         private void maze_Loaded(object sender, RoutedEventArgs e)

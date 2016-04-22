@@ -14,16 +14,16 @@ namespace View
         int Port_vm { get; set; }
         string IP_vm { get; set; }
         string MazeString_vm { get; set; }
-        Pair Coordinate_vm { get; set; }
         Pair Yriv_Cor_vm { get; set; }
         string MazeName_vm { get; set; }
         bool Winner_vm { get; set; }
+
         public ViewModel(IModelable model)
         {
             this.model = model;
             model.PropertyChanged +=
           delegate (Object sender, PropertyChangedEventArgs e) {
-           NotifyPropertyChanged("VM_" + e.PropertyName);
+           NotifyPropertyChanged(e.PropertyName+ "_vm");
        };
 
         }
@@ -36,7 +36,7 @@ namespace View
         /// <summary>
         /// 
         /// </summary>
-        public Pair VM_Coordinate
+        public Pair Coordinate_vm
         {
             get
             {
