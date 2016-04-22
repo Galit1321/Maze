@@ -57,7 +57,12 @@ namespace ex2.controls
                     mazeGrid.Children.Add(r);
                 }
             }
-            
-        }
+            string mazeStr = vm.
+            for (int i = 0; i < rowsNum; i++)
+            {
+                for (int j = 0; j < columNum; j++)
+                {
+
+                }
     }
 }

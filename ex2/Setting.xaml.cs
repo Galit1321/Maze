@@ -33,6 +33,10 @@ namespace View
         {
             ViewModel vm = ViewModel.Instance;
             vm.NotifyPropertyChanged("VM_IP");
+            vm.NotifyPropertyChanged("VM_Port");
+            vm.VM_IP = IP.Text;
+            vm.VM_Port = Int32.Parse(Port.Text);
+            this.Close();
         }
         
     }

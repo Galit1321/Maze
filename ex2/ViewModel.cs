@@ -13,19 +13,19 @@ namespace View
         private IModelable model;
         //proprties here
 
-        int Port_vm { get; set; }
-        string IP_vm { get; set; }
-        string MazeString_vm { get; set; }
+        public int VM_Port { get; set; }
+        public string VM_IP { get; set; }
+        public string VM_MazeString { get; set; }
 
-        Pair VM_Coordinate
+        public Pair VM_Coordinate
         {
             get
             {
                 return model.Coordinate;
             } }
-        Pair VM_Yriv_Cor { get; set; }
-        string VM_MazeName { get; set; }
-        bool VM_Winner { get; set; }
+        public Pair VM_Yriv_Cor { get; set; }
+        public string VM_MazeName { get; set; }
+        public bool VM_Winner { get; set; }
         private ViewModel() { }
 
         public static ViewModel Instance
