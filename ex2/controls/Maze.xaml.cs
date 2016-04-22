@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using View;
 
 namespace ex2.controls
 {
@@ -29,6 +30,7 @@ namespace ex2.controls
 
         public void init()
         {
+            ViewModel vm = ViewModel.Instance;
             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             int columNum = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             rowsNum = (rowsNum * 2) - 1;
@@ -45,24 +47,24 @@ namespace ex2.controls
                 ColumnDefinition c = new ColumnDefinition();
                 mazeGrid.ColumnDefinitions.Add(c);
             }
-            for (int i = 0; i <rowsNum; i++)
+            string mazeStr = vm.VM_MazeString;
+            int x = 0;
+            for (int i = 0; i < rowsNum; i++)
             {
                 for (int j = 0; j < columNum; j++)
                 {
                     Rectangle r = new Rectangle();
                     r.Stroke = new SolidColorBrush(Color.FromRgb(2, 2, 50));
-                    r.Fill = new SolidColorBrush(Color.FromRgb(50, 0, 5));
+                    if (mazeStr[x] == '0')
+                        r.Fill = new SolidColorBrush(Color.FromRgb(0, 100, 0));
+                    else if (mazeStr[x] == '1')
+                        r.Fill = new SolidColorBrush(Color.FromRgb(100, 0, 0));
                     Grid.SetRow(r, i);
                     Grid.SetColumn(r, j);
                     mazeGrid.Children.Add(r);
+                    x++;
                 }
             }
-            string mazeStr = vm.
-            for (int i = 0; i < rowsNum; i++)
-            {
-                for (int j = 0; j < columNum; j++)
-                {
-
-                }
+        }
     }
 }
