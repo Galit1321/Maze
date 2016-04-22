@@ -26,7 +26,8 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
-            vm = new ViewModel(new Model(new TCPClient()));
+            vm = ViewModel.Instance;
+            vm.Init(new Model(new TCPClient()));
             DataContext = vm;
             SoundPlayer song;
             try

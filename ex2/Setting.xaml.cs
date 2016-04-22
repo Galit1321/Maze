@@ -28,5 +28,12 @@ namespace View
         {
             this.Close();
         }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel vm = ViewModel.Instance;
+            vm.NotifyPropertyChanged("VM_IP");
+        }
+        
     }
 }

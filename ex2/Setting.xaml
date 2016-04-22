@@ -17,16 +17,16 @@
 
         <WrapPanel Margin="10,10">
             <TextBlock   Text="Port: " HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Height="30" Width="44"/>
-            <TextBox Text="{Binding Path=Port, UpdateSourceTrigger=PropertyChanged}" Width="150"  />
+            <TextBox x:Name="Prot" Width="150" TextChanged="Prot_TextChanged"/>
         </WrapPanel>
         <WrapPanel Margin="10,100">
             <TextBlock   Text="IP: " FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Height="30" Width="44"/>
-            <TextBox Text="{Binding Path=ip, UpdateSourceTrigger=PropertyChanged}" Width="150"  />
+            <TextBox x:Name="IP" Width="150"  />
         </WrapPanel>
 
 
 
-        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="50,218,50,20" VerticalAlignment="Bottom" Width="75">
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="50,218,50,20" VerticalAlignment="Bottom" Width="75" Click="Save_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFD190" Offset="0.2"/>
