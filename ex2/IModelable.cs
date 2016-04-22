@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace View
 {
-    interface IModelable: INotifyPropertyChanged
+    public interface IModelable: INotifyPropertyChanged
     {
         
             void connect(string ip, int port);

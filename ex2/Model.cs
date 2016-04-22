@@ -10,9 +10,11 @@ using System.Threading;
 
 namespace View
 {
+    public delegate void OpenMsnWin();
     class Model : IModelable
     {
         TCPClient Client;
+        public event OpenMsnWin WinWin;
         private JavaScriptSerializer ser;
         volatile bool stop;
         private int Heigth;
@@ -128,7 +130,7 @@ namespace View
             set
             {
                 win = value;
-                NotifyPropertyChanged("Winner");
+                WinWin();
             }
         }
         private bool lost;
@@ -188,8 +190,9 @@ namespace View
         /// <returns></returns>
         public string getClue()
         {
+            string s = "";
             Client.SendMsg("solve " + MyMaze.Name + " 0");
-            
+            return s;
         }
         /// <summary>
         /// move on the maze to given direction if 
