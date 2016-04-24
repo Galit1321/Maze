@@ -1,4 +1,4 @@
-﻿<Window x:Class="View.SingalGame"
+﻿<Window x:Class="View.SingelGame"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:View"
        xmlns:Controls="clr-namespace:ex2.controls"
         mc:Ignorable="d"
-        Title="SingalGame" Height="412" Width="469">
+        Title="SingelGame" Height="412" Width="469">
     <Grid Name="grid" Margin="0,2,0,-2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

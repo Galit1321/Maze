@@ -16,7 +16,7 @@
             <ImageBrush ImageSource="mazeball.png"/>
         </Grid.Background>
 
-        <Button x:Name="SingalPlayer"   Content="Singal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin='10,136,21,146'  Width="90" Height="36" Click="SingalPlayer_Click" >
+        <Button x:Name="SinglePlayer"   Content="SinglePlayer" HorizontalAlignment="Center" VerticalAlignment="Center" Margin='10,136,21,146'  Width="90" Height="36" Click="SinglePlayer_Click" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF8D3122" Offset="0.2"/>

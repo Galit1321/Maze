@@ -51,9 +51,9 @@ namespace View
             s.ShowDialog();
         }
 
-        private void SingalPlayer_Click(object sender, RoutedEventArgs e)
+        private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
-            Window s = new SingalGame();
+            Window s = new SingelGame();
             s.ShowDialog();
         }
     }

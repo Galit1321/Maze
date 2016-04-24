@@ -19,10 +19,10 @@ namespace View
     /// <summary>
     /// Interaction logic for SingalGame.xaml
     /// </summary>
-    public partial class SingalGame : Window
+    public partial class SingelGame : Window
     {
 
-        public SingalGame()
+        public SingelGame()
         {
             InitializeComponent();
             UserControl m = new Maze(); 

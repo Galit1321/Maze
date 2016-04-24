@@ -74,8 +74,8 @@
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SingalGame.xaml.cs">
-      <DependentUpon>SingalGame.xaml</DependentUpon>
+    <Compile Include="SingelGame.xaml.cs">
+      <DependentUpon>SingelGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="TCPClient.cs" />
     <Compile Include="ViewModel.cs" />
@@ -99,7 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SingalGame.xaml">
+    <Page Include="SingelGame.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
