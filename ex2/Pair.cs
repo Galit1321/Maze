@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace View
 {
@@ -15,6 +16,7 @@ namespace View
         /// </summary>
         /// <param name="i">row in a matrix</param>
         /// <param name="j">col in a matrix</param>
+        [JsonConstructor]
         public Pair (int i,int j)
         {
             this.Row = i;

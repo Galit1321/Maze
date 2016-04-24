@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace Server.Modle
 {
@@ -40,7 +41,7 @@ namespace Server.Modle
         public string Serialize()
         {
             JavaScriptSerializer ser = new JavaScriptSerializer();
-            return ser.Serialize(this.Content);
+            return JsonConvert.SerializeObject(this.Content,Formatting.Indented);
         }
     }
 }

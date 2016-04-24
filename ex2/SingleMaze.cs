@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
@@ -13,11 +14,8 @@ namespace View
         public Pair End;
         public string Name;
         public string Maze;
-        public SingleMaze()
-        {
-            
-        }
-        
+     
+        [JsonConstructor]
         public SingleMaze(Pair start, Pair end,string maze,string name)
         {
             this.Start = start;

@@ -15,7 +15,12 @@ namespace View
 
         public int VM_Port { get; set; }
         public string VM_IP { get; set; }
-        public string VM_MazeString { get; set; }
+        public string VM_MazeString {
+            get
+            {
+                return model.MazeString;
+            }
+        }
 
         public Pair VM_Coordinate
         {
@@ -45,7 +50,7 @@ namespace View
             this.model = model;
             model.PropertyChanged +=
           delegate (Object sender, PropertyChangedEventArgs e) {
-           NotifyPropertyChanged(e.PropertyName+ "_vm");
+           NotifyPropertyChanged("VM_"+e.PropertyName);
        };
 
         }
@@ -55,6 +60,9 @@ namespace View
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
         public event PropertyChangedEventHandler PropertyChanged;
-       
+       public void CreateSingle()
+        {
+            model.createMaze();
+        }
     }
 }

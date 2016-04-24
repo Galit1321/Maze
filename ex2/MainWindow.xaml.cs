@@ -53,6 +53,7 @@ namespace View
 
         private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
+            vm.CreateSingle();
             Window s = new SingelGame();
             s.ShowDialog();
         }

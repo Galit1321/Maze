@@ -7,6 +7,7 @@ using System.Web.Script.Serialization;
 using System.Configuration;
 using System.Threading.Tasks;
 using System.Threading;
+using Newtonsoft.Json; 
 
 namespace View
 {
@@ -25,8 +26,7 @@ namespace View
         {
             this.Client = client;
             stop = false;
-            MyMaze = new SingleMaze();
-            YarivMaze = new SingleMaze();
+            
             ser = new JavaScriptSerializer();
             this.ip= ConfigurationManager.AppSettings["IP"];
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
@@ -130,7 +130,7 @@ namespace View
             set
             {
                 win = value;
-                WinWin();
+                //WinWin();
             }
         }
         private bool lost;
@@ -169,11 +169,13 @@ namespace View
         /// </summary>
         public void createMaze()
         {
+
+            connect(ip, port);
             Winner = false;
             Loser = false;
-            Client.SendMsg("generate maze" + Coordinate + "0");
-            string str = Client.ReceviveMsg();
-            MyMaze = ser.Deserialize<SingleMaze>(str);
+            Client.SendMsg("generate maze" + Coordinate + " 0");
+           string str = Client.ReceviveMsg();
+            MyMaze = JsonConvert.DeserializeObject<SingleMaze>(str);
             this.MazeString = MyMaze.GetMaze();
             this.Coordinate = MyMaze.GetStart();
             this.MazeName = MyMaze.Name;
@@ -192,6 +194,9 @@ namespace View
         {
             string s = "";
             Client.SendMsg("solve " + MyMaze.Name + " 0");
+            SingleMaze sol_maze = ser.Deserialize<SingleMaze>(Client.ReceviveMsg());
+            string strsolv = sol_maze.Maze;
+            
             return s;
         }
         /// <summary>
