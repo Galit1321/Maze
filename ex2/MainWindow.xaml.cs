@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Media;
 using System.IO;
 
-namespace View
+namespace ex2
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -56,6 +56,13 @@ namespace View
             vm.CreateSingle();
             Window s = new SingelGame();
             s.ShowDialog();
+        }
+
+        private void multiButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Window multi = new Multiplayer();
+            multi.ShowDialog();
         }
     }
 }

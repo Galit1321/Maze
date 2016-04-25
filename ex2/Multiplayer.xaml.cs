@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ex2.controls;
 
-namespace View
+namespace ex2
 {
     /// <summary>
     /// Interaction logic for Multiplayer.xaml
@@ -22,6 +22,7 @@ namespace View
     {
         public Multiplayer()
         {
+
             InitializeComponent();
             UserControl m1 = new Maze();
             UserControl m2 = new Maze();

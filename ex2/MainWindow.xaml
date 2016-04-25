@@ -1,4 +1,4 @@
-<Window x:Class="View.MainWindow"
+<Window x:Class="ex2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -25,7 +25,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="multiButton" VerticalAlignment="Center" Content="MultiPlayer" HorizontalAlignment="Left" Margin="6,136,0,146"  Width="100" Height="36" RenderTransformOrigin="0.929,0.553" Grid.Column="1">
+        <Button x:Name="multiButton" VerticalAlignment="Center" Content="MultiPlayer" HorizontalAlignment="Left" Margin="6,136,0,146"  Width="100" Height="36" RenderTransformOrigin="0.929,0.553" Grid.Column="1" Click="multiButton_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFD190" Offset="0.2"/>

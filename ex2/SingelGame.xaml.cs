@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ex2.controls;
 
-namespace View
+namespace ex2
 {
     /// <summary>
     /// Interaction logic for SingalGame.xaml
@@ -21,6 +21,7 @@ namespace View
     public partial class SingelGame : Window
     {
         public ViewModel vm;
+    
         public SingelGame()
         {
             InitializeComponent();

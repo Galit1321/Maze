@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace View
+namespace ex2
 {
     public class ViewModel : INotifyPropertyChanged
     {
@@ -40,6 +40,7 @@ namespace View
             {
                 return model.MazeString;
             }
+          
         }
 
         public Pair VM_Coordinate
@@ -47,7 +48,8 @@ namespace View
             get
             {
                 return model.Coordinate;
-            } }
+            }
+        }
         public Pair VM_Yriv_Cor {
             get
             {
@@ -100,10 +102,13 @@ namespace View
         /// <summary>
         /// create a new single game in model
         /// </summary>
-       public void CreateSingle()
+        public void CreateSingle()
         {
             model.createMaze();
         }
-        
+         public string CreateGame(string name)
+        {
+            return model.CreateGame(name);
+        }
     }
 }

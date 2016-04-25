@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
-namespace View
+namespace ex2
 {
     public class SingleMaze
     {
