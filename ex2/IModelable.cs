@@ -20,6 +20,10 @@ namespace ex2
             string MazeString { get; set; }
             string YrivMazeString { get; set; }
            string YrivMazeName { get; set; }
+        int MyRow { get; set;  }
+        int MyCol { get; set; }
+        int YrivRow { get; set; }
+        int YrivCol { get; set; }
            Pair Coordinate { get; set; }
            Pair Yriv_Cor { get; set; }
 
@@ -27,7 +31,7 @@ namespace ex2
         bool Winner { get; set; }
         bool Loser { get; set; }
             //active method
-            void move(string direction,Pair cor);
+            void move(string direction,ref int r,ref int c);
             List<int> getClue();
             void createMaze();
             string CreateGame(string name);
