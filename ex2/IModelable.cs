@@ -35,6 +35,8 @@ namespace ex2
             List<int> getClue();
             void createMaze();
             string CreateGame(string name);
-        
+        void StartGame(string ans);
+
+
     }
 }

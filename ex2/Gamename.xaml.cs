@@ -27,6 +27,7 @@ namespace ex2
             InitializeComponent();
             vm.Open += OpenWin;
             vm.Close += CloseWin;
+          
         }
 
         private void bntCnt_Click(object sender, RoutedEventArgs e)
@@ -36,18 +37,20 @@ namespace ex2
             DataContext = vm;
             string g = Game_name.ToString();
             vm.CreateGame(g);
-            Window m = new Multiplayer();
-            m.ShowDialog();
+           
            
         }
         public void OpenWin(string msn)
         {
             War = new Warning(msn);
-            War.ShowDialog();
+            War.Show();
         }
         public void CloseWin()
         {
-            War.Close();
+            Window m = new Multiplayer();
+            m.Show();
+            Close();
+
         }
     }
 }

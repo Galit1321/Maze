@@ -20,12 +20,15 @@ namespace ex2
     /// </summary>
     public partial class Multiplayer : Window
     {
+        ViewModel vm;
         public Multiplayer()
         {
 
             InitializeComponent();
+            vm = ViewModel.Instance;
+            DataContext = vm;
             UserControl m1 = new Maze();
-            UserControl m2 = new Maze();
+            UserControl m2 = new Maze(vm.VM_YrivMazeString);
         }
     }
 }

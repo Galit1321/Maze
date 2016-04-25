@@ -73,7 +73,25 @@ namespace ex2
             }
         }
         private ViewModel() { }
-
+        public int VM_MyRow
+        {
+            get
+            {
+                return model.MyRow;
+            }
+        }
+       public string VM_YrivMazeString { get
+            {
+                return model.YrivMazeString;
+            }
+             }
+        public int VM_MyCol
+        {
+            get
+            {
+                return model.MyCol;
+            }
+        }
         public static ViewModel Instance
         {
             get
@@ -113,10 +131,16 @@ namespace ex2
         {
             model.createMaze();
         }
-         public string CreateGame(string name)
+         public void CreateGame(string name)
         {
-            return model.CreateGame(name);
-           
+            string ans= model.CreateGame(name);
+            if (ans.Equals("wait"))
+            {
+                Open("Only One");
+            }else
+            {
+                Close();
+            }
         }
     }
 }

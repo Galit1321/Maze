@@ -22,17 +22,25 @@ namespace ex2.controls
     /// </summary>
     public partial class Maze : UserControl
     {
+        ViewModel vm;
         public Maze()
         {
             InitializeComponent();
-            init();
+            ViewModel vm = ViewModel.Instance;
+            init(vm.VM_MazeString);
         }
         public string Order { get; set; }
 
-
-        public void init()
+        public Maze(string yrivmaze)
         {
+            InitializeComponent();
             ViewModel vm = ViewModel.Instance;
+            init(yrivmaze);
+        }
+
+        public void init(string mazeStr)
+        {
+            
             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             int columNum = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             rowsNum = (rowsNum * 2) - 1;
@@ -49,7 +57,7 @@ namespace ex2.controls
                 ColumnDefinition c = new ColumnDefinition();
                 mazeGrid.ColumnDefinitions.Add(c);
             }
-            string mazeStr = vm.VM_MazeString;
+           
             int x = 0;
             for (int i = 0; i < rowsNum; i++)
            {

@@ -27,7 +27,6 @@ namespace ex2
         {
             this.Client = client;
             stop = false;
-           
             this.ip= ConfigurationManager.AppSettings["IP"];
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
@@ -363,16 +362,9 @@ namespace ex2
             {
                 string msn = "";
                 msn = Client.ReceviveMsg();
-                if (msn.Contains("{You"))
-                {
-                    StartGame(msn);       
-                }
-                else if (msn.Contains("Move"))
-                {
-                    Play m = JsonConvert.DeserializeObject<Play>(msn);
-                    string d = m.Move;
-                    moveYriv(d);
-                }
+                Play m = JsonConvert.DeserializeObject<Play>(msn);
+                string d = m.Move;
+                moveYriv(d);
             }
         }
         public void StartGame(string ans)
@@ -390,6 +382,8 @@ namespace ex2
             this.YrivRow = this.Yriv_Cor.Row;
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
+            Thread t = new Thread(start);//creating a thread to make connection 
+            t.Start(); 
         }
         private void moveYriv(string d)
         {
@@ -437,25 +431,19 @@ namespace ex2
         {
             Winner = false;
             Loser = false;
-            int num = rnd.Next(0, Port);
             Client.SendMsg("multiplayer " +name);
             string ans=Client.ReceviveMsg();
             if (ans.Equals("one player"))
             {
-                //  Thread t = new Thread(start);//creating a thread to make connection 
-                //t.Start();
-                createMaze();
+                 
                 return "wait";
             }else
             {
                 StartGame(ans);
-                return "game on";
+                return ans;
             }
         }
 
-        public void move(string direction, ref int r, ref int c)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

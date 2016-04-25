@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
@@ -175,6 +176,7 @@
     <Content Include="BeginAgain.wav" />
     <Content Include="Call Me Maybe.wav" />
     <Resource Include="runMan.png" />
+    <Resource Include="controls\runMan.png" />
     <Content Include="Titanium - Pavane %28Piano-Cello Cover%29 - David Guetta - Faure - ThePianoGuys %28online-audio-converter.com%29.wav" />
     <Content Include="Without You.wav" />
     <Resource Include="waiting.jpg" />
