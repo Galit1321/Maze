@@ -29,13 +29,17 @@ namespace ex2
             vm = ViewModel.Instance;
             vm.Init(new Model(new TCPClient()));
             DataContext = vm;
-            
+
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             soundMain();
+            MessageBoxResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
             Close();
+        }
         }
 
         

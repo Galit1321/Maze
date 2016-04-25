@@ -69,6 +69,9 @@
       <DependentUpon>Maze.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
+    <Compile Include="Gamename.xaml.cs">
+      <DependentUpon>Gamename.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ICommuntable.cs" />
     <Compile Include="Multiplayer.xaml.cs">
       <DependentUpon>Multiplayer.xaml</DependentUpon>
@@ -87,6 +90,10 @@
     <Compile Include="TCPClient.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="controls\Maze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gamename.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +169,7 @@
     <Content Include="Call Me Maybe.wav" />
     <Content Include="Titanium - Pavane %28Piano-Cello Cover%29 - David Guetta - Faure - ThePianoGuys %28online-audio-converter.com%29.wav" />
     <Content Include="Without You.wav" />
+    <Resource Include="GameMenu.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
