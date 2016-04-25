@@ -263,6 +263,8 @@ namespace ex2
             MyMaze = JsonConvert.DeserializeObject<SingleMaze>(str);
             this.MazeString = MyMaze.GetMaze();
             this.Coordinate = MyMaze.GetStart();
+            this.MyRow = this.Coordinate.Row;
+            this.MyCol = this.Coordinate.Col;
             this.MazeName = MyMaze.Name;
         }
 
