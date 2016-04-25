@@ -310,7 +310,7 @@ namespace ex2
         /// send that we move in case of an multiplayer game
         /// </summary>
         /// <param name="direction">which arrow key was press</param>
-       public void move(string direction, int r, int c)
+       public void move(string direction)
         {
             char[] maze = this.MazeString.ToCharArray();
             switch (direction)
@@ -319,7 +319,8 @@ namespace ex2
                     if ((MyRow-2>0)&& (maze[this.Coordinate.Row - Width] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        MyRow = r - 2;
+                        MyRow-= 2;
+                        this.coordinate.Row = MyRow;
                     }
                     break;
                 case "down":
@@ -327,6 +328,7 @@ namespace ex2
                     {
                         Client.SendMsg("play " + direction);
                         MyRow += 2;
+                        this.coordinate.Row = MyRow;
                     }
                     break;
                 case "right":
@@ -334,6 +336,7 @@ namespace ex2
                     {
                         Client.SendMsg("play " + direction);
                         MyCol += 2;
+                        this.coordinate.Col = MyCol;
                     }
                     break;
                 case "left":
@@ -341,19 +344,17 @@ namespace ex2
                     {
                         Client.SendMsg("play " + direction);
                         MyCol -= 2;
+                        this.coordinate.Col = MyCol;
                     }
                     break;
             }
-            /*
-            if ((cor.Equals(this.Coordinate))&&(cor.Equals(MyMaze.End)))//we reach goal in maze;
+
+
+            if ((this.Coordinate.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
                 stop = true;
-            } else if ((cor.Equals(this.yrivcor)) && (cor.Equals(YarivMaze.End)))//if yariv won the game
-            {
-                stop = true;
-                Loser = true;
-            }*/
+            }
         }
 
         public void start()
@@ -364,20 +365,9 @@ namespace ex2
                 msn = Client.ReceviveMsg();
                 if (msn.Contains("{You"))
                 {
-                    Game g= JsonConvert.DeserializeObject<Game>(msn);
-                    MyMaze = g.You;
-                    YarivMaze = g.Other;
-                    this.Coordinate = MyMaze.Start;
-                    this.MyCol = this.Coordinate.Col;
-                    this.MyRow = this.Coordinate.Row;
-                    this.Yriv_Cor = YarivMaze.Start;
-                    this.YrivCol = this.Yriv_Cor.Col;
-                    this.YrivRow = this.Yriv_Cor.Row;
-                    this.MazeString = MyMaze.Maze;
-                    this.YrivMazeString = YarivMaze.Maze;
-                    
+                    StartGame(msn);       
                 }
-                else
+                else if (msn.Contains("Move"))
                 {
                     Play m = JsonConvert.DeserializeObject<Play>(msn);
                     string d = m.Move;
@@ -385,7 +375,22 @@ namespace ex2
                 }
             }
         }
-
+        public void StartGame(string ans)
+        {
+            Game g = JsonConvert.DeserializeObject<Game>(ans);
+            MyMaze = g.You;
+            YarivMaze = g.Other;
+           // MyMaze =JsonConvert.DeserializeObject<SingleMaze>( g.You);
+            //YarivMaze = JsonConvert.DeserializeObject < SingleMaze >(g.Other);
+            this.Coordinate = MyMaze.Start;
+            this.MyCol = this.Coordinate.Col;
+            this.MyRow = this.Coordinate.Row;
+            this.Yriv_Cor = YarivMaze.Start;
+            this.YrivCol = this.Yriv_Cor.Col;
+            this.YrivRow = this.Yriv_Cor.Row;
+            this.MazeString = MyMaze.Maze;
+            this.YrivMazeString = YarivMaze.Maze;
+        }
         private void moveYriv(string d)
         {
             char[] maze = this.YrivMazeString.ToCharArray();
@@ -437,11 +442,13 @@ namespace ex2
             string ans=Client.ReceviveMsg();
             if (ans.Equals("one player"))
             {
-                Thread t = new Thread(start);//creating a thread to make connection 
-                t.Start();
+                //  Thread t = new Thread(start);//creating a thread to make connection 
+                //t.Start();
+                createMaze();
                 return "wait";
             }else
             {
+                StartGame(ans);
                 return "game on";
             }
         }

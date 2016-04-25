@@ -31,7 +31,7 @@ namespace ex2
         bool Winner { get; set; }
         bool Loser { get; set; }
             //active method
-            void move(string direction,ref int r,ref int c);
+            void move(string direction);
             List<int> getClue();
             void createMaze();
             string CreateGame(string name);

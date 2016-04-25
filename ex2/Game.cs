@@ -11,6 +11,7 @@ namespace ex2
     {
         public string Name { get; set; }
         public string MazeName { get; set; }
+       
         public SingleMaze You { get; set; }
         public SingleMaze Other { get; set; }
 

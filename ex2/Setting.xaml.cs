@@ -16,6 +16,7 @@ namespace ex2
 {
     /// <summary>
     /// Interaction logic for Setting.xaml
+    /// and init
     /// </summary>
     public partial class Setting : Window
     {

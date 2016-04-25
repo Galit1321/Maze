@@ -63,8 +63,8 @@ namespace ex2
         private void multiButton_Click(object sender, RoutedEventArgs e)
         {
              song.Stop();
-            
-            Window m = new Gamename();
+            vm.CreateGame("ff");
+            Window m = new Multiplayer();
             m.ShowDialog();
 
         }

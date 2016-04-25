@@ -10,6 +10,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="GameMenu.jpg"/>
         </Grid.Background>
+        
         <WrapPanel>
             <TextBlock Text="Game Name:  " FontWeight="Bold" FontFamily="David" />
             <TextBox Name="Game_name" Width="150" VerticalAlignment="Center" />

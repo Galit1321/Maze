@@ -36,7 +36,8 @@ namespace ex2
             DataContext = vm;
             string g = Game_name.ToString();
             vm.CreateGame(g);
-            
+            Window m = new Multiplayer();
+            m.ShowDialog();
            
         }
         public void OpenWin(string msn)

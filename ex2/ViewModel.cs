@@ -113,17 +113,10 @@ namespace ex2
         {
             model.createMaze();
         }
-         public void CreateGame(string name)
+         public string CreateGame(string name)
         {
-            string ans= model.CreateGame(name);
-            if (ans.Equals("wait"))
-            {
-                Open("Only One");
-            }
-            else
-            {
-                Close();
-            }
+            return model.CreateGame(name);
+           
         }
     }
 }

@@ -22,6 +22,7 @@ namespace ex2
     {
         public Multiplayer()
         {
+
             InitializeComponent();
             UserControl m1 = new Maze();
             UserControl m2 = new Maze();
