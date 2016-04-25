@@ -20,24 +20,33 @@ namespace ex2
     public partial class Gamename : Window
     {
         public ViewModel vm;
+        public Window War;
         public Gamename()
         {
+            vm = ViewModel.Instance;
             InitializeComponent();
+            vm.Open += OpenWin;
+            vm.Close += CloseWin;
         }
 
         private void bntCnt_Click(object sender, RoutedEventArgs e)
         {
-            vm = ViewModel.Instance;
+            
             vm.Init(new Model(new TCPClient()));
             DataContext = vm;
             string g = Game_name.ToString();
-            string res = vm.CreateGame(g);
-            if (res.Equals("wait"))
-            {
-                MessageBoxResult result = MessageBox.Show("It seem you are the only one that want to play", "Single in Multiplayer");
-               
-            }
+            vm.CreateGame(g);
+            
            
+        }
+        public void OpenWin(string msn)
+        {
+            War = new Warning(msn);
+            War.ShowDialog();
+        }
+        public void CloseWin()
+        {
+            War.Close();
         }
     }
 }

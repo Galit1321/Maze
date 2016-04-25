@@ -11,6 +11,7 @@ namespace ex2
     {
         private static ViewModel instance;
         public event OpenMsnWin Open;
+        public event ClosenMsnWin Close;
         private IModelable model;
         //proprties here
 
@@ -89,17 +90,22 @@ namespace ex2
 
             this.model = model;
             model.PropertyChanged +=
-          delegate (Object sender, PropertyChangedEventArgs e) {
+            delegate (Object sender, PropertyChangedEventArgs e) {
            NotifyPropertyChanged("VM_"+e.PropertyName);
        };
 
         }
+
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
         public event PropertyChangedEventHandler PropertyChanged;
+        public void Disconnect()
+        {
+            model.disconnect();
+        }
         /// <summary>
         /// create a new single game in model
         /// </summary>
@@ -107,9 +113,17 @@ namespace ex2
         {
             model.createMaze();
         }
-         public string CreateGame(string name)
+         public void CreateGame(string name)
         {
-            return model.CreateGame(name);
+            string ans= model.CreateGame(name);
+            if (ans.Equals("wait"))
+            {
+                Open("Only One");
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }
