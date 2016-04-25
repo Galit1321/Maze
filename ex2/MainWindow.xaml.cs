@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Media;
 using System.IO;
+using View;
 
 namespace ex2
 {
@@ -33,7 +34,7 @@ namespace ex2
             DataContext = vm;
             Play();
             SingelGame.soundMain += Play;
-            View.Setting.soundSettings += Play;
+            ex2.Setting.soundSettings += Play;
         }
 
         private void Play()
