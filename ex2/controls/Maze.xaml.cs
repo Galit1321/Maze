@@ -27,13 +27,8 @@ namespace ex2.controls
             InitializeComponent();
             init();
         }
-        public string Order { get { return GetValue(TextProperty).ToString();
-    }
-    set { SetValue(TextProperty, value);
-}}
-public static readonly DependencyProperty TextProperty =
-DependencyProperty.Register("Order", typeof(string),
-typeof(Maze));  
+        public string Order { get; set; }
+
         public void init()
         {
             ViewModel vm = ViewModel.Instance;
@@ -53,7 +48,7 @@ typeof(Maze));
                 ColumnDefinition c = new ColumnDefinition();
                 mazeGrid.ColumnDefinitions.Add(c);
             }
-            string mazeStr = Order;
+            string mazeStr = vm.VM_MazeString;
             int x = 0;
             for (int i = 0; i < rowsNum; i++)
            {
