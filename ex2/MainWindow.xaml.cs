@@ -23,13 +23,13 @@ namespace View
     public partial class MainWindow : Window
     {
         public ViewModel vm;
+        private SoundPlayer song;
         public MainWindow()
         {
             InitializeComponent();
             vm = ViewModel.Instance;
             vm.Init(new Model(new TCPClient()));
             DataContext = vm;
-            SoundPlayer song;
             try
             {
                 song = new System.Media.SoundPlayer();
@@ -48,11 +48,13 @@ namespace View
         private void Setting_Click(object sender, RoutedEventArgs e)
         {
             Window s = new Setting();
+            song.Stop();
             s.ShowDialog();
         }
 
         private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
+            song.Stop();
             vm.CreateSingle();
             Window s = new SingelGame();
             s.ShowDialog();
