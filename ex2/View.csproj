@@ -171,7 +171,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="A Thousand years.wav" />
     <Content Include="BeginAgain.wav" />
+    <Content Include="Call Me Maybe.wav" />
+    <Resource Include="runMan.png" />
+    <Content Include="Titanium - Pavane %28Piano-Cello Cover%29 - David Guetta - Faure - ThePianoGuys %28online-audio-converter.com%29.wav" />
+    <Content Include="Without You.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="GameMenu.jpg" />
   </ItemGroup>

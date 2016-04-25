@@ -453,6 +453,9 @@ namespace ex2
             }
         }
 
-       
+        public void move(string direction, ref int r, ref int c)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

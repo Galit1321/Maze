@@ -21,7 +21,7 @@ namespace ex2
     public partial class SingelGame : Window
     {
         public ViewModel vm;
-    
+        public static event MainWindow.SoundEvent soundMain;
         public SingelGame()
         {
             InitializeComponent();
@@ -32,14 +32,10 @@ namespace ex2
             vm.Open += OpenWin;
         }
 
-        private void maze_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-
             MessageBoxResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
@@ -48,13 +44,13 @@ namespace ex2
                 Close();
                 
             }
-        }
+            }
 
         public void OpenWin(string msn)
         {
 
         }
 
-
+        
     }
 }
