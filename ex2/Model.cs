@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace ex2
 {
-    public delegate void OpenMsnWin();
+    public delegate void OpenMsnWin(string msn);
     class Model : IModelable
     {
         TCPClient Client;
@@ -130,7 +130,7 @@ namespace ex2
             set
             {
                 win = value;
-                //WinWin();
+                //WinWin("You Won");
             }
         }
         private bool lost;
@@ -142,6 +142,7 @@ namespace ex2
             }
             set {
                 lost = value;
+                //WinWin("You Lost :(");
                 NotifyPropertyChanged("Loser");
             }
         }

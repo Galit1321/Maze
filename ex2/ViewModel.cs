@@ -10,6 +10,7 @@ namespace ex2
     public class ViewModel : INotifyPropertyChanged
     {
         private static ViewModel instance;
+        public event OpenMsnWin Open;
         private IModelable model;
         //proprties here
 
