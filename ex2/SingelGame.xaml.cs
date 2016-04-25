@@ -41,7 +41,7 @@ namespace ex2
             if (result == MessageBoxResult.Yes)
             {
                 vm.Open -= OpenWin;
-                
+                vm.Disconnect();
                 Close();
                 
             }

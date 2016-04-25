@@ -61,7 +61,7 @@ namespace ex2
             {
                mazestr= value;
                NotifyPropertyChanged("Maze");
-
+            
             }
         }
         private int port;
@@ -175,6 +175,62 @@ namespace ex2
                 NotifyPropertyChanged("YrivMazeName");
             }
         }
+        private int row;
+        public int MyRow
+        {
+            get
+            {
+                return row;
+            }
+
+            set
+            {
+               row= value;
+                NotifyPropertyChanged("MyRow");
+            }
+        }
+        private int col;
+        public int MyCol
+        {
+            get
+            {
+                return col;
+            }
+
+            set
+            {
+                col = value;
+                NotifyPropertyChanged("MyCol");
+            }
+        }
+        private int yriv_row;
+        public int YrivRow
+        {
+            get
+            {
+                return yriv_row;
+            }
+
+            set
+            {
+                yriv_row = value;
+                NotifyPropertyChanged("YrivRow");
+            }
+        }
+        private int yriv_col;
+        public int YrivCol
+        {
+            get
+            {
+               return yriv_col;
+            }
+
+            set
+            {
+                yriv_col = value;
+                NotifyPropertyChanged("YrivCol");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
@@ -252,40 +308,41 @@ namespace ex2
         /// send that we move in case of an multiplayer game
         /// </summary>
         /// <param name="direction">which arrow key was press</param>
-        public void move(string direction,Pair cor)
+       public void move(string direction, int r, int c)
         {
             char[] maze = this.MazeString.ToCharArray();
             switch (direction)
             {
                 case "up":
-                    if ((this.Coordinate.Row-2>0)&& (maze[this.Coordinate.Row - Width] != '1'))
+                    if ((MyRow-2>0)&& (maze[this.Coordinate.Row - Width] != '1'))
                     {
-                        Client.SendMsg("play " + direction); 
-                        cor = new Pair(this.coordinate.Row - 2, this.Coordinate.Col);
+                        Client.SendMsg("play " + direction);
+                        MyRow = r - 2;
                     }
                     break;
                 case "down":
-                    if ((this.Coordinate.Row + 2 > 2*Heigth-1) && (maze[this.Coordinate.Row + Width] != '1'))
+                    if ((MyRow + 2 > 2*Heigth-1) && (maze[this.Coordinate.Row + Width] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        cor = new Pair(this.coordinate.Row + 2, this.Coordinate.Col);
+                        MyRow += 2;
                     }
                     break;
                 case "right":
-                    if ((this.Coordinate.Col + 2 >2* Width-1) && (maze[this.Coordinate.Col + 1] != '1'))
+                    if ((MyCol + 2 >2* Width-1) && (maze[this.Coordinate.Col + 1] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        cor = new Pair(this.coordinate.Row , this.Coordinate.Col+2);
+                        MyCol += 2;
                     }
                     break;
                 case "left":
-                    if ((this.Coordinate.Col - 2 >0) && (maze[this.Coordinate.Col - 1] != '1'))
+                    if ((MyCol - 2 >0) && (maze[this.Coordinate.Col - 1] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        cor= new Pair(this.coordinate.Row , this.Coordinate.Col-2);
+                        MyCol -= 2;
                     }
                     break;
             }
+            /*
             if ((cor.Equals(this.Coordinate))&&(cor.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
@@ -294,7 +351,7 @@ namespace ex2
             {
                 stop = true;
                 Loser = true;
-            }
+            }*/
         }
 
         public void start()
@@ -309,7 +366,11 @@ namespace ex2
                     MyMaze = g.You;
                     YarivMaze = g.Other;
                     this.Coordinate = MyMaze.Start;
+                    this.MyCol = this.Coordinate.Col;
+                    this.MyRow = this.Coordinate.Row;
                     this.Yriv_Cor = YarivMaze.Start;
+                    this.YrivCol = this.Yriv_Cor.Col;
+                    this.YrivRow = this.Yriv_Cor.Row;
                     this.MazeString = MyMaze.Maze;
                     this.YrivMazeString = YarivMaze.Maze;
                     
@@ -318,10 +379,47 @@ namespace ex2
                 {
                     Play m = JsonConvert.DeserializeObject<Play>(msn);
                     string d = m.Move;
-                    move(d, this.Yriv_Cor);
+                    moveYriv(d);
                 }
             }
         }
+
+        private void moveYriv(string d)
+        {
+            char[] maze = this.YrivMazeString.ToCharArray();
+            switch (d)
+            {
+                case "up":
+                    if ((YrivRow - 2 > 0) && (maze[this.Coordinate.Row - Width] != '1'))
+                    {
+                        Client.SendMsg("play " + d);
+                        YrivRow -= 2;
+                    }
+                    break;
+                case "down":
+                    if ((MyRow + 2 > 2 * Heigth - 1) && (maze[this.Coordinate.Row + Width] != '1'))
+                    {
+                        Client.SendMsg("play " + d);
+                        YrivRow += 2;
+                    }
+                    break;
+                case "right":
+                    if ((YrivCol + 2 > 2 * Width - 1) && (maze[this.Coordinate.Col + 1] != '1'))
+                    {
+                        Client.SendMsg("play " + d);
+                       YrivCol += 2;
+                    }
+                    break;
+                case "left":
+                    if ((YrivCol - 2 > 0) && (maze[this.Coordinate.Col - 1] != '1'))
+                    {
+                        Client.SendMsg("play " + d);
+                        YrivCol -= 2;
+                    }
+                    break;
+            }
+        }
+
         private Random rnd = new Random();
         /// <summary>
         /// create new game 
@@ -345,5 +443,7 @@ namespace ex2
                 return "game on";
             }
         }
+
+       
     }
 }
