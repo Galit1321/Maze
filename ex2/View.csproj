@@ -89,6 +89,9 @@
     </Compile>
     <Compile Include="TCPClient.cs" />
     <Compile Include="ViewModel.cs" />
+    <Compile Include="Warning.xaml.cs">
+      <DependentUpon>Warning.xaml</DependentUpon>
+    </Compile>
     <Page Include="controls\Maze.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +123,10 @@
     <Page Include="SingelGame.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Warning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BeginAgain.wav" />
+    <Resource Include="waiting.jpg" />
     <Resource Include="GameMenu.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
