@@ -7,16 +7,16 @@ using System.Web.Script.Serialization;
 using System.Configuration;
 using System.Threading.Tasks;
 using System.Threading;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
 
-namespace View
+namespace ex2
 {
     public delegate void OpenMsnWin();
     class Model : IModelable
     {
         TCPClient Client;
         public event OpenMsnWin WinWin;
-        private JavaScriptSerializer ser;
+        
         volatile bool stop;
         private int Heigth;
         private int Width;
@@ -26,12 +26,13 @@ namespace View
         {
             this.Client = client;
             stop = false;
-            ser = new JavaScriptSerializer();
+           
             this.ip= ConfigurationManager.AppSettings["IP"];
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             this.Heigth= Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             connect(ip, port);
+
         }
         private string ip;
         public string IP
@@ -302,15 +303,18 @@ namespace View
                 msn = Client.ReceviveMsg();
                 if (msn.Contains("{You"))
                 {
-                    Game g= ser.Deserialize<Game>(msn);
+                    Game g= JsonConvert.DeserializeObject<Game>(msn);
                     MyMaze = g.You;
                     YarivMaze = g.Other;
                     this.Coordinate = MyMaze.Start;
                     this.Yriv_Cor = YarivMaze.Start;
+                    this.MazeString = MyMaze.Maze;
+                    this.YrivMazeString = YarivMaze.Maze;
+                    
                 }
                 else
                 {
-                    Play m = ser.Deserialize<Play>(msn);
+                    Play m = JsonConvert.DeserializeObject<Play>(msn);
                     string d = m.Move;
                     move(d, this.Yriv_Cor);
                 }

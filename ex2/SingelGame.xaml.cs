@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ex2.controls;
 
-namespace View
+namespace ex2
 {
     /// <summary>
     /// Interaction logic for SingalGame.xaml
@@ -29,7 +29,7 @@ namespace View
             vm = ViewModel.Instance;
             vm.Init(new Model(new TCPClient()));
             DataContext = vm;
-          
+            
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

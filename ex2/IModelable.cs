@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace View
+namespace ex2
 {
     public interface IModelable: INotifyPropertyChanged
     {

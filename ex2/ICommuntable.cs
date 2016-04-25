@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace View
+namespace ex2
 {
     /// <summary>
     /// interface of the methods of

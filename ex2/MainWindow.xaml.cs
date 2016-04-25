@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Media;
 using System.IO;
 
-namespace View
+namespace ex2
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -70,9 +70,10 @@ namespace View
 
         private void multiButton_Click(object sender, RoutedEventArgs e)
         {
-            song.Stop();
+             song.Stop();
             Window m = new Multiplayer();
             m.ShowDialog();
+
         }
     }
 }

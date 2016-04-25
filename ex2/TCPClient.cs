@@ -5,7 +5,7 @@ using System.Configuration;
 using System.Text;
 using System.Threading;
 
-namespace View
+namespace ex2
 {
     /// <summary>
     /// client with TCP way of communication

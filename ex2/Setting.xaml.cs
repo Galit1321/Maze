@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace View
+namespace ex2
 {
     /// <summary>
     /// Interaction logic for Setting.xaml

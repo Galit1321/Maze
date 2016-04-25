@@ -27,7 +27,13 @@ namespace ex2.controls
             InitializeComponent();
             init();
         }
-
+        public string Order { get { return GetValue(TextProperty).ToString();
+    }
+    set { SetValue(TextProperty, value);
+}}
+public static readonly DependencyProperty TextProperty =
+DependencyProperty.Register("Order", typeof(string),
+typeof(Maze));  
         public void init()
         {
             ViewModel vm = ViewModel.Instance;
@@ -47,7 +53,7 @@ namespace ex2.controls
                 ColumnDefinition c = new ColumnDefinition();
                 mazeGrid.ColumnDefinitions.Add(c);
             }
-            string mazeStr = vm.VM_MazeString;
+            string mazeStr = Order;
             int x = 0;
             for (int i = 0; i < rowsNum; i++)
            {
@@ -65,7 +71,7 @@ namespace ex2.controls
                     x++;
                 }
             }
-            Pair point = vm.VM_Coordinate;
+           
             
 
         }

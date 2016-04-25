@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace View
+namespace ex2
 {
     class Game
     {
@@ -13,6 +14,7 @@ namespace View
         public SingleMaze You { get; set; }
         public SingleMaze Other { get; set; }
 
+        [JsonConstructor]
         public Game(string name, string mazename, SingleMaze u, SingleMaze other)
         {
             this.Name = name;
