@@ -50,7 +50,7 @@ namespace ex2.controls
             string mazeStr = vm.VM_MazeString;
             int x = 0;
             for (int i = 0; i < rowsNum; i++)
-            {
+           {
                 for (int j = 0; j < columNum; j++)
                 {
                     Rectangle r = new Rectangle();
@@ -65,6 +65,9 @@ namespace ex2.controls
                     x++;
                 }
             }
+            Pair point = vm.VM_Coordinate;
+            
+
         }
     }
 }

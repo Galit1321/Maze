@@ -25,7 +25,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="Back" Content="Back" Grid.Row="0" HorizontalAlignment="Right" Margin="0,20,20,1" Width="75" Click="Back_Click"/>
+        <Button x:Name="Back" Content="Back" Grid.Row="0" Margin="135,20,0,0" Click="Back_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
         <Controls:Maze Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="194" Margin="10,24,0,-177" Grid.Row="1" VerticalAlignment="Center" Width="245"/>
 
     </Grid>

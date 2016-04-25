@@ -13,8 +13,28 @@ namespace View
         private IModelable model;
         //proprties here
 
-        public int VM_Port { get; set; }
-        public string VM_IP { get; set; }
+        public int VM_Port
+        {
+            get
+            {
+                return model.Port;
+            }
+            set
+            {
+                
+            }
+        }
+        public string VM_IP
+        {
+            get
+            {
+                return model.IP;
+            }
+            set
+            {
+                
+            }
+        }
         public string VM_MazeString {
             get
             {
@@ -28,9 +48,26 @@ namespace View
             {
                 return model.Coordinate;
             } }
-        public Pair VM_Yriv_Cor { get; set; }
-        public string VM_MazeName { get; set; }
-        public bool VM_Winner { get; set; }
+        public Pair VM_Yriv_Cor {
+            get
+            {
+                return model.Yriv_Cor;
+            }
+
+        }
+        public string VM_MazeName
+        {
+            get
+            {
+                return model.MazeString;
+            }
+        }
+        public bool VM_Winner {
+            get
+            {
+                return model.Winner;
+            }
+        }
         private ViewModel() { }
 
         public static ViewModel Instance
@@ -60,9 +97,13 @@ namespace View
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
         public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// create a new single game in model
+        /// </summary>
        public void CreateSingle()
         {
             model.createMaze();
         }
+        
     }
 }

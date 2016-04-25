@@ -20,15 +20,19 @@ namespace View
     /// </summary>
     public partial class SingelGame : Window
     {
-
+        public ViewModel vm;
         public SingelGame()
         {
             InitializeComponent();
-            UserControl m = new Maze(); 
+            UserControl m = new Maze();
+            vm = ViewModel.Instance;
+            vm.Init(new Model(new TCPClient()));
+            DataContext = vm;
         }
 
         private void maze_Loaded(object sender, RoutedEventArgs e)
         {
+            
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -36,5 +40,6 @@ namespace View
             Close();
         }
 
+        
     }
 }

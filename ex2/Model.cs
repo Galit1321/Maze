@@ -26,13 +26,12 @@ namespace View
         {
             this.Client = client;
             stop = false;
-            
             ser = new JavaScriptSerializer();
             this.ip= ConfigurationManager.AppSettings["IP"];
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             this.Heigth= Int32.Parse(ConfigurationManager.AppSettings["Height"]);
-            
+            connect(ip, port);
         }
         private string ip;
         public string IP
@@ -145,6 +144,35 @@ namespace View
                 NotifyPropertyChanged("Loser");
             }
         }
+        private string yrivstring;
+        public string YrivMazeString
+        {
+            get
+            {
+                return yrivstring;
+            }
+
+            set
+            {
+                yrivstring = value;
+                NotifyPropertyChanged("YrivMazeString");
+            }
+        }
+        private string yrivname;
+        public string YrivMazeName
+        {
+            get
+            {
+                return yrivname;
+            }
+
+            set
+            {
+                yrivname = value;
+                NotifyPropertyChanged("YrivMazeName");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// helper method to the event 
@@ -169,11 +197,9 @@ namespace View
         /// </summary>
         public void createMaze()
         {
-
-            connect(ip, port);
             Winner = false;
             Loser = false;
-            Client.SendMsg("generate maze" + Coordinate + " 0");
+            Client.SendMsg("generate maze" + rnd.Next() + " 1");
            string str = Client.ReceviveMsg();
             MyMaze = JsonConvert.DeserializeObject<SingleMaze>(str);
             this.MazeString = MyMaze.GetMaze();
@@ -190,13 +216,31 @@ namespace View
         /// get a clue from server where to go
         /// </summary>
         /// <returns></returns>
-        public string getClue()
+        public List<int> getClue()
         {
-            string s = "";
+            List<int> s = new List<int>() ;
             Client.SendMsg("solve " + MyMaze.Name + " 0");
-            SingleMaze sol_maze = ser.Deserialize<SingleMaze>(Client.ReceviveMsg());
+            SingleMaze sol_maze = JsonConvert.DeserializeObject<SingleMaze>(Client.ReceviveMsg());
             string strsolv = sol_maze.Maze;
-            
+            int pivot = this.Coordinate.Row * (2 * Heigth - 1) + this.Coordinate.Col * (2 * Width - 1);
+            int begin = pivot - (2 * Width - 1);//look row before for clues 
+            int end = pivot + (2 * Width - 1);//look in the next row clues
+            if (begin<0)//if we are not in first row
+            {
+                begin = 0;
+            }
+            if (end > strsolv.Length)
+            {
+                end = strsolv.Length;
+            }
+            char[] arr = strsolv.ToCharArray();
+            for (int i = begin; begin < end; i++)
+            {
+                if (arr[i].Equals('2'))
+                {
+                    s.Add(i);
+                }
+            }
             return s;
         }
         /// <summary>

@@ -18,14 +18,17 @@ namespace View
             int Port { get; set; }
             string IP { get; set; }
             string MazeString { get; set; }
+            string YrivMazeString { get; set; }
+           string YrivMazeName { get; set; }
            Pair Coordinate { get; set; }
            Pair Yriv_Cor { get; set; }
+
         string MazeName { get; set; }
         bool Winner { get; set; }
         bool Loser { get; set; }
             //active method
             void move(string direction,Pair cor);
-            string getClue();
+            List<int> getClue();
             void createMaze();
             string CreateGame(string name);
         
