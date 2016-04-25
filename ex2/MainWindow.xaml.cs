@@ -59,5 +59,12 @@ namespace View
             Window s = new SingelGame();
             s.ShowDialog();
         }
+
+        private void multiButton_Click(object sender, RoutedEventArgs e)
+        {
+            song.Stop();
+            Window m = new Multiplayer();
+            m.ShowDialog();
+        }
     }
 }
