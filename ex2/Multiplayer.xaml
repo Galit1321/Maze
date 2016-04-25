@@ -3,24 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ex2"
+        xmlns:local="clr-namespace:View"
         xmlns:Controls="clr-namespace:ex2.controls"
         mc:Ignorable="d"
         Title="Multiplayer" Height="407" Width="509">
-    <Grid Margin="0,-6,0,6">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="235*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="266*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0" />
-            <RowDefinition Height="180"/>
-            <RowDefinition Height="Auto" MinHeight="195" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Controls:Maze Grid.ColumnSpan="1" Grid.RowSpan="2" Margin="0" />
-        <Controls:Maze Grid.ColumnSpan="1" Grid.RowSpan="2" Margin="0"/>
+    <Grid Margin="0,0,0,6">
+        <Controls:Maze VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="300*" Width="200*"/>
+        <Controls:Maze VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="300*" Width="200*"/>
 
     </Grid>
 </Window>
