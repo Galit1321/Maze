@@ -11,5 +11,10 @@
             <SolidColorBrush Color="Aqua">
             </SolidColorBrush>
         </Grid.Background>
+        <Rectangle x:Name="player" Grid.Row="{Binding VM_}">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="runMan.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </UserControl>
