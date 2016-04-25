@@ -21,6 +21,7 @@ namespace View
     public partial class SingelGame : Window
     {
         public ViewModel vm;
+        public static event MainWindow.SoundEvent soundMain;
         public SingelGame()
         {
             InitializeComponent();
@@ -28,15 +29,12 @@ namespace View
             vm = ViewModel.Instance;
             vm.Init(new Model(new TCPClient()));
             DataContext = vm;
-        }
-
-        private void maze_Loaded(object sender, RoutedEventArgs e)
-        {
-            
+          
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            soundMain();
             Close();
         }
 

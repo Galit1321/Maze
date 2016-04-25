@@ -19,6 +19,7 @@ namespace View
     /// </summary>
     public partial class Setting : Window
     {
+        public static event MainWindow.SoundEvent soundSettings;
         public Setting()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace View
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            soundSettings();
             this.Close();
         }
 
@@ -36,6 +38,7 @@ namespace View
             vm.NotifyPropertyChanged("VM_Port");
             vm.VM_IP = IP.Text;
             vm.VM_Port = Int32.Parse(Port.Text);
+            soundSettings();
             this.Close();
         }
         

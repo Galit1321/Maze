@@ -24,17 +24,25 @@ namespace View
     {
         public ViewModel vm;
         private SoundPlayer song;
+        public delegate void SoundEvent();
         public MainWindow()
         {
             InitializeComponent();
             vm = ViewModel.Instance;
             vm.Init(new Model(new TCPClient()));
             DataContext = vm;
+            Play();
+            SingelGame.soundMain += Play;
+            View.Setting.soundSettings += Play;
+        }
+
+        private void Play()
+        {
             try
             {
                 song = new System.Media.SoundPlayer();
                 string path = Path.GetFullPath(".");
-                path += "\\BeginAgain.wav";
+                path += "\\Without You.wav";
                 song.SoundLocation = path;
                 song.Load();
                 song.Play();
