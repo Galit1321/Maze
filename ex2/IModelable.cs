@@ -36,7 +36,7 @@ namespace ex2
             void createMaze();
             string CreateGame(string name);
         void StartGame(string ans);
-
+        void Waiting();
 
     }
 }
