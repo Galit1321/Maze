@@ -90,9 +90,6 @@
     </Compile>
     <Compile Include="TCPClient.cs" />
     <Compile Include="ViewModel.cs" />
-    <Compile Include="Warning.xaml.cs">
-      <DependentUpon>Warning.xaml</DependentUpon>
-    </Compile>
     <Page Include="controls\Maze.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,10 +121,6 @@
     <Page Include="SingelGame.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Warning.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -176,10 +169,8 @@
     <Content Include="BeginAgain.wav" />
     <Content Include="Call Me Maybe.wav" />
     <Resource Include="runMan.png" />
-    <Resource Include="controls\runMan.png" />
     <Content Include="Titanium - Pavane %28Piano-Cello Cover%29 - David Guetta - Faure - ThePianoGuys %28online-audio-converter.com%29.wav" />
     <Content Include="Without You.wav" />
-    <Resource Include="waiting.jpg" />
     <Resource Include="GameMenu.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

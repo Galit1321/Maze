@@ -11,7 +11,7 @@
             <SolidColorBrush Color="Aqua">
             </SolidColorBrush>
         </Grid.Background>
-        <Rectangle x:Name="player" Grid.Column="{Binding VM_MyRow}" Grid.Row="{Binding VM_MyRow}" >
+        <Rectangle x:Name="player" Grid.Column="{Binding VM_MyRow}" Grid.Row="{Binding VM_MyRow}">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="runMan.png"/>
             </Rectangle.Fill>

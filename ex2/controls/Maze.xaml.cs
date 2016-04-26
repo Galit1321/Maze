@@ -64,10 +64,8 @@ namespace ex2.controls
                 for (int j = 0; j < columNum; j++)
                 {
                     Rectangle r = new Rectangle();
-                    r.Stroke = new SolidColorBrush(Color.FromRgb(2, 2, 50));
-                    if (mazeStr[x] == '0')
-                        r.Fill = new SolidColorBrush(Color.FromRgb(0, 100, 0));
-                    else if (mazeStr[x] == '1')
+                    if (mazeStr[x] == '1')
+                        r.Stroke = new SolidColorBrush(Color.FromRgb(2, 2, 50));
                         r.Fill = new SolidColorBrush(Color.FromRgb(100, 0, 0));
                     Grid.SetRow(r, i);
                     Grid.SetColumn(r, j);
