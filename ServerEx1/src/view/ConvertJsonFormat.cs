@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace ServerExe1.src.view
 {
@@ -26,8 +27,7 @@ namespace ServerExe1.src.view
             forJson.Add("Maze", maze.ToString());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
-            string temp = ser.Serialize(forJson);
-            temp = temp.Replace("\\", "");
+            string temp = JsonConvert.SerializeObject(forJson);
             return temp;
         }
 
@@ -42,8 +42,7 @@ namespace ServerExe1.src.view
             forJson.Add("Maze", maze.ToString());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
-            string temp = ser.Serialize(forJson);
-            temp = temp.Replace("\\", "");
+            string temp = JsonConvert.SerializeObject(forJson,Formatting.Indented);
             return temp;
         }
 
@@ -58,8 +57,7 @@ namespace ServerExe1.src.view
             Dictionary<string, string> forJson = new Dictionary<string, string>();
             forJson.Add("Row", coor.Item1.ToString());
             forJson.Add("Col", coor.Item2.ToString());
-            string temp = ser.Serialize(forJson);
-            temp = temp.Replace("\\", "");
+            string temp = JsonConvert.SerializeObject(forJson,Formatting.Indented);
             return temp;
         }
 
@@ -76,8 +74,7 @@ namespace ServerExe1.src.view
             forJson.Add("Maze", maze.PrintSolve());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
-            string temp = ser.Serialize(forJson);
-            temp = temp.Replace("\\", "");
+            string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
             return temp;
         }
 
@@ -92,8 +89,7 @@ namespace ServerExe1.src.view
             Dictionary<string, string> forJson = new Dictionary<string, string>();
             forJson.Add("Type", command);
             forJson.Add("Content", Content);
-            string temp = ser.Serialize(forJson);
-            temp = temp.Replace("\\", "");
+            string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
             return temp;
         }
 
@@ -109,8 +105,7 @@ namespace ServerExe1.src.view
             Dictionary<string, string> forJson = new Dictionary<string, string>();
             forJson.Add("Name", gameName);
             forJson.Add("Move", move);
-            string temp = ser.Serialize(forJson);
-            temp = temp.Replace("\\", "");
+            string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
             return temp;
         }
 
@@ -129,8 +124,7 @@ namespace ServerExe1.src.view
             forJson.Add("MazeName", you.GetName());
             forJson.Add("You", this.ConvertIMazeWithoutName(you));
             forJson.Add("Other", this.ConvertIMazeWithoutName(other));
-            string temp = ser.Serialize(forJson);
-            temp = temp.Replace("\\", "");
+            string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
             return temp;
         }
     }
