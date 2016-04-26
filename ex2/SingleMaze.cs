@@ -15,8 +15,14 @@ namespace ex2
         public string Name;
 
         public string Maze;
-     
-        [JsonConstructor]
+
+        public SingleMaze(Pair start, Pair end, string maze)
+        {
+            this.Start = start;
+            this.End = end;
+            this.Maze = maze;
+            this.Name = "You";
+        }
         public SingleMaze(Pair start, Pair end,string maze,string name)
         {
             this.Start = start;

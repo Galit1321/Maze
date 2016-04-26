@@ -300,7 +300,8 @@ namespace ex2
         {
             List<int> s = new List<int>() ;
             Client.SendMsg("solve " + MyMaze.Name + " 0");
-            SingleMaze sol_maze = JsonConvert.DeserializeObject<SingleMaze>(Client.ReceviveMsg());
+            ConvertFromJson ser = new ConvertFromJson(Client.ReceviveMsg());
+            SingleMaze sol_maze = ser.CreateMaze();
             string strsolv = sol_maze.Maze;
             int pivot = this.Coordinate.Row * (2 * Heigth - 1) + this.Coordinate.Col * (2 * Width - 1);
             int begin = pivot - (2 * Width - 1);//look row before for clues 
@@ -400,7 +401,8 @@ namespace ex2
         }
         public void StartGame(string ans)
         {
-            Game g = JsonConvert.DeserializeObject<Game>(ans);
+            ConvertFromJson ser = new ConvertFromJson(ans);
+            Game g = ser.ConvertStartGame();
             MyMaze = g.You;
             YarivMaze = g.Other;
             this.Coordinate = MyMaze.Start;
