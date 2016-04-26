@@ -17,16 +17,25 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Button x:Name="Reset" Content="ResetMaze"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="0,20,20,0" VerticalAlignment="Top" Height="20" Width="75">
+        <Button x:Name="Reset" Content="ResetMaze"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Height="20" Width="75">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFFD190" Offset="0.2"/>
-                    <GradientStop  Color="Orange" Offset="0.85"/>
-                    <GradientStop Color="#FFFFD190" Offset="1"/>
+                    <GradientStop Color="Azure" Offset="0.2"/>
+                    <GradientStop  Color="SkyBlue" Offset="0.85"/>
+                    <GradientStop Color="Azure" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="Back" Content="Back" Grid.Row="0" HorizontalAlignment="Right" Margin="0,20,20,1" Width="75" Click="Back_Click"/>
+        <Button Name="Clue" TextBlock.FontFamily="Rockwell" TextBlock.Foreground="Black" Grid.Row="0"  Content="Get Clue" Grid.Column="0" HorizontalAlignment="Left" Margin="29,20,0,0" VerticalAlignment="Top" Height="20" Width="75" Click="Clue_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Transparent" Offset="0.2"/>
+                    <GradientStop  Color="DarkGray" Offset="0.85"/>
+                    <GradientStop Color="Gray" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Back" Content="Back" Grid.Row="0" HorizontalAlignment="Right" Margin="0,21,189,0" Width="75" Click="Back_Click" Grid.ColumnSpan="2"/>
         <Controls:Maze  Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="194" Margin="10,24,0,-177" Grid.Row="1" VerticalAlignment="Center" Width="245"/>
 
     </Grid>

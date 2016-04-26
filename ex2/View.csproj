@@ -70,8 +70,8 @@
       <DependentUpon>Maze.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
-    <Compile Include="Gamename.xaml.cs">
-      <DependentUpon>Gamename.xaml</DependentUpon>
+    <Compile Include="GameMenu.xaml.cs">
+      <DependentUpon>GameMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="ICommuntable.cs" />
     <Compile Include="Multiplayer.xaml.cs">
@@ -97,7 +97,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gamename.xaml">
+    <Page Include="GameMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

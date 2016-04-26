@@ -30,6 +30,7 @@ namespace ex2
         string MazeName { get; set; }
         bool Winner { get; set; }
         bool Loser { get; set; }
+        bool InSession { get; set; }
             //active method
             void move(string direction);
             List<int> getClue();

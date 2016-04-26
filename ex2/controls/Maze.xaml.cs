@@ -27,7 +27,8 @@ namespace ex2.controls
         {
             InitializeComponent();
             ViewModel vm = ViewModel.Instance;
-            init(vm.VM_MazeString);
+            Order = vm.VM_MazeString;
+            init();
         }
         public string Order { get; set; }
 
@@ -35,10 +36,11 @@ namespace ex2.controls
         {
             InitializeComponent();
             ViewModel vm = ViewModel.Instance;
-            init(yrivmaze);
+            Order = yrivmaze;
+            init();
         }
 
-        public void init(string mazeStr)
+        public void init()
         {
             
             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
@@ -57,7 +59,7 @@ namespace ex2.controls
                 ColumnDefinition c = new ColumnDefinition();
                 mazeGrid.ColumnDefinitions.Add(c);
             }
-           
+            string mazeStr = Order;
             int x = 0;
             for (int i = 0; i < rowsNum; i++)
            {

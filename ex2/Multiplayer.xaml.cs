@@ -30,5 +30,10 @@ namespace ex2
             UserControl m1 = new Maze();
             UserControl m2 = new Maze(vm.VM_YrivMazeString);
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            vm.Disconnect();
+        }
     }
 }
