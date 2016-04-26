@@ -278,8 +278,8 @@ namespace ex2
             Loser = false;
             Client.SendMsg("generate maze" + rnd.Next() + " 1");
            string str = Client.ReceviveMsg();
-            JavaScriptSerializer ser = new JavaScriptSerializer();
-            MyMaze = ser.Deserialize<SingleMaze>(str);
+            ConvertFromJson ser=new ConvertFromJson(str);
+            MyMaze = ser.CreateMaze();
             this.MazeString = MyMaze.GetMaze();
             this.Coordinate = MyMaze.GetStart();
             this.MyRow = this.Coordinate.Row;

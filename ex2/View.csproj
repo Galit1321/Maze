@@ -69,6 +69,7 @@
     <Compile Include="controls\Maze.xaml.cs">
       <DependentUpon>Maze.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConvertFromJson.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameMenu.xaml.cs">
       <DependentUpon>GameMenu.xaml</DependentUpon>
