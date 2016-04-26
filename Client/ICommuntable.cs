@@ -17,6 +17,5 @@ namespace Client
     {
         string ReceviveMsg();
         void SendMsg();
-
     }
 }
