@@ -23,13 +23,14 @@ namespace ex2.controls
     public partial class Maze : UserControl
     {
         ViewModel vm;
+        public string Order { get; set; }
         public Maze()
         {
             InitializeComponent();
             ViewModel vm = ViewModel.Instance;
-            init(vm.VM_MazeString);
+            Order = vm.VM_MazeString;
+            init(Order);
         }
-        public string Order { get; set; }
 
         public Maze(string yrivmaze)
         {
@@ -65,11 +66,12 @@ namespace ex2.controls
                 {
                     Rectangle r = new Rectangle();
                     if (mazeStr[x] == '1')
-                        r.Stroke = new SolidColorBrush(Color.FromRgb(2, 2, 50));
-                        r.Fill = new SolidColorBrush(Color.FromRgb(100, 0, 0));
-                    Grid.SetRow(r, i);
-                    Grid.SetColumn(r, j);
-                    mazeGrid.Children.Add(r);
+                    {
+                        r.Fill = new SolidColorBrush(Color.FromRgb(0, 10, 1));
+                        Grid.SetRow(r, i);
+                        Grid.SetColumn(r, j);
+                        mazeGrid.Children.Add(r);
+                    }
                     x++;
                 }
             }
