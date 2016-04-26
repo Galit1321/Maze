@@ -17,7 +17,7 @@ namespace ex2
     {
         TCPClient Client;
         public event OpenMsnWin WinWin;
-        
+
         volatile bool stop;
         private int Heigth;
         private int Width;
@@ -33,6 +33,10 @@ namespace ex2
             this.Heigth= Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             connect(ip, port);
 
+        }
+        ~Model()
+        {
+            stop = false;
         }
         private string ip;
         public string IP
@@ -231,6 +235,21 @@ namespace ex2
             }
         }
 
+        private bool ins;
+        public bool InSession
+        {
+            get
+            {
+                return ins;
+            }
+
+            set
+            {
+                ins = value;
+                stop = true;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// helper method to the event 
@@ -259,7 +278,8 @@ namespace ex2
             Loser = false;
             Client.SendMsg("generate maze" + rnd.Next() + " 1");
            string str = Client.ReceviveMsg();
-            MyMaze = JsonConvert.DeserializeObject<SingleMaze>(str);
+            ConvertFromJson ser=new ConvertFromJson(str);
+            MyMaze = ser.CreateMaze();
             this.MazeString = MyMaze.GetMaze();
             this.Coordinate = MyMaze.GetStart();
             this.MyRow = this.Coordinate.Row;
@@ -280,7 +300,8 @@ namespace ex2
         {
             List<int> s = new List<int>() ;
             Client.SendMsg("solve " + MyMaze.Name + " 0");
-            SingleMaze sol_maze = JsonConvert.DeserializeObject<SingleMaze>(Client.ReceviveMsg());
+            ConvertFromJson ser = new ConvertFromJson(Client.ReceviveMsg());
+            SingleMaze sol_maze = ser.CreateMaze();
             string strsolv = sol_maze.Maze;
             int pivot = this.Coordinate.Row * (2 * Heigth - 1) + this.Coordinate.Col * (2 * Width - 1);
             int begin = pivot - (2 * Width - 1);//look row before for clues 
@@ -380,11 +401,10 @@ namespace ex2
         }
         public void StartGame(string ans)
         {
-            Game g = JsonConvert.DeserializeObject<Game>(ans);
+            ConvertFromJson ser = new ConvertFromJson(ans);
+            Game g = ser.ConvertStartGame();
             MyMaze = g.You;
             YarivMaze = g.Other;
-           // MyMaze =JsonConvert.DeserializeObject<SingleMaze>( g.You);
-            //YarivMaze = JsonConvert.DeserializeObject < SingleMaze >(g.Other);
             this.Coordinate = MyMaze.Start;
             this.MyCol = this.Coordinate.Col;
             this.MyRow = this.Coordinate.Row;
@@ -445,10 +465,13 @@ namespace ex2
             string ans=Client.ReceviveMsg();
             if (ans.Equals("one player"))
             {
+               
                 return "wait";
             }else
             {
                 StartGame(ans);
+               //Thread t = new Thread(start);
+                //t.Start();
                 return ans;
             }
         }

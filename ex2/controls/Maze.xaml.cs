@@ -29,6 +29,8 @@ namespace ex2.controls
             InitializeComponent();
             ViewModel vm = ViewModel.Instance;
             Order = vm.VM_MazeString;
+            init();
+            Order = vm.VM_MazeString;
             init(Order);
         }
 
@@ -39,7 +41,7 @@ namespace ex2.controls
             init(yrivmaze);
         }
 
-        public void init(string mazeStr)
+        public void init()
         {
             
             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
@@ -58,7 +60,7 @@ namespace ex2.controls
                 ColumnDefinition c = new ColumnDefinition();
                 mazeGrid.ColumnDefinitions.Add(c);
             }
-           
+            string mazeStr = Order;
             int x = 0;
             for (int i = 0; i < rowsNum; i++)
            {
@@ -68,9 +70,9 @@ namespace ex2.controls
                     if (mazeStr[x] == '1')
                     {
                         r.Fill = new SolidColorBrush(Color.FromRgb(0, 10, 1));
-                        Grid.SetRow(r, i);
-                        Grid.SetColumn(r, j);
-                        mazeGrid.Children.Add(r);
+                    Grid.SetRow(r, i);
+                    Grid.SetColumn(r, j);
+                    mazeGrid.Children.Add(r);
                     }
                     x++;
                 }

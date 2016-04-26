@@ -46,20 +46,7 @@ namespace ex2
           
         }
 
-        public Pair VM_Coordinate
-        {
-            get
-            {
-                return model.Coordinate;
-            }
-        }
-        public Pair VM_Yriv_Cor {
-            get
-            {
-                return model.Yriv_Cor;
-            }
-
-        }
+        
         public string VM_MazeName
         {
             get
@@ -135,9 +122,11 @@ namespace ex2
         public void WaitingInView()
         {
             model.Waiting();
-            
             Close();
+            //Thread t = new Thread(model.start);
+            //t.Start();
         }
+        
          public void CreateGame(string name)
         {
             string ans= model.CreateGame(name);
@@ -152,5 +141,17 @@ namespace ex2
                 Close();
             }
         }
+        public bool VM_InSession
+        {
+            get
+            {
+                return model.InSession;
+            }
+            set
+            {
+                model.InSession = value;
+            }
+        }
+       
     }
 }

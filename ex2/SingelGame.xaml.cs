@@ -50,6 +50,9 @@ namespace ex2
 
         }
 
-        
+        private void Clue_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
