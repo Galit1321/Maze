@@ -135,7 +135,6 @@ namespace ex2
         public void WaitingInView()
         {
             model.Waiting();
-            
             Close();
         }
          public void CreateGame(string name)

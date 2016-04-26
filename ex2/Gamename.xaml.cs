@@ -42,16 +42,22 @@ namespace ex2
         }
         public void OpenWin(string msn)
         {
-          War = new Warning(msn);
+            War = new Warning(msn);
             War.Show();
 
         }
         public void CloseWin()
         {
+            Dispatcher.Invoke(() => {
+                Window m = new Multiplayer();
+                m.Show();
+                if (War != null) {
+                    War.Close();
+                }
+                
+                this.Close();
+            });
             
-            Window m = new Multiplayer();
-            m.Show();
-            this.Close();
 
         }
     }
