@@ -42,8 +42,8 @@ namespace ex2
         }
         public void OpenWin(string msn)
         {
-         //   War = new Warning(msn);
-          //  War.Show();
+          War = new Warning(msn);
+            War.Show();
 
         }
         public void CloseWin()
