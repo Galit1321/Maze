@@ -355,7 +355,17 @@ namespace ex2
                 stop = true;
             }
         }
-
+        public void Waiting()
+        {
+            string msg = "";
+            while (msg.Length==0)
+            {
+                msg = Client.ReceviveMsg();
+                
+            }
+            StartGame(msg);
+           
+        }
         public void start()
         {
             while (!stop)
@@ -365,6 +375,7 @@ namespace ex2
                 Play m = JsonConvert.DeserializeObject<Play>(msn);
                 string d = m.Move;
                 moveYriv(d);
+
             }
         }
         public void StartGame(string ans)
@@ -382,8 +393,7 @@ namespace ex2
             this.YrivRow = this.Yriv_Cor.Row;
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
-            Thread t = new Thread(start);//creating a thread to make connection 
-            t.Start(); 
+            
         }
         private void moveYriv(string d)
         {
@@ -435,7 +445,6 @@ namespace ex2
             string ans=Client.ReceviveMsg();
             if (ans.Equals("one player"))
             {
-                 
                 return "wait";
             }else
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ex2
@@ -131,12 +132,21 @@ namespace ex2
         {
             model.createMaze();
         }
+        public void WaitingInView()
+        {
+            model.Waiting();
+            
+            Close();
+        }
          public void CreateGame(string name)
         {
             string ans= model.CreateGame(name);
             if (ans.Equals("wait"))
             {
                 Open("Only One");
+                Thread t = new Thread(WaitingInView);
+                t.SetApartmentState(ApartmentState.STA);
+                t.Start();
             }else
             {
                 Close();

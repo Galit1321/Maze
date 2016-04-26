@@ -48,7 +48,7 @@ namespace ex2
         }
         public void CloseWin()
         {
-           
+            
             Window m = new Multiplayer();
             m.Show();
             this.Close();
