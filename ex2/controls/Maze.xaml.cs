@@ -30,15 +30,13 @@ namespace ex2.controls
             ViewModel vm = ViewModel.Instance;
             Order = vm.VM_MazeString;
             init();
-            Order = vm.VM_MazeString;
-            init(Order);
         }
 
         public Maze(string yrivmaze)
         {
             InitializeComponent();
             ViewModel vm = ViewModel.Instance;
-            init(yrivmaze);
+            init();
         }
 
         public void init()
