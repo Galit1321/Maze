@@ -48,7 +48,7 @@ namespace ex2
         }
         public void CloseWin()
         {
-            Dispatcher.Invoke(() => {
+            Dispatcher.Invoke(() => {//invike the right thread to change ui
                 Window m = new Multiplayer();
                 m.Show();
                 if (War != null) {
