@@ -21,13 +21,14 @@ namespace ServerExe1.src.view
         /// <returns>the maze in JSon</returns>
         public string ConvertIMaze(IMaze maze)
         {
-            JavaScriptSerializer ser = new JavaScriptSerializer();
+            
             Dictionary<string, string> forJson = new Dictionary<string, string>();
             forJson.Add("Name", maze.GetName());
             forJson.Add("Maze", maze.ToString());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
             string temp = JsonConvert.SerializeObject(forJson);
+            //temp.Replace('/', ' ');
             return temp;
         }
 
@@ -42,7 +43,7 @@ namespace ServerExe1.src.view
             forJson.Add("Maze", maze.ToString());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
-            string temp = JsonConvert.SerializeObject(forJson,Formatting.Indented);
+            string temp = JsonConvert.SerializeObject(forJson);
             return temp;
         }
 
@@ -74,7 +75,7 @@ namespace ServerExe1.src.view
             forJson.Add("Maze", maze.PrintSolve());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
-            string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
+            string temp = JsonConvert.SerializeObject(forJson,Formatting.Indented);
             return temp;
         }
 
@@ -85,12 +86,12 @@ namespace ServerExe1.src.view
         /// <param name="Content">the content of the return vlaue</param>
         /// <returns>the return string</returns>
         public string ConvertOutput(string command, string Content){
-            JavaScriptSerializer ser = new JavaScriptSerializer();
-            Dictionary<string, string> forJson = new Dictionary<string, string>();
-            forJson.Add("Type", command);
-            forJson.Add("Content", Content);
-            string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
-            return temp;
+            //JavaScriptSerializer ser = new JavaScriptSerializer();
+            //Dictionary<string, string> forJson = new Dictionary<string, string>();
+            //forJson.Add("Type", command);
+            //forJson.Add("Content", Content);
+            //string temp = JsonConvert.SerializeObject(forJson);
+            return Content;
         }
 
         /// <summary>
@@ -124,7 +125,8 @@ namespace ServerExe1.src.view
             forJson.Add("MazeName", you.GetName());
             forJson.Add("You", this.ConvertIMazeWithoutName(you));
             forJson.Add("Other", this.ConvertIMazeWithoutName(other));
-            string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
+            //string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
+            string temp = JsonConvert.SerializeObject(forJson);
             return temp;
         }
     }

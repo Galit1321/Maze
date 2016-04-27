@@ -21,9 +21,15 @@ namespace ex2
         /// <param name="json">selize dict</param>
         public ConvertFromJson(string json)
         {
-            Dictionary < string, string> s= JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-            this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(s["Content"]);
+            this.Serlize = NewMethod(json);
+          //  this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(s["Content"]);
         }
+
+        private static Dictionary<string, string> NewMethod(string json)
+        {
+            return JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+        }
+
         /// <summary>
         /// create a single game by the value of serlize dictionary 
         /// </summary>
@@ -56,9 +62,9 @@ namespace ex2
         {
             Dictionary<string, string> ser = new Dictionary<string, string>();
             ser = JsonConvert.DeserializeObject<Dictionary<string, string>>(game);
-            string maze = this.Serlize["Maze"];
-            Pair start = CreatePair(this.Serlize["Start"]);
-            Pair end = CreatePair(this.Serlize["End"]);
+            string maze = ser["Maze"];
+            Pair start = CreatePair(ser["Start"]);
+            Pair end = CreatePair(ser["End"]);
             SingleMaze sm = new SingleMaze(start, end, maze);
             return sm;
         }

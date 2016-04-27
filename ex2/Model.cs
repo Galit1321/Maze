@@ -462,19 +462,24 @@ namespace ex2
             Winner = false;
             Loser = false;
             Client.SendMsg("multiplayer " +name);
-            string ans=Client.ReceviveMsg();
-            if (ans.Equals("one player"))
+            string ans = Client.ReceviveMsg();
+            ConvertFromJson ser = new ConvertFromJson(ans);
+            Game g = ser.ConvertStartGame();
+            if (g.Name.Equals("one player"))
             {
-               
                 return "wait";
-            }else
+            }
+            else
             {
                 StartGame(ans);
-               //Thread t = new Thread(start);
+                //Thread t = new Thread(start);
                 //t.Start();
                 return ans;
             }
-        }
+           
+              
+            }
+        
 
        
     }

@@ -13,6 +13,7 @@ namespace ex2
         private static ViewModel instance;
         public event OpenMsnWin Open;
         public event ClosenMsnWin Close;
+        private List<string> game=new List<string>();
         private IModelable model;
         //proprties here
 
@@ -129,14 +130,16 @@ namespace ex2
         
          public void CreateGame(string name)
         {
-            string ans= model.CreateGame(name);
+
+            string ans = model.CreateGame(name);
             if (ans.Equals("wait"))
             {
                 Open("Only One");
                 Thread t = new Thread(WaitingInView);
                 t.SetApartmentState(ApartmentState.STA);
                 t.Start();
-            }else
+            }
+            else
             {
                 Close();
             }
