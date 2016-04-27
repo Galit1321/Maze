@@ -36,6 +36,7 @@ namespace ex2.controls
         {
             InitializeComponent();
             ViewModel vm = ViewModel.Instance;
+            Order = vm.VM_YrivMazeString;
             init();
         }
 

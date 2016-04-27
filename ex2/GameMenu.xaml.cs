@@ -54,7 +54,7 @@ namespace ex2
                 if (War != null) {
                     War.Close();
                 }
-                
+
                 this.Close();
             });
             
