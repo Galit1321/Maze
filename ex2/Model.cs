@@ -206,6 +206,32 @@ namespace ex2
                 NotifyPropertyChanged("MyCol");
             }
         }
+        private int endRow;
+        public int EndRow
+        {
+            get
+            {
+                return endRow;
+            }
+            set
+            {
+                endRow = value;
+                NotifyPropertyChanged("EndRow");
+            }
+        }
+        private int endCol;
+        public int EndCol
+        {
+            get
+            {
+                return endCol;
+            }
+            set
+            {
+                endCol = value;
+                NotifyPropertyChanged("EndCol");
+            }
+        }
         private int yriv_row;
         public int YrivRow
         {
@@ -282,6 +308,8 @@ namespace ex2
             MyMaze = ser.CreateMaze();
             this.MazeString = MyMaze.GetMaze();
             this.Coordinate = MyMaze.GetStart();
+            EndRow = MyMaze.End.Row;
+            EndCol = MyMaze.End.Col;
             this.MyRow = this.Coordinate.Row;
             this.MyCol = this.Coordinate.Col;
             this.MazeName = MyMaze.Name;
@@ -408,6 +436,7 @@ namespace ex2
             this.Coordinate = MyMaze.Start;
             this.MyCol = this.Coordinate.Col;
             this.MyRow = this.Coordinate.Row;
+            
             this.Yriv_Cor = YarivMaze.Start;
             this.YrivCol = this.Yriv_Cor.Col;
             this.YrivRow = this.Yriv_Cor.Row;

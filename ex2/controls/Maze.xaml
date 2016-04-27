@@ -16,5 +16,10 @@
                 <ImageBrush ImageSource="runMan.png"/>
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle x:Name="end" Grid.Column="{Binding VM_EndRow}" Grid.Row="{Binding VM_EndRow}">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="endMaze.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </UserControl>

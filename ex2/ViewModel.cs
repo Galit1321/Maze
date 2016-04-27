@@ -81,6 +81,21 @@ namespace ex2
                 return model.MyCol;
             }
         }
+
+        public int VM_EndRow
+        {
+            get
+            {
+                return model.EndRow;
+            }
+        }
+        public int VM_EndCol
+        {
+            get
+            {
+                return model.EndCol;
+            }
+        }
         public static ViewModel Instance
         {
             get
