@@ -26,10 +26,15 @@ namespace ex2.controls
         public string Order { get; set; }
         public Maze()
         {
-            InitializeComponent();
             ViewModel vm = ViewModel.Instance;
             Order = vm.VM_MazeString;
-            init();
+            this.Initialized += delegate
+            {
+                init();
+            };
+            InitializeComponent();
+            
+            
         }
 
         public Maze(string yrivmaze)
@@ -39,7 +44,7 @@ namespace ex2.controls
             Order = vm.VM_YrivMazeString;
             init();
         }
-
+        
         public void init()
         {
             

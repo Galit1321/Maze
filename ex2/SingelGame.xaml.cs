@@ -21,7 +21,7 @@ namespace ex2
     public partial class SingelGame : Window
     {
         public ViewModel vm;
-
+        UserControl m;
         public static event MainWindow.SoundEvent soundMain;
         public SingelGame()
         {
@@ -54,6 +54,12 @@ namespace ex2
         private void Clue_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            vm.CreateSingle();
+            m = new Maze();
         }
     }
 }
