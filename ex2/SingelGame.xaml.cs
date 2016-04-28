@@ -53,13 +53,17 @@ namespace ex2
 
         private void Clue_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            vm.CreateSingle();
+           
+           
+            vm.CreateSingle();//create new maze 
             m = new Maze();
         }
+
+        
     }
 }

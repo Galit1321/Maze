@@ -24,6 +24,7 @@ namespace ex2.controls
     {
         ViewModel vm;
         public string Order { get; set; }
+      
         public Maze()
         {
             ViewModel vm = ViewModel.Instance;

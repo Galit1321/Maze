@@ -20,10 +20,15 @@ namespace ex2
     /// </summary>
     public partial class Setting : Window
     {
+        ViewModel vm;
         public static event MainWindow.SoundEvent soundSettings;
         public Setting()
         {
+            vm = ViewModel.Instance;
+            vm.Init(new Model(new TCPClient()));
+            DataContext = vm;
             InitializeComponent();
+
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -42,6 +47,7 @@ namespace ex2
             soundSettings();
             this.Close();
         }
+
         
     }
 }
