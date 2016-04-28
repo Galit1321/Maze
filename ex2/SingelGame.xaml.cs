@@ -21,6 +21,7 @@ namespace ex2
     public partial class SingelGame : Window
     {
         public ViewModel vm;
+
         public static event MainWindow.SoundEvent soundMain;
         public SingelGame()
         {

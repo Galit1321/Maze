@@ -32,11 +32,12 @@ namespace ServerExe1.src.model
         /// </summary>
         /// <param name="graph">the graph</param>
         /// <param name="type">the type</param>
-        public void CreateTheMaze(IMazeable graph, int type){
+        public void CreateTheMaze(IMazeable graph, int type)
+        {
             ICreator create;
             if (this.fact.TryGetValue(type, out create))
             {
-                create.Create(ref graph);    
+                create.Create(ref graph);
             }
         }
     }

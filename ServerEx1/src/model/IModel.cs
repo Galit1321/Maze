@@ -46,7 +46,7 @@ namespace ServerExe1.src.model
         /// </summary>
         /// <param name="move">where moved</param>
         /// <param name="whoSend">the view of the player to know who moved</param>
-        void PlayerMoved(string move,ISendableView whoSend);
+        void PlayerMoved(string move, ISendableView whoSend);
 
         /// <summary>
         /// close game

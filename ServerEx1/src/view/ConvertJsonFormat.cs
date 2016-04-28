@@ -12,7 +12,7 @@ namespace ServerExe1.src.view
     /// <summary>
     /// convert to Json for send to the client
     /// </summary>
-    class ConvertJsonFormat: IConvertableView
+    class ConvertJsonFormat : IConvertableView
     {
         /// <summary>
         /// convert maze to Json
@@ -21,14 +21,14 @@ namespace ServerExe1.src.view
         /// <returns>the maze in JSon</returns>
         public string ConvertIMaze(IMaze maze)
         {
-            
+
             Dictionary<string, string> forJson = new Dictionary<string, string>();
             forJson.Add("Name", maze.GetName());
             forJson.Add("Maze", maze.ToString());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
             string temp = JsonConvert.SerializeObject(forJson);
-            //temp.Replace('/', ' ');
+            //temp.Replace("\\", string.Empty);
             return temp;
         }
 
@@ -37,13 +37,15 @@ namespace ServerExe1.src.view
         /// </summary>
         /// <param name="maze">the maze</param>
         /// <returns>maze in Json</returns>
-        public string ConvertIMazeWithoutName(IMaze maze){
+        public string ConvertIMazeWithoutName(IMaze maze)
+        {
             JavaScriptSerializer ser = new JavaScriptSerializer();
             Dictionary<string, string> forJson = new Dictionary<string, string>();
             forJson.Add("Maze", maze.ToString());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
             string temp = JsonConvert.SerializeObject(forJson);
+            // temp.Replace("\\", string.Empty);
             return temp;
         }
 
@@ -54,12 +56,11 @@ namespace ServerExe1.src.view
         /// <returns>the coordinate</returns>
         private string ConvertCoordinate(Tuple<int, int> coor)
         {
-            JavaScriptSerializer ser = new JavaScriptSerializer();
-            Dictionary<string, string> forJson = new Dictionary<string, string>();
-            forJson.Add("Row", coor.Item1.ToString());
-            forJson.Add("Col", coor.Item2.ToString());
-            string temp = JsonConvert.SerializeObject(forJson,Formatting.Indented);
-            return temp;
+
+            string s = coor.Item1.ToString();
+            s += "@";
+            s += coor.Item2.ToString();
+            return s;
         }
 
         /// <summary>
@@ -75,7 +76,8 @@ namespace ServerExe1.src.view
             forJson.Add("Maze", maze.PrintSolve());
             forJson.Add("Start", this.ConvertCoordinate(maze.GetStartPlace()));
             forJson.Add("End", this.ConvertCoordinate(maze.GetEndPlace()));
-            string temp = JsonConvert.SerializeObject(forJson,Formatting.Indented);
+            string temp = JsonConvert.SerializeObject(forJson);
+
             return temp;
         }
 
@@ -85,7 +87,8 @@ namespace ServerExe1.src.view
         /// <param name="command">the command</param>
         /// <param name="Content">the content of the return vlaue</param>
         /// <returns>the return string</returns>
-        public string ConvertOutput(string command, string Content){
+        public string ConvertOutput(string command, string Content)
+        {
             //JavaScriptSerializer ser = new JavaScriptSerializer();
             //Dictionary<string, string> forJson = new Dictionary<string, string>();
             //forJson.Add("Type", command);
@@ -106,7 +109,7 @@ namespace ServerExe1.src.view
             Dictionary<string, string> forJson = new Dictionary<string, string>();
             forJson.Add("Name", gameName);
             forJson.Add("Move", move);
-            string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
+            string temp = JsonConvert.SerializeObject(forJson);
             return temp;
         }
 
@@ -125,8 +128,9 @@ namespace ServerExe1.src.view
             forJson.Add("MazeName", you.GetName());
             forJson.Add("You", this.ConvertIMazeWithoutName(you));
             forJson.Add("Other", this.ConvertIMazeWithoutName(other));
-            //string temp = JsonConvert.SerializeObject(forJson, Formatting.Indented);
             string temp = JsonConvert.SerializeObject(forJson);
+           
+
             return temp;
         }
     }

@@ -75,10 +75,24 @@ namespace ex2.controls
                     }
                     x++;
                 }
+            } }
+        public void MarkClue(List<int> cell)
+        {
+            int x = cell.First() ;
+            int row;
+            int col;
+            Rectangle r = new Rectangle();
+            r.Fill= new SolidColorBrush(Colors.Aqua);
+            foreach (int elem in cell)
+            {
+                row = x % mazeGrid.RowDefinitions.Count;
+                col = x % mazeGrid.ColumnDefinitions.Count;
+                Grid.SetRow(r, row);
+                Grid.SetColumn(r, col);
+                mazeGrid.Children.Add(r);
+                
             }
-           
-            
-
         }
+ 
     }
 }

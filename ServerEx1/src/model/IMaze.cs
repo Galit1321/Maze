@@ -22,7 +22,7 @@ namespace ServerExe1.src.model
         /// </summary>
         /// <returns>the name</returns>
         string GetName();
-       
+
         /// <summary>
         /// get the string of the maze
         /// </summary>

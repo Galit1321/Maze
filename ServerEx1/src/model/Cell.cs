@@ -26,7 +26,7 @@ namespace ServerExe1.src.model
         {
             this.realValue = newVal;
         }
-        
+
         /// <summary>
         /// set when the cell reached
         /// </summary>
@@ -48,7 +48,8 @@ namespace ServerExe1.src.model
         /// c'tor of the cell
         /// </summary>
         /// <param name="givenId">the id of the cell, the order of the creation</param>
-        public Cell(int givenId) {
+        public Cell(int givenId)
+        {
             this.realValue = -1;
             this.id = givenId;
             this.reached = false;
@@ -83,7 +84,7 @@ namespace ServerExe1.src.model
         /// <param name="c1"></param> first cell.
         /// <param name="c2"></param> second cell.
         /// <returns></returns>
-        public static bool operator ==(Cell c1,Cell c2)
+        public static bool operator ==(Cell c1, Cell c2)
         {
             return c1.id == c2.id;
         }

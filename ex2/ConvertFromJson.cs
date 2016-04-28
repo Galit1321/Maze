@@ -21,15 +21,11 @@ namespace ex2
         /// <param name="json">selize dict</param>
         public ConvertFromJson(string json)
         {
-            this.Serlize = NewMethod(json);
-          //  this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(s["Content"]);
-        }
 
-        private static Dictionary<string, string> NewMethod(string json)
-        {
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            
+            this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
         }
-
+       
         /// <summary>
         /// create a single game by the value of serlize dictionary 
         /// </summary>
@@ -51,11 +47,10 @@ namespace ex2
         /// <returns>deselize of pair</returns>
         public Pair CreatePair(string pair)
         {
-            Dictionary<string, string> ser = new Dictionary<string, string>();
-            ser = JsonConvert.DeserializeObject<Dictionary<string, string>>(pair);
-            int row = int.Parse(ser["Row"]);
-            int col= int.Parse(ser["Col"]);
-            return new Pair(row, col);
+            string[] des = pair.Split('@');
+            int r = int.Parse(des[0]);
+            int c = int.Parse(des[1]);
+            return new Pair(r, c);
         }
          
         public SingleMaze WithoutName(string game )

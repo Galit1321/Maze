@@ -20,7 +20,7 @@ namespace ServerExe1.src.model
         private const string postfixMazePlayerOne = "Maze1";
         private const string postfixMazePlayerTwo = "Maze2";
         private Hashtable mazes;
-        
+
         /// <summary>
         /// c'tor' create
         /// </summary>
@@ -62,6 +62,7 @@ namespace ServerExe1.src.model
             {
                 returned = this.mazes[nameMaze] as Maze;
                 returned.SolveMaze(type);
+                this.SolveSecIfHave(nameMaze);
                 //save after solve
                 this.SaveMazes();
             }
@@ -152,5 +153,48 @@ namespace ServerExe1.src.model
             }
         }
 
+        /// <summary>
+        /// solve the second maze of game if haev
+        /// </summary>
+        /// <param name="nameMaze">the maze name</param>
+        public void SolveSecIfHave(string nameMaze)
+        {
+            //check if the name is the first maze
+            if (nameMaze.Length <= AllMaze.postfixMazePlayerOne.Length)
+            {
+                return;
+            }
+            if (nameMaze.Substring(nameMaze.Length - AllMaze.postfixMazePlayerOne.Length).Equals(AllMaze.postfixMazePlayerOne))
+            {
+                string nameMazes = nameMaze.Substring(0, nameMaze.Length - AllMaze.postfixMazePlayerOne.Length);
+                string nameSec = nameMazes + AllMaze.postfixMazePlayerTwo;
+                Maze sec = this.mazes[nameSec] as Maze;
+                if (sec == null)
+                {
+                    return;
+                }
+
+                if (!sec.IsSolved())
+                {
+                    sec.SolveMaze(AllMaze.defaultTypeMaze);
+                }
+            }
+            //check if the name is the second maze
+            else if (nameMaze.Substring(nameMaze.Length - AllMaze.postfixMazePlayerTwo.Length).Equals(AllMaze.postfixMazePlayerTwo))
+            {
+                string nameMazes = nameMaze.Substring(0, nameMaze.Length - AllMaze.postfixMazePlayerTwo.Length);
+                string nameSec = nameMazes + AllMaze.postfixMazePlayerOne;
+                Maze sec = this.mazes[nameSec] as Maze;
+                if (sec == null)
+                {
+                    return;
+                }
+                //solve if needed
+                if (!sec.IsSolved())
+                {
+                    sec.SolveMaze(AllMaze.defaultTypeMaze);
+                }
+            }
+        }
     }
 }
