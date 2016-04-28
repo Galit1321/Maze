@@ -28,8 +28,9 @@ namespace ex2
             InitializeComponent();
             UserControl m = new Maze();
             vm = ViewModel.Instance;
-            vm.Init(new Model(new TCPClient()));
+            //vm.Init(new Model(new TCPClient()));
             DataContext = vm;
+            vm.CreateSingle();
             vm.Open += OpenWin;
         }
 
@@ -64,6 +65,32 @@ namespace ex2
             m = new Maze();
         }
 
-        
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Down)
+            {
+                vm.move(2);
+            }
+            else if (e.Key == Key.Up)
+            {
+                vm.move(1);
+            }
+            else if (e.Key == Key.Left)
+            {
+                vm.move(4);
+            }
+            else if (e.Key == Key.Right)
+            {
+                vm.move(3);
+            }
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+       
     }
 }

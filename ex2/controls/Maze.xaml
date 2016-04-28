@@ -11,12 +11,12 @@
             <SolidColorBrush Color="Aqua">
             </SolidColorBrush>
         </Grid.Background>
-        <Rectangle x:Name="player" Grid.Column="{Binding VM_MyRow}" Grid.Row="{Binding VM_MyRow}">
+        <Rectangle x:Name="player" Grid.Column="{Binding VM_MyCol,UpdateSourceTrigger= PropertyChanged}"  Grid.Row="{Binding VM_MyRow ,UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="runMan.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="end" Grid.Column="{Binding VM_EndRow}" Grid.Row="{Binding VM_EndRow}">
+        <Rectangle x:Name="end" Grid.Column="{Binding VM_EndRow, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_EndRow, UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="endMaze.png"/>
             </Rectangle.Fill>

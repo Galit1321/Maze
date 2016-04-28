@@ -310,8 +310,8 @@ namespace ex2
             this.Coordinate = MyMaze.GetStart();
             EndRow = MyMaze.End.Row;
             EndCol = MyMaze.End.Col;
-            this.MyRow = this.Coordinate.Row;
-            this.MyCol = this.Coordinate.Col;
+            this.MyRow = MyMaze.Start.Row;
+            this.MyCol = MyMaze.Start.Col;
             this.MazeName = MyMaze.Name;
         }
 
@@ -358,37 +358,37 @@ namespace ex2
         /// send that we move in case of an multiplayer game
         /// </summary>
         /// <param name="direction">which arrow key was press</param>
-       public void move(string direction)
+       public void move(int direction)
         {
             char[] maze = this.MazeString.ToCharArray();
             switch (direction)
             {
-                case "up":
-                    if ((MyRow-2>0)&& (maze[this.Coordinate.Row - Width] != '1'))
+                case 1://up
+                    if ((MyRow-2>0)&& (maze[(2*this.Width-2)*this.Coordinate.Row ] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        MyRow-= 2;
+                        this.MyRow = this.MyRow - 2;
                         this.coordinate.Row = MyRow;
                     }
                     break;
-                case "down":
-                    if ((MyRow + 2 > 2*Heigth-1) && (maze[this.Coordinate.Row + Width] != '1'))
+                case 2://down
+                    if ((MyRow + 2 < 2*Heigth-1) && (maze[(2 * this.Width )*this.Coordinate.Row ] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        MyRow += 2;
-                        this.coordinate.Row = MyRow;
+                        this.MyRow =this.MyRow+ 2;
+                        this.Coordinate.Row = MyRow;
                     }
                     break;
-                case "right":
-                    if ((MyCol + 2 >2* Width-1) && (maze[this.Coordinate.Col + 1] != '1'))
+                case 3://right
+                    if ((MyCol + 2 >2* Width-1) && (maze[(2 * this.Width - 1)*this.Coordinate.Col+1 ] != '1'))
                     {
                         Client.SendMsg("play " + direction);
                         MyCol += 2;
                         this.coordinate.Col = MyCol;
                     }
                     break;
-                case "left":
-                    if ((MyCol - 2 >0) && (maze[this.Coordinate.Col - 1] != '1'))
+                case 4://le ft
+                    if ((MyCol - 2 >0) && (maze[(2 * this.Width - 1)*this.Coordinate.Col - 1] != '1'))
                     {
                         Client.SendMsg("play " + direction);
                         MyCol -= 2;

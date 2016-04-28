@@ -45,9 +45,7 @@ namespace ex2
                 return model.MazeString;
             }
           
-        }
-
-        
+        }        
         public string VM_MazeName
         {
             get
@@ -62,11 +60,17 @@ namespace ex2
             }
         }
         private ViewModel() { }
+        int d;
         public int VM_MyRow
         {
             get
             {
                 return model.MyRow;
+            }
+            set
+            {
+                d = value;
+                model.move(d);
             }
         }
        public string VM_YrivMazeString { get
@@ -170,6 +174,9 @@ namespace ex2
                 model.InSession = value;
             }
         }
-       
+       public void move(int d)
+        {
+            model.move(d);
+        }
     }
 }
