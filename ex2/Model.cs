@@ -361,10 +361,11 @@ namespace ex2
        public void move(int direction)
         {
             char[] maze = this.MazeString.ToCharArray();
+            int pos = (2 * this.Width - 1) * (this.Coordinate.Row) + this.Coordinate.Col;//the plae of cor in maze string
             switch (direction)
             {
                 case 1://up
-                    if ((MyRow-2>0)&& (maze[(2*this.Width-2)*this.Coordinate.Row ] != '1'))
+                    if ((MyRow-2>=0)&& (this.MazeString[pos-(2*Width-1) ] != '1'))
                     {
                         Client.SendMsg("play " + direction);
                         this.MyRow = this.MyRow - 2;
@@ -372,7 +373,7 @@ namespace ex2
                     }
                     break;
                 case 2://down
-                    if ((MyRow + 2 < 2*Heigth-1) && (maze[(2 * this.Width )*this.Coordinate.Row ] != '1'))
+                    if ((MyRow + 2 < 2*Heigth-1) && (this.MazeString[pos+(2*Width-1)] != '1'))
                     {
                         Client.SendMsg("play " + direction);
                         this.MyRow =this.MyRow+ 2;
@@ -380,7 +381,7 @@ namespace ex2
                     }
                     break;
                 case 3://right
-                    if ((MyCol + 2 >2* Width-1) && (maze[(2 * this.Width - 1)*this.Coordinate.Col+1 ] != '1'))
+                    if ((MyCol + 2 <2* Width-1) && (this.MazeString[pos+1 ] != '1'))
                     {
                         Client.SendMsg("play " + direction);
                         MyCol += 2;
@@ -388,7 +389,7 @@ namespace ex2
                     }
                     break;
                 case 4://le ft
-                    if ((MyCol - 2 >0) && (maze[(2 * this.Width - 1)*this.Coordinate.Col - 1] != '1'))
+                    if ((MyCol - 2 >=0) && (this.MazeString[pos - 1] != '1'))
                     {
                         Client.SendMsg("play " + direction);
                         MyCol -= 2;

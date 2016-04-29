@@ -45,7 +45,7 @@ namespace ex2.controls
             Order = vm.VM_YrivMazeString;
             init();
         }
-        
+        public void MakeNewMaze(string str) { }
         public void init()
         {
             
