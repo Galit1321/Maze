@@ -29,6 +29,7 @@ namespace ex2
             vm = ViewModel.Instance;
             vm.Init(new Model(new TCPClient()));
             DataContext = vm;
+            Play();
             InitializeComponent();
 
         }
@@ -39,7 +40,7 @@ namespace ex2
             {
                 song = new System.Media.SoundPlayer();
                 string path = System.IO.Path.GetFullPath(".");
-                path += "\\A Thousand years.wav";
+                path += "\\Begin Again.wav";
                 song.SoundLocation = path;
                 song.Load();
                 song.Play();
@@ -53,6 +54,7 @@ namespace ex2
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             soundSettings();
+            song.Stop();
             this.Close();
         }
 
@@ -64,6 +66,7 @@ namespace ex2
             vm.VM_IP = IP.Text;
             vm.VM_Port = Int32.Parse(Port.Text);
             soundSettings();
+            song.Stop();
             this.Close();
         }
 

@@ -174,7 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="A Thousand years.wav" />
-    <Content Include="BeginAgain.wav" />
+    <Content Include="Begin Again.wav" />
     <Content Include="Call Me Maybe.wav" />
     <Resource Include="controls\runMan.png" />
     <Resource Include="controls\endMaze.png" />
