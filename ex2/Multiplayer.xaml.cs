@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ex2.controls;
+using System.Media;
 
 namespace ex2
 {
@@ -21,6 +22,7 @@ namespace ex2
     public partial class Multiplayer : Window
     {
         ViewModel vm;
+        private SoundPlayer song;
         public Multiplayer()
         {
 
@@ -31,8 +33,26 @@ namespace ex2
             UserControl m2 = new Maze(vm.VM_YrivMazeString);
         }
 
+        private void Play()
+        {
+            try
+            {
+                song = new System.Media.SoundPlayer();
+                string path = System.IO.Path.GetFullPath(".");
+                path += "\\A Thousand years.wav";
+                song.SoundLocation = path;
+                song.Load();
+                song.Play();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         private void Window_Closed(object sender, EventArgs e)
         {
+            song.Stop();
             //vm.Disconnect();
         }
     }
