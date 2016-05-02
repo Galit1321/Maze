@@ -31,7 +31,7 @@ namespace ex2
             DataContext = vm;
             Play();
             UserControl m1 = new Maze();
-            UserControl m2 = new Maze();
+            UserControl m2 = new MazeOpponent();
         }
 
         private void Play()
@@ -47,7 +47,7 @@ namespace ex2
             }
             catch (Exception)
             {
-               
+
             }
         }
 

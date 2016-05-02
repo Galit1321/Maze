@@ -54,13 +54,6 @@ namespace ex2.controls
             
         }
         
-        public Maze(string yrivmaze)
-        {
-            InitializeComponent();
-            ViewModel vm = ViewModel.Instance;
-            Order = yrivmaze;
-            init();
-        }
         public void MakeNewMaze(string str) { }
         public void init()
         {

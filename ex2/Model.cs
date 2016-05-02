@@ -277,6 +277,36 @@ namespace ex2
             }
         }
 
+        private int eyr;
+        public int EndYrivRow
+        {
+            get
+            {
+                return eyr;
+            }
+
+            set
+            {
+                eyr = value;
+                NotifyPropertyChanged("EndYrivRow");
+            }
+        }
+
+        private int eyc;
+        public int EndYrivCol
+        {
+            get
+            {
+                return eyc;
+            }
+
+            set
+            {
+                eyc = value;
+                NotifyPropertyChanged("EndYrivCol");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// helper method to the event 
@@ -446,6 +476,8 @@ namespace ex2
             this.Yriv_Cor = YarivMaze.Start;
             this.YrivCol = this.Yriv_Cor.Col;
             this.YrivRow = this.Yriv_Cor.Row;
+            this.EndYrivCol = YarivMaze.End.Col;
+            this.EndYrivRow = YarivMaze.End.Row;
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
             

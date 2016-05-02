@@ -101,6 +101,43 @@ namespace ex2
                 return model.EndCol;
             }
         }
+
+        string VM_YrivMazeName
+        {
+            get
+            {
+                return model.YrivMazeName;
+            }
+        }
+        int VM_YrivRow
+        {
+            get
+            {
+                return model.YrivRow;
+            }
+        }
+        int VM_YrivCol
+        {
+            get
+            {
+               return model.YrivCol;
+            }
+        }
+        int VM_EndYrivRow
+        {
+            get
+            {
+                return model.EndYrivRow;
+            }
+        }
+        int VM_EndYrivCol
+        {
+            get
+            {
+                return model.EndYrivCol;
+            }
+        }
+
         public static ViewModel Instance
         {
             get

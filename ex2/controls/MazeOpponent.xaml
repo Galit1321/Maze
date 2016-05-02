@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="ex2.controls.MazeOpponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ex2.controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="mazeGrid">
+        <Grid.Background>
+            <SolidColorBrush Color="Aqua">
+            </SolidColorBrush>
+        </Grid.Background>
+        <Rectangle x:Name="player" Grid.Column="{Binding VM_YrivCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_YrivRow ,UpdateSourceTrigger=PropertyChanged}" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="runMan.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="end" Grid.Column="{Binding VM_EndCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_EndRow, UpdateSourceTrigger=PropertyChanged}" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="endMaze.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>

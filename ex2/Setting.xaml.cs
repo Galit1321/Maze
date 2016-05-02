@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,18 +23,38 @@ namespace ex2
     {
         ViewModel vm;
         public static event MainWindow.SoundEvent soundSettings;
+        private SoundPlayer song;
         public Setting()
         {
             vm = ViewModel.Instance;
             vm.Init(new Model(new TCPClient()));
+            Play();
             DataContext = vm;
             InitializeComponent();
 
         }
 
+        private void Play()
+        {
+            try
+            {
+                song = new System.Media.SoundPlayer();
+                string path = System.IO.Path.GetFullPath(".");
+                path += "\\Begin Again.wav";
+                song.SoundLocation = path;
+                song.Load();
+                song.Play();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             soundSettings();
+            song.Stop();
             this.Close();
         }
 
@@ -43,6 +64,7 @@ namespace ex2
             vm.VM_IP = IP.Text;
             vm.VM_Port = Int32.Parse(Port.Text);
             soundSettings();
+            song.Stop();
             this.Close();
         }
 

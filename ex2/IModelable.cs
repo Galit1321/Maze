@@ -26,7 +26,9 @@ namespace ex2
         int EndCol { get; set; }
         int YrivRow { get; set; }
         int YrivCol { get; set; }
-           Pair Coordinate { get; set; }
+        int EndYrivRow { get; set; }
+        int EndYrivCol { get; set; }
+        Pair Coordinate { get; set; }
            Pair Yriv_Cor { get; set; }
 
         string MazeName { get; set; }
