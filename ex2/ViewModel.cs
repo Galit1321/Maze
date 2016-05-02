@@ -13,6 +13,7 @@ namespace ex2
         private static ViewModel instance;
         public event OpenMsnWin Open;
         public event ClosenMsnWin Close;
+        
         private List<string> game=new List<string>();
         private IModelable model;
         //proprties here
@@ -25,7 +26,7 @@ namespace ex2
             }
             set
             {
-                
+                model.Port = value;
             }
         }
         public string VM_IP
@@ -36,7 +37,7 @@ namespace ex2
             }
             set
             {
-                
+                model.IP = value; 
             }
         }
         public string VM_MazeString {
@@ -139,12 +140,17 @@ namespace ex2
         {
             model.createMaze();
         }
+
+        public void Connect()
+        {
+            model.connect(VM_IP, VM_Port);
+        }
         public void WaitingInView()
         {
             model.Waiting();
             Close();
-            //Thread t = new Thread(model.start);
-            //t.Start();
+            Thread t = new Thread(model.start);
+            t.Start();
         }
         
          public void CreateGame(string name)
@@ -177,6 +183,14 @@ namespace ex2
        public void move(int d)
         {
             model.move(d);
+            if (VM_Winner)
+            {
+                Open(string.Empty);
+            }
+        }
+        public void RestMaz()
+        {
+            model.RestGame();
         }
     }
 }

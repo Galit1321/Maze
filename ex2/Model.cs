@@ -134,7 +134,7 @@ namespace ex2
             set
             {
                 win = value;
-                if (win==true) WinWin("You Won");
+               
             }
         }
         private bool lost;
@@ -298,6 +298,7 @@ namespace ex2
         /// <summary>
         /// create a maze for player
         /// </summary>
+        private Pair Start;
         public void createMaze()
         {
             Winner = false;
@@ -310,8 +311,11 @@ namespace ex2
             this.Coordinate = MyMaze.GetStart();
             EndRow = MyMaze.End.Row;
             EndCol = MyMaze.End.Col;
-            this.MyRow = MyMaze.Start.Row;
-            this.MyCol = MyMaze.Start.Col;
+            int r= MyMaze.Start.Row;
+            int c = MyMaze.Start.Col;
+            Start = new Pair(r, c);
+            this.MyRow = r;
+            this.MyCol = c;
             this.MazeName = MyMaze.Name;
         }
 
@@ -368,7 +372,8 @@ namespace ex2
                     if ((MyRow-2>=0)&& (this.MazeString[pos-(2*Width-1) ] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        this.MyRow = this.MyRow - 2;
+                        this.MyRow = this.MyRow - 1;
+                        this.MyRow = this.MyRow - 1;
                         this.coordinate.Row = MyRow;
                     }
                     break;
@@ -437,7 +442,6 @@ namespace ex2
             this.Coordinate = MyMaze.Start;
             this.MyCol = this.Coordinate.Col;
             this.MyRow = this.Coordinate.Row;
-            
             this.Yriv_Cor = YarivMaze.Start;
             this.YrivCol = this.Yriv_Cor.Col;
             this.YrivRow = this.Yriv_Cor.Row;
@@ -502,15 +506,18 @@ namespace ex2
             else
             {
                 StartGame(ans);
-                //Thread t = new Thread(start);
-                //t.Start();
+               // Thread t = new Thread(start);
+             //   t.Start();
                 return ans;
             }
            
               
             }
-        
 
-       
+        public void RestGame()
+        {
+            this.MyRow =Start.Row;
+            this.MyCol =Start.Col;
+        }
     }
 }

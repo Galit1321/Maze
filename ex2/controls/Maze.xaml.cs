@@ -23,32 +23,48 @@ namespace ex2.controls
     public partial class Maze : UserControl
     {
         ViewModel vm;
-        public string Order { get; set; }
-      
-        public Maze()
+        string s;
+        public string Order 
+        {
+            get {
+                
+                MakeNewMaze((string)GetValue(OrderProperty));
+                return (string)GetValue(OrderProperty); }
+            set {
+                s = (string)GetValue(OrderProperty);
+                SetValue(OrderProperty, value);
+                   
+            }
+        }
+
+        public static DependencyProperty OrderProperty =
+           DependencyProperty.Register("Order", typeof(string), typeof(Maze));
+    
+
+    public Maze()
         {
             ViewModel vm = ViewModel.Instance;
-            Order = vm.VM_MazeString;
-            this.Initialized += delegate
+            this.Loaded += delegate
             {
                 init();
             };
+           Order = vm.VM_MazeString;
             InitializeComponent();
             
             
         }
-
+        
         public Maze(string yrivmaze)
         {
             InitializeComponent();
             ViewModel vm = ViewModel.Instance;
-            Order = vm.VM_YrivMazeString;
+            Order = yrivmaze;
             init();
         }
         public void MakeNewMaze(string str) { }
         public void init()
         {
-            
+            //Order = vm.VM_MazeString;
             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             int columNum = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             rowsNum = (rowsNum * 2) - 1;
@@ -99,7 +115,27 @@ namespace ex2.controls
                 
             }
         }
-
+        public void NewString(string mazeStr)
+        {
+             int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
+            int columNum = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
+            int x = 0;
+            for (int i = 0; i < rowsNum; i++)
+            {
+                for (int j = 0; j < columNum; j++)
+                {
+                    Rectangle r = new Rectangle();
+                    if (mazeStr[x] == '1')
+                    {
+                        r.Fill = new SolidColorBrush(Color.FromRgb(0, 10, 1));
+                        Grid.SetRow(r, i);
+                        Grid.SetColumn(r, j);
+                        mazeGrid.Children.Add(r);
+                    }
+                    x++;
+                }
+            }
+        }
         
     }
 }

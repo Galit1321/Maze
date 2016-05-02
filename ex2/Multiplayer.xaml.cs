@@ -53,7 +53,7 @@ namespace ex2
         private void Window_Closed(object sender, EventArgs e)
         {
             song.Stop();
-            //vm.Disconnect();
+            
         }
     }
 }

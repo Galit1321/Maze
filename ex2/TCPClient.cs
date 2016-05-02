@@ -53,14 +53,12 @@ namespace ex2
         public string ReceviveMsg()
         {
 
-            byte[] data = new byte[1024];
+            byte[] data = new byte[5000];
             int recv = Sock.Receive(data);
             return Encoding.ASCII.GetString(data, 0, recv);
         }
         /// <summary>
-        /// while run is true meaning that
-        /// we didn't get "close" from the server
-        /// meanig that we send a close of a game we play
+        /// send a messge to server
         /// </summary>
         public void SendMsg(string msn)
         {

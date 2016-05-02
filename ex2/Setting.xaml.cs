@@ -23,7 +23,6 @@ namespace ex2
     {
         ViewModel vm;
         public static event MainWindow.SoundEvent soundSettings;
-        private SoundPlayer song;
         public Setting()
         {
             vm = ViewModel.Instance;
@@ -61,8 +60,6 @@ namespace ex2
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             ViewModel vm = ViewModel.Instance;
-            vm.NotifyPropertyChanged("VM_IP");
-            vm.NotifyPropertyChanged("VM_Port");
             vm.VM_IP = IP.Text;
             vm.VM_Port = Int32.Parse(Port.Text);
             soundSettings();

@@ -1,0 +1,32 @@
+﻿<Window x:Class="ex2.Wining"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ex2"
+        mc:Ignorable="d"
+        Title="Wining" Height="300" Width="300">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="ImageButton">
+            <Image Source="winning.jpg" x:Name="image" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <TextBlock Name="txtBox" Text="You Won this Round" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black"  Opacity="0.5"  BlurRadius="4"/>
+                </TextBlock.Effect>
+        </TextBlock>
+        <Button Template="{StaticResource ImageButton}"  >
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard AutoReverse="True" RepeatBehavior="5" >
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.5" To="1" Duration="0:0:01.00"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+    </Grid>
+</Window>
