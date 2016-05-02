@@ -37,7 +37,7 @@ namespace ex2
         ~Model()
         {
             stop = true;
-            //Client.disconnect();
+           
         }
         private string ip;
         public string IP
@@ -326,6 +326,7 @@ namespace ex2
         {
             this.Client.Connect(IP, Port);
         }
+        Random rnd = new Random();
         /// <summary>
         /// create a maze for player
         /// </summary>
@@ -402,16 +403,16 @@ namespace ex2
                 case 1://up
                     if ((MyRow-2>=0)&& (this.MazeString[pos-(2*Width-1) ] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play up");
                         this.MyRow = this.MyRow - 1;
                         this.MyRow = this.MyRow - 1;
-                        this.coordinate.Row = MyRow;
+                        this.Coordinate.Row = MyRow;
                     }
                     break;
                 case 2://down
                     if ((MyRow + 2 < 2*Heigth-1) && (this.MazeString[pos+(2*Width-1)] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play down" );
                         this.MyRow =this.MyRow+ 2;
                         this.Coordinate.Row = MyRow;
                     }
@@ -419,17 +420,17 @@ namespace ex2
                 case 3://right
                     if ((MyCol + 2 <2* Width-1) && (this.MazeString[pos+1 ] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play right");
                         MyCol += 2;
-                        this.coordinate.Col = MyCol;
+                        this.Coordinate.Col = MyCol;
                     }
                     break;
                 case 4://le ft
                     if ((MyCol - 2 >=0) && (this.MazeString[pos - 1] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play left");
                         MyCol -= 2;
-                        this.coordinate.Col = MyCol;
+                        this.Coordinate.Col = MyCol;
                     }
                     break;
             }
@@ -458,21 +459,26 @@ namespace ex2
             {
                 string msn = "";
                 msn = Client.ReceviveMsg();
-                Play m = JsonConvert.DeserializeObject<Play>(msn);
+                ConvertFromJson ser = new ConvertFromJson(msn);
+                Play m = ser.ConvertPlay();
                 string d = m.Move;
                 moveYriv(d);
 
             }
         }
+        private string gamename;
         public void StartGame(string ans)
         {
             ConvertFromJson ser = new ConvertFromJson(ans);
             Game g = ser.ConvertStartGame();
+            gamename = g.Name;
             MyMaze = g.You;
             YarivMaze = g.Other;
             this.Coordinate = MyMaze.Start;
             this.MyCol = this.Coordinate.Col;
             this.MyRow = this.Coordinate.Row;
+            this.EndCol = MyMaze.End.Col;
+            this.EndRow = MyMaze.End.Row;
             this.Yriv_Cor = YarivMaze.Start;
             this.YrivCol = this.Yriv_Cor.Col;
             this.YrivRow = this.Yriv_Cor.Row;
@@ -484,41 +490,46 @@ namespace ex2
         }
         private void moveYriv(string d)
         {
-            char[] maze = this.YrivMazeString.ToCharArray();
+            int pos = (2 * this.Width - 1) * (this.Yriv_Cor.Row) + this.Yriv_Cor.Col;//the plae of cor in maze string
             switch (d)
             {
-                case "up":
-                    if ((YrivRow - 2 > 0) && (maze[this.Coordinate.Row - Width] != '1'))
+                case "up"://up
+                    if ((this.YrivRow - 2 >= 0) && (this.YrivMazeString[pos - (2 * Width - 1)] != '1'))
                     {
-                        Client.SendMsg("play " + d);
-                        YrivRow -= 2;
+                       
+                        this.YrivRow = this.YrivRow - 1;
+                        this.YrivRow = this.YrivRow - 1;
+                        this.Yriv_Cor.Row = this.YrivRow;
                     }
                     break;
-                case "down":
-                    if ((MyRow + 2 > 2 * Heigth - 1) && (maze[this.Coordinate.Row + Width] != '1'))
+                case "down"://down
+                    if ((this.YrivRow + 2 < 2 * Heigth - 1) && (this.YrivMazeString[pos + (2 * Width - 1)] != '1'))
                     {
-                        Client.SendMsg("play " + d);
-                        YrivRow += 2;
+
+                        this.YrivRow = this.YrivRow + 2;
+                         this.Yriv_Cor.Row = this.YrivRow;
                     }
                     break;
-                case "right":
-                    if ((YrivCol + 2 > 2 * Width - 1) && (maze[this.Coordinate.Col + 1] != '1'))
+                case "right"://right
+                    if ((YrivCol + 2 < 2 * Width - 1) && (this.YrivMazeString[pos + 1] != '1'))
                     {
-                        Client.SendMsg("play " + d);
-                       YrivCol += 2;
+
+                        YrivCol += 2;
+                        this.Yriv_Cor.Col = YrivCol;
                     }
                     break;
-                case "left":
-                    if ((YrivCol - 2 > 0) && (maze[this.Coordinate.Col - 1] != '1'))
+                case "left"://le ft
+                    if ((YrivCol - 2 >= 0) && (this.YrivMazeString[pos - 1] != '1'))
                     {
-                        Client.SendMsg("play " + d);
+
                         YrivCol -= 2;
+                        this.Yriv_Cor.Col = YrivCol;
                     }
                     break;
             }
         }
 
-        private Random rnd = new Random();
+       
         /// <summary>
         /// create new game 
         /// </summary>
@@ -539,8 +550,8 @@ namespace ex2
             else
             {
                 StartGame(ans);
-               // Thread t = new Thread(start);
-             //   t.Start();
+                Thread t = new Thread(start);
+                t.Start();
                 return ans;
             }
            
@@ -555,7 +566,8 @@ namespace ex2
         }
         public void closeGame()
         {
-            stop = true;
+            stop = true;//close thread of reciving msn from server 
+            this.Client.SendMsg("close " + gamename);
         }
     }
 }

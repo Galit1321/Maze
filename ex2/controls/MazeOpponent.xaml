@@ -11,12 +11,12 @@
             <SolidColorBrush Color="HotPink">
             </SolidColorBrush>
         </Grid.Background>
-        <Rectangle x:Name="player" Grid.Column="{Binding VM_YrivCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_YrivRow ,UpdateSourceTrigger=PropertyChanged}" >
+        <Rectangle x:Name="YrivPlayer" Grid.Column="{Binding VM_YrivCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_YrivRow ,UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="runMan.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="end" Grid.Column="{Binding VM_EndCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_EndRow, UpdateSourceTrigger=PropertyChanged}" >
+        <Rectangle x:Name="Yrivend" Grid.Column="{Binding VM_EndYrivCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_EndYrivRow, UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="endMaze.png"/>
             </Rectangle.Fill>
