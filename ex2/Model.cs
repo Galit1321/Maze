@@ -36,7 +36,8 @@ namespace ex2
         }
         ~Model()
         {
-            stop = false;
+            stop = true;
+            //Client.disconnect();
         }
         private string ip;
         public string IP
@@ -518,6 +519,11 @@ namespace ex2
         {
             this.MyRow =Start.Row;
             this.MyCol =Start.Col;
+            this.Coordinate = new Pair(MyRow, MyCol);
+        }
+        public void closeGame()
+        {
+            stop = true;
         }
     }
 }

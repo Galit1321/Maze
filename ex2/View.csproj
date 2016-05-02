@@ -185,6 +185,11 @@
     <Content Include="Call Me Maybe.wav" />
     <Resource Include="controls\runMan.png" />
     <Resource Include="controls\endMaze.png" />
+    <None Include="Resources\A Thousand years.wav" />
+    <None Include="Resources\BeginAgain.wav" />
+    <None Include="Resources\Call Me Maybe.wav" />
+    <None Include="Resources\Titanium - Pavane %28Piano-Cello Cover%29 - David Guetta - Faure - ThePianoGuys %28online-audio-converter.com%29.wav" />
+    <None Include="Resources\Without You.wav" />
     <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="winning.jpg" />

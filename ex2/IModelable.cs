@@ -41,6 +41,7 @@ namespace ex2
         void StartGame(string ans);
         void Waiting();
         void RestGame();
+        void closeGame();
 
     }
 }

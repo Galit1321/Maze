@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:View"
        xmlns:Controls="clr-namespace:ex2.controls"
         mc:Ignorable="d"
-        Title="SingelGame" Height="412" Width="469"  KeyDown="Window_KeyDown"  >
+        Title="SingelGame" Height="412" Width="469"  KeyDown="Window_KeyDown" Closed="Window_Closed"  >
     <Grid Name="grid" Margin="0,2,0,-2" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="230*"/>

@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:ex2.controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid x:Name="mazeGrid">
+    <Grid x:Name="mazeGrid" >
         <Grid.Background>
             <SolidColorBrush Color="Aqua">
             </SolidColorBrush>
         </Grid.Background>
-        <Rectangle x:Name="player" Grid.Column="{Binding VM_MyCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_MyRow ,UpdateSourceTrigger=PropertyChanged}" >
+        <Rectangle x:Name="player"  Grid.Column="{Binding VM_MyCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_MyRow ,UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="runMan.png"/>
             </Rectangle.Fill>

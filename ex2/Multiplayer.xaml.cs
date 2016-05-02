@@ -29,8 +29,9 @@ namespace ex2
             InitializeComponent();
             vm = ViewModel.Instance;
             DataContext = vm;
+            Play();
             UserControl m1 = new Maze();
-            UserControl m2 = new Maze(vm.VM_YrivMazeString);
+            UserControl m2 = new Maze();
         }
 
         private void Play()
@@ -46,14 +47,14 @@ namespace ex2
             }
             catch (Exception)
             {
-
+               
             }
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             song.Stop();
-            
+           vm.closeGame();
         }
     }
 }

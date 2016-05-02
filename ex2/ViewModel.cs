@@ -192,5 +192,9 @@ namespace ex2
         {
             model.RestGame();
         }
+        public void closeGame()
+        {
+            model.closeGame();
+        }
     }
 }
