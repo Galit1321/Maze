@@ -477,6 +477,8 @@ namespace ex2
             this.Coordinate = MyMaze.Start;
             this.MyCol = this.Coordinate.Col;
             this.MyRow = this.Coordinate.Row;
+            this.EndCol = MyMaze.End.Col;
+            this.EndRow = MyMaze.End.Row;
             this.Yriv_Cor = YarivMaze.Start;
             this.YrivCol = this.Yriv_Cor.Col;
             this.YrivRow = this.Yriv_Cor.Row;
@@ -548,6 +550,8 @@ namespace ex2
             else
             {
                 StartGame(ans);
+                Thread t = new Thread(start);
+                t.Start();
                 return ans;
             }
            
