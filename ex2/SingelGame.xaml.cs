@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ex2.controls;
+using System.Media;
+using System.IO;
 
 namespace ex2
 {
@@ -22,6 +24,7 @@ namespace ex2
     {
         public ViewModel vm;
         UserControl m;
+        private SoundPlayer song;
         public static event MainWindow.SoundEvent soundMain;
         public SingelGame()
         {
@@ -31,11 +34,27 @@ namespace ex2
             
             //vm.Init(new Model(new TCPClient()));
             DataContext = vm;
-  
+            //    vm.CreateSingle();
+            Play();
             vm.Open += OpenWin;
         }
 
+        private void Play()
+        {
+            try
+            {
+                song = new System.Media.SoundPlayer();
+                string path = System.IO.Path.GetFullPath(".");
+                path += "\\Call Me Maybe.wav";
+                song.SoundLocation = path;
+                song.Load();
+                song.Play();
+            }
+            catch (Exception)
+            {
         
+            }
+        }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -43,6 +62,7 @@ namespace ex2
             if (result == MessageBoxResult.Yes)
             {
                 vm.Open -= OpenWin;
+                song.Stop();
                 Close();
                 
             }

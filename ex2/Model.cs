@@ -134,7 +134,7 @@ namespace ex2
             set
             {
                 win = value;
-                if (win==true) WinWin("You Won");
+               
             }
         }
         private bool lost;

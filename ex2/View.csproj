@@ -181,12 +181,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="A Thousand years.wav" />
-    <Content Include="BeginAgain.wav" />
+    <Content Include="Begin Again.wav" />
     <Content Include="Call Me Maybe.wav" />
     <Resource Include="controls\runMan.png" />
     <Resource Include="controls\endMaze.png" />
-    <Content Include="Titanium - Pavane %28Piano-Cello Cover%29 - David Guetta - Faure - ThePianoGuys %28online-audio-converter.com%29.wav" />
+    <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
+    <Resource Include="winning.jpg" />
     <Content Include="Without You.wav" />
     <Resource Include="GameMenu.jpg" />
   </ItemGroup>
