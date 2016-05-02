@@ -298,6 +298,7 @@ namespace ex2
         /// <summary>
         /// create a maze for player
         /// </summary>
+        private Pair Start;
         public void createMaze()
         {
             Winner = false;
@@ -310,8 +311,11 @@ namespace ex2
             this.Coordinate = MyMaze.GetStart();
             EndRow = MyMaze.End.Row;
             EndCol = MyMaze.End.Col;
-            this.MyRow = MyMaze.Start.Row;
-            this.MyCol = MyMaze.Start.Col;
+            int r= MyMaze.Start.Row;
+            int c = MyMaze.Start.Col;
+            Start = new Pair(r, c);
+            this.MyRow = r;
+            this.MyCol = c;
             this.MazeName = MyMaze.Name;
         }
 
@@ -509,8 +513,11 @@ namespace ex2
            
               
             }
-        
 
-       
+        public void RestGame()
+        {
+            this.MyRow =Start.Row;
+            this.MyCol =Start.Col;
+        }
     }
 }

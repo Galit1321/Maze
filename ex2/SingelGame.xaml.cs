@@ -81,8 +81,7 @@ namespace ex2
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            vm.CreateSingle();//create new maze 
-            m.RaiseEvent(new RoutedEventArgs(FrameworkElement.LoadedEvent));
+            vm.RestMaz();
         }
 
 

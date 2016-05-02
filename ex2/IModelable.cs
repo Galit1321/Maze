@@ -40,6 +40,7 @@ namespace ex2
             string CreateGame(string name);
         void StartGame(string ans);
         void Waiting();
+        void RestGame();
 
     }
 }

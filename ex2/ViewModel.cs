@@ -188,5 +188,9 @@ namespace ex2
                 Open(string.Empty);
             }
         }
+        public void RestMaz()
+        {
+            model.RestGame();
+        }
     }
 }
