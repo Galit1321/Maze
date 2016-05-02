@@ -13,7 +13,6 @@ namespace ex2
         public Pair Start;
         public Pair End;
         public string Name;
-
         public string Maze;
 
         public SingleMaze(Pair start, Pair end, string maze)

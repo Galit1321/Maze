@@ -26,11 +26,12 @@ namespace ex2
         public SingelGame()
         {
             InitializeComponent();
-            UserControl m = new Maze();
+            m = new Maze();
             vm = ViewModel.Instance;
+            
             //vm.Init(new Model(new TCPClient()));
             DataContext = vm;
-        //    vm.CreateSingle();
+  
             vm.Open += OpenWin;
         }
 
@@ -59,10 +60,8 @@ namespace ex2
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-           
-           
             vm.CreateSingle();//create new maze 
-            m = new Maze();
+            m.RaiseEvent(new RoutedEventArgs(FrameworkElement.LoadedEvent));
         }
 
 
@@ -84,11 +83,6 @@ namespace ex2
             {
                 vm.move(3);
             }
-        }
-
-        private void Window_KeyUp(object sender, KeyEventArgs e)
-        {
-            
         }
 
        

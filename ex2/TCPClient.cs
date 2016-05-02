@@ -58,9 +58,7 @@ namespace ex2
             return Encoding.ASCII.GetString(data, 0, recv);
         }
         /// <summary>
-        /// while run is true meaning that
-        /// we didn't get "close" from the server
-        /// meanig that we send a close of a game we play
+        /// send a messge to server
         /// </summary>
         public void SendMsg(string msn)
         {

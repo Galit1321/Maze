@@ -368,7 +368,8 @@ namespace ex2
                     if ((MyRow-2>=0)&& (this.MazeString[pos-(2*Width-1) ] != '1'))
                     {
                         Client.SendMsg("play " + direction);
-                        this.MyRow = this.MyRow - 2;
+                        this.MyRow = this.MyRow - 1;
+                        this.MyRow = this.MyRow - 1;
                         this.coordinate.Row = MyRow;
                     }
                     break;
@@ -437,7 +438,6 @@ namespace ex2
             this.Coordinate = MyMaze.Start;
             this.MyCol = this.Coordinate.Col;
             this.MyRow = this.Coordinate.Row;
-            
             this.Yriv_Cor = YarivMaze.Start;
             this.YrivCol = this.Yriv_Cor.Col;
             this.YrivRow = this.Yriv_Cor.Row;
@@ -502,8 +502,8 @@ namespace ex2
             else
             {
                 StartGame(ans);
-                //Thread t = new Thread(start);
-                //t.Start();
+               // Thread t = new Thread(start);
+             //   t.Start();
                 return ans;
             }
            

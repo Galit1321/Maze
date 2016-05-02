@@ -139,12 +139,17 @@ namespace ex2
         {
             model.createMaze();
         }
+
+        public void Connect()
+        {
+            model.connect(VM_IP, VM_Port);
+        }
         public void WaitingInView()
         {
             model.Waiting();
             Close();
-            //Thread t = new Thread(model.start);
-            //t.Start();
+            Thread t = new Thread(model.start);
+            t.Start();
         }
         
          public void CreateGame(string name)
