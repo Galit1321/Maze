@@ -31,10 +31,7 @@ namespace ex2
             InitializeComponent();
             m = new Maze();
             vm = ViewModel.Instance;
-            
-            //vm.Init(new Model(new TCPClient()));
             DataContext = vm;
-            //    vm.CreateSingle();
             Play();
             vm.Open += OpenWin;
         }
