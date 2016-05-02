@@ -53,7 +53,7 @@ namespace ex2
         public string ReceviveMsg()
         {
 
-            byte[] data = new byte[1024];
+            byte[] data = new byte[5000];
             int recv = Sock.Receive(data);
             return Encoding.ASCII.GetString(data, 0, recv);
         }

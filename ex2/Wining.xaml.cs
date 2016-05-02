@@ -24,9 +24,6 @@ namespace ex2
             InitializeComponent();
         }
 
-        private void Button_Initialized(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

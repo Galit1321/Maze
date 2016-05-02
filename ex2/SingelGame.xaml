@@ -37,7 +37,7 @@
             </Button.Background>
         </Button>
         <Button x:Name="Back" Content="Back" Grid.Row="0" HorizontalAlignment="Right" Margin="0,21,189,0" Width="75" Click="Back_Click" Grid.ColumnSpan="2"/>
-        <Controls:Maze Order="{Binding VM_MazeString ,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"  HorizontalAlignment="Center" Height="194" Margin="0,0,0,-177" Grid.Row="1" VerticalAlignment="Center" Width="245"  />
+        <Controls:Maze   Order="{Binding VM_MazeString ,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3"  HorizontalAlignment="Center" Height="300" Margin="10,10,10,-270" Grid.Row="1" VerticalAlignment="Center" Width="400"  />
 
     </Grid>
 </Window>
