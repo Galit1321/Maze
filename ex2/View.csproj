@@ -69,6 +69,9 @@
     <Compile Include="controls\Maze.xaml.cs">
       <DependentUpon>Maze.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\MazeOpponent.xaml.cs">
+      <DependentUpon>MazeOpponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConvertFromJson.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameMenu.xaml.cs">
@@ -98,6 +101,10 @@
       <DependentUpon>Wining.xaml</DependentUpon>
     </Compile>
     <Page Include="controls\Maze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\MazeOpponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,6 +23,7 @@ namespace ex2
     {
         ViewModel vm;
         public static event MainWindow.SoundEvent soundSettings;
+        private SoundPlayer song;
         public Setting()
         {
             vm = ViewModel.Instance;

@@ -30,7 +30,7 @@ namespace ex2
             vm = ViewModel.Instance;
             DataContext = vm;
             UserControl m1 = new Maze();
-            UserControl m2 = new Maze(vm.VM_YrivMazeString);
+            UserControl m2 = new MazeOpponent();
         }
 
         private void Play()
