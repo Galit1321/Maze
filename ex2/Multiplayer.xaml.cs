@@ -63,7 +63,7 @@ namespace ex2
             MessageBoxResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                //vm.Open -= OpenWin;
+                
                 song.Stop();
                 Close();
 
@@ -77,6 +77,46 @@ namespace ex2
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
             vm.RestMaz();
+        }
+
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Down)
+            {
+                vm.move(2);
+            }
+            else if (e.Key == Key.Up)
+            {
+                vm.move(1);
+            }
+            else if (e.Key == Key.Left)
+            {
+                vm.move(4);
+            }
+            else if (e.Key == Key.Right)
+            {
+                vm.move(3);
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Down)
+            {
+                vm.move(2);
+            }
+            else if (e.Key == Key.Up)
+            {
+                vm.move(1);
+            }
+            else if (e.Key == Key.Left)
+            {
+                vm.move(4);
+            }
+            else if (e.Key == Key.Right)
+            {
+                vm.move(3);
+            }
         }
     }
 }
