@@ -11,7 +11,7 @@
             <SolidColorBrush Color="HotPink">
             </SolidColorBrush>
         </Grid.Background>
-        <Rectangle x:Name="player" Grid.Column="{Binding VM_YrivCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_YrivRow ,UpdateSourceTrigger=PropertyChanged}" >
+        <Rectangle x:Name="YrivPlayer" Grid.Column="{Binding VM_YrivCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_YrivRow ,UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="runMan.png"/>
             </Rectangle.Fill>
