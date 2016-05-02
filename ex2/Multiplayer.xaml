@@ -29,5 +29,8 @@
         <Button x:Name="Back" Content="Back" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="top" Margin="0,23,206,322" Width="75" Height="25" Click="Back_Click"/>
         <Controls:Maze  Height="300" Width="250" Margin="0,60,241,0"/>
         <Controls:MazeOpponent Height="300" Width="250" Margin="265,70,0,0"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="stam.jpg"/>
+        </Grid.Background>
     </Grid>
 </Window>

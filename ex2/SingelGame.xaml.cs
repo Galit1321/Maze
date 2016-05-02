@@ -60,6 +60,7 @@ namespace ex2
             {
                 vm.Open -= OpenWin;
                 song.Stop();
+                soundMain();
                 Close();
                 
             }

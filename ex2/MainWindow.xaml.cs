@@ -35,6 +35,7 @@ namespace ex2
             Play();
             SingelGame.soundMain += Play;
             ex2.Setting.soundSettings += Play;
+            Multiplayer.soundMulti += Play;
         }
 
         private void Play()

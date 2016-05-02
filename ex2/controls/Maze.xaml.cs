@@ -83,7 +83,7 @@ namespace ex2.controls
                     Rectangle r = new Rectangle();
                     if (mazeStr[x] == '1')
                     {
-                        r.Fill = new SolidColorBrush(Color.FromRgb(0, 10, 1));
+                        r.Fill = new SolidColorBrush(Color.FromRgb(255, 20, 147));
                     Grid.SetRow(r, i);
                     Grid.SetColumn(r, j);
                     mazeGrid.Children.Add(r);

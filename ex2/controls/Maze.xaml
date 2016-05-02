@@ -8,17 +8,16 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid x:Name="mazeGrid">
         <Grid.Background>
-            <SolidColorBrush Color="Aqua">
-            </SolidColorBrush>
+            <ImageBrush ImageSource="hupa3.jpg"/>
         </Grid.Background>
         <Rectangle x:Name="player"  Grid.Column="{Binding VM_MyCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_MyRow ,UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="runMan.png"/>
+                <ImageBrush ImageSource="groom2.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle x:Name="end" Grid.Column="{Binding VM_EndCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_EndRow, UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="endMaze.png"/>
+                <ImageBrush ImageSource="bride.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
     </Grid>
