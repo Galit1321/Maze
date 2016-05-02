@@ -403,7 +403,7 @@ namespace ex2
                 case 1://up
                     if ((MyRow-2>=0)&& (this.MazeString[pos-(2*Width-1) ] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play up");
                         this.MyRow = this.MyRow - 1;
                         this.MyRow = this.MyRow - 1;
                         this.Coordinate.Row = MyRow;
@@ -412,7 +412,7 @@ namespace ex2
                 case 2://down
                     if ((MyRow + 2 < 2*Heigth-1) && (this.MazeString[pos+(2*Width-1)] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play down" );
                         this.MyRow =this.MyRow+ 2;
                         this.Coordinate.Row = MyRow;
                     }
@@ -420,7 +420,7 @@ namespace ex2
                 case 3://right
                     if ((MyCol + 2 <2* Width-1) && (this.MazeString[pos+1 ] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play right");
                         MyCol += 2;
                         this.Coordinate.Col = MyCol;
                     }
@@ -428,7 +428,7 @@ namespace ex2
                 case 4://le ft
                     if ((MyCol - 2 >=0) && (this.MazeString[pos - 1] != '1'))
                     {
-                        Client.SendMsg("play " + direction);
+                        Client.SendMsg("play left");
                         MyCol -= 2;
                         this.Coordinate.Col = MyCol;
                     }
@@ -488,35 +488,40 @@ namespace ex2
         }
         private void moveYriv(string d)
         {
-            char[] maze = this.YrivMazeString.ToCharArray();
+            int pos = (2 * this.Width - 1) * (this.Yriv_Cor.Row) + this.Yriv_Cor.Col;//the plae of cor in maze string
             switch (d)
             {
-                case "up":
-                    if ((YrivRow - 2 > 0) && (maze[this.Coordinate.Row - Width] != '1'))
+                case "up"://up
+                    if ((this.YrivRow - 2 >= 0) && (this.YrivMazeString[pos - (2 * Width - 1)] != '1'))
                     {
-                        Client.SendMsg("play " + d);
-                        YrivRow -= 2;
+                       
+                        this.YrivRow = this.YrivRow - 1;
+                        this.YrivRow = this.YrivRow - 1;
+                        this.Yriv_Cor.Row = this.YrivRow;
                     }
                     break;
-                case "down":
-                    if ((MyRow + 2 > 2 * Heigth - 1) && (maze[this.Coordinate.Row + Width] != '1'))
+                case "down"://down
+                    if ((this.YrivRow + 2 < 2 * Heigth - 1) && (this.YrivMazeString[pos + (2 * Width - 1)] != '1'))
                     {
-                        Client.SendMsg("play " + d);
-                        YrivRow += 2;
+
+                        this.YrivRow = this.YrivRow + 2;
+                         this.Yriv_Cor.Row = this.YrivRow;
                     }
                     break;
-                case "right":
-                    if ((YrivCol + 2 > 2 * Width - 1) && (maze[this.Coordinate.Col + 1] != '1'))
+                case "right"://right
+                    if ((YrivCol + 2 < 2 * Width - 1) && (this.YrivMazeString[pos + 1] != '1'))
                     {
-                        Client.SendMsg("play " + d);
-                       YrivCol += 2;
+
+                        YrivCol += 2;
+                        this.Yriv_Cor.Col = YrivCol;
                     }
                     break;
-                case "left":
-                    if ((YrivCol - 2 > 0) && (maze[this.Coordinate.Col - 1] != '1'))
+                case "left"://le ft
+                    if ((YrivCol - 2 >= 0) && (this.YrivMazeString[pos - 1] != '1'))
                     {
-                        Client.SendMsg("play " + d);
+
                         YrivCol -= 2;
+                        this.Yriv_Cor.Col = YrivCol;
                     }
                     break;
             }
