@@ -8,17 +8,20 @@
        xmlns:Controls="clr-namespace:ex2.controls"
         mc:Ignorable="d"
         Title="SingelGame" Height="412" Width="469"  KeyDown="Window_KeyDown" Closed="Window_Closed"  >
-    <Grid Name="grid" Margin="0,2,0,-2" >
+    <Grid Name="grid" Margin="10,2,0,7" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230*"/>
-            <ColumnDefinition Width="189*" />
-            <ColumnDefinition Width="42*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="151*"/>
+            <RowDefinition Height="0*"/>
+
         </Grid.RowDefinitions>
-        <Button x:Name="Reset" Content="ResetMaze" Click="Reset_Click" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Height="20" Width="75">
+        <Button x:Name="Reset" Content="ResetMaze" Click="Reset_Click" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Height="20" Width="75">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Azure" Offset="0.2"/>
@@ -27,7 +30,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Name="Clue" TextBlock.FontFamily="Rockwell" TextBlock.Foreground="Black" Grid.Row="0"  Content="Get Clue" Grid.Column="0" HorizontalAlignment="Left" Margin="29,20,0,0" VerticalAlignment="Top" Height="20" Width="75" Click="Clue_Click">
+        <Button Name="Clue" TextBlock.FontFamily="Rockwell" TextBlock.Foreground="Black" Grid.Row="1"  Content="Get Clue" Grid.Column="0" HorizontalAlignment="Left" Margin="29,15,0,0" VerticalAlignment="Top" Height="20" Width="75" Click="Clue_Click" Grid.ColumnSpan="2">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Transparent" Offset="0.2"/>
@@ -36,8 +39,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="Back" Content="Back" Grid.Row="0" HorizontalAlignment="Right" Margin="0,21,189,0" Width="75" Click="Back_Click" Grid.ColumnSpan="2"/>
-        <Controls:Maze   Order="{Binding VM_MazeString ,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3"  HorizontalAlignment="Center" Height="300" Margin="10,10,10,-270" Grid.Row="1" VerticalAlignment="Center" Width="400"  />
+        <Button x:Name="Back" Content="Back" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,18,196,27" Width="75" Click="Back_Click"/>
+        <Controls:Maze Order="{Binding VM_MazeString ,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5,10,37"/>
 
     </Grid>
 </Window>

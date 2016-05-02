@@ -44,6 +44,7 @@ namespace ex2
                 song.SoundLocation = path;
                 song.Load();
                 song.Play();
+                song.PlayLooping();
             }
             catch (Exception)
             {
@@ -55,6 +56,27 @@ namespace ex2
         {
             song.Stop();
            vm.closeGame();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                //vm.Open -= OpenWin;
+                song.Stop();
+                Close();
+
+            }
+        }
+        private void Clue_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            vm.RestMaz();
         }
     }
 }
