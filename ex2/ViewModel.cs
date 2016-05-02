@@ -71,7 +71,7 @@ namespace ex2
             set
             {
                 d = value;
-                model.move(d);
+               // model.move(d, model.MyRow,mode);
             }
         }
        public string VM_YrivMazeString { get
@@ -125,6 +125,7 @@ namespace ex2
         }
         int VM_EndYrivRow
         {
+
             get
             {
                 return model.EndYrivRow;

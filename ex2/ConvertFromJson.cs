@@ -72,5 +72,11 @@ namespace ex2
             Game g = new Game(name, mazename, u, other);
             return g;
         }
+        public Play ConvertPlay()
+        {
+            string name=this.Serlize["Name"];
+            string move = this.Serlize["Move"];
+           return new Play(name, move);
+        }
     }
 }

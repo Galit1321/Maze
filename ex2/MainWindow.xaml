@@ -16,7 +16,7 @@
             <ImageBrush ImageSource="mazeball.png"/>
         </Grid.Background>
 
-        <Button x:Name="SinglePlayer"   Content="SinglePlayer" HorizontalAlignment="Center" VerticalAlignment="Center" Margin='10,136,21,146'  Width="90" Height="36" Click="SinglePlayer_Click" >
+        <Button x:Name="SinglePlayer"   Content="SinglePlayer" HorizontalAlignment="Center" VerticalAlignment="Center" Margin='0,88,148,194'  Width="100" Height="36" Click="SinglePlayer_Click" Grid.Column="1" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF8D3122" Offset="0.2"/>
@@ -25,7 +25,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="multiButton" VerticalAlignment="Center" Content="MultiPlayer" HorizontalAlignment="Left" Margin="6,136,0,146"  Width="100" Height="36" RenderTransformOrigin="0.929,0.553" Grid.Column="1" Click="multiButton_Click">
+        <Button x:Name="multiButton" VerticalAlignment="Center" Content="MultiPlayer" HorizontalAlignment="Center" Margin="0,149,148,133"  Width="100" Height="36" RenderTransformOrigin="0.929,0.553" Grid.Column="1" Click="multiButton_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFD190" Offset="0.2"/>
@@ -34,7 +34,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="Setting" VerticalAlignment="Center" Content="Setting"  HorizontalAlignment="Center" Margin="128,136,10,146"  Width="110" RenderTransformOrigin="-0.257,-0.108" Height="36" Grid.Column="1" Click="Setting_Click"/>
+        <Button x:Name="Setting" VerticalAlignment="Center" Content="Setting"  HorizontalAlignment="Center" Margin="0,208,148,74"  Width="100" RenderTransformOrigin="-0.257,-0.108" Height="36" Grid.Column="1" Click="Setting_Click"/>
         <Label x:Name="label" Content="Hello" HorizontalAlignment="Center" Margin="10,33,132,0" VerticalAlignment="Top" Width="106" TextBlock.TextAlignment="Center" TextBlock.FontSize="30" Height="50" Grid.Column="1"/>
     </Grid>
 </Window>

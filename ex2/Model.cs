@@ -37,7 +37,7 @@ namespace ex2
         ~Model()
         {
             stop = true;
-            //Client.disconnect();
+           
         }
         private string ip;
         public string IP
@@ -326,6 +326,7 @@ namespace ex2
         {
             this.Client.Connect(IP, Port);
         }
+        Random rnd = new Random();
         /// <summary>
         /// create a maze for player
         /// </summary>
@@ -405,7 +406,7 @@ namespace ex2
                         Client.SendMsg("play " + direction);
                         this.MyRow = this.MyRow - 1;
                         this.MyRow = this.MyRow - 1;
-                        this.coordinate.Row = MyRow;
+                        this.Coordinate.Row = MyRow;
                     }
                     break;
                 case 2://down
@@ -421,7 +422,7 @@ namespace ex2
                     {
                         Client.SendMsg("play " + direction);
                         MyCol += 2;
-                        this.coordinate.Col = MyCol;
+                        this.Coordinate.Col = MyCol;
                     }
                     break;
                 case 4://le ft
@@ -429,7 +430,7 @@ namespace ex2
                     {
                         Client.SendMsg("play " + direction);
                         MyCol -= 2;
-                        this.coordinate.Col = MyCol;
+                        this.Coordinate.Col = MyCol;
                     }
                     break;
             }
@@ -458,16 +459,19 @@ namespace ex2
             {
                 string msn = "";
                 msn = Client.ReceviveMsg();
-                Play m = JsonConvert.DeserializeObject<Play>(msn);
+                ConvertFromJson ser = new ConvertFromJson(msn);
+                Play m = ser.ConvertPlay();
                 string d = m.Move;
                 moveYriv(d);
 
             }
         }
+        private string gamename;
         public void StartGame(string ans)
         {
             ConvertFromJson ser = new ConvertFromJson(ans);
             Game g = ser.ConvertStartGame();
+            gamename = g.Name;
             MyMaze = g.You;
             YarivMaze = g.Other;
             this.Coordinate = MyMaze.Start;
@@ -518,7 +522,7 @@ namespace ex2
             }
         }
 
-        private Random rnd = new Random();
+       
         /// <summary>
         /// create new game 
         /// </summary>
@@ -539,8 +543,6 @@ namespace ex2
             else
             {
                 StartGame(ans);
-               // Thread t = new Thread(start);
-             //   t.Start();
                 return ans;
             }
            
@@ -555,7 +557,8 @@ namespace ex2
         }
         public void closeGame()
         {
-            stop = true;
+            stop = true;//close thread of reciving msn from server 
+            this.Client.SendMsg("close " + gamename);
         }
     }
 }
