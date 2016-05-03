@@ -45,6 +45,7 @@ namespace ex2
                 song.SoundLocation = path;
                 song.Load();
                 song.Play();
+                song.PlayLooping();
             }
             catch (Exception)
             {
@@ -54,8 +55,8 @@ namespace ex2
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            soundSettings();
             song.Stop();
+            soundSettings();
             this.Close();
         }
 
@@ -73,8 +74,8 @@ namespace ex2
             //          configuration.AppSettings.Settings["Port"].Value = Port.Text;
             configuration.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
-            soundSettings();
             song.Stop();
+            soundSettings();
             this.Close();
         }
 

@@ -12,12 +12,12 @@
         </Grid.Background>
         <Rectangle x:Name="player"  Grid.Column="{Binding VM_MyCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_MyRow ,UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="groom2.png"/>
+                <ImageBrush ImageSource="groom4.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle x:Name="end" Grid.Column="{Binding VM_EndCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_EndRow, UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="bride.jpg"/>
+                <ImageBrush ImageSource="bride4.png"/>
             </Rectangle.Fill>
         </Rectangle>
     </Grid>

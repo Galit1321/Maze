@@ -205,6 +205,9 @@
     <Resource Include="couple2.gif" />
     <Resource Include="stam.jpg" />
     <Resource Include="controls\hupa3.jpg" />
+    <Resource Include="controls\imagesJRFVC5O2.jpg" />
+    <Resource Include="controls\bride4.png" />
+    <Resource Include="controls\groom4.png" />
     <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="winning.jpg" />
