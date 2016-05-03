@@ -36,13 +36,13 @@ namespace ex2
         string MazeName { get; set; }
         bool Winner { get; set; }
         bool Loser { get; set; }
-        bool InSession { get; set; }
+       // bool InSession { get; set; }
             //active method
             void move(int direction);
             void getClue();
             void createMaze();
             string CreateGame(string name);
-        void StartGame(string ans);
+        void StartGame();
         void Waiting();
         void RestGame();
         void closeGame();
