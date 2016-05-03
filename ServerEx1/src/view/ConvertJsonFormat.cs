@@ -89,8 +89,12 @@ namespace ServerExe1.src.view
         /// <returns>the return string</returns>
         public string ConvertOutput(string command, string Content)
         {
-            
-            return Content;
+            Dictionary<string, string> forJson = new Dictionary<string, string>();
+            forJson.Add("Type", command);
+            forJson.Add("Content", Content);
+            string temp = JsonConvert.SerializeObject(forJson);
+
+            return temp;
         }
 
         /// <summary>

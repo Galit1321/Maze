@@ -13,15 +13,15 @@ namespace ServerExe1.src.model
     /// <summary>
     /// maze
     /// </summary>
-    class Maze : IMaze
+    class Maze:IMaze
     {
         private const string placeSizeApp = "SizeMaze";
         private const int defaultSolve = 0;
-        public string Name { get; set; }
+        public string Name{get;set;}
         private Graphs theGraph;
         private SolutionMaze solve;
-        public string PrintOfMaze { get; set; }
-        public string PrintOfSolution { get; set; }
+        public string PrintOfMaze{get; set;}
+        public string PrintOfSolution{get; set;}
         private Tuple<int, int> start;
         public string StartPrint
         {
@@ -67,7 +67,7 @@ namespace ServerExe1.src.model
             this.solve = null;
             this.Name = name;
             int sizeMaze = this.GetSizeMaze();
-            Tuple<double, double> tSize = new Tuple<double, double>(sizeMaze, sizeMaze);
+            Tuple<double, double> tSize = new Tuple<double, double>(sizeMaze,sizeMaze);
             this.theGraph = new Graphs(ref tSize);
             //apply the maze on the graph
             new FactoryMazeable().CreateTheMaze(theGraph, type);
@@ -76,13 +76,13 @@ namespace ServerExe1.src.model
             this.PrintOfSolution = null;
             //get the end and the start of the maze
             this.start = this.GetPlaceCellInMatrix(this.theGraph.Begin);
-            this.end = this.GetPlaceCellInMatrix(this.theGraph.End);
+            this.end = this.GetPlaceCellInMatrix(this.theGraph.End);            
         }
 
         /// <summary>
         /// for the Json
         /// </summary>
-        public Maze() { }
+        public Maze(){}
 
         /// <summary>
         /// for copy maze
@@ -197,10 +197,8 @@ namespace ServerExe1.src.model
         /// check if the maze solved
         /// </summary>
         /// <returns>true if solved, otherwise false</returns>
-        public bool IsSolved()
-        {
-            if (this.solve != null || this.PrintOfSolution != null)
-            {
+        public bool IsSolved(){
+            if(this.solve!=null||this.PrintOfSolution!=null){
                 return true;
             }
             return false;
@@ -216,7 +214,7 @@ namespace ServerExe1.src.model
             {
                 this.SolveMaze(Maze.defaultSolve);
             }
-
+            
             if (this.PrintOfSolution != null)
             {
                 return this.PrintOfSolution;
@@ -231,10 +229,9 @@ namespace ServerExe1.src.model
             }
             for (int i = 0; i < this.GetSizeMatrix(); i += 2)
             {
-                for (int j = 0; j < this.GetSizeMatrix(); j += 2)
+                for (int j = 0; j < this.GetSizeMatrix(); j+=2)
                 {
-                    if (i != 0 && con[i, j] == 2 && con[i - 1, j] == 0 && con[i - 2, j] == 2)
-                    {
+                    if(i!=0 && con[i,j]==2 && con[i-1,j]==0 && con[i-2,j]==2){
                         con[i - 1, j] = 2;
                     }
                     if (j != 0 && con[i, j] == 2 && con[i, j - 1] == 0 && con[i, j - 2] == 2)
@@ -300,6 +297,62 @@ namespace ServerExe1.src.model
         public Tuple<int, int> GetEndPlace()
         {
             return this.end;
+        }
+
+
+        public Tuple<int, int> GetClueTo(int i, int j)
+        {
+            if (!this.IsSolved())
+            {
+                this.SolveMaze(defaultSolve);
+            }
+            if (i % 2 != 0 || j % 2 != 0)
+            {
+                ICell first, sec;
+                if (j % 2 != 0)
+                {
+                    first = this.theGraph.GetTheGraph()[i / 2, (j + 1) / 2];
+                    sec = this.theGraph.GetTheGraph()[i / 2, (j - 1) / 2];
+                }
+                else
+                {
+                    first = this.theGraph.GetTheGraph()[(i + 1) / 2, j / 2];
+                    sec = this.theGraph.GetTheGraph()[(i - 1) / 2, j / 2];
+                }
+                Graphs tempGrap = new Graphs(this.theGraph);
+                tempGrap.ChangeToBeginSituation(first);
+                List<ICell> firstSol = new FactorySolvable().SolveTheMaze(tempGrap, defaultSolve);
+                tempGrap.ChangeToBeginSituation(sec);
+                List<ICell> secSol = new FactorySolvable().SolveTheMaze(tempGrap, defaultSolve);
+                if (firstSol.Count < secSol.Count)
+                {
+                    return this.GetPlaceCellInMatrix(first);
+                }
+                else
+                {
+                    return this.GetPlaceCellInMatrix(sec);
+                }
+            }
+            List<ICell> miniSol = null;
+            ICell next = null;
+            ICell currentCell = this.theGraph.GetTheGraph()[i / 2, j / 2];
+            if (currentCell.Equals(this.theGraph.End))
+            {
+                return null;
+            }
+            List<ICell> ne = this.theGraph.GetNeighbors(currentCell);
+            foreach (ICell item in ne)
+            {
+                Graphs tempGrap = new Graphs(this.theGraph);
+                tempGrap.ChangeToBeginSituation(item);
+                List<ICell> sol = new FactorySolvable().SolveTheMaze(tempGrap, defaultSolve);
+                if (miniSol == null || sol.Count < miniSol.Count)
+                {
+                    miniSol = sol;
+                    next = item;
+                }
+            }
+            return this.GetPlaceCellInMatrix(next);
         }
     }
 }

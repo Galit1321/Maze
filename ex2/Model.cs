@@ -18,27 +18,32 @@ namespace ex2
         TCPClient Client;
         public event OpenMsnWin WinWin;
 
-        volatile bool stop=false;
+        volatile bool stop = false;
         private int Heigth;
         private int Width;
         public SingleMaze MyMaze;
         public SingleMaze YarivMaze;
+        public ConvertFromJson ser;
         public Model(TCPClient client)
         {
+
             this.Client = client;
-            //  stop = false;
+         
             NeedClue = false;
-            this.ip= ConfigurationManager.AppSettings["IP"];
-            this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
-            this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
-            this.Heigth= Int32.Parse(ConfigurationManager.AppSettings["Height"]);
+            this.IP = ConfigurationManager.AppSettings["IP"];
+            this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
+            this.Width = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
+            this.Heigth = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             connect(ip, port);
+            start();
+           
 
         }
         ~Model()
         {
             stop = true;
            
+
         }
         private string ip;
         public string IP
@@ -64,9 +69,9 @@ namespace ex2
 
             set
             {
-               mazestr= value;
-               NotifyPropertyChanged("Maze");
-            
+                mazestr = value;
+                NotifyPropertyChanged("Maze");
+
             }
         }
         private int port;
@@ -97,7 +102,7 @@ namespace ex2
                 NotifyPropertyChanged("Coordinate");
             }
         }
-        private string  name;
+        private string name;
         public string MazeName
         {
             get
@@ -136,7 +141,7 @@ namespace ex2
             set
             {
                 win = value;
-               
+
             }
         }
         private bool lost;
@@ -148,7 +153,6 @@ namespace ex2
             }
             set {
                 lost = value;
-                if (lost==true) WinWin("You Lost :(");
                 NotifyPropertyChanged("Loser");
             }
         }
@@ -190,7 +194,7 @@ namespace ex2
 
             set
             {
-               row= value;
+                row = value;
                 NotifyPropertyChanged("MyRow");
             }
         }
@@ -253,7 +257,7 @@ namespace ex2
         {
             get
             {
-               return yriv_col;
+                return yriv_col;
             }
 
             set
@@ -262,22 +266,6 @@ namespace ex2
                 NotifyPropertyChanged("YrivCol");
             }
         }
-
-        private bool ins;
-        public bool InSession
-        {
-            get
-            {
-                return ins;
-            }
-
-            set
-            {
-                ins = value;
-              //  stop = true;
-            }
-        }
-
         private int eyr;
         public int EndYrivRow
         {
@@ -292,7 +280,6 @@ namespace ex2
                 NotifyPropertyChanged("EndYrivRow");
             }
         }
-
         private int eyc;
         public int EndYrivCol
         {
@@ -331,7 +318,7 @@ namespace ex2
 
             set
             {
-               ccol=value;
+                ccol = value;
                 NotifyPropertyChanged("ClueCol");
             }
         }
@@ -373,87 +360,87 @@ namespace ex2
         /// <summary>
         /// create a maze for player
         /// </summary>
-        private Pair Start;
+        private Pair StartPoint;
+        public void MazeHelper()
+        {
+            MyMaze = ser.maze;
+            this.MazeString = MyMaze.GetMaze();
+            this.Coordinate = MyMaze.GetStart();
+            EndRow = MyMaze.End.Row;
+            EndCol = MyMaze.End.Col;
+            int r = MyMaze.Start.Row;
+            int c = MyMaze.Start.Col;
+            StartPoint = new Pair(r, c);
+            this.MyRow = r;
+            this.MyCol = c;
+            this.MazeName = MyMaze.Name;
+        }
         public void createMaze()
         {
             Winner = false;
             NeedClue = false;
             Loser = false;
             Client.SendMsg("generate maze" + rnd.Next() + " 1");
-           string str = Client.ReceviveMsg();
-            ConvertFromJson ser=new ConvertFromJson(str);
-            ser.CreateMaze();
-            MyMaze = ser.maze;
-            this.MazeString = MyMaze.GetMaze();
-            this.Coordinate = MyMaze.GetStart();
-            EndRow = MyMaze.End.Row;
-            EndCol = MyMaze.End.Col;
-            int r= MyMaze.Start.Row;
-            int c = MyMaze.Start.Col;
-            Start = new Pair(r, c);
-            this.MyRow = r;
-            this.MyCol = c;
-            this.MazeName = MyMaze.Name;
+            while (MyMaze == null)
+            {
+                Thread.Sleep(1);
+            }
+           
         }
 
         public void disconnect()
         {
             stop = true;
+            Thread.Sleep(20000);//let start thread to read stop;
             Client.disconnect();
+           // t.Join();
         }
+        
         /// <summary>
         /// get a clue from server where to go
         /// </summary>
         /// <returns></returns>
         public void getClue()
         {
-            
-            Client.SendMsg("solve " + MyMaze.Name + " 0");
-            ConvertFromJson ser = new ConvertFromJson(Client.ReceviveMsg());
-            ser.CreateMaze();
-            SingleMaze sol_maze = ser.maze;
-            string strsolv = sol_maze.Maze;
-            int pivot = (2 * this.Width - 1) * (this.Coordinate.Row) + this.Coordinate.Col;
-            int begin = pivot - (2 * Width - 1);//look row before for clues 
-            int end = pivot + (2 * Width - 1);//look in the next row clues
-            if (begin>0)//if we are not in first row
+            Client.SendMsg("clue " +MyMaze.Name+" "+ MyRow + " " + MyCol);
+            while (Clue == null)
             {
-                for (int i = begin; i < pivot; i++)
-                {
-                    if (strsolv[i].Equals('2'))
-                    {
-                        ClueCol = i % (2 * Width - 1);
-                        ClueRow = i % (2 * Heigth - 1);
-                        NeedClue = true;
-                        return;
-                    }
-                }
+                Thread.Sleep(1200);
             }
-            if (end < strsolv.Length)
+            switch (Clue)
             {
-                for (int i = pivot; i < end; i++)
-                {
-                    if (strsolv[i].Equals('2'))
-                    {
-                        ClueCol = i % (2 * Width - 1);
-                        ClueRow = i % (2 * Heigth - 1);
-                        NeedClue = true;
-                        return;
-                    }
-                }
+                case "up":
+                    ClueCol = MyCol;
+                    ClueRow = MyRow - 2;
+                    NeedClue = true;
+                    break;
+                case "down":
+                    ClueCol = MyCol;
+                    ClueRow = MyRow + 2;
+                    NeedClue = true;
+                    break;
+                case "left":
+                    ClueCol = MyCol-2;
+                    ClueRow = MyRow ;
+                    NeedClue = true;
+                    break;
+                case "right":
+                    ClueCol = MyCol+2;
+                    ClueRow = MyRow ;
+                    NeedClue = true;
+                    break;
             }
-
-           
-            
-
+            return;
         }
+       
+        
         /// <summary>
         /// move on the maze to given direction if 
         /// possible, we dont need the ans from server just to
         /// send that we move in case of an multiplayer game
         /// </summary>
         /// <param name="direction">which arrow key was press</param>
-       public void move(int direction)
+        public void move(int direction)
         {
 
             NeedClue = false;
@@ -461,24 +448,24 @@ namespace ex2
             switch (direction)
             {
                 case 1://up
-                    if ((MyRow-2>=0)&& (this.MazeString[pos-(2*Width-1) ] != '1'))
+                    if ((MyRow - 2 >= 0) && (this.MazeString[pos - (2 * Width - 1)] != '1'))
                     {
                         Client.SendMsg("play up");
-                        this.MyRow = this.MyRow - 1;
-                        this.MyRow = this.MyRow - 1;
+                        this.MyRow = this.MyRow - 2;
                         this.Coordinate.Row = MyRow;
                     }
                     break;
                 case 2://down
-                    if ((MyRow + 2 < 2*Heigth-1) && (this.MazeString[pos+(2*Width-1)] != '1'))
+                    if ((MyRow + 2 < 2 * Heigth - 1) && (this.MazeString[pos + (2 * Width - 1)] != '1'))
                     {
-                        Client.SendMsg("play down" );
-                        this.MyRow =this.MyRow+ 2;
+                        Client.SendMsg("play down");
+                        this.MyRow = this.MyRow + 2;
+
                         this.Coordinate.Row = MyRow;
                     }
                     break;
                 case 3://right
-                    if ((MyCol + 2 <2* Width-1) && (this.MazeString[pos+1 ] != '1'))
+                    if ((MyCol + 2 < 2 * Width - 1) && (this.MazeString[pos + 1] != '1'))
                     {
                         Client.SendMsg("play right");
                         MyCol += 2;
@@ -486,7 +473,7 @@ namespace ex2
                     }
                     break;
                 case 4://le ft
-                    if ((MyCol - 2 >=0) && (this.MazeString[pos - 1] != '1'))
+                    if ((MyCol - 2 >= 0) && (this.MazeString[pos - 1] != '1'))
                     {
                         Client.SendMsg("play left");
                         MyCol -= 2;
@@ -495,43 +482,73 @@ namespace ex2
                     break;
             }
 
-
             if ((this.Coordinate.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
-                stop = true;
+
             }
         }
         public void Waiting()
         {
-            string msg = "";
-            while (msg.Length==0)
+            while (numOfPlayer < 2)
             {
-                msg = Client.ReceviveMsg();
-                
+                Thread.Sleep(1000);
+
             }
-            StartGame(msg);
-           
         }
+        int numOfPlayer;
+        volatile bool isWorking = false;
         public void start()
         {
+            new Thread(delegate () {
             while (!stop)
             {
                 string msn = "";
                 msn = Client.ReceviveMsg();
-                ConvertFromJson ser = new ConvertFromJson(msn);
-                ser.ConvertPlay();
-                Play m = ser.move;
-                string d = m.Move;
-                moveYriv(d);
+                    if (!isWorking)
+                    {
+                        isWorking = true;
+                        ser = new ConvertFromJson(msn);
+                        
+                    }   
+                FindType(ser.Type);
+                Thread.Sleep(500);
+
+                }
+        }).Start();
+        }
+        public void FindType(string type)
+        {
+            switch (type)
+            {
+                case "1":
+                    ser.CreateMaze();
+                    MazeHelper();
+                    break;
+                
+                case "3":
+                    numOfPlayer += 1;
+                    ser.ConvertStartGame();
+                    StartGame();
+                    break;
+                case "4":
+                    ser.ConvertPlay();
+                    Play m = ser.move;
+                    string d = m.Move;
+                    moveYriv(d);
+                    break;
+                case "6":
+                    ser.ConvertPlay();
+                    Play m1 = ser.move;
+                    Clue = m1.Move;
+                    break;
 
             }
         }
+        private string Clue;
         private string gamename;
-        public void StartGame(string ans)
+        public void StartGame()
         {
-            ConvertFromJson ser = new ConvertFromJson(ans);
-             ser.ConvertStartGame();
             Game g = ser.g;
             gamename = g.Name;
             MyMaze = g.You;
@@ -548,7 +565,8 @@ namespace ex2
             this.EndYrivRow = YarivMaze.End.Row;
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
-            
+        
+
         }
         private void moveYriv(string d)
         {
@@ -589,6 +607,10 @@ namespace ex2
                     }
                     break;
             }
+            if ((this.Yriv_Cor.Row.Equals(this.EndYrivRow)) && (this.Yriv_Cor.Col.Equals(this.EndYrivCol)))
+            {
+                this.Loser = true;
+            }
         }
 
        
@@ -602,9 +624,10 @@ namespace ex2
             Winner = false;
             Loser = false;
             Client.SendMsg("multiplayer " +name);
-            string ans = Client.ReceviveMsg();
-            ConvertFromJson ser = new ConvertFromJson(ans);
-            ser.ConvertStartGame();
+            while (MyMaze == null)
+            {
+                Thread.Sleep(1);
+            }
             Game g = ser.g;
             if (g.Name.Equals("one player"))
             {
@@ -613,10 +636,8 @@ namespace ex2
             }
             else
             {
-                StartGame(ans);
-                Thread t = new Thread(start);
-                t.Start();
-                return ans;
+                
+                return "game on";
             }
            
               
@@ -624,18 +645,12 @@ namespace ex2
 
         public void RestGame()
         {
-            this.MyRow =Start.Row;
-            this.MyCol =Start.Col;
+            this.MyRow =StartPoint.Row;
+            this.MyCol =StartPoint.Col;
             this.Coordinate = new Pair(MyRow, MyCol);
-        }
-        public void endthread()
-        {
-            stop = true;
         }
         public void closeGame()
         {
-            endthread();
-           // stop = true;//close thread of reciving msn from server 
             this.Client.SendMsg("close " + gamename);
         }
     }

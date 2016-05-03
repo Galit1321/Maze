@@ -71,7 +71,7 @@ namespace ex2
             set
             {
                 d = value;
-               // model.move(d, model.MyRow,mode);
+            
             }
         }
        public string VM_YrivMazeString { get
@@ -193,13 +193,12 @@ namespace ex2
         {
             model.connect(VM_IP, VM_Port);
         }
-        private Thread t;
+       // private Thread t;
         public void WaitingInView()
         {
             model.Waiting();
             Close();
-             t = new Thread(model.start);
-            t.Start();
+            
         }
         
          public void CreateGame(string name)
@@ -209,9 +208,8 @@ namespace ex2
             if (ans.Equals("wait"))
             {
                 Open("Only One");
-                Thread t = new Thread(WaitingInView);
-                t.SetApartmentState(ApartmentState.STA);
-                t.Start();
+                WaitingInView();
+               
             }
             else
             {
@@ -232,13 +230,19 @@ namespace ex2
                 return model.ClueCol;
             }
         }
-      
+        public bool VM_Loser
+        {
+            get
+            {
+                return model.Loser;
+            }
+        }
        public void move(int d)
         {
             model.move(d);
             if (VM_Winner)
             {
-                Open(string.Empty);
+                Open("won");
             }
         }
         public void RestMaz()
@@ -248,7 +252,7 @@ namespace ex2
         public void closeGame()
         {
             model.closeGame();
-            if (t != null) { t.Interrupt(); }
+        
            
         }
     }

@@ -36,9 +36,9 @@ namespace ServerExe1.src.model
         //The dimension of the maze.
         private Tuple<double, double> dimension;
         //The beginning cell.
-        public ICell Begin { get; private set; }
+        public  ICell Begin { get;private set;}
         //The end cell.
-        public ICell End { get; private set; }
+        public ICell End { get;private set; }
         //The dictionary that tell me that if the cell is on the bounds or not.
         private Dictionary<ICell, bool> isOnBounds;
 
@@ -108,7 +108,7 @@ namespace ServerExe1.src.model
             thirdList.Add(matrixOfCells[0, length - 2]); thirdList.Add(matrixOfCells[1, length - 1]);
             reachable.Add(tempThree, thirdList);
 
-            ICell tempFour = matrixOfCells[length - 1, length - 1];
+            ICell tempFour = matrixOfCells[length - 1, length -1];
             List<ICell> forthList = new List<ICell>();
             forthList.Add(matrixOfCells[length - 2, length - 1]);
             forthList.Add(matrixOfCells[length - 1, length - 2]);
@@ -208,11 +208,11 @@ namespace ServerExe1.src.model
         /// <param name="src"></param> the givem cell.
         public void ChangeCellState(ICell src)
         {
-
+            
             if (!myNodes.Contains(src)) { return; }
             src.SetReached();
             List<ICell> canReach = null;
-
+            
             foreach (ICell item in reachable.Keys)
             {
                 if (src.Equals(item)) { canReach = reachable[item]; break; }
@@ -221,7 +221,7 @@ namespace ServerExe1.src.model
             foreach (List<ICell> item in reachable.Values)
             {
                 item.Remove(src);
-            }
+            } 
         }
 
         /// <summary>
@@ -337,7 +337,7 @@ namespace ServerExe1.src.model
         /// <param name="dst"></param> Second side of the edge.
         public void SetConnection(ICell src, ICell dst)
         {
-            ICell temp1 = null, temp2 = null;
+            ICell temp1 = null, temp2= null;
             foreach (ICell item in openNeighbors.Keys)
             {
                 if (item.Equals(src)) { temp1 = item; }
@@ -391,7 +391,7 @@ namespace ServerExe1.src.model
                     {
                         c[a, b + 1] = 0;
                     }
-
+                    
                     if (ctemp.GetPlace() <= (int)(this.dimension.Item1 * (this.dimension.Item1 - 1)) &&
                         l[k].GetPlace() == ctemp.GetPlace() + (int)(this.dimension.Item1))
                     {
@@ -408,10 +408,10 @@ namespace ServerExe1.src.model
                 b += 2;
             }
             Tuple<int, int> t;
-            while ((t = IsGotMorePaths(c)).Item1 != -1)
+           while ((t = IsGotMorePaths(c)).Item1 != -1)
             {
                 int i = t.Item1, j = t.Item2;
-                c[i, j] = 0;
+                c[i,j] = 0;
                 if (i != 0 && c[i - 1, j] == 2)
                 {
                     c[i - 1, j] = 0;
@@ -436,27 +436,26 @@ namespace ServerExe1.src.model
             return c;
         }
 
-        private Tuple<int, int> IsGotMorePaths(int[,] c)
+        private Tuple<int,int> IsGotMorePaths(int[,] c)
         {
             int numOfOpenTwos = 0;
             int x = (int)(this.dimension.Item1);
-            for (int i = 0; i < x; i += 2)
+            for (int i = 0; i < x; i+=2)
             {
-                for (int j = 0; j < x; j += 2)
+                for (int j = 0; j < x; j+=2)
                 {
                     numOfOpenTwos = 0;
-                    if (c[i, j] == 2)
-                    {
-                        if (matrixOfCells[i, j] == this.Begin || matrixOfCells[i, j] == this.End)
+                    if (c[i,j] == 2) {
+                       if (matrixOfCells[i,j] == this.Begin || matrixOfCells[i, j] == this.End)
                         {
                             continue;
                         }
-
-                        if (i != 0 && c[i - 1, j] == 2)
+                        
+                        if (i != 0 && c[i-1,j] == 2)
                         {
                             numOfOpenTwos++;
                         }
-                        if (i != x - 1 && c[i + 1, j] == 2)
+                        if (i != x -1 && c[i + 1, j] == 2)
                         {
                             numOfOpenTwos++;
                         }

@@ -13,7 +13,7 @@ namespace ServerExe1.src.model
     /// </summary>
     /// <param name="obj">the obj</param>
     /// <param name="send">who send</param>
-    delegate void Update(object obj, ISendableView send);
+    delegate void Update (object obj, ISendableView send);
     /// <summary>
     /// Game between two players
     /// </summary>
@@ -22,14 +22,14 @@ namespace ServerExe1.src.model
         public event Update updateFirst;
         public event Update updateSec;
 
-        public string NameGame { get; private set; }
-        public IHandlerUpdate FirstPlayerMsg { get; private set; }
+        public string NameGame{get; private set;}
+        public IHandlerUpdate FirstPlayerMsg{get; private set;}
         public IHandlerUpdate FirstPlayerMaze { get; private set; }
-        public ISendableView viewFirstPlayer { get; private set; }
-        public IHandlerUpdate SecPlayerMsg { get; private set; }
+        public ISendableView viewFirstPlayer{get; private set;}
+        public IHandlerUpdate SecPlayerMsg{get; private set;}
         public IHandlerUpdate SecPlayerMaze { get; private set; }
-        public ISendableView ViewSecPlayer { get; private set; }
-        public bool IsPlay { get; private set; }
+        public ISendableView ViewSecPlayer{get; private set;}
+        public bool IsPlay{get; private set;}
 
         /// <summary>
         /// create the game and put the first player
@@ -42,9 +42,9 @@ namespace ServerExe1.src.model
             ISendableView view)
         {
             this.FirstPlayerMaze = playerMaze;
-            this.updateFirst += playerMsg.UpdateView;
+            this.updateFirst+= playerMsg.UpdateView;
             this.viewFirstPlayer = view;
-            this.NameGame = name;
+            this.NameGame=name;
             IsPlay = false;
         }
 
@@ -78,7 +78,7 @@ namespace ServerExe1.src.model
             }
             return false;
         }
-
+        
         /// <summary>
         /// send to te first player the movement
         /// </summary>

@@ -64,6 +64,7 @@
     <Compile Include="src\model\Maze.cs" />
     <Compile Include="src\model\SolutionMaze.cs" />
     <Compile Include="src\Presentor\CloseCommand.cs" />
+    <Compile Include="src\Presentor\ClueCommand.cs" />
     <Compile Include="src\Presentor\CommandHandler.cs" />
     <Compile Include="src\Presentor\GenerateCommand.cs" />
     <Compile Include="src\Presentor\ICommandable.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="src\Presentor\MultiplayerCommand.cs" />
     <Compile Include="src\Presentor\PlayCommand.cs" />
     <Compile Include="src\Presentor\SolveCommand.cs" />
+    <Compile Include="src\view\ClueHandleView.cs" />
     <Compile Include="src\view\ConnectClients.cs" />
     <Compile Include="src\view\ConvertJsonFormat.cs" />
     <Compile Include="src\view\GeneralHandleOutput.cs" />

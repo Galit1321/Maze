@@ -79,5 +79,10 @@ namespace ex2
 
         }
 
+        private void Window_Close(object sender, EventArgs e)
+        {
+            vm.Disconnect();
+            song.Stop();
+        }
     }
 }

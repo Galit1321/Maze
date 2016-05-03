@@ -27,8 +27,8 @@ namespace ServerExe1.src.model
         /// copy c'tor
         /// </summary>
         /// <param name="sol">the other solution</param>
-        public SolutionMaze(SolutionMaze sol) : this(sol.theSoul) { }
-
+        public SolutionMaze(SolutionMaze sol):this(sol.theSoul){}
+        
         /// <summary>
         /// reverse the solution list
         /// </summary>

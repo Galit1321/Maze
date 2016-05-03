@@ -28,7 +28,7 @@ namespace ex2.controls
         {
             get {
                 
-                MakeNewMaze((string)GetValue(OrderProperty));
+               
                 return (string)GetValue(OrderProperty); }
             set {
                 s = (string)GetValue(OrderProperty);
@@ -54,7 +54,7 @@ namespace ex2.controls
             
         }
         
-        public void MakeNewMaze(string str) { }
+        
         public void init()
         {
             //Order = vm.VM_MazeString;

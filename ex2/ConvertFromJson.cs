@@ -13,10 +13,8 @@ namespace ex2
         public SingleMaze maze;
         public Game g;
         public Play move;
-        public ConvertFromJson(Dictionary<string,string> dict)
-        {
-            this.Serlize = dict;
-        }
+        public string Type;
+        
         /// <summary>
         /// constructor that get serlize string and turn it to a dictionary 
         /// </summary>
@@ -24,10 +22,30 @@ namespace ex2
         public ConvertFromJson(string json)
         {
 
-            
-            this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            Dictionary<string,string> dic= JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            this.Type = dic["Type"];
+            this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(dic["Content"]);
         }
        
+        public void FindType(string type)
+        {
+            switch (type)
+            {
+                case "1":
+                    CreateMaze();
+                    break;
+                case "2":
+                    CreateMaze();
+                    break;
+                case "3":
+                    ConvertStartGame();
+                    break;
+                case "4":
+                    ConvertPlay();
+                    break;
+                
+            }
+        }
         /// <summary>
         /// create a single game by the value of serlize dictionary 
         /// </summary>
