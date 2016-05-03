@@ -5,20 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="Setting" Height="300" Width="300">
+        Title="Setting" Height="500" Width="500" Closed="Close_Window">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="stam.jpg"/>
         </Grid.Background>
 
-        <WrapPanel Margin="10,10">
-            <TextBlock   Text="Port: " HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Height="30" Width="44"/>
-            <TextBox x:Name="Port" Width="150" Text="{Binding VM_Port}"/>
-        </WrapPanel>
-        <WrapPanel Margin="10,100">
-            <TextBlock   Text="IP: " FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Height="30" Width="44"/>
-            <TextBox x:Name="IP" Text="{Binding VM_IP }" Width="150"/>
-        </WrapPanel>
+        <TextBlock   Text="Port: " HorizontalAlignment="Center" FontWeight="Bold" Foreground="DarkCyan" FontSize="40" Width="105" RenderTransformOrigin="-1.909,-4.667" Margin="50,90,337,325"/>
+        <TextBox x:Name="Port" Text="{Binding VM_Port}" Margin="160,95,132,324" Width="200" Height="50"/>
+        <TextBlock   Text="IP: " FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkCyan" FontSize="40" Height="55" Width="69" Margin="70,164,353,250"/>
+        <TextBox x:Name="IP" Text="{Binding VM_IP}" Width="200" Height="50" RenderTransformOrigin="1.373,0.571" Margin="160,170,132,249">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.178"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
 
 
 

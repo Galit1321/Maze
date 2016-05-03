@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="Menu"  Height="600" Width="800">
-    <Grid x:Name="mainWin" >
+    <Grid x:Name="mainWin">
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <Grid.Background>

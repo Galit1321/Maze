@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -46,6 +45,7 @@ namespace ex2
                 song.SoundLocation = path;
                 song.Load();
                 song.Play();
+                song.PlayLooping();
             }
             catch (Exception)
             {
@@ -59,8 +59,8 @@ namespace ex2
             if (result == MessageBoxResult.Yes)
             {
                 vm.Open -= OpenWin;
-                song.Stop();
-                soundMain();
+                //song.Stop();
+              //  soundMain();
                 Close();
                 
             }
@@ -105,6 +105,8 @@ namespace ex2
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            song.Stop();
+            soundMain();
             vm.Open -= OpenWin;
         }
     }
