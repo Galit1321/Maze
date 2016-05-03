@@ -193,13 +193,12 @@ namespace ex2
         {
             model.connect(VM_IP, VM_Port);
         }
-        private Thread t;
+       // private Thread t;
         public void WaitingInView()
         {
             model.Waiting();
             Close();
-             t = new Thread(model.start);
-            t.Start();
+            
         }
         
          public void CreateGame(string name)
@@ -209,9 +208,10 @@ namespace ex2
             if (ans.Equals("wait"))
             {
                 Open("Only One");
-                Thread t = new Thread(WaitingInView);
-                t.SetApartmentState(ApartmentState.STA);
-                t.Start();
+                WaitingInView();
+               // Thread t = new Thread(WaitingInView);
+               // t.SetApartmentState(ApartmentState.STA);
+            //t.Start();
             }
             else
             {
@@ -248,7 +248,7 @@ namespace ex2
         public void closeGame()
         {
             model.closeGame();
-            if (t != null) { t.Interrupt(); }
+           // if (t != null) { t.Interrupt(); }
            
         }
     }

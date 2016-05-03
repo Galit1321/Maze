@@ -362,7 +362,7 @@ namespace ex2
         /// <summary>
         /// create a maze for player
         /// </summary>
-        private Pair Start;
+        private Pair StartPoint;
         public void MazeHelper()
         {
             MyMaze = ser.maze;
@@ -372,7 +372,7 @@ namespace ex2
             EndCol = MyMaze.End.Col;
             int r = MyMaze.Start.Row;
             int c = MyMaze.Start.Col;
-            Start = new Pair(r, c);
+            StartPoint = new Pair(r, c);
             this.MyRow = r;
             this.MyCol = c;
             this.MazeName = MyMaze.Name;
@@ -510,15 +510,17 @@ namespace ex2
         }
         public void Waiting()
         {
-            string msg = "";
-            while (msg.Length==0)
+
+            //string msg = "";
+            while (numOfPlayer<2)
             {
-                msg = Client.ReceviveMsg();
-                
+                Thread.Sleep(1000);
+
             }
-            StartGame();
-           
+            //   StartGame();
+
         }
+        int numOfPlayer;
         public void start()
         {
             while (!stop)
@@ -544,6 +546,7 @@ namespace ex2
                     ClueHelper();
                     break;
                 case "3":
+                    numOfPlayer += 1;
                     ser.ConvertStartGame();
                     StartGame();
                     break;
@@ -650,8 +653,8 @@ namespace ex2
 
         public void RestGame()
         {
-            this.MyRow =Start.Row;
-            this.MyCol =Start.Col;
+            this.MyRow =StartPoint.Row;
+            this.MyCol =StartPoint.Col;
             this.Coordinate = new Pair(MyRow, MyCol);
         }
         public void endthread()
