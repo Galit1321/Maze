@@ -183,12 +183,11 @@ namespace ex2
         {
             model.connect(VM_IP, VM_Port);
         }
-        private Thread t;
         public void WaitingInView()
         {
             model.Waiting();
             Close();
-             t = new Thread(model.start);
+            Thread t = new Thread(model.start);
             t.Start();
         }
         
@@ -245,8 +244,6 @@ namespace ex2
         public void closeGame()
         {
             model.closeGame();
-            if (t != null) { t.Interrupt(); }
-           
         }
     }
 }

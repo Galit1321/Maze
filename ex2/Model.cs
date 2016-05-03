@@ -18,7 +18,7 @@ namespace ex2
         TCPClient Client;
         public event OpenMsnWin WinWin;
 
-        volatile bool stop=false;
+        volatile bool stop;
         private int Heigth;
         private int Width;
         public SingleMaze MyMaze;
@@ -275,7 +275,7 @@ namespace ex2
             set
             {
                 ins = value;
-              //  stop = true;
+                stop = true;
             }
         }
 
@@ -609,7 +609,6 @@ namespace ex2
             Game g = ser.g;
             if (g.Name.Equals("one player"))
             {
-
                 return "wait";
             }
             else
@@ -628,10 +627,6 @@ namespace ex2
             this.MyRow =Start.Row;
             this.MyCol =Start.Col;
             this.Coordinate = new Pair(MyRow, MyCol);
-        }
-        public void endthread()
-        {
-            stop = true;
         }
         public void closeGame()
         {

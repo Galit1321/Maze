@@ -66,7 +66,7 @@ namespace ex2
             {
                 soundMulti();
                 song.Stop();
-               // vm.closeGame();
+                vm.closeGame();
                 Close();
 
             }
