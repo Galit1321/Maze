@@ -230,13 +230,19 @@ namespace ex2
                 return model.ClueCol;
             }
         }
-      
+        public bool VM_Loser
+        {
+            get
+            {
+                return model.Loser;
+            }
+        }
        public void move(int d)
         {
             model.move(d);
             if (VM_Winner)
             {
-                Open(string.Empty);
+                Open("won");
             }
         }
         public void RestMaz()

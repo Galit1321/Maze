@@ -46,7 +46,7 @@ namespace ServerExe1.src.model
         /// </summary>
         /// <param name="move">where moved</param>
         /// <param name="whoSend">the view of the player to know who moved</param>
-        void PlayerMoved(string move, ISendableView whoSend);
+        void PlayerMoved(string move,ISendableView whoSend);
 
         /// <summary>
         /// close game
@@ -54,5 +54,14 @@ namespace ServerExe1.src.model
         /// <param name="nameGame">the name of the game</param>
         /// <param name="whoSend">who send to closeing</param>
         void ColseGame(string nameGame, ISendableView whoSend);
+
+        /// <summary>
+        /// get clue to where to go in the game
+        /// </summary>
+        /// <param name="nameMaze"> the name of the maze</param>
+        /// <param name="i">the i place in the matrix</param>
+        /// <param name="j">the j place in the matrix</param>
+        /// <returns>the name of the game and the direction</returns>
+        string GetClue(string nameMaze, int i, int j);
     }
 }

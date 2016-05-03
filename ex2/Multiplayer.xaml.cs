@@ -30,11 +30,20 @@ namespace ex2
             InitializeComponent();
             vm = ViewModel.Instance;
             DataContext = vm;
+            vm.Open += OpenWin;
             Play();
             UserControl m1 = new Maze();
             UserControl m2 = new MazeOpponent();
         }
-
+        public void OpenWin(string msn)
+        {
+            if (msn.Equals("won"))
+            {
+                Window w = new Wining();
+                w.ShowDialog();
+                Close();
+            }
+             }
         private void Play()
         {
             try
@@ -52,7 +61,6 @@ namespace ex2
 
             }
         }
-
         private void Window_Closed(object sender, EventArgs e)
         {
             song.Stop();

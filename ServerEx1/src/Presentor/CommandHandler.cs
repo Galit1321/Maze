@@ -19,6 +19,7 @@ namespace ServerExe1.src.Presentor
         private const string multiCommand = "multiplayer";
         private const string playCommand = "play";
         private const string closeCommand = "close";
+        private const string clueCommand = "clue";
         private Dictionary<string, ICommandable> commands;
 
         private string nextCommand;
@@ -42,14 +43,10 @@ namespace ServerExe1.src.Presentor
             this.commands.Add(generateCommand, new GenerateCommand(new GenerateHandleView(convert), model));
             this.commands.Add(solveCommand, new SolveCommand(new SolveHandleView(convert), model));
             this.commands.Add(multiCommand, new MultiplayerCommand(new MultiHandleView(convert), playCommander, model));
+            this.commands.Add(clueCommand, new ClueCommand(new ClueHandleView(convert), model));
             this.commands.Add(playCommand, playCommander);
             this.commands.Add(closeCommand, new CloseCommand(null, model));
         }
-
-
-
-
-
 
         /// <summary>
         /// handle the command 

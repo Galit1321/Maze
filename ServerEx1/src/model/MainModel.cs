@@ -12,7 +12,7 @@ namespace ServerExe1.src.model
     /// <summary>
     /// the main model of the server hold the games and the mazes
     /// </summary>
-    class MainModel : IModel
+    class MainModel: IModel
     {
         private AllMaze mazes;
         private List<Game> games;
@@ -61,14 +61,14 @@ namespace ServerExe1.src.model
         {
             List<Game> thePossibleGames; //if the 
             //if the player allready in game
-            if (this.games.Find(item => item.IsPlayerHere(view)) != null)
+            if (this.games.Find(item => item.IsPlayerHere(view))!=null)
             {
                 return;
             }
             //if got to here so the player doesn't play in any game.
 
             //find the all games that have that nameGame
-            if ((thePossibleGames = this.games.FindAll(item => item.NameGame == nameGame)) != null)
+            if ((thePossibleGames=this.games.FindAll(item=>item.NameGame==nameGame))!=null)
             {
                 /*find the first game that is't played allready and add the player to the 
                  * game and send to the players that in the game*/
@@ -85,16 +85,12 @@ namespace ServerExe1.src.model
                         theGame.SecPlayerMaze.UpdateView(new Tuple<string, Tuple<IMaze, IMaze>>(nameGame, (secMazes)),
                             theGame.ViewSecPlayer);
                         return;
-                    }
+                    }   
                 }
             }
             /*if got to here it's meen that there is no game with the nameGame that
              *  have place to the new player*/
             this.games.Add(new Game(nameGame, forStart, forMsg, view));
-            Game g = this.games.ElementAt(this.games.Count - 1);
-            Tuple<IMaze, IMaze> test = this.mazes.GetMazesForGame(nameGame);
-            g.FirstPlayerMaze.UpdateView(new Tuple<string, Tuple<IMaze, IMaze>>("one player", (test)),
-                           g.viewFirstPlayer);
         }
 
         /// <summary>
@@ -102,11 +98,11 @@ namespace ServerExe1.src.model
         /// </summary>
         /// <param name="move">the movement</param>
         /// <param name="whoSend">who send the movemnt</param>
-        public void PlayerMoved(string move, ISendableView whoSend)
+        public void PlayerMoved(string move,ISendableView whoSend)
         {
             Game game;
             //find the game that the player inside and send the other player that moved
-            if ((game = this.games.Find(item => item.IsPlayerHere(whoSend))) != null)
+            if ((game=this.games.Find(item=> item.IsPlayerHere(whoSend)))!=null)
             {
                 if (whoSend.Equals(game.viewFirstPlayer))
                 {
@@ -118,7 +114,7 @@ namespace ServerExe1.src.model
                 }
             }
         }
-
+        
         /// <summary>
         /// close all the game that have the nameGame, even if they did't played yet
         /// </summary>
@@ -126,7 +122,50 @@ namespace ServerExe1.src.model
         /// <param name="whoSend">who send it</param>
         public void ColseGame(string nameGame, ISendableView whoSend)
         {
-            this.games.RemoveAll(item => item.NameGame == nameGame);
+            this.games.RemoveAll(item => item.IsPlayerHere(whoSend));
+        }
+
+        /// <summary>
+        /// get clue to where to go in the game
+        /// </summary>
+        /// <param name="nameMaze"> the name of the maze</param>
+        /// <param name="i">the i place in the matrix</param>
+        /// <param name="j">the j place in the matrix</param>
+        /// <returns>the name of the game and the direction</returns>
+        public string GetClue(string nameMaze, int i, int j)
+        {
+            Maze tempMaze = this.mazes.GetExistMaze(nameMaze);
+            bool isNeedToSave = tempMaze.IsSolved();
+            Tuple<int, int> clue = tempMaze.GetClueTo(i, j);
+            if (!isNeedToSave)
+            {
+                this.mazes.SolveSecIfHave(nameMaze);
+            }
+            this.mazes.SaveMazes();
+            StringBuilder b = new StringBuilder();
+            b.Append(nameMaze);
+            b.Append(" ");
+            if (i < clue.Item1)
+            {
+                b.Append("down");
+            }
+            else if (i > clue.Item1)
+            {
+                b.Append("up");
+            }
+            else if (j > clue.Item2)
+            {
+                b.Append("left");
+            }
+            else if(j < clue.Item2)
+            {
+                b.Append("right");
+            }
+            else
+            {
+                b.Append("here");
+            }
+            return b.ToString();
         }
     }
 }

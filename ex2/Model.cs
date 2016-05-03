@@ -30,8 +30,8 @@ namespace ex2
             this.Client = client;
          
             NeedClue = false;
-            this.ip = ConfigurationManager.AppSettings["IP"];
-            this.port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
+            this.IP = ConfigurationManager.AppSettings["IP"];
+            this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             this.Heigth = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             connect(ip, port);
@@ -153,7 +153,6 @@ namespace ex2
             }
             set {
                 lost = value;
-                if (lost == true) WinWin("You Lost :(");
                 NotifyPropertyChanged("Loser");
             }
         }
@@ -386,6 +385,7 @@ namespace ex2
             {
                 Thread.Sleep(1);
             }
+           
         }
 
         public void disconnect()
@@ -395,64 +395,45 @@ namespace ex2
             Client.disconnect();
            // t.Join();
         }
+        
         /// <summary>
         /// get a clue from server where to go
         /// </summary>
         /// <returns></returns>
         public void getClue()
         {
-
-            Client.SendMsg("solve " + MyMaze.Name + " 1");
-        }
-        public void ClueHelper()
-        {
-            ConvertFromJson ser = new ConvertFromJson(Client.ReceviveMsg());
-            ser.CreateMaze();
-            SingleMaze sol_maze = ser.maze;
-            string strsolv = sol_maze.Maze;
-            int pivot = (2 * this.Width - 1) * (this.Coordinate.Row) + this.Coordinate.Col;
-            int begin = pivot - (2 * Width - 1);//look row before for clues 
-            int end = pivot + (2 * Width - 1);//look in the next row clues
-            if (begin > 0)//if we are not in first row
+            Client.SendMsg("clue " +MyMaze.Name+" "+ MyRow + " " + MyCol);
+            while (Clue == null)
             {
-                for (int i = begin; i < pivot; i++)
-                {
-                    if (strsolv[i].Equals('2'))
-                    {
-
-                        ClueCol = i % (2 * Width - 1);
-                        ClueRow = i % (2 * Heigth - 1);
-                        NeedClue = true;
-                        return;
-                    }
-                }
+                Thread.Sleep(1200);
             }
-            if (end < strsolv.Length)
+            switch (Clue)
             {
-                for (int i = pivot; i < end; i++)
-                {
-                    if (strsolv[i].Equals('2'))
-                    {
-                        ClueCol = i % (2 * Width - 1);
-                        ClueRow = i % (2 * Heigth - 1);
-                        NeedClue = true;
-                        return;
-                    }
-                }
+                case "up":
+                    ClueCol = MyCol;
+                    ClueRow = MyRow - 2;
+                    NeedClue = true;
+                    break;
+                case "down":
+                    ClueCol = MyCol;
+                    ClueRow = MyRow + 2;
+                    NeedClue = true;
+                    break;
+                case "left":
+                    ClueCol = MyCol-2;
+                    ClueRow = MyRow ;
+                    NeedClue = true;
+                    break;
+                case "right":
+                    ClueCol = MyCol+2;
+                    ClueRow = MyRow ;
+                    NeedClue = true;
+                    break;
             }
-            //if we gone out of reach and the sol doesn't reach near the player place
-            /*  for (int i = 0; i < strsolv.Length; i++)
-              {
-                  if (strsolv[i].Equals('2'))
-                  {
-                      ClueCol = i % (2 * Width - 1);
-                      ClueRow = i % (2 * Heigth - 1);
-                      NeedClue = true;
-                      return;
-                  }
-              }*/
-
+            return;
         }
+       
+        
         /// <summary>
         /// move on the maze to given direction if 
         /// possible, we dont need the ans from server just to
@@ -470,8 +451,7 @@ namespace ex2
                     if ((MyRow - 2 >= 0) && (this.MazeString[pos - (2 * Width - 1)] != '1'))
                     {
                         Client.SendMsg("play up");
-                        this.MyRow = this.MyRow - 1;
-                        this.MyRow = this.MyRow - 1;
+                        this.MyRow = this.MyRow - 2;
                         this.Coordinate.Row = MyRow;
                     }
                     break;
@@ -480,6 +460,7 @@ namespace ex2
                     {
                         Client.SendMsg("play down");
                         this.MyRow = this.MyRow + 2;
+                        
                         this.Coordinate.Row = MyRow;
                     }
                     break;
@@ -500,8 +481,7 @@ namespace ex2
                     }
                     break;
             }
-
-
+           
             if ((this.Coordinate.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
@@ -539,10 +519,7 @@ namespace ex2
                     ser.CreateMaze();
                     MazeHelper();
                     break;
-                case "2":
-                    ser.CreateMaze();
-                    ClueHelper();
-                    break;
+                
                 case "3":
                     numOfPlayer += 1;
                     ser.ConvertStartGame();
@@ -554,9 +531,15 @@ namespace ex2
                     string d = m.Move;
                     moveYriv(d);
                     break;
+                case "6":
+                    ser.ConvertPlay();
+                    Play m1 = ser.move;
+                    Clue = m1.Move;
+                    break;
 
             }
         }
+        private string Clue;
         private string gamename;
         public void StartGame()
         {
@@ -576,7 +559,8 @@ namespace ex2
             this.EndYrivRow = YarivMaze.End.Row;
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
-            
+        
+
         }
         private void moveYriv(string d)
         {
@@ -617,6 +601,10 @@ namespace ex2
                     }
                     break;
             }
+            if ((this.Yriv_Cor.Row.Equals(this.EndYrivRow)) && (this.Yriv_Cor.Col.Equals(this.EndYrivCol)))
+            {
+                this.Loser = true;
+            }
         }
 
        
@@ -655,14 +643,8 @@ namespace ex2
             this.MyCol =StartPoint.Col;
             this.Coordinate = new Pair(MyRow, MyCol);
         }
-        public void endthread()
-        {
-            stop = true;
-        }
         public void closeGame()
         {
-            //endthread();
-           // stop = true;//close thread of reciving msn from server 
             this.Client.SendMsg("close " + gamename);
         }
     }

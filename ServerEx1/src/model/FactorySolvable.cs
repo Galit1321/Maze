@@ -34,8 +34,7 @@ namespace ServerExe1.src.model
         /// <param name="graph">the graph</param>
         /// <param name="type">the type</param>
         /// <rereturns>list of the cell of the solve</rereturns>
-        public List<ICell> SolveTheMaze(IMazeable graph, int type)
-        {
+        public List<ICell> SolveTheMaze(IMazeable graph, int type){
             SolveMaze solve;
             if (this.fact.TryGetValue(type, out solve))
             {
