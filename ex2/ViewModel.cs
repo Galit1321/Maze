@@ -71,7 +71,7 @@ namespace ex2
             set
             {
                 d = value;
-               // model.move(d, model.MyRow,mode);
+            
             }
         }
        public string VM_YrivMazeString { get
@@ -209,9 +209,7 @@ namespace ex2
             {
                 Open("Only One");
                 WaitingInView();
-               // Thread t = new Thread(WaitingInView);
-               // t.SetApartmentState(ApartmentState.STA);
-            //t.Start();
+               
             }
             else
             {
@@ -248,7 +246,7 @@ namespace ex2
         public void closeGame()
         {
             model.closeGame();
-           // if (t != null) { t.Interrupt(); }
+        
            
         }
     }
