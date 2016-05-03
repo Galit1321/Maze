@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:View"
         xmlns:Controls="clr-namespace:ex2.controls"
         mc:Ignorable="d"
-        Title="Multiplayer" Height="407" Width="509" Closed="Window_Closed" KeyDown="Window_KeyDown">
+        Title="Multiplayer" Height="600" Width="800" Closed="Window_Closed" KeyDown="Window_KeyDown">
     <Grid Margin="0,0,0,6" >
         <Button x:Name="Reset" Content="ResetMaze" Click="Reset_Click" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right " Margin="0,20,20,0" VerticalAlignment="Top" Height="20" Width="75">
             <Button.Background>
@@ -27,8 +27,8 @@
             </Button.Background>
         </Button>
         <Button x:Name="Back" Content="Back" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="top" Margin="0,23,206,322" Width="75" Height="25" Click="Back_Click"/>
-        <Controls:Maze  Height="300" Width="250" Margin="0,60,241,0"/>
-        <Controls:MazeOpponent Height="300" Width="250" Margin="265,70,0,0"/>
+        <Controls:Maze  Height="390" Width="390" Margin="0,60,24,0" HorizontalAlignment="Left"/>
+        <Controls:MazeOpponent Height="390" Width="390" Margin="265,70,0,0" HorizontalAlignment="Right"/>
         <Grid.Background>
             <ImageBrush ImageSource="stam.jpg"/>
         </Grid.Background>

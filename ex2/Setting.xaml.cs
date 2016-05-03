@@ -28,8 +28,8 @@ namespace ex2
         public Setting()
         {
             vm = ViewModel.Instance;
-            vm.Init(new Model(new TCPClient()));
             Play();
+            vm.Init(new Model(new TCPClient()));
             DataContext = vm;
             InitializeComponent();
 
@@ -41,7 +41,7 @@ namespace ex2
             {
                 song = new System.Media.SoundPlayer();
                 string path = System.IO.Path.GetFullPath(".");
-                path += "\\Begin Again.wav";
+                path += "\\Titanium.wav";
                 song.SoundLocation = path;
                 song.Load();
                 song.Play();
@@ -55,8 +55,6 @@ namespace ex2
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            song.Stop();
-            soundSettings();
             this.Close();
         }
 
@@ -74,11 +72,13 @@ namespace ex2
             //          configuration.AppSettings.Settings["Port"].Value = Port.Text;
             configuration.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
-            song.Stop();
-            soundSettings();
             this.Close();
         }
 
-        
+        private void Close_Window(object sender, EventArgs e)
+        {
+            song.Stop();
+            soundSettings();
+        }
     }
 }

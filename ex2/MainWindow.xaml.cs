@@ -48,6 +48,7 @@ namespace ex2
                 song.SoundLocation = path;
                 song.Load();
                 song.Play();
+                song.PlayLooping();
             }
             catch (Exception)
             {
@@ -77,5 +78,6 @@ namespace ex2
             m.ShowDialog();
 
         }
+
     }
 }
