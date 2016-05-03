@@ -207,26 +207,15 @@ namespace ex2
                 Close();
             }
         }
-        public int VM_ClueRow
+        public bool VM_InSession
         {
             get
             {
-                return model.ClueRow;
+                return model.InSession;
             }
-        }
-        public bool ClueVisi
-        {
-            get
+            set
             {
-                return model.ClueVisi ;
-            }
-        }
-        public int VM_ClueCol
-        {
-            get
-            {
-                return model.ClueCol; ;
-
+                model.InSession = value;
             }
         }
        public void move(int d)

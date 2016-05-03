@@ -26,9 +26,7 @@ namespace ex2
         public Model(TCPClient client)
         {
             this.Client = client;
-            //  stop = false;
-            ClueVisi = false;
-            Winner = false;
+          //  stop = false;
             this.ip= ConfigurationManager.AppSettings["IP"];
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
@@ -308,50 +306,6 @@ namespace ex2
                 NotifyPropertyChanged("EndYrivCol");
             }
         }
-        private int clueR;
-        public int ClueRow
-        {
-            get
-            {
-                return clueR;
-            }
-
-            set
-            {
-                clueR = value;
-                NotifyPropertyChanged("ClueRow");
-
-            }
-        }
-        private int clueC;
-        public int ClueCol
-        {
-            get
-            {
-                return clueC;
-            
-            }
-
-            set
-            {
-                clueC = value;
-                NotifyPropertyChanged("ClueCol");
-            }
-        }
-        bool visi;
-        public bool ClueVisi
-        {
-            get
-            {
-                return visi;
-            }
-
-            set
-            {
-                visi = value;
-                NotifyPropertyChanged("ClueVisi");
-            }
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
@@ -379,14 +333,12 @@ namespace ex2
         private Pair Start;
         public void createMaze()
         {
-            ClueVisi = false;
             Winner = false;
             Loser = false;
             Client.SendMsg("generate maze" + rnd.Next() + " 1");
            string str = Client.ReceviveMsg();
             ConvertFromJson ser=new ConvertFromJson(str);
-            ser.CreateMaze();
-            MyMaze = ser.maze;
+            MyMaze = ser.CreateMaze();
             this.MazeString = MyMaze.GetMaze();
             this.Coordinate = MyMaze.GetStart();
             EndRow = MyMaze.End.Row;
@@ -408,13 +360,12 @@ namespace ex2
         /// get a clue from server where to go
         /// </summary>
         /// <returns></returns>
-        public void getClue()
+        public List<int> getClue()
         {
-            
+            List<int> s = new List<int>() ;
             Client.SendMsg("solve " + MyMaze.Name + " 0");
             ConvertFromJson ser = new ConvertFromJson(Client.ReceviveMsg());
-             ser.CreateMaze();
-            SingleMaze sol_maze = ser.maze;
+            SingleMaze sol_maze = ser.CreateMaze();
             string strsolv = sol_maze.Maze;
             int pivot = this.Coordinate.Row * (2 * Heigth - 1) + this.Coordinate.Col * (2 * Width - 1);
             int begin = pivot - (2 * Width - 1);//look row before for clues 
@@ -427,26 +378,15 @@ namespace ex2
             {
                 end = strsolv.Length;
             }
-            for (int i = begin; i < pivot; i++)///search in the row before
+            char[] arr = strsolv.ToCharArray();
+            for (int i = begin; begin < end; i++)
             {
-                if (strsolv[i].Equals('2'))
+                if (arr[i].Equals('2'))
                 {
-                    this.ClueRow = i % (2 * Heigth - 1);
-                    this.ClueCol = i % (2 * Width - 1);
-                    return;
+                    s.Add(i);
                 }
             }
-            //if not found cell to go the is in the solition 
-            for (int i =pivot; i < end; i++)
-            {
-                if (strsolv[i].Equals('2'))
-                {
-                    this.ClueRow = i % (2 * Heigth - 1);
-                    this.ClueCol = i % (2 * Width - 1);
-                    return;
-                }
-            }
-
+            return s;
         }
         /// <summary>
         /// move on the maze to given direction if 
@@ -520,8 +460,7 @@ namespace ex2
                 string msn = "";
                 msn = Client.ReceviveMsg();
                 ConvertFromJson ser = new ConvertFromJson(msn);
-                ser.ConvertPlay();
-                Play m = ser.move;
+                Play m = ser.ConvertPlay();
                 string d = m.Move;
                 moveYriv(d);
 
@@ -531,8 +470,7 @@ namespace ex2
         public void StartGame(string ans)
         {
             ConvertFromJson ser = new ConvertFromJson(ans);
-             ser.ConvertStartGame();
-            Game g = ser.g;
+            Game g = ser.ConvertStartGame();
             gamename = g.Name;
             MyMaze = g.You;
             YarivMaze = g.Other;
@@ -599,14 +537,12 @@ namespace ex2
         /// <returns></returns>
         public string CreateGame(string name)
         {
-            ClueVisi = false;
             Winner = false;
             Loser = false;
             Client.SendMsg("multiplayer " +name);
             string ans = Client.ReceviveMsg();
             ConvertFromJson ser = new ConvertFromJson(ans);
-            ser.ConvertStartGame();
-            Game g = ser.g;
+            Game g = ser.ConvertStartGame();
             if (g.Name.Equals("one player"))
             {
                 return "wait";
@@ -631,6 +567,7 @@ namespace ex2
         public void closeGame()
         {
             endthread();
+           // stop = true;//close thread of reciving msn from server 
             this.Client.SendMsg("close " + gamename);
         }
     }
