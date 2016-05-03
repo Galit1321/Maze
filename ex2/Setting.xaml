@@ -8,12 +8,8 @@
         Title="Setting" Height="300" Width="300">
     <Grid>
         <Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF0FBBAB" Offset="0.094"/>
-            </RadialGradientBrush>
+            <ImageBrush ImageSource="stam.jpg"/>
         </Grid.Background>
-
 
         <WrapPanel Margin="10,10">
             <TextBlock   Text="Port: " HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Height="30" Width="44"/>

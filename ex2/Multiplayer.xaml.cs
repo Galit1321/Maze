@@ -22,6 +22,7 @@ namespace ex2
     public partial class Multiplayer : Window
     {
         ViewModel vm;
+        public static event MainWindow.SoundEvent soundMulti;
         private SoundPlayer song;
         public Multiplayer()
         {
@@ -63,7 +64,7 @@ namespace ex2
             MessageBoxResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                
+                soundMulti();
                 song.Stop();
                // vm.closeGame();
                 Close();

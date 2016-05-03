@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -63,6 +64,15 @@ namespace ex2
             ViewModel vm = ViewModel.Instance;
             vm.VM_IP = IP.Text;
             vm.VM_Port = Int32.Parse(Port.Text);
+            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            configuration.AppSettings.Settings.Remove("IP");
+            configuration.AppSettings.Settings.Add("IP", IP.Text);
+            configuration.AppSettings.Settings.Remove("Port");
+            configuration.AppSettings.Settings.Add("Port", Port.Text);
+            //          configuration.AppSettings.Settings["IP"].Value = IP.Text;
+            //          configuration.AppSettings.Settings["Port"].Value = Port.Text;
+            configuration.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
             soundSettings();
             song.Stop();
             this.Close();
