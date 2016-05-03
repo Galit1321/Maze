@@ -66,11 +66,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="controls\HeartButton.xaml.cs">
+      <DependentUpon>HeartButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\Maze.xaml.cs">
       <DependentUpon>Maze.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\MazeOpponent.xaml.cs">
       <DependentUpon>MazeOpponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\MyButton.xaml.cs">
+      <DependentUpon>MyButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConvertFromJson.cs" />
     <Compile Include="Game.cs" />
@@ -100,11 +106,19 @@
     <Compile Include="Wining.xaml.cs">
       <DependentUpon>Wining.xaml</DependentUpon>
     </Compile>
+    <Page Include="controls\HeartButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\Maze.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="controls\MazeOpponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\MyButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,6 +223,7 @@
     <Resource Include="controls\bride4.png" />
     <Resource Include="controls\groom4.png" />
     <Resource Include="clue.jpg" />
+    <Resource Include="controls\hearts.jpg" />
     <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="weddingMaze.jpg" />
