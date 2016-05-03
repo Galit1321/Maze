@@ -410,39 +410,41 @@ namespace ex2
             
             Client.SendMsg("solve " + MyMaze.Name + " 0");
             ConvertFromJson ser = new ConvertFromJson(Client.ReceviveMsg());
-             ser.CreateMaze();
+            ser.CreateMaze();
             SingleMaze sol_maze = ser.maze;
             string strsolv = sol_maze.Maze;
-            int pivot = this.Coordinate.Row * (2 * Heigth - 1) + this.Coordinate.Col * (2 * Width - 1);
+            int pivot = (2 * this.Width - 1) * (this.Coordinate.Row) + this.Coordinate.Col;
             int begin = pivot - (2 * Width - 1);//look row before for clues 
             int end = pivot + (2 * Width - 1);//look in the next row clues
-            if (begin<0)//if we are not in first row
+            if (begin>0)//if we are not in first row
             {
-                begin = 0;
+                for (int i = begin; i < pivot; i++)
+                {
+                    if (strsolv[i].Equals('2'))
+                    {
+                        ClueCol = i % (2 * Width - 1);
+                        ClueRow = i % (2 * Heigth - 1);
+                        NeedClue = true;
+                        return;
+                    }
+                }
             }
-            if (end > strsolv.Length)
+            if (end < strsolv.Length)
             {
-                end = strsolv.Length;
+                for (int i = pivot; i < end; i++)
+                {
+                    if (strsolv[i].Equals('2'))
+                    {
+                        ClueCol = i % (2 * Width - 1);
+                        ClueRow = i % (2 * Heigth - 1);
+                        NeedClue = true;
+                        return;
+                    }
+                }
             }
 
-            for (int i = begin; i < pivot; i++)
-            {
-                if (strsolv[i].Equals('2'))
-                {
-                   ClueCol=i%(2*Width -1);
-                    ClueRow = i%(2 * Heigth - 1);
-                    return;
-                }
-            }
-            for (int i = pivot; i < end; i++)
-            {
-                if (strsolv[i].Equals('2'))
-                {
-                    ClueCol = i % (2 * Width - 1);
-                    ClueRow = i % (2 * Heigth - 1);
-                    return;
-                }
-            }
+           
+            
 
         }
         /// <summary>
@@ -453,7 +455,8 @@ namespace ex2
         /// <param name="direction">which arrow key was press</param>
        public void move(int direction)
         {
-            char[] maze = this.MazeString.ToCharArray();
+
+            NeedClue = false;
             int pos = (2 * this.Width - 1) * (this.Coordinate.Row) + this.Coordinate.Col;//the plae of cor in maze string
             switch (direction)
             {

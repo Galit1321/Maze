@@ -208,6 +208,7 @@
     <Resource Include="controls\imagesJRFVC5O2.jpg" />
     <Resource Include="controls\bride4.png" />
     <Resource Include="controls\groom4.png" />
+    <Resource Include="clue.jpg" />
     <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="weddingMaze.jpg" />

@@ -69,12 +69,12 @@ namespace ex2
         public void OpenWin(string msn)
         {
             Window w = new Wining();
-            w.Show();
+            w.ShowDialog() ;
         }
 
         private void Clue_Click(object sender, RoutedEventArgs e)
         {
-            
+            vm.GetClue();
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)

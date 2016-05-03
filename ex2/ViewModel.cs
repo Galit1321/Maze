@@ -178,7 +178,17 @@ namespace ex2
         {
             model.createMaze();
         }
-
+        public void GetClue()
+        {
+            model.getClue();
+        }
+        public bool VM_NeedClue
+        {
+            get
+            {
+               return model.NeedClue;
+            }
+        }
         public void Connect()
         {
             model.connect(VM_IP, VM_Port);
@@ -222,17 +232,7 @@ namespace ex2
                 return model.ClueCol;
             }
         }
-        public bool VM_InSession
-        {
-            get
-            {
-                return model.InSession;
-            }
-            set
-            {
-                model.InSession = value;
-            }
-        }
+      
        public void move(int d)
         {
             model.move(d);
