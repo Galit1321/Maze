@@ -460,7 +460,7 @@ namespace ex2
                     {
                         Client.SendMsg("play down");
                         this.MyRow = this.MyRow + 2;
-                        
+
                         this.Coordinate.Row = MyRow;
                     }
                     break;
@@ -481,11 +481,11 @@ namespace ex2
                     }
                     break;
             }
-           
+
             if ((this.Coordinate.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
-                 
+
             }
         }
         public void Waiting()
@@ -497,6 +497,7 @@ namespace ex2
             }
         }
         int numOfPlayer;
+        volatile bool isWorking = false;
         public void start()
         {
             new Thread(delegate () {
@@ -504,7 +505,12 @@ namespace ex2
             {
                 string msn = "";
                 msn = Client.ReceviveMsg();
-                ser = new ConvertFromJson(msn);
+                    if (!isWorking)
+                    {
+                        isWorking = true;
+                        ser = new ConvertFromJson(msn);
+                        
+                    }   
                 FindType(ser.Type);
                 Thread.Sleep(500);
 
