@@ -30,14 +30,16 @@ namespace ex2
         int EndYrivCol { get; set; }
         Pair Coordinate { get; set; }
            Pair Yriv_Cor { get; set; }
-
+        int ClueRow { get; set; }
+        int ClueCol { get; set; }
+        bool NeedClue { get; set; }
         string MazeName { get; set; }
         bool Winner { get; set; }
         bool Loser { get; set; }
         bool InSession { get; set; }
             //active method
             void move(int direction);
-            List<int> getClue();
+            void getClue();
             void createMaze();
             string CreateGame(string name);
         void StartGame(string ans);

@@ -210,7 +210,6 @@
     <Resource Include="controls\groom4.png" />
     <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
-    <Resource Include="winning.jpg" />
     <Resource Include="weddingMaze.jpg" />
     <Content Include="Without You.wav" />
     <Resource Include="GameMenu.jpg" />
