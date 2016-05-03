@@ -18,7 +18,7 @@ namespace ex2
         TCPClient Client;
         public event OpenMsnWin WinWin;
 
-        volatile bool stop;
+        volatile bool stop=false;
         private int Heigth;
         private int Width;
         public SingleMaze MyMaze;
@@ -26,7 +26,7 @@ namespace ex2
         public Model(TCPClient client)
         {
             this.Client = client;
-            stop = false;
+          //  stop = false;
             this.ip= ConfigurationManager.AppSettings["IP"];
             this.port= Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Width= Int32.Parse(ConfigurationManager.AppSettings["Width"]);
@@ -273,7 +273,7 @@ namespace ex2
             set
             {
                 ins = value;
-                stop = true;
+              //  stop = true;
             }
         }
 
@@ -545,6 +545,7 @@ namespace ex2
             Game g = ser.ConvertStartGame();
             if (g.Name.Equals("one player"))
             {
+
                 return "wait";
             }
             else
@@ -564,9 +565,14 @@ namespace ex2
             this.MyCol =Start.Col;
             this.Coordinate = new Pair(MyRow, MyCol);
         }
+        public void endthread()
+        {
+            stop = true;
+        }
         public void closeGame()
         {
-            stop = true;//close thread of reciving msn from server 
+            endthread();
+           // stop = true;//close thread of reciving msn from server 
             this.Client.SendMsg("close " + gamename);
         }
     }

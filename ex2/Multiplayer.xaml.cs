@@ -65,7 +65,7 @@ namespace ex2
             {
                 
                 song.Stop();
-                vm.closeGame();
+               // vm.closeGame();
                 Close();
 
             }
