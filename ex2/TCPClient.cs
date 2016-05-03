@@ -42,8 +42,8 @@ namespace ex2
         {
             if (Sock != null)
             {
-               // Sock.Shutdown(SocketShutdown.Both);
-              //  Sock.Close();
+               Sock.Shutdown(SocketShutdown.Both);
+               Sock.Close();
             }
         }
         /// <summary>
@@ -52,8 +52,6 @@ namespace ex2
         /// <returns>message from server</returns>
         public string ReceviveMsg()
         {
-
-
             byte[] data = new byte[5000];
             int recv = Sock.Receive(data);
             return Encoding.ASCII.GetString(data, 0, recv);

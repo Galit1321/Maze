@@ -93,6 +93,8 @@
       <DependentUpon>SingelGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="TCPClient.cs" />
+    <Compile Include="TCPReceiveHandler.cs" />
+    <Compile Include="TCPSendHandler.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="Warning.xaml.cs">
       <DependentUpon>Warning.xaml</DependentUpon>

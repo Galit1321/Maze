@@ -50,12 +50,10 @@ namespace ex2
         {
             Dispatcher.Invoke(() => {//invike the right thread to change ui
                 Window m = new Multiplayer();
-               
                 m.Show();
                 if (War != null) {
                     War.Close();
                 }
-
                 this.Close();
             });
             
@@ -65,6 +63,7 @@ namespace ex2
         private void Window_Closed(object sender, EventArgs e)
         {
             vm.Open -= OpenWin;
+            vm.Close -= CloseWin;
         }
     }
 }

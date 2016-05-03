@@ -198,7 +198,8 @@ namespace ex2
         {
             model.Waiting();
             Close();
-            
+            Thread t = new Thread(model.start);
+            t.Start();
         }
         
          public void CreateGame(string name)
@@ -243,6 +244,9 @@ namespace ex2
             if (VM_Winner)
             {
                 Open("won");
+            }if (VM_Loser)
+            {
+                Open("lost");
             }
         }
         public void RestMaz()

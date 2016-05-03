@@ -43,6 +43,12 @@ namespace ex2
                 w.ShowDialog();
                 Close();
             }
+            if (msn.Equals("lost"))
+            {
+                Window w = new Wining();
+                w.ShowDialog();
+                Close();
+            }
              }
         private void Play()
         {

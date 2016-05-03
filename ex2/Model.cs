@@ -23,7 +23,7 @@ namespace ex2
         private int Width;
         public SingleMaze MyMaze;
         public SingleMaze YarivMaze;
-        public ConvertFromJson ser;
+        //public ConvertFromJson ser;
         public Model(TCPClient client)
         {
 
@@ -35,7 +35,7 @@ namespace ex2
             this.Width = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             this.Heigth = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             connect(ip, port);
-            start();
+           // start();
            
 
         }
@@ -361,9 +361,16 @@ namespace ex2
         /// create a maze for player
         /// </summary>
         private Pair StartPoint;
-        public void MazeHelper()
+       
+        public void createMaze()
         {
-            MyMaze = ser.maze;
+            Winner = false;
+            NeedClue = false;
+            Loser = false;
+            Client.SendMsg("generate maze" + rnd.Next() + " 1");
+            string ans = Client.ReceviveMsg();
+            ConvertFromJson ser = new ConvertFromJson(ans);
+            MyMaze = ser.CreateMaze();
             this.MazeString = MyMaze.GetMaze();
             this.Coordinate = MyMaze.GetStart();
             EndRow = MyMaze.End.Row;
@@ -374,18 +381,7 @@ namespace ex2
             this.MyRow = r;
             this.MyCol = c;
             this.MazeName = MyMaze.Name;
-        }
-        public void createMaze()
-        {
-            Winner = false;
-            NeedClue = false;
-            Loser = false;
-            Client.SendMsg("generate maze" + rnd.Next() + " 1");
-            while (MyMaze == null)
-            {
-                Thread.Sleep(1);
-            }
-           
+
         }
 
         public void disconnect()
@@ -403,10 +399,10 @@ namespace ex2
         public void getClue()
         {
             Client.SendMsg("clue " +MyMaze.Name+" "+ MyRow + " " + MyCol);
-            while (Clue == null)
-            {
-                Thread.Sleep(1200);
-            }
+            string s = Client.ReceviveMsg();
+            ConvertFromJson ser = new ConvertFromJson(s);
+            Play p = ser.ConvertPlay();
+            Clue = p.Move;
             switch (Clue)
             {
                 case "up":
@@ -490,12 +486,16 @@ namespace ex2
         }
         public void Waiting()
         {
-            while (numOfPlayer < 2)
+            string msg = "";
+            while (msg.Length == 0)
             {
-                Thread.Sleep(1000);
+                msg = Client.ReceviveMsg();
 
             }
+            StartGame(msg);
+
         }
+    
         int numOfPlayer;
         volatile bool isWorking = false;
         public void start()
@@ -503,21 +503,19 @@ namespace ex2
             new Thread(delegate () {
             while (!stop)
             {
-                string msn = "";
-                msn = Client.ReceviveMsg();
-                    if (!isWorking)
-                    {
-                        isWorking = true;
-                        ser = new ConvertFromJson(msn);
-                        
-                    }   
-                FindType(ser.Type);
-                Thread.Sleep(500);
+              string msn = "";
+              msn = Client.ReceviveMsg();
+              ConvertFromJson ser = new ConvertFromJson(msn);
+              ser.ConvertPlay();
+              Play m = ser.ConvertPlay();
+              string d = m.Move;
+               moveYriv(d);
+             Thread.Sleep(500);
 
                 }
         }).Start();
         }
-        public void FindType(string type)
+        /*public void FindType(string type)
         {
             switch (type)
             {
@@ -544,12 +542,13 @@ namespace ex2
                     break;
 
             }
-        }
+        }*/
         private string Clue;
         private string gamename;
-        public void StartGame()
+        public void StartGame(string ans)
         {
-            Game g = ser.g;
+             ConvertFromJson ser = new ConvertFromJson(ans);
+            Game g = ser.ConvertStartGame(); ;
             gamename = g.Name;
             MyMaze = g.You;
             YarivMaze = g.Other;
@@ -624,11 +623,9 @@ namespace ex2
             Winner = false;
             Loser = false;
             Client.SendMsg("multiplayer " +name);
-            while (MyMaze == null)
-            {
-                Thread.Sleep(1);
-            }
-            Game g = ser.g;
+            string ans = Client.ReceviveMsg();
+            ConvertFromJson ser = new ConvertFromJson(ans);
+            Game g = ser.ConvertStartGame();
             if (g.Name.Equals("one player"))
             {
 
@@ -636,12 +633,14 @@ namespace ex2
             }
             else
             {
-                
-                return "game on";
+                StartGame(ans);
+                Thread t = new Thread(start);
+                t.Start();
+                return ans;
             }
-           
-              
-            }
+
+
+        }
 
         public void RestGame()
         {
@@ -652,6 +651,7 @@ namespace ex2
         public void closeGame()
         {
             this.Client.SendMsg("close " + gamename);
+            stop = true;
         }
     }
 }
