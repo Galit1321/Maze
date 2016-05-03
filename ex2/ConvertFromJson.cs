@@ -10,7 +10,9 @@ namespace ex2
     class ConvertFromJson
     {
         public Dictionary<string, string> Serlize;
-
+        public SingleMaze maze;
+        public Game g;
+        public Play move;
         public ConvertFromJson(Dictionary<string,string> dict)
         {
             this.Serlize = dict;
@@ -30,14 +32,14 @@ namespace ex2
         /// create a single game by the value of serlize dictionary 
         /// </summary>
         /// <returns>that single maze this serlize repersent</returns>
-        public SingleMaze CreateMaze()
+        public void CreateMaze()
         {
             string maze = this.Serlize["Maze"];
             string n = this.Serlize["Name"];
             Pair start = CreatePair(this.Serlize["Start"]);
             Pair end = CreatePair(this.Serlize["End"]);
             SingleMaze m = new SingleMaze(start,end,maze,n);
-            return m;
+            this.maze = m;
         }
 
         /// <summary>
@@ -63,20 +65,21 @@ namespace ex2
             SingleMaze sm = new SingleMaze(start, end, maze);
             return sm;
         }
-        public Game ConvertStartGame()
+        public void ConvertStartGame()
         {
             string name=this.Serlize["Name"];
             string mazename=this.Serlize["MazeName"];
             SingleMaze u=WithoutName(this.Serlize["You"]);
             SingleMaze other= WithoutName(this.Serlize["Other"]);
             Game g = new Game(name, mazename, u, other);
-            return g;
+            this.g=g;
         }
-        public Play ConvertPlay()
+        public void ConvertPlay()
         {
             string name=this.Serlize["Name"];
             string move = this.Serlize["Move"];
-           return new Play(name, move);
+
+           this.move= new Play(name, move);
         }
     }
 }
