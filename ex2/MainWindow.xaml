@@ -13,21 +13,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="weddingMaze.jpg"/>
         </Grid.Background>
-
-        <Button x:Name="SinglePlayer"  Content="SinglePlayer" HorizontalAlignment="Center" VerticalAlignment="Center" Margin='194,175,198,329'  Width="200" Height="65" Click="SinglePlayer_Click" FontSize="25" FontStretch="Medium" Foreground="DarkRed" FontWeight="Bold">
-            <Button.Background>
-                <ImageBrush ImageSource="hearts.jpg"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="multiButton" VerticalAlignment="Center" Content="MultiPlayer" HorizontalAlignment="Center" Margin="194,245,198,259"  Width="200" Height="65" RenderTransformOrigin="0.929,0.553" Click="multiButton_Click" FontSize="25" FontStretch="Medium" Foreground="DarkRed" FontWeight="Bold">
-            <Button.Background>
-                <ImageBrush ImageSource="hearts.jpg"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Setting" VerticalAlignment="Center" Content="Setting"  HorizontalAlignment="Center" Margin="194,315,198,189"  Width="200" RenderTransformOrigin="-0.257,-0.108" Height="65" Click="Setting_Click" FontSize="25" FontStretch="Medium" Foreground="DarkRed" FontWeight="Bold">
-            <Button.Background>
-                <ImageBrush ImageSource="hearts.jpg"/>
-            </Button.Background>
-        </Button>
+        <Controls:HeartButton x:Name="SinglePlayer"  Content="SinglePlayer" HorizontalAlignment="Left" Margin="234,200,0,0" VerticalAlignment="Top" Click="SinglePlayer_Click" Height="70" Width="300"/>
+        <Controls:HeartButton x:Name="multiButton" Content="MultiPlayer" HorizontalAlignment="Left" Margin="234,283,0,0" VerticalAlignment="Top" Click="multiButton_Click" Height="70" Width="300"/>
+        <Controls:HeartButton x:Name="Setting" Content="Setting" HorizontalAlignment="Left" Margin="234,362,0,0" VerticalAlignment="Top" Click="Setting_Click" Height="70" Width="300"/>
     </Grid>
 </Window>

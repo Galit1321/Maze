@@ -1,0 +1,15 @@
+﻿<Button x:Class="ex2.controls.HeartButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ex2.controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="65" d:DesignWidth="200" FontFamily="Snap ITC" FontSize="40" Foreground="#FFF00EB2" BorderBrush="#7FCD2727" FontStretch="Expanded">
+    <Button.Background>
+        <ImageBrush ImageSource="hearts.jpg"/>
+    </Button.Background>
+    <Button.OpacityMask>
+        <ImageBrush ImageSource="hearts.jpg" TileMode="FlipY"/>
+    </Button.OpacityMask>
+</Button>
