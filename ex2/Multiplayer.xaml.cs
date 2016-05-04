@@ -59,6 +59,7 @@ namespace ex2
                  path += "\\MKTO - Classic.mp3";
                 song.Open(new Uri(path));
                 //song.Load();
+                song.MediaEnded += new EventHandler(Media_Ended);
                 song.Play();
                 
             }
@@ -67,6 +68,15 @@ namespace ex2
 
             }
         }
+
+        private void Media_Ended(object sender, EventArgs e)
+        {
+            string path = System.IO.Path.GetFullPath(".");
+            path += "\\MKTO - Classic.mp3";
+            song.Open(new Uri(path));
+            return;
+        }
+
         private void Window_Closed(object sender, EventArgs e)
         {
             song.Stop();
