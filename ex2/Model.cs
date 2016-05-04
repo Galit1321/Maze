@@ -508,7 +508,7 @@ namespace ex2
         {
             while (numOfPlayer < 2)
             {
-                Thread.Sleep(1000);
+               // Thread.Sleep(1000);
 
             }
         }
