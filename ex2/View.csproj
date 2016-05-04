@@ -84,6 +84,9 @@
       <DependentUpon>GameMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="ICommuntable.cs" />
+    <Compile Include="LoseCon.xaml.cs">
+      <DependentUpon>LoseCon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoseWindow.xaml.cs">
       <DependentUpon>LoseWindow.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoseCon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

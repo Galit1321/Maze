@@ -45,7 +45,7 @@ namespace ex2
             }
             if (msn.Equals("lost"))
             {
-                Window w = new Wining();
+                Window w = new LoseWindow();
                 w.ShowDialog();
                 Close();
             }
