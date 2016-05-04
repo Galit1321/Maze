@@ -15,7 +15,17 @@
                 <ImageBrush ImageSource="groom4.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="Clue" Grid.Column="{Binding VM_ClueCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_ClueRow, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding VM_NeedClue, Converter={StaticResource BoolToVis}, FallbackValue=Hidden}" Fill="Pink" />
+        <Rectangle x:Name="Clue" Grid.Column="{Binding VM_ClueCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_ClueRow, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding VM_NeedClue, Converter={StaticResource BoolToVis}, FallbackValue=Hidden}" Fill="Pink">
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Grid.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard AutoReverse="True" RepeatBehavior="5" >
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.5" To="1" Duration="0:0:00.50"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
         <Rectangle x:Name="end" Grid.Column="{Binding VM_EndCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_EndRow, UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="bride4.png"/>

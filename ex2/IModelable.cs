@@ -38,7 +38,7 @@ namespace ex2
         bool Loser { get; set; }
        // bool InSession { get; set; }
             //active method
-            void move(int direction);
+            void move(string direction);
             void getClue();
             void createMaze();
             string CreateGame(string name);

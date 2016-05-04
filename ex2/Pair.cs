@@ -16,7 +16,7 @@ namespace ex2
         /// </summary>
         /// <param name="i">row in a matrix</param>
         /// <param name="j">col in a matrix</param>
-        [JsonConstructor]
+        
         public Pair (int i,int j)
         {
             this.Row = i;
@@ -27,6 +27,10 @@ namespace ex2
         {
            Pair l = obj as Pair;
             return (this.Row.Equals(l.Row)) && (this.Col.Equals(l.Col));
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

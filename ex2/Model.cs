@@ -17,37 +17,30 @@ namespace ex2
     {
         TCPClient Client;
         volatile bool stop ;
-        private int Heigth;
-        private int Width;
         public SingleMaze MyMaze;
+        public event OpenMsnWin Open;
         public SingleMaze YarivMaze;
         public ConvertFromJson ser;
         private bool isConnected;
         public Model(TCPClient client)
         {
-
             this.Client = client;
             Client.UpdateModel += delegate ()
             {
                 string ans = Client.ReceiveData();
                 ser = new ConvertFromJson(ans);
-                FindType(ser.Type);
-               
+                FindType(ser.Type); 
             };
             isConnected = false;
-            NeedClue = false;
+            NeedClue = false;//clue rec to stay hidden for now
             this.IP = ConfigurationManager.AppSettings["IP"];
             this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
-            this.Width = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
-            this.Heigth = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
             connect(ip, port);
             start();
         }
         ~Model()
         {
             stop = true;
-            
-
         }
         public void FindType(string type)
         {
@@ -439,30 +432,10 @@ namespace ex2
             {
                 Thread.Sleep(1200);
             }
-            switch (Clue)
-            {
-                case "up":
-                    ClueCol = MyCol;
-                    ClueRow = MyRow - 2;
-                    NeedClue = true;
-                    break;
-                case "down":
-                    ClueCol = MyCol;
-                    ClueRow = MyRow + 2;
-                    NeedClue = true;
-                    break;
-                case "left":
-                    ClueCol = MyCol - 2;
-                    ClueRow = MyRow;
-                    NeedClue = true;
-                    break;
-                case "right":
-                    ClueCol = MyCol + 2;
-                    ClueRow = MyRow;
-                    NeedClue = true;
-                    break;
-            }
-            return;
+            Pair p=MyMaze.move(Clue, MyRow, MyCol);
+            ClueCol = p.Col;
+            ClueRow = p.Row;
+            NeedClue = true; 
         }
 
 
@@ -472,54 +445,24 @@ namespace ex2
         /// send that we move in case of an multiplayer game
         /// </summary>
         /// <param name="direction">which arrow key was press</param>
-        public void move(int direction)
+        public void move(string direction)
         {
-
             NeedClue = false;
-            int pos = (2 * this.Width - 1) * (this.Coordinate.Row) + this.Coordinate.Col;//the plae of cor in maze string
-            switch (direction)
+            Pair p = MyMaze.move(direction,MyRow,MyCol);
+            if (this.Coordinate.Equals(p))//we didnt move at all 
             {
-                case 1://up
-                    if ((MyRow - 2 >= 0) && (this.MazeString[pos - (2 * Width - 1)] != '1'))
-                    {
-                        Client.SendMsg("play up");
-                        this.MyRow = this.MyRow - 2;
-                        this.Coordinate.Row = MyRow;
-                    }
-                    break;
-                case 2://down
-                    if ((MyRow + 2 < 2 * Heigth - 1) && (this.MazeString[pos + (2 * Width - 1)] != '1'))
-                    {
-                        Client.SendMsg("play down");
-                        this.MyRow = this.MyRow + 2;
-
-                        this.Coordinate.Row = MyRow;
-                    }
-                    break;
-                case 3://right
-                    if ((MyCol + 2 < 2 * Width - 1) && (this.MazeString[pos + 1] != '1'))
-                    {
-                        Client.SendMsg("play right");
-                        MyCol += 2;
-                        this.Coordinate.Col = MyCol;
-                    }
-                    break;
-                case 4://le ft
-                    if ((MyCol - 2 >= 0) && (this.MazeString[pos - 1] != '1'))
-                    {
-                        Client.SendMsg("play left");
-                        MyCol -= 2;
-                        this.Coordinate.Col = MyCol;
-                    }
-                    break;
+                return;
             }
-
+            Client.SendMsg("play "+direction);
+            MyRow = p.Row;
+            MyCol = p.Col;
+            this.Coordinate = p;
             if ((this.Coordinate.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
-
             }
         }
+
         int numOfPlayer;
         public void Waiting()
         {
@@ -536,9 +479,7 @@ namespace ex2
             {
                 Client.Start();
             }).Start();
-            
         }
-        
         private string Clue;
         private string gamename;
         public void StartGame()
@@ -559,56 +500,24 @@ namespace ex2
             this.EndYrivRow = YarivMaze.End.Row;
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
-
-
         }
         private void moveYriv(string d)
         {
-            int pos = (2 * this.Width - 1) * (this.Yriv_Cor.Row) + this.Yriv_Cor.Col;//the plae of cor in maze string
-            switch (d)
+            NeedClue = false;
+            Pair p = MyMaze.move(d,YrivRow, YrivCol);
+            if (this.Coordinate.Equals(p))//he didnt move at all 
             {
-                case "up"://up
-                    if ((this.YrivRow - 2 >= 0) && (this.YrivMazeString[pos - (2 * Width - 1)] != '1'))
-                    {
-
-                        this.YrivRow = this.YrivRow - 1;
-                        this.YrivRow = this.YrivRow - 1;
-                        this.Yriv_Cor.Row = this.YrivRow;
-                    }
-                    break;
-                case "down"://down
-                    if ((this.YrivRow + 2 < 2 * Heigth - 1) && (this.YrivMazeString[pos + (2 * Width - 1)] != '1'))
-                    {
-
-                        this.YrivRow = this.YrivRow + 2;
-                        this.Yriv_Cor.Row = this.YrivRow;
-                    }
-                    break;
-                case "right"://right
-                    if ((YrivCol + 2 < 2 * Width - 1) && (this.YrivMazeString[pos + 1] != '1'))
-                    {
-
-                        YrivCol += 2;
-                        this.Yriv_Cor.Col = YrivCol;
-                    }
-                    break;
-                case "left"://le ft
-                    if ((YrivCol - 2 >= 0) && (this.YrivMazeString[pos - 1] != '1'))
-                    {
-
-                        YrivCol -= 2;
-                        this.Yriv_Cor.Col = YrivCol;
-                    }
-                    break;
+                return;
             }
-            if ((this.Yriv_Cor.Row.Equals(this.EndYrivRow)) && (this.Yriv_Cor.Col.Equals(this.EndYrivCol)))
+            YrivRow = p.Row;
+            YrivCol = p.Col;
+            this.Yriv_Cor = p;
+                if ((this.Yriv_Cor.Row.Equals(this.EndYrivRow)) && (this.Yriv_Cor.Col.Equals(this.EndYrivCol)))
             {
                 this.Loser = true;
             }
         }
-
-
-        /// <summary>
+         /// <summary>
         /// create new game 
         /// </summary>
         /// <param name="name">game name </param>
@@ -625,16 +534,12 @@ namespace ex2
             Game g = ser.g;
             if (g.Name.Equals("one player"))
             {
-                
                 return "wait";
             }
             else
             {
-
                 return "game on";
             }
-
-
         }
 
         public void RestGame()

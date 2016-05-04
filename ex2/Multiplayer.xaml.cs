@@ -70,6 +70,7 @@ namespace ex2
         private void Window_Closed(object sender, EventArgs e)
         {
             song.Stop();
+            vm.Open -= OpenWin;
            vm.closeGame();
         }
 
@@ -95,43 +96,24 @@ namespace ex2
             vm.RestMaz();
         }
 
-        private void Grid_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Down)
-            {
-                vm.move(2);
-            }
-            else if (e.Key == Key.Up)
-            {
-                vm.move(1);
-            }
-            else if (e.Key == Key.Left)
-            {
-                vm.move(4);
-            }
-            else if (e.Key == Key.Right)
-            {
-                vm.move(3);
-            }
-        }
-
+       
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Down)
             {
-                vm.move(2);
+                vm.move("down");
             }
             else if (e.Key == Key.Up)
             {
-                vm.move(1);
+                vm.move("up");
             }
             else if (e.Key == Key.Left)
             {
-                vm.move(4);
+                vm.move("left");
             }
             else if (e.Key == Key.Right)
             {
-                vm.move(3);
+                vm.move("right");
             }
         }
     }

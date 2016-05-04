@@ -81,6 +81,7 @@ namespace ex2.controls
                 for (int j = 0; j < columNum; j++)
                 {
                     Rectangle r = new Rectangle();
+                    
                     if (mazeStr[x] == '1')
                     {
                         r.Fill = new SolidColorBrush(Color.FromRgb(255, 20, 147));
@@ -91,23 +92,7 @@ namespace ex2.controls
                     x++;
                 }
             } }
-        public void MarkClue(List<int> cell)
-        {
-            int x = cell.First() ;
-            int row;
-            int col;
-            Rectangle r = new Rectangle();
-            r.Fill= new SolidColorBrush(Colors.Aqua);
-            foreach (int elem in cell)
-            {
-                row = x % mazeGrid.RowDefinitions.Count;
-                col = x % mazeGrid.ColumnDefinitions.Count;
-                Grid.SetRow(r, row);
-                Grid.SetColumn(r, col);
-                mazeGrid.Children.Add(r);
-                
-            }
-        }
+
         public void NewString(string mazeStr)
         {
              int rowsNum = Int32.Parse(ConfigurationManager.AppSettings["Height"]);

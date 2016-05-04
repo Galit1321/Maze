@@ -158,7 +158,7 @@ namespace ex2
             delegate (Object sender, PropertyChangedEventArgs e) {
            NotifyPropertyChanged("VM_"+e.PropertyName);
        };
-
+        
         }
 
         public void NotifyPropertyChanged(string propName)
@@ -237,7 +237,7 @@ namespace ex2
                 return model.Loser;
             }
         }
-       public void move(int d)
+       public void move(string d)
         {
             model.move(d);
             if (VM_Winner)

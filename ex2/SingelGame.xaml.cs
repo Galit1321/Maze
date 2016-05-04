@@ -86,19 +86,19 @@ namespace ex2
         {
             if (e.Key == Key.Down)
             {
-                vm.move(2);
+                vm.move("down");
             }
             else if (e.Key == Key.Up)
             {
-                vm.move(1);
+                vm.move("up");
             }
             else if (e.Key == Key.Left)
             {
-                vm.move(4);
+                vm.move("left");
             }
             else if (e.Key == Key.Right)
             {
-                vm.move(3);
+                vm.move("right");
             }
         }
 
