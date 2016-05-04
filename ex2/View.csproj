@@ -213,6 +213,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="A Thousand years.mp3" />
     <Content Include="A Thousand years.wav" />
     <Content Include="Begin Again.wav" />
     <Content Include="Call Me Maybe.wav" />
@@ -237,6 +238,7 @@
     <Resource Include="groomRun.jpg" />
     <None Include="Resources\MKTO - Classic.mp3" />
     <Content Include="MKTO - Classic.mp3" />
+    <Content Include="Titanium - Pavane.mp3" />
     <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="weddingMaze.jpg" />

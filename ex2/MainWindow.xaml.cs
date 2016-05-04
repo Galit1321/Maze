@@ -24,7 +24,7 @@ namespace ex2
     public partial class MainWindow : Window
     {
         public ViewModel vm;
-        private SoundPlayer song;
+        private MediaPlayer song;
         public delegate void SoundEvent();
         public MainWindow()
         {
@@ -42,19 +42,46 @@ namespace ex2
         {
             try
             {
-                song = new System.Media.SoundPlayer();
-                string path = Path.GetFullPath(".");
-                path += "\\Without You.wav";
-                song.SoundLocation = path;
-                song.Load();
+                song = new MediaPlayer();
+                string path = System.IO.Path.GetFullPath(".");
+                path += "\\A Thousand years.mp3";
+                song.Open(new Uri(path));
+                //song.Load();
+                song.MediaEnded += new EventHandler(Media_Ended);
                 song.Play();
-                song.PlayLooping();
+
             }
             catch (Exception)
             {
 
             }
         }
+
+        private void Media_Ended(object sender, EventArgs e)
+        {
+            string path = System.IO.Path.GetFullPath(".");
+            path += "\\A Thousand years.mp3";
+            song.Open(new Uri(path));
+            return;
+        }
+
+        //private void Play()
+        //{
+        //    try
+        //    {
+        //        song = new System.Media.SoundPlayer();
+        //        string path = Path.GetFullPath(".");
+        //        path += "\\Without You.wav";
+        //        song.SoundLocation = path;
+        //        song.Load();
+        //        song.Play();
+        //        song.PlayLooping();
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //    }
+        //}
 
         private void Setting_Click(object sender, RoutedEventArgs e)
         {

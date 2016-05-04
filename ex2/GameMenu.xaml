@@ -5,24 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ex2"
         mc:Ignorable="d"
-        Title="Gamename" Height="200" Width="300" Closed="Window_Closed">
+        Title="Gamename" Height="350" Width="500" Closed="Window_Closed">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="GameMenu.jpg"/>
         </Grid.Background>
-        
-        <WrapPanel>
-            <TextBlock Text="Game Name:  " FontWeight="Bold" FontFamily="David" />
-            <TextBox Name="Game_name" Width="150" VerticalAlignment="Center" />
-        </WrapPanel>
+
+        <TextBlock Text="Game Name:  " FontWeight="Bold" FontFamily="Ravie" Margin="140,70,117,194" FontSize="26.667" />
+        <TextBox x:Name="Game_name" Margin="140,125,132,144" FontSize="26.667" FontFamily="Buxton Sketch" FontWeight="Bold" >
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF15704B" Offset="0"/>
+                    <GradientStop Color="#FF5DC387" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
         <Button Name="bntCnt" Content="Next ->" Click="bntCnt_Click" VerticalAlignment="Bottom">
-        <Button.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFFFD190" Offset="0.5"/>
-                <GradientStop  Color="Orange" Offset="0.85"/>
-                <GradientStop Color="#FFFFD190" Offset="1"/>
-            </LinearGradientBrush>
-        </Button.Background>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFD190" Offset="0.5"/>
+                    <GradientStop  Color="Orange" Offset="0.85"/>
+                    <GradientStop Color="#FFFFD190" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
         </Button>
     </Grid>
 </Window>
