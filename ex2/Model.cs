@@ -449,7 +449,7 @@ namespace ex2
             Client.SendMsg("clue " + MyMaze.Name + " " + MyRow + " " + MyCol);
             while (Clue == null)
             {
-               Thread.Sleep(1200);
+                Thread.Sleep(1200);
             }
             switch (Clue)
             {
@@ -506,7 +506,6 @@ namespace ex2
         int numOfPlayer;
         public void Waiting()
         {
-           
             while (numOfPlayer < 2)
             {
                 //Thread.Sleep(10000);
