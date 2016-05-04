@@ -228,6 +228,8 @@
     <Resource Include="controls\groom4.png" />
     <Resource Include="controls\hearts.jpg" />
     <Resource Include="groomRun.jpg" />
+    <None Include="Resources\MKTO - Classic.mp3" />
+    <Content Include="MKTO - Classic.mp3" />
     <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="weddingMaze.jpg" />

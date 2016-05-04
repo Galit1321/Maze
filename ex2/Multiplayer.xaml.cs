@@ -23,7 +23,7 @@ namespace ex2
     {
         ViewModel vm;
         public static event MainWindow.SoundEvent soundMulti;
-        private SoundPlayer song;
+        private MediaPlayer song;
         public Multiplayer()
         {
 
@@ -54,13 +54,13 @@ namespace ex2
         {
             try
             {
-                song = new System.Media.SoundPlayer();
-                string path = System.IO.Path.GetFullPath(".");
-                path += "\\A Thousand years.wav";
-                song.SoundLocation = path;
-                song.Load();
+                song = new MediaPlayer();
+                 string path = System.IO.Path.GetFullPath(".");
+                 path += "\\MKTO - Classic.mp3";
+                song.Open(new Uri(path));
+                //song.Load();
                 song.Play();
-                song.PlayLooping();
+                
             }
             catch (Exception)
             {
@@ -80,7 +80,7 @@ namespace ex2
             if (result == MessageBoxResult.Yes)
             {
                 soundMulti();
-                song.Stop();
+                song.Close();
                 Close();
 
             }
