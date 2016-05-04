@@ -523,22 +523,53 @@ namespace ex2
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
         }
+        int Width = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
+           int Heigth = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
         private void moveYriv(string d)
         {
-            NeedClue = false;
-            Pair p = MyMaze.move(d,YrivRow, YrivCol);
-            if (this.Coordinate.Equals(p))//he didnt move at all 
+            int pos = (2 * this.Width - 1) * (this.Yriv_Cor.Row) + this.Yriv_Cor.Col;//the plae of cor in maze string
+            switch (d)
             {
-                return;
+                case "up"://up
+                    if ((this.YrivRow - 2 >= 0) && (this.YrivMazeString[pos - (2 * Width - 1)] != '1'))
+                    {
+
+                        this.YrivRow = this.YrivRow - 1;
+                        this.YrivRow = this.YrivRow - 1;
+                        this.Yriv_Cor.Row = this.YrivRow;
+                    }
+                    break;
+                case "down"://down
+                    if ((this.YrivRow + 2 < 2 * Heigth - 1) && (this.YrivMazeString[pos + (2 * Width - 1)] != '1'))
+                    {
+
+                        this.YrivRow = this.YrivRow + 2;
+                        this.Yriv_Cor.Row = this.YrivRow;
+                    }
+                    break;
+                case "right"://right
+                    if ((YrivCol + 2 < 2 * Width - 1) && (this.YrivMazeString[pos + 1] != '1'))
+                    {
+
+                        YrivCol += 2;
+                        this.Yriv_Cor.Col = YrivCol;
+                    }
+                    break;
+                case "left"://le ft
+                    if ((YrivCol - 2 >= 0) && (this.YrivMazeString[pos - 1] != '1'))
+                    {
+
+                        YrivCol -= 2;
+                        this.Yriv_Cor.Col = YrivCol;
+                    }
+                    break;
             }
-            YrivRow = p.Row;
-            YrivCol = p.Col;
-            this.Yriv_Cor = p;
-                if ((this.Yriv_Cor.Row.Equals(this.EndYrivRow)) && (this.Yriv_Cor.Col.Equals(this.EndYrivCol)))
+            if ((this.Yriv_Cor.Row.Equals(this.EndYrivRow)) && (this.Yriv_Cor.Col.Equals(this.EndYrivCol)))
             {
                 this.Loser = true;
             }
         }
+    
          /// <summary>
         /// create new game 
         /// </summary>
