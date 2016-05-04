@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ex2
 {
+    public delegate void UpdateData();
     /// <summary>
     /// interface of the methods of
     /// communication that are separate 
@@ -15,8 +16,12 @@ namespace ex2
     /// </summary>
     interface ICommuntable
     {
-        string ReceviveMsg();
-        void SendMsg(string msn);
+        event UpdateData UpdateModel;
+        bool Connect(string IP, int port);
+        void Start();
+        void SendMsg(string ans);
+        string ReceiveData();
+        void Disconnect();
 
     }
 }

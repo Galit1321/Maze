@@ -198,8 +198,7 @@ namespace ex2
         {
             model.Waiting();
             Close();
-            Thread t = new Thread(model.start);
-            t.Start();
+           // model.start();
         }
         
          public void CreateGame(string name)

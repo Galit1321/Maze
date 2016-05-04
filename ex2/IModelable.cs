@@ -42,7 +42,7 @@ namespace ex2
             void getClue();
             void createMaze();
             string CreateGame(string name);
-        void StartGame(string s);
+        void StartGame();
         void Waiting();
         void RestGame();
         void closeGame();

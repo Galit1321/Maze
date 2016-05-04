@@ -10,11 +10,11 @@ namespace ex2
     class ConvertFromJson
     {
         public Dictionary<string, string> Serlize;
-
-        public ConvertFromJson(Dictionary<string, string> dict)
-        {
-            this.Serlize = dict;
-        }
+        public SingleMaze maze;
+        public Game g;
+        public Play move;
+        public string Type;
+        
         /// <summary>
         /// constructor that get serlize string and turn it to a dictionary 
         /// </summary>
@@ -22,22 +22,42 @@ namespace ex2
         public ConvertFromJson(string json)
         {
 
-            Dictionary<string,string> dict= JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-            this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(dict["Content"]);
+            Dictionary<string,string> dic= JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            this.Type = dic["Type"];
+            this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(dic["Content"]);
         }
-
+       
+        public void FindType(string type)
+        {
+            switch (type)
+            {
+                case "1":
+                    CreateMaze();
+                    break;
+                case "2":
+                    CreateMaze();
+                    break;
+                case "3":
+                    ConvertStartGame();
+                    break;
+                case "4":
+                    ConvertPlay();
+                    break;
+                
+            }
+        }
         /// <summary>
         /// create a single game by the value of serlize dictionary 
         /// </summary>
         /// <returns>that single maze this serlize repersent</returns>
-        public SingleMaze CreateMaze()
+        public void CreateMaze()
         {
             string maze = this.Serlize["Maze"];
             string n = this.Serlize["Name"];
             Pair start = CreatePair(this.Serlize["Start"]);
             Pair end = CreatePair(this.Serlize["End"]);
-            SingleMaze m = new SingleMaze(start, end, maze, n);
-            return m;
+            SingleMaze m = new SingleMaze(start,end,maze,n);
+            this.maze = m;
         }
 
         /// <summary>
@@ -52,8 +72,8 @@ namespace ex2
             int c = int.Parse(des[1]);
             return new Pair(r, c);
         }
-
-        public SingleMaze WithoutName(string game)
+         
+        public SingleMaze WithoutName(string game )
         {
             Dictionary<string, string> ser = new Dictionary<string, string>();
             ser = JsonConvert.DeserializeObject<Dictionary<string, string>>(game);
@@ -63,20 +83,20 @@ namespace ex2
             SingleMaze sm = new SingleMaze(start, end, maze);
             return sm;
         }
-        public Game ConvertStartGame()
+        public void ConvertStartGame()
         {
-            string name = this.Serlize["Name"];
-            string mazename = this.Serlize["MazeName"];
-            SingleMaze u = WithoutName(this.Serlize["You"]);
-            SingleMaze other = WithoutName(this.Serlize["Other"]);
+            string name=this.Serlize["Name"];
+            string mazename=this.Serlize["MazeName"];
+            SingleMaze u=WithoutName(this.Serlize["You"]);
+            SingleMaze other= WithoutName(this.Serlize["Other"]);
             Game g = new Game(name, mazename, u, other);
-            return g;
+            this.g=g;
         }
-        public Play ConvertPlay()
+        public void ConvertPlay()
         {
-            string name = this.Serlize["Name"];
+            string name=this.Serlize["Name"];
             string move = this.Serlize["Move"];
-            return new Play(name, move);
+           this.move= new Play(name, move);
         }
     }
 }
