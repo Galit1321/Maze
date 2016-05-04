@@ -84,6 +84,9 @@
       <DependentUpon>GameMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="ICommuntable.cs" />
+    <Compile Include="LoseWindow.xaml.cs">
+      <DependentUpon>LoseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Multiplayer.xaml.cs">
       <DependentUpon>Multiplayer.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,6 +233,7 @@
     <Resource Include="controls\groom4.png" />
     <Resource Include="clue.jpg" />
     <Resource Include="controls\hearts.jpg" />
+    <Resource Include="groomRun.jpg" />
     <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="weddingMaze.jpg" />

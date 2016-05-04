@@ -8,17 +8,17 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid x:Name="mazeGrid">
         <Grid.Background>
-            <SolidColorBrush Color="HotPink">
-            </SolidColorBrush>
+            <ImageBrush ImageSource="hupa2.jpg"/>
         </Grid.Background>
         <Rectangle x:Name="YrivPlayer" Grid.Column="{Binding VM_YrivCol,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_YrivRow ,UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="runMan.png"/>
+                <ImageBrush ImageSource="groom4.png"/>
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle x:Name="Clue" Grid.Column="{Binding VM_ClueCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_ClueRow, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding VM_NeedClue, Converter={StaticResource BoolToVis}, FallbackValue=Hidden}" Fill="Pink" />
         <Rectangle x:Name="Yrivend" Grid.Column="{Binding VM_EndYrivCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_EndYrivRow, UpdateSourceTrigger=PropertyChanged}" >
             <Rectangle.Fill>
-                <ImageBrush ImageSource="endMaze.png"/>
+                <ImageBrush ImageSource="bride4.png"/>
             </Rectangle.Fill>
         </Rectangle>
     </Grid>
