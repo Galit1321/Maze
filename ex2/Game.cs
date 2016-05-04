@@ -14,7 +14,6 @@ namespace ex2
         public SingleMaze You { get; set; }
         public SingleMaze Other { get; set; }
 
-        [JsonConstructor]
         public Game(string name, string mazename, SingleMaze u, SingleMaze other)
         {
             this.Name = name;

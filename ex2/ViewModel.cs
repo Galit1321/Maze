@@ -24,10 +24,6 @@ namespace ex2
             {
                 return model.Port;
             }
-            set
-            {
-                model.Port = value;
-            }
         }
         public string VM_IP
         {
@@ -35,9 +31,22 @@ namespace ex2
             {
                 return model.IP;
             }
-            set
+        }
+        public void ChangeApp(string ip,string port)
+        {
+            model.ChangeApp(ip, port);
+            Connect();
+            if (VM_DisConn)
             {
-                model.IP = value; 
+                Open("Disconnect");
+            }
+            
+        }
+        public bool VM_DisConn
+        {
+            get
+            {
+                return model.DisConn;
             }
         }
         public string VM_MazeString {

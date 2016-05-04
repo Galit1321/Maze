@@ -197,10 +197,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Maze.png" />
-    <Resource Include="mazeball.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -211,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="A Thousand years.wav" />
-    <Resource Include="backMain.jpg" />
     <Content Include="Begin Again.wav" />
     <Content Include="Call Me Maybe.wav" />
     <Resource Include="controls\runMan.png" />
@@ -231,7 +226,6 @@
     <Resource Include="controls\imagesJRFVC5O2.jpg" />
     <Resource Include="controls\bride4.png" />
     <Resource Include="controls\groom4.png" />
-    <Resource Include="clue.jpg" />
     <Resource Include="controls\hearts.jpg" />
     <Resource Include="groomRun.jpg" />
     <Content Include="Titanium.wav" />

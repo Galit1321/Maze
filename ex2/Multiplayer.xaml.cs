@@ -81,14 +81,13 @@ namespace ex2
             {
                 soundMulti();
                 song.Stop();
-              
                 Close();
 
             }
         }
         private void Clue_Click(object sender, RoutedEventArgs e)
         {
-
+            vm.GetClue();
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)

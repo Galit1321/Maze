@@ -21,7 +21,6 @@ namespace ex2
         public event OpenMsnWin Open;
         public SingleMaze YarivMaze;
         public ConvertFromJson ser;
-        private bool isConnected;
         public Model(TCPClient client)
         {
             this.Client = client;
@@ -31,7 +30,7 @@ namespace ex2
                 ser = new ConvertFromJson(ans);
                 FindType(ser.Type); 
             };
-            isConnected = false;
+            DisConn = false;
             NeedClue = false;//clue rec to stay hidden for now
             this.IP = ConfigurationManager.AppSettings["IP"];
             this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
@@ -361,6 +360,20 @@ namespace ex2
                 NotifyPropertyChanged("NeedClue");
             }
         }
+        private bool serverDisconnect;
+        public bool DisConn
+        {
+            get
+            {
+               return serverDisconnect;
+    }
+
+            set
+            {
+                serverDisconnect = value;
+                NotifyPropertyChanged("InSession");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
@@ -379,9 +392,9 @@ namespace ex2
         /// <param name="port">port number</param>
         public void connect(string ip, int port)
         {
-            isConnected = Client.Connect(IP, Port);
+            DisConn = Client.Connect(IP, Port);
         }
-        Random rnd = new Random();
+        Random rnd = new Random();//generate rendon num to add to maze name
         /// <summary>
         /// create a maze for player
         /// </summary>
@@ -489,6 +502,9 @@ namespace ex2
             MyMaze = g.You;
             YarivMaze = g.Other;
             this.Coordinate = MyMaze.Start;
+            int r = MyMaze.Start.Row;
+            int c = MyMaze.Start.Col;
+            StartPoint = new Pair(r, c);
             this.MyCol = this.Coordinate.Col;
             this.MyRow = this.Coordinate.Row;
             this.EndCol = MyMaze.End.Col;
@@ -551,6 +567,19 @@ namespace ex2
         public void closeGame()
         {
             this.Client.SendMsg("close " + gamename);
+        }
+
+        public void ChangeApp(string newIP,string portstr)
+        {
+            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            configuration.AppSettings.Settings.Remove("IP");
+            configuration.AppSettings.Settings.Add("IP", newIP);
+            configuration.AppSettings.Settings.Remove("Port");
+            configuration.AppSettings.Settings.Add("Port", portstr);
+            configuration.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+            this.IP = ConfigurationManager.AppSettings["IP"];
+            this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
         }
     }
 }

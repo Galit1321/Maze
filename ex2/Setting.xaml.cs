@@ -61,17 +61,10 @@ namespace ex2
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             ViewModel vm = ViewModel.Instance;
-            vm.VM_IP = IP.Text;
-            vm.VM_Port = Int32.Parse(Port.Text);
-            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            configuration.AppSettings.Settings.Remove("IP");
-            configuration.AppSettings.Settings.Add("IP", IP.Text);
-            configuration.AppSettings.Settings.Remove("Port");
-            configuration.AppSettings.Settings.Add("Port", Port.Text);
-            //          configuration.AppSettings.Settings["IP"].Value = IP.Text;
-            //          configuration.AppSettings.Settings["Port"].Value = Port.Text;
-            configuration.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection("appSettings");
+            vm.Disconnect();
+            vm.ChangeApp( IP.Text, Port.Text);
+           
+            
             this.Close();
         }
 
@@ -79,6 +72,12 @@ namespace ex2
         {
             song.Stop();
             soundSettings();
+            vm.Open -= OpenWin;
+        }
+
+        private void OpenWin(string msn)
+        {
+            
         }
     }
 }

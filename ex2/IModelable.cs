@@ -36,8 +36,9 @@ namespace ex2
         string MazeName { get; set; }
         bool Winner { get; set; }
         bool Loser { get; set; }
-       // bool InSession { get; set; }
-            //active method
+       bool DisConn { get; set; }
+        //active method
+        void ChangeApp(string newIP,string port);
             void move(string direction);
             void getClue();
             void createMaze();
