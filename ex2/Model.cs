@@ -451,11 +451,32 @@ namespace ex2
             {
                 Thread.Sleep(1200);
             }
-            Pair p=MyMaze.move(Clue, MyRow, MyCol);
-            ClueCol = p.Col;
-            ClueRow = p.Row;
-            NeedClue = true; 
+            switch (Clue)
+            {
+                case "up":
+                    ClueCol = MyCol;
+                    ClueRow = MyRow - 2;
+                    NeedClue = true;
+                    break;
+                case "down":
+                    ClueCol = MyCol;
+                    ClueRow = MyRow + 2;
+                    NeedClue = true;
+                    break;
+                case "left":
+                    ClueCol = MyCol - 2;
+                    ClueRow = MyRow;
+                    NeedClue = true;
+                    break;
+                case "right":
+                    ClueCol = MyCol + 2;
+                    ClueRow = MyRow;
+                    NeedClue = true;
+                    break;
+            }
+            return;
         }
+
 
 
         /// <summary>
