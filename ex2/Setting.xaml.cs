@@ -29,10 +29,9 @@ namespace ex2
         {
             vm = ViewModel.Instance;
             Play();
-            vm.Init(new Model(new TCPClient()));
             DataContext = vm;
             InitializeComponent();
-
+            vm.Open += OpenWin;
         }
 
         private void Play()

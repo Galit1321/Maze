@@ -23,6 +23,8 @@ namespace ex2
         public ConvertFromJson ser;
         public Model(TCPClient client)
         {
+            this.IP = ConfigurationManager.AppSettings["IP"];
+            this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Client = client;
             Client.UpdateModel += delegate ()
             {
@@ -32,9 +34,7 @@ namespace ex2
             };
             DisConn = false;
             NeedClue = false;//clue rec to stay hidden for now
-            this.IP = ConfigurationManager.AppSettings["IP"];
-            this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
-            connect(ip, port);
+            connect(IP, Port);
             start();
         }
         ~Model()
