@@ -451,11 +451,32 @@ namespace ex2
             {
                 Thread.Sleep(1200);
             }
-            Pair p=MyMaze.move(Clue, MyRow, MyCol);
-            ClueCol = p.Col;
-            ClueRow = p.Row;
-            NeedClue = true; 
+            switch (Clue)
+            {
+                case "up":
+                    ClueCol = MyCol;
+                    ClueRow = MyRow - 2;
+                    NeedClue = true;
+                    break;
+                case "down":
+                    ClueCol = MyCol;
+                    ClueRow = MyRow + 2;
+                    NeedClue = true;
+                    break;
+                case "left":
+                    ClueCol = MyCol - 2;
+                    ClueRow = MyRow;
+                    NeedClue = true;
+                    break;
+                case "right":
+                    ClueCol = MyCol + 2;
+                    ClueRow = MyRow;
+                    NeedClue = true;
+                    break;
+            }
+            return;
         }
+
 
 
         /// <summary>
@@ -523,22 +544,53 @@ namespace ex2
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
         }
+        int Width = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
+           int Heigth = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
         private void moveYriv(string d)
         {
-            NeedClue = false;
-            Pair p = MyMaze.move(d,YrivRow, YrivCol);
-            if (this.Coordinate.Equals(p))//he didnt move at all 
+            int pos = (2 * this.Width - 1) * (this.Yriv_Cor.Row) + this.Yriv_Cor.Col;//the plae of cor in maze string
+            switch (d)
             {
-                return;
+                case "up"://up
+                    if ((this.YrivRow - 2 >= 0) && (this.YrivMazeString[pos - (2 * Width - 1)] != '1'))
+                    {
+
+                        this.YrivRow = this.YrivRow - 1;
+                        this.YrivRow = this.YrivRow - 1;
+                        this.Yriv_Cor.Row = this.YrivRow;
+                    }
+                    break;
+                case "down"://down
+                    if ((this.YrivRow + 2 < 2 * Heigth - 1) && (this.YrivMazeString[pos + (2 * Width - 1)] != '1'))
+                    {
+
+                        this.YrivRow = this.YrivRow + 2;
+                        this.Yriv_Cor.Row = this.YrivRow;
+                    }
+                    break;
+                case "right"://right
+                    if ((YrivCol + 2 < 2 * Width - 1) && (this.YrivMazeString[pos + 1] != '1'))
+                    {
+
+                        YrivCol += 2;
+                        this.Yriv_Cor.Col = YrivCol;
+                    }
+                    break;
+                case "left"://le ft
+                    if ((YrivCol - 2 >= 0) && (this.YrivMazeString[pos - 1] != '1'))
+                    {
+
+                        YrivCol -= 2;
+                        this.Yriv_Cor.Col = YrivCol;
+                    }
+                    break;
             }
-            YrivRow = p.Row;
-            YrivCol = p.Col;
-            this.Yriv_Cor = p;
-                if ((this.Yriv_Cor.Row.Equals(this.EndYrivRow)) && (this.Yriv_Cor.Col.Equals(this.EndYrivCol)))
+            if ((this.Yriv_Cor.Row.Equals(this.EndYrivRow)) && (this.Yriv_Cor.Col.Equals(this.EndYrivCol)))
             {
                 this.Loser = true;
             }
         }
+    
          /// <summary>
         /// create new game 
         /// </summary>
@@ -578,12 +630,10 @@ namespace ex2
         public  void ChangeApp(string newIP,string portstr)
         {
             Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-           // configuration.AppSettings.Settings.Remove("IP");
-            configuration.AppSettings.Settings["IP"].Value= newIP;
-            //configuration.AppSettings.Settings.Remove("Port");
-            configuration.AppSettings.Settings["Port"].Value= portstr;
-            //  configuration.Save(ConfigurationSaveMode.Modified);
-            // ConfigurationManager.RefreshSection("appSettings");
+            configuration.AppSettings.Settings.Remove("IP");
+            configuration.AppSettings.Settings.Add("IP", newIP);
+            configuration.AppSettings.Settings.Remove("Port");
+            configuration.AppSettings.Settings.Add("Port", portstr);
             configuration.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
 
