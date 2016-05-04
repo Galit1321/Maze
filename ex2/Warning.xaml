@@ -11,6 +11,14 @@
             <ImageBrush ImageSource="waiting.jpg"/>
         </Grid.Background>
         <Label x:Name="label" TextBlock.Foreground="White" FontFamily="Cooper Black"  TextBlock.FontSize="20" VerticalAlignment='Top' HorizontalAlignment="Center" Margin="20" RenderTransformOrigin="0.551,1.784" FontSize="70"/>
+        <Button x:Name="button" Content="Give Up" HorizontalAlignment="Left" Margin="140,290,0,0" VerticalAlignment="Top" Width="190" Height="45" Foreground="#FF5C6061" FontFamily="Forte" FontSize="26.667" Click="button_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCAECF0" Offset="0"/>
+                    <GradientStop Color="#FF2DC1D1" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

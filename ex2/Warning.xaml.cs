@@ -19,15 +19,30 @@ namespace ex2
     /// </summary>
     public partial class Warning : Window
     {
+        /// <summary>
+        /// warning.
+        /// </summary>
+        /// <param name="lab"></param>
         public Warning(string lab)
         {
             InitializeComponent();
             label.Content = lab;
         }
+        /// <summary>
+        /// warning.
+        /// </summary>
         public Warning()
         {
             InitializeComponent();
         }
-        
+        /// <summary>
+        /// close.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

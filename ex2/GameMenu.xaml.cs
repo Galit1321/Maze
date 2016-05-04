@@ -30,6 +30,9 @@ namespace ex2
             vm.Open += OpenWin;
             vm.Close += CloseWin;
     }
+        /// <summary>
+        /// Play song.
+        /// </summary>
         private void Play()
         {
             try
@@ -49,6 +52,11 @@ namespace ex2
             }
         }
 
+        /// <summary>
+        /// repeat the song.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Media_Ended(object sender, EventArgs e)
         {
             string path = System.IO.Path.GetFullPath(".");
@@ -57,6 +65,11 @@ namespace ex2
             return;
         }
 
+        /// <summary>
+        /// Creating game.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bntCnt_Click(object sender, RoutedEventArgs e)
         {
             
@@ -67,12 +80,19 @@ namespace ex2
            
            
         }
+        /// <summary>
+        /// Open window.
+        /// </summary>
+        /// <param name="msn"></param>
         public void OpenWin(string msn)
         {
             War = new Warning(msn);
             War.Show();
 
         }
+        /// <summary>
+        /// close window.
+        /// </summary>
         public void CloseWin()
         {
             Dispatcher.Invoke(() => {//invike the right thread to change ui
@@ -87,6 +107,11 @@ namespace ex2
 
         }
 
+        /// <summary>
+        /// Close.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e)
         {
             vm.Open -= OpenWin;

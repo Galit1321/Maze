@@ -37,7 +37,9 @@ namespace ex2
             ex2.Setting.soundSettings += Play;
             Multiplayer.soundMulti += Play;
         }
-
+        /// <summary>
+        /// play.
+        /// </summary>
         private void Play()
         {
             try
@@ -56,7 +58,11 @@ namespace ex2
 
             }
         }
-
+        /// <summary>
+        /// media.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Media_Ended(object sender, EventArgs e)
         {
             string path = System.IO.Path.GetFullPath(".");
@@ -65,31 +71,17 @@ namespace ex2
             return;
         }
 
-        //private void Play()
-        //{
-        //    try
-        //    {
-        //        song = new System.Media.SoundPlayer();
-        //        string path = Path.GetFullPath(".");
-        //        path += "\\Without You.wav";
-        //        song.SoundLocation = path;
-        //        song.Load();
-        //        song.Play();
-        //        song.PlayLooping();
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //    }
-        //}
-
         private void Setting_Click(object sender, RoutedEventArgs e)
         {
             Window s = new Setting();
             song.Stop();
             s.ShowDialog();
         }
-
+        /// <summary>
+        /// single.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
             song.Stop();
@@ -97,7 +89,11 @@ namespace ex2
             Window s = new SingelGame();
             s.ShowDialog();
         }
-
+        /// <summary>
+        /// multi.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void multiButton_Click(object sender, RoutedEventArgs e)
         {
              song.Stop();
@@ -105,7 +101,11 @@ namespace ex2
             m.ShowDialog();
 
         }
-
+        /// <summary>
+        /// close.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Close(object sender, EventArgs e)
         {
             vm.Disconnect();
