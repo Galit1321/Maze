@@ -32,7 +32,7 @@ namespace ex2
                 ser = new ConvertFromJson(ans);
                 FindType(ser.Type); 
             };
-            DisConn = false;
+            Connection =false;
             NeedClue = false;//clue rec to stay hidden for now
             connect(IP, Port);
             start();
@@ -80,6 +80,11 @@ namespace ex2
             set
             {
                 ip = value;
+             /*   Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                configuration.AppSettings.Settings.Remove("IP");
+                configuration.AppSettings.Settings.Add("IP", ip);
+                configuration.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");*/
                 NotifyPropertyChanged("IP");
             }
         }
@@ -109,6 +114,11 @@ namespace ex2
             set
             {
                 port = value;
+                /*Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                configuration.AppSettings.Settings.Remove("Port");
+                configuration.AppSettings.Settings.Add("Port", port.ToString());
+                configuration.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");*/
                 NotifyPropertyChanged("Port");
             }
         }
@@ -360,18 +370,18 @@ namespace ex2
                 NotifyPropertyChanged("NeedClue");
             }
         }
-        private bool serverDisconnect;
-        public bool DisConn
+        private bool serverConnect;
+        public bool Connection
         {
             get
             {
-               return serverDisconnect;
+               return serverConnect;
     }
 
             set
             {
-                serverDisconnect = value;
-                NotifyPropertyChanged("InSession");
+                serverConnect = value;
+                NotifyPropertyChanged("Connection");
             }
         }
 
@@ -392,7 +402,7 @@ namespace ex2
         /// <param name="port">port number</param>
         public void connect(string ip, int port)
         {
-            DisConn = Client.Connect(IP, Port);
+            Connection = Client.Connect(IP, Port);
         }
         Random rnd = new Random();//generate rendon num to add to maze name
         /// <summary>
