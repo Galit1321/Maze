@@ -48,7 +48,10 @@ namespace ex2
             StopSend = true;
         }
 
-
+        /// <summary>
+        /// method to differt thread 
+        /// in the thread pool
+        /// </summary>
         public void DoWork()
         {
            
