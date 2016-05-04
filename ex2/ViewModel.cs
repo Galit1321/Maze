@@ -13,16 +13,18 @@ namespace ex2
         private static ViewModel instance;
         public event OpenMsnWin Open;
         public event ClosenMsnWin Close;
-        
-        private List<string> game=new List<string>();
         private IModelable model;
         //proprties here
-
+        
         public int VM_Port
         {
             get
             {
                 return model.Port;
+            }
+            set
+            {
+
             }
         }
         public string VM_IP
@@ -30,6 +32,10 @@ namespace ex2
             get
             {
                 return model.IP;
+            }
+            set
+            {
+
             }
         }
         public void ChangeApp(string ip,string port)

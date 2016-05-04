@@ -70,7 +70,6 @@ namespace ex2.controls
                         r.Fill = new SolidColorBrush(Color.FromRgb(0, 10, 1));
                         Grid.SetRow(r, i);
                         Grid.SetColumn(r, j);
-                        r.Width = 10;
                         mazeGrid.Children.Add(r);
                     }
                     x++;
