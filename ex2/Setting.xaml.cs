@@ -63,8 +63,6 @@ namespace ex2
             ViewModel vm = ViewModel.Instance;
             vm.Disconnect();
             vm.ChangeApp( IP.Text, Port.Text);
-           
-            
             this.Close();
         }
 
