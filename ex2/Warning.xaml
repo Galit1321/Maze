@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ex2"
         mc:Ignorable="d"
-        Title="Warning" Height="300" Width="300">
+        Title="Warning" Height="500" Width="500">
     <Grid Name="GridWarning" >
         <Grid.Background>
-            <ImageBrush ImageSource="hearts.jpg"/>
+            <ImageBrush ImageSource="waiting.jpg"/>
         </Grid.Background>
-        <Label x:Name="label" TextBlock.Foreground="White" FontFamily="Cooper Black"  TextBlock.FontSize="20" VerticalAlignment='Top' HorizontalAlignment="Center" Margin="20" RenderTransformOrigin="0.551,1.784"/>
+        <Label x:Name="label" TextBlock.Foreground="White" FontFamily="Cooper Black"  TextBlock.FontSize="20" VerticalAlignment='Top' HorizontalAlignment="Center" Margin="20" RenderTransformOrigin="0.551,1.784" FontSize="50"/>
 
     </Grid>
 </Window>

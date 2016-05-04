@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ex2"
         mc:Ignorable="d"
-        Title="LoseCon" Height="300" Width="300">
+        Title="LoseCon" Height="400" Width="600">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="stam.jpg"/>
         </Grid.Background>
-        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Sorry it's not working between us" VerticalAlignment="Top" Foreground="#FF12B97C" FontFamily="Rockwell Extra Bold" FontSize="40" FontStretch="SemiExpanded" Height="225">
+        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Sorry, it's not working between us" VerticalAlignment="Top" Foreground="#FF12B97C" FontFamily="Rockwell Extra Bold" FontSize="66.667" FontStretch="SemiExpanded" Height="295" Width="572">
             <TextBlock.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
