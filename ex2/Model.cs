@@ -16,9 +16,7 @@ namespace ex2
     class Model : IModelable
     {
         TCPClient Client;
-       
-
-        volatile bool stop = false;
+        volatile bool stop ;
         private int Heigth;
         private int Width;
         public SingleMaze MyMaze;
@@ -48,7 +46,7 @@ namespace ex2
         ~Model()
         {
             stop = true;
-
+            
 
         }
         public void FindType(string type)
@@ -132,8 +130,7 @@ namespace ex2
 
             set
             {
-                coordinate = value;
-                NotifyPropertyChanged("Coordinate");
+                coordinate = value; 
             }
         }
         private string name;
@@ -389,7 +386,7 @@ namespace ex2
         /// <param name="port">port number</param>
         public void connect(string ip, int port)
         {
-            this.Client.Connect(IP, Port);
+            isConnected = Client.Connect(IP, Port);
         }
         Random rnd = new Random();
         /// <summary>
@@ -427,7 +424,6 @@ namespace ex2
         public void disconnect()
         {
             stop = true;
-            Thread.Sleep(20000);//let start thread to read stop;
             Client.Disconnect();
             
         }
@@ -533,8 +529,7 @@ namespace ex2
 
             }
         }
-        
-        
+
         public void start()
         {
             new Thread(delegate ()
@@ -630,7 +625,7 @@ namespace ex2
             Game g = ser.g;
             if (g.Name.Equals("one player"))
             {
-
+                
                 return "wait";
             }
             else

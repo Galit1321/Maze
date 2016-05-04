@@ -29,11 +29,7 @@ namespace ex2
         ~TCPClient()
         {
             
-            if (Sock != null)
-            {
-                Sock.Shutdown(SocketShutdown.Both);
-                Sock.Close();
-            }
+         
         }
 
         /// <summary>
@@ -89,7 +85,7 @@ namespace ex2
         {
             Send.End();//close thread
             Receive.End();//close thread
-            Thread.Sleep(1000); //wait for thread to close
+            
             if (Sock != null)
             {
                 Sock.Shutdown(SocketShutdown.Both);

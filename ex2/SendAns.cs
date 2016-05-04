@@ -18,7 +18,14 @@ namespace ex2
         public SendAns(Socket sock)
         {
            Sock = sock;
+            StopSend = false;
         }
+
+        ~SendAns()
+        {
+            StopSend = true;
+        }
+
         /// <summary>
         /// answer prop 
         /// </summary>
@@ -44,7 +51,7 @@ namespace ex2
 
         public void DoWork()
         {
-            StopSend = false;
+           
             while (!StopSend)//whlie flag is false
             {
                 if (NeedUpdate)//Thread safe to 
