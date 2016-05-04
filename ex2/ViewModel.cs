@@ -42,7 +42,7 @@ namespace ex2
         {
             model.ChangeApp(ip, port);
             Connect();
-            if (VM_DisConn)
+            if (!VM_DisConn)
             {
                 Open("Disconnect");
             }
