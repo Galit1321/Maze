@@ -58,29 +58,39 @@ namespace ex2
                 UpdateModel();
             };
             Send = new SendAns(Sock);
-
             return true;
         }
-
+    /// <summary>
+    /// start commution with server
+    /// </summary>
         public void Start()
         {
-
             List<Task> MyTasks = new List<Task>();
             MyTasks.Add(Task.Factory.StartNew(Send.DoWork));
             MyTasks.Add(Task.Factory.StartNew(Receive.DoWork));
             Task.WaitAll(MyTasks.ToArray());
         }
-
+        /// <summary>
+        /// send msg to server
+        /// </summary>
+        /// <param name="ans">what we want to send</param>
        public void SendMsg(string ans)
         {
             Send.Answer = ans;
         }
-
+        /// <summary>
+        /// receuve data/response from client
+        /// and set it as the answer in this.recevier
+        /// </summary>
+        /// <returns></returns>
         public string ReceiveData()
         {
             return this.Receive.Answer;
         }
-
+        /// <summary>
+        /// end connection withe server 
+        /// and close thread
+        /// </summary>
         public void Disconnect()
         {
             Send.End();//close thread

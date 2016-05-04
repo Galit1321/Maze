@@ -19,10 +19,17 @@ namespace ex2
             this.Sock = sock;
             StopRec = false;
         }
+        /// <summary>
+        ///  deconstructor
+        /// </summary>
+
         ~ReceiveAns()
         {
             StopRec = true;
         }
+        /// <summary>
+        /// what we recived from server
+        /// </summary>
         public string Answer
         {
             get
@@ -32,10 +39,13 @@ namespace ex2
             set
             {
                 answer = value;
-                UpdateAnswer();
+                UpdateAnswer();//update the we got new answer
             }
         } 
-
+        /// <summary>
+        /// function to do work in a diff
+        /// thread from thread pool
+        /// </summary>
         public void DoWork()
         {
            
@@ -49,7 +59,7 @@ namespace ex2
                 }
                 catch (SocketException socketEx)
                 {
-                    if (StopRec)
+                    if (StopRec)//if a diff thread close connection while we waiting from data 
                     {
                         return;
                     }else
@@ -60,6 +70,10 @@ namespace ex2
                 
             }
         }
+        /// <summary>
+        /// end connection by closing 
+        /// the while in doWork 
+        /// </summary>
         public void End()
         {
             StopRec = true;
