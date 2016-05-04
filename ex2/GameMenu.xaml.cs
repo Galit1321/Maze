@@ -21,13 +21,40 @@ namespace ex2
     {
         public ViewModel vm;
         public Window War;
+        private MediaPlayer song;
         public Gamename()
         {
             vm = ViewModel.Instance;
             InitializeComponent();
+            Play();
             vm.Open += OpenWin;
             vm.Close += CloseWin;
+    }
+        private void Play()
+        {
+            try
+            {
+                song = new MediaPlayer();
+                string path = System.IO.Path.GetFullPath(".");
+                path += "\\Titanium - Pavane.mp3";
+                song.Open(new Uri(path));
+                //song.Load();
+                song.MediaEnded += new EventHandler(Media_Ended);
+                song.Play();
 
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void Media_Ended(object sender, EventArgs e)
+        {
+            string path = System.IO.Path.GetFullPath(".");
+            path += "\\Titanium - Pavane.mp3";
+            song.Open(new Uri(path));
+            return;
         }
 
         private void bntCnt_Click(object sender, RoutedEventArgs e)
@@ -64,6 +91,7 @@ namespace ex2
         {
             vm.Open -= OpenWin;
             vm.Close -= CloseWin;
+            song.Stop();
         }
     }
 }

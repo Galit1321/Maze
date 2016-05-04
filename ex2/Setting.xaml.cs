@@ -24,7 +24,7 @@ namespace ex2
     {
         ViewModel vm;
         public static event MainWindow.SoundEvent soundSettings;
-        private SoundPlayer song;
+        private MediaPlayer song;
         public Setting()
         {
             vm = ViewModel.Instance;
@@ -38,18 +38,27 @@ namespace ex2
         {
             try
             {
-                song = new System.Media.SoundPlayer();
+                song = new MediaPlayer();
                 string path = System.IO.Path.GetFullPath(".");
-                path += "\\Titanium.wav";
-                song.SoundLocation = path;
-                song.Load();
+                path += "\\Titanium - Pavane.mp3";
+                song.Open(new Uri(path));
+                //song.Load();
+                song.MediaEnded += new EventHandler(Media_Ended);
                 song.Play();
-                song.PlayLooping();
+
             }
             catch (Exception)
             {
 
             }
+        }
+
+        private void Media_Ended(object sender, EventArgs e)
+        {
+            string path = System.IO.Path.GetFullPath(".");
+            path += "\\Titanium - Pavane.mp3";
+            song.Open(new Uri(path));
+            return;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
