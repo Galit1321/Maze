@@ -192,6 +192,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -214,35 +215,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="A Thousand years.mp3" />
-    <Content Include="A Thousand years.wav" />
-    <Content Include="Begin Again.wav" />
-    <Content Include="Call Me Maybe.wav" />
-    <Resource Include="controls\runMan.png" />
-    <Resource Include="controls\endMaze.png" />
     <None Include="Resources\A Thousand years.wav" />
     <None Include="Resources\BeginAgain.wav" />
     <None Include="Resources\Call Me Maybe.wav" />
     <None Include="Resources\Titanium - Pavane %28Piano-Cello Cover%29 - David Guetta - Faure - ThePianoGuys %28online-audio-converter.com%29.wav" />
     <None Include="Resources\Without You.wav" />
-    <Resource Include="hearts.jpg" />
     <Resource Include="controls\hupa2.jpg" />
-    <Resource Include="controls\bride.jpg" />
-    <Resource Include="controls\groom2.png" />
     <Resource Include="couple2.gif" />
     <Resource Include="stam.jpg" />
     <Resource Include="controls\hupa3.jpg" />
-    <Resource Include="controls\imagesJRFVC5O2.jpg" />
     <Resource Include="controls\bride4.png" />
     <Resource Include="controls\groom4.png" />
     <Resource Include="controls\hearts.jpg" />
     <Resource Include="groomRun.jpg" />
     <None Include="Resources\MKTO - Classic.mp3" />
-    <Content Include="MKTO - Classic.mp3" />
     <Content Include="Titanium - Pavane.mp3" />
-    <Content Include="Titanium.wav" />
     <Resource Include="waiting.jpg" />
     <Resource Include="weddingMaze.jpg" />
-    <Content Include="Without You.wav" />
     <Resource Include="GameMenu.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -28,5 +28,6 @@ namespace ex2
         {
             InitializeComponent();
         }
+        
     }
 }
