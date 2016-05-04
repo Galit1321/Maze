@@ -35,7 +35,7 @@ namespace ex2
             Connection =false;
             NeedClue = false;//clue rec to stay hidden for now
             connect(IP, Port);
-            start();
+            
         }
         ~Model()
         {
@@ -80,11 +80,6 @@ namespace ex2
             set
             {
                 ip = value;
-             /*   Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                configuration.AppSettings.Settings.Remove("IP");
-                configuration.AppSettings.Settings.Add("IP", ip);
-                configuration.Save(ConfigurationSaveMode.Modified);
-                ConfigurationManager.RefreshSection("appSettings");*/
                 NotifyPropertyChanged("IP");
             }
         }
@@ -403,6 +398,7 @@ namespace ex2
         public void connect(string ip, int port)
         {
             Connection = Client.Connect(IP, Port);
+            start();
         }
         Random rnd = new Random();//generate rendon num to add to maze name
         /// <summary>
@@ -579,17 +575,19 @@ namespace ex2
             this.Client.SendMsg("close " + gamename);
         }
 
-        public void ChangeApp(string newIP,string portstr)
+        public  void ChangeApp(string newIP,string portstr)
         {
             Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            configuration.AppSettings.Settings.Remove("IP");
-            configuration.AppSettings.Settings.Add("IP", newIP);
-            configuration.AppSettings.Settings.Remove("Port");
-            configuration.AppSettings.Settings.Add("Port", portstr);
+           // configuration.AppSettings.Settings.Remove("IP");
+            configuration.AppSettings.Settings["IP"].Value= newIP;
+            //configuration.AppSettings.Settings.Remove("Port");
+            configuration.AppSettings.Settings["Port"].Value= portstr;
+            //  configuration.Save(ConfigurationSaveMode.Modified);
+            // ConfigurationManager.RefreshSection("appSettings");
             configuration.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
-            this.IP = ConfigurationManager.AppSettings["IP"];
-            this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
+
+
         }
     }
 }

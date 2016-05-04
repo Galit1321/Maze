@@ -60,7 +60,10 @@ namespace ex2
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             ViewModel vm = ViewModel.Instance;
-            vm.Disconnect();
+            if (vm.VM_Connection)
+            {
+                vm.Disconnect();
+            }
             vm.ChangeApp(IP.Text, Port.Text);
             this.Close();
         }
