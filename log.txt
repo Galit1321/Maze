@@ -1,0 +1,1269 @@
+* commit 28d5cb9da3e4b5127894eb3bec8032db9d8c00e0
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed May 4 23:08:28 2016 +0300
+| 
+|     getClue
+|  
+* commit 0cb544629656780360850bee58a4e8b910a7c9f6
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed May 4 22:56:57 2016 +0300
+| 
+|     changeApp to pre
+|    
+*   commit 2d336067a5796bf63c08f5ad256f5e56e2a25086
+|\  Merge: c267d63 161edde
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Wed May 4 22:46:14 2016 +0300
+| | 
+| |     Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |     
+| *   commit 161edde3fe8df3afbffc38072e43b79b96e8684f
+| |\  Merge: ebf77cc bfe7ff0
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Wed May 4 22:22:13 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | |    
+| * | commit ebf77cc650c6b7eeb7a02937effa65e1eda83300
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Wed May 4 22:22:08 2016 +0300
+| | | 
+| | |     a
+| | |    
+* | | commit c267d6379e21e8734b5dc3bc32b580cbf4ea369a
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Wed May 4 22:46:02 2016 +0300
+| |   
+| |       back to old moveyriv
+| |     
+* |   commit bfe7ff038babe8c98bcebf74d879d1ec1d82c360
+|\ \  Merge: 8b73a4f 21b5645
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Wed May 4 22:20:47 2016 +0300
+| |   
+| |       Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |     
+| *   commit 21b564560d6c02a6d613f22613aff9053004b135
+| |\  Merge: 5140c4c 38a07a5
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Wed May 4 21:58:31 2016 +0300
+| | | 
+| | |     a
+| | |    
+| * | commit 5140c4c2a12af7c18f02007d1fa9f82991ce53d7
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Wed May 4 21:57:46 2016 +0300
+| | | 
+| | |     a
+| | |    
+* | | commit 8b73a4f7bcef8f8fe65430b1e23078536ae63371
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Wed May 4 22:20:26 2016 +0300
+| |   
+| |       return to old port
+| |     
+* |   commit 38a07a535a569d91e1d054900fd65c668cd9c278
+|\ \  Merge: 1834dad 41161b8
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Wed May 4 21:41:42 2016 +0300
+| |   
+| |       Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit 41161b8976fa6f15316236c6f1c22572c41aa86f
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Wed May 4 21:13:22 2016 +0300
+| | 
+| |     a
+| |     
+| *   commit 49aa30c5e064e2fcdf9beb5937f7823c67984cb2
+| |\  Merge: b62f774 7e6dd6a
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Wed May 4 20:39:00 2016 +0300
+| | | 
+| | |     a
+| | |    
+| * | commit b62f774d3efe7dfa673cea5e02bbc9c65b277d0a
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Wed May 4 20:37:52 2016 +0300
+| | | 
+| | |     s
+| | |    
+* | | commit 1834dad42be8e5d0be83a442dbd7305f90558034
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Wed May 4 21:41:33 2016 +0300
+| |   
+| |       set ip
+| |   
+* | commit 7e6dd6adc5ce2571f791f8d8e4654aca8a8f781f
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Wed May 4 20:35:48 2016 +0300
+|   
+|       setting fix
+|  
+* commit 3e1dd16001d60a1f4c76a6a0cb67470ab6e042c5
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed May 4 17:08:53 2016 +0300
+| 
+|     media in loop
+|  
+* commit c15cd625c0fece84c055d4f63ab7664e2325459b
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed May 4 16:50:17 2016 +0300
+| 
+|     mp3 song in multi
+|  
+* commit 0df4fe74a54be767a18e37dd2a4a44d259d12acf
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed May 4 16:29:22 2016 +0300
+| 
+|     commit ReceiveAns
+|  
+* commit c89d89b59140558abbf435bb1679bf88e90cbb9a
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed May 4 16:11:20 2016 +0300
+| 
+|     commit setting
+|  
+* commit fcfce0527077d956de9a66ed62fb7418cde4606a
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed May 4 15:19:32 2016 +0300
+| 
+|     clue flicker
+|  
+* commit 6f49c8a7c4a9caa1af82528eccca30b6106bf00c
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed May 4 13:48:34 2016 +0300
+| 
+|     excption handler for thread safe
+|    
+*   commit d49088db00a0f8edf27de34f1b326cd8938685f2
+|\  Merge: 14744f1 fc58409
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Wed May 4 11:34:38 2016 +0300
+| | 
+| |     Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit fc5840979ef3644a7a1d8b3b7c6f77861e16b2b5
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Wed May 4 01:05:12 2016 +0300
+| | 
+| |     lose window
+| |   
+| * commit d7ad34c46470b7d2cc9d7b063c49c6890bdc3c76
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Wed May 4 00:35:11 2016 +0300
+| | 
+| |     a
+| |   
+* | commit 14744f121c574495bf1e92338b4528dd40a5d562
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Wed May 4 11:34:27 2016 +0300
+|   
+|       Works after Adding Thread pool and div Action
+|    
+*   commit a6ef4b6ff481da90c8b222e82e5ecf95513ba7be
+|\  Merge: 9e7d5ec 5e2a3b9
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Wed May 4 00:01:15 2016 +0300
+| | 
+| |     Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |     
+| *   commit 5e2a3b9cac096faf6700cedf31f457b71c0f830b
+| |\  Merge: 7367138 5bdd7b2
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue May 3 22:47:01 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | |    
+| * | commit 73671380d97a1d089b398fd1ce38d3a1083a8e3b
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue May 3 22:46:16 2016 +0300
+| | | 
+| | |     style
+| | |    
+* | | commit 9e7d5ec3ab9181ea50c2b15b215c3657ba4213b6
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Wed May 4 00:01:04 2016 +0300
+| |   
+| |       commmit to pull
+| |   
+* | commit 5bdd7b2565953a37e636d7b015aeb61538ef37ab
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 22:06:27 2016 +0300
+| | 
+| |     thread lock
+| |   
+* | commit ee8de188e6efd2b2904db2b3408fd82a16843e13
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 21:08:27 2016 +0300
+| | 
+| |     clue works
+| |   
+* | commit 6da2526edc7b31430c7b3df43df78bf0c0a445d6
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 18:37:44 2016 +0300
+| | 
+| |     thread close normlly
+| |   
+* | commit 104f505a0d2184e2b7f4e691cbd8d29304e52edf
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 17:47:52 2016 +0300
+| | 
+| |     multiplayer is fix
+| |   
+* | commit 92ace24bea46368b0c760f5f03fa4553d58271e2
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Tue May 3 16:36:43 2016 +0300
+|   
+|       start method always open
+|    
+*   commit 43860679172fe0eaaaa354eb2023b791228197c8
+|\  Merge: 458e2d6 7ca702b
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 14:16:11 2016 +0300
+| | 
+| |     Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit 7ca702b1d0cb66af1d20b8803142725095604dcc
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Tue May 3 14:06:33 2016 +0300
+| | 
+| |     sound style
+| |   
+* | commit 458e2d624486644537441ea44df6ef1654b52442
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Tue May 3 14:16:02 2016 +0300
+|   
+|       Clue Works need change of color
+|  
+* commit bf6e258f8a79ce82bf8b2c20e084381df2ad11da
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Tue May 3 13:09:38 2016 +0300
+| 
+|     commit clue
+|    
+*   commit d466dc2ba5c8f8a1346418db36a57bddbfe9ea67
+|\  Merge: 93e4a34 8fe5d26
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 12:53:12 2016 +0300
+| | 
+| |     Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit 8fe5d269e09476ab18eac92027512a78b155244e
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Tue May 3 11:54:57 2016 +0300
+| | 
+| |     style
+| |   
+* | commit 93e4a34531834c6196a318e90fa34ca32ef70758
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 12:52:23 2016 +0300
+| | 
+| |     Revert "commit reservt"
+| |     
+| |     This reverts commit b9785f823a8146a342bfa39a79dbe4fb0569f346.
+| |   
+* | commit 9c61358d546c79395339ba19d460884f8f82c869
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 12:52:11 2016 +0300
+| | 
+| |     Revert "commit clue row and col"
+| |     
+| |     This reverts commit 9e7a109255f61e6f7aae28bba8c9f2724dd689b4.
+| |   
+* | commit b9785f823a8146a342bfa39a79dbe4fb0569f346
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 12:51:57 2016 +0300
+| | 
+| |     commit reservt
+| |   
+* | commit 9e7a109255f61e6f7aae28bba8c9f2724dd689b4
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue May 3 12:46:45 2016 +0300
+| | 
+| |     commit clue row and col
+| |     
+* |   commit 80b5a5dcfc0ea178b3efb6b15966e5d56f56755d
+|\ \  Merge: 9834166 12bbd3c
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Tue May 3 11:01:52 2016 +0300
+| |   
+| |       Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit 12bbd3c09df2149f44882f2191972e2ea1a335fa
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Tue May 3 01:29:58 2016 +0300
+| | 
+| |     style
+| |     
+| *   commit a7f8539053084c7f0180c228ab1ac05e0fbcb03d
+| |\  Merge: bedb495 bdeb7a9
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Mon May 2 22:43:15 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | |    
+| * | commit bedb49570f5d01f957a35e28ef37bac625de1ca0
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Mon May 2 22:43:10 2016 +0300
+| | | 
+| | |     a
+| | |    
+* | | commit 983416656057c796109f313858a215a954655d70
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Tue May 3 11:01:15 2016 +0300
+| |   
+| |       commit json
+| |   
+* | commit bdeb7a986fadf2088513f25bc79d4e0b6272adae
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 22:28:54 2016 +0300
+| | 
+| |     movment of both sides works
+| |   
+* | commit 28a95635c1b8c980b0e2615e2b8d5c1b78744107
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 22:16:36 2016 +0300
+| | 
+| |     update the oppent move but end poind diff
+| |   
+* | commit 9a3db5bb4987d9b294676b313b31daaeade91aa5
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 21:57:54 2016 +0300
+| | 
+| |     house (end) binding
+| |   
+* | commit d1030d1189d3c251ac6fc32b4022e77a01165c01
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 21:51:07 2016 +0300
+| | 
+| |     binding to oppenent player rectengle is working
+| |   
+* | commit 296399a00a1fb0a1013d7240382d28e64020e460
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 21:41:46 2016 +0300
+| | 
+| |     cookie man move in multiplayer
+| |   
+* | commit ffc02f0cd787e15164aca57d7ad3b6097c69cfab
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 21:20:10 2016 +0300
+| | 
+| |     commit server json
+| |     
+* |   commit f836951e63ea44eec81af9b26230e5dd06bf6669
+|\ \  Merge: 2d37467 8f07483
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Mon May 2 21:19:15 2016 +0300
+| |   
+| |       Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit 8f0748388e83b3fbee28e689adc32a2a1d438932
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Mon May 2 21:14:36 2016 +0300
+| | 
+| |     s
+| |   
+* | commit 2d37467ec4346e0fa231e6136fca61c38363b310
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Mon May 2 21:19:04 2016 +0300
+|   
+|       commit desrlize play
+|    
+*   commit 38e7b112e03b7e970d968298ea753dc364df13c3
+|\  Merge: 8026dbe 1b0e838
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 18:08:12 2016 +0300
+| | 
+| |     comiit merge
+| |   
+| * commit 1b0e8381b4ee05f44d358ce60589e1acbface722
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Mon May 2 18:04:35 2016 +0300
+| | 
+| |     multi
+| |     
+| *   commit f41b3f3683df2fbc04f74576fe218878fb8c2b6c
+| |\  Merge: 78e7009 877de92
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Mon May 2 15:55:45 2016 +0300
+| | | 
+| | |     a
+| | |    
+| * | commit 78e700994388f4437c743543bf40eb56e3aac544
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Mon May 2 15:50:06 2016 +0300
+| | | 
+| | |     a
+| | |    
+* | | commit 8026dbe213f253129821efd5dcf84ffc2e756c21
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Mon May 2 18:05:17 2016 +0300
+| |   
+| |       comit to merge
+| |   
+* | commit 877de9224cffe9cea564ec54b6e4eb42e0b4b5ba
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 15:48:40 2016 +0300
+| | 
+| |     commit
+| |   
+* | commit addbf78d8a13f75a2dc553f6a69ea2b3a5c57023
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 15:32:27 2016 +0300
+| | 
+| |     reset works
+| |   
+* | commit a86e03d390f6dbbd2ae79762e02ca355b5c1d8fb
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon May 2 15:02:36 2016 +0300
+| | 
+| |     semi fix to create larger mazes
+| |     
+* |   commit f274a3c8877c9bd0ddc43ab448aacf4cc5aeb767
+|\ \  Merge: 1b9daf0 9033e7a
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Mon May 2 14:37:20 2016 +0300
+| |   
+| |       winning game added
+| |   
+| * commit 9033e7a40300bd471d6c3566a03c1752e17a70d2
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Sun May 1 23:56:32 2016 +0300
+| | 
+| |     songs
+| |   
+| * commit e4d0a5e1bca9ac0612315f6135cc754549e9084e
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Sun May 1 04:08:32 2016 +0300
+| | 
+| |     music
+| |   
+* | commit 1b9daf010ba52348801f272916dc5db0f911d6ff
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Mon May 2 12:49:38 2016 +0300
+|   
+|       commit before pull
+|  
+* commit 367295c5dd0f9f24c9e5b0498a7b7b0edaab2bed
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Fri Apr 29 05:18:38 2016 +0300
+| 
+|     cookie man move to the finish
+|  
+* commit 6d5f87fea561328ad48a87965a5b98ba34c417de
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Thu Apr 28 18:19:57 2016 +0300
+| 
+|     cookie move partly
+|  
+* commit 231802d70a720cbcb1de50b99379c3725053a6c4
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Thu Apr 28 15:34:31 2016 +0300
+| 
+|     IP Port in Setting win Binding
+|  
+* commit 79b7dc36f0d550dccb97c6a2c44558e42500a7db
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Thu Apr 28 14:29:33 2016 +0300
+| 
+|     Reset Button WORKS !!
+|  
+* commit ee56418a6fc0cd55116def87629b73554576ce9b
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Thu Apr 28 12:50:14 2016 +0300
+| 
+|     changes in AllMaze and getClue btn in wpf game
+|  
+* commit a52b0bb3927e8029c3901b4969812e6805f22d55
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Wed Apr 27 11:03:22 2016 +0300
+| 
+|     multi works with actual maze
+|    
+*   commit 1b9b2a2568177925450a692504b04f0335a53327
+|\  Merge: e1d050c a49dd9e
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Wed Apr 27 10:44:34 2016 +0300
+| | 
+| |     Merge branch 'master' of https://galit1321@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit a49dd9eeb9b486d0a99e06572da85d95efd3dabc
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Wed Apr 27 01:29:27 2016 +0300
+| | 
+| |     prob image
+| |   
+| * commit bf7edc2140905e78b5b3148808a989a1326c4631
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Wed Apr 27 01:26:38 2016 +0300
+| | 
+| |     end point
+| |   
+| * commit 56235e989ef43c4e5f4532cdfd206dea1cdb6eae
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Wed Apr 27 00:23:10 2016 +0300
+| | 
+| |     s
+| |     
+| *   commit d3965d4fd7a229c30d73fec0dc91e40e551d0a78
+| |\  Merge: 1cb5743 f3cedc0
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue Apr 26 21:23:30 2016 +0300
+| | | 
+| | |     a
+| | |    
+| * | commit 1cb5743083b6fb5b2ab27303cc45811215be8810
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue Apr 26 21:12:59 2016 +0300
+| | | 
+| | |     w
+| | |    
+* | | commit e1d050c766f45b1bf76907445c8e77046b90b8a4
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Wed Apr 27 10:44:19 2016 +0300
+| |   
+| |       commit view and server to state of olf server
+| |   
+* | commit f3cedc0d99eb25a2ec31f1c02f03845c3277281f
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 26 20:47:49 2016 +0300
+| | 
+| |     commit server json
+| |   
+* | commit 1cf3cc72f639913bcfbe57ff48099ff19fc16b78
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 26 20:46:20 2016 +0300
+| | 
+| |     desrlize game
+| |   
+* | commit ac9abeac7c3fc4b6a985dedb084d7f27d247978d
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 26 20:19:53 2016 +0300
+| | 
+| |     deserlize SingleMaze
+| |   
+* | commit afbd32d140e98e72a749b8e572c13579a8aba0d9
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 26 19:30:30 2016 +0300
+| | 
+| |     new server
+| |   
+* | commit 1ebd21ee4f7027e9a87d9eadc54342f8f1a66f9b
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 26 15:22:16 2016 +0300
+| | 
+| |     WORKS multi player with no binding
+| |     
+* |   commit bbeb3c3db314b51c3944462d737436fb8a2087e0
+|\ \  Merge: 89541f5 fb9cf7a
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Tue Apr 26 15:15:30 2016 +0300
+| |   
+| |       Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| |     
+| *   commit fb9cf7a539efe2fec99378978e3438370774473e
+| |\  Merge: 0f19935 689e1bd
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue Apr 26 15:08:29 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | |    
+| * | commit 0f19935799a5f88d74f1a002d057c2dd0adf075b
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue Apr 26 15:08:26 2016 +0300
+| | | 
+| | |     a
+| | |    
+| * | commit f71d8d685fc32335b497b6d60d0d98ec6bf9adff
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue Apr 26 14:37:16 2016 +0300
+| | | 
+| | |     a
+| | |    
+* | | commit 89541f52fdbf69dd88eada857ed26c732a0fc662
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Tue Apr 26 15:13:22 2016 +0300
+| |   
+| |       Multiplayer Works minus binding to Property :)
+| |   
+* | commit 689e1bd0bfd5b5d2f8b3e818f5e993a595f9808a
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 26 13:11:08 2016 +0300
+| | 
+| |     create 2 maze but crash due critical condition
+| |   
+* | commit 7aaa12aba5c7805af4e6fa3a80e3e39420544216
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Tue Apr 26 11:36:43 2016 +0300
+|   
+|       commit warning
+|  
+* commit a9a4acc471f3c1fb28a35be24acedea4d4ffe17a
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Tue Apr 26 09:28:02 2016 +0300
+| 
+|     maze
+|  
+* commit 52e20bb13a0c541bcc1d056634b6fd042ea56901
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Tue Apr 26 00:43:43 2016 +0300
+| 
+|     CloseWin of later client
+|  
+* commit 74d248ec4227e4c5fa6cc71ef74fdb648efb742d
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Tue Apr 26 00:25:23 2016 +0300
+| 
+|     waiting and multiButton_Click works
+|    
+*   commit 3fdc09a772b9c0d2f11ee7b75a231e2a761d4e2d
+|\  Merge: ff7f9fe 3d95738
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon Apr 25 22:04:54 2016 +0300
+| | 
+| |     Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| |     
+| |     # Conflicts:
+| |     #	ex2/SingelGame.xaml.cs
+| |   
+| * commit 3d9573854b08cddcd8e9b48138f0e789b287f9a4
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Mon Apr 25 21:51:41 2016 +0300
+| | 
+| |     a
+| |     
+| *   commit e66713840f1bea9300594abe8c956fa2d1929c8e
+| |\  Merge: 21a0656 77b40c8
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Mon Apr 25 20:10:13 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | |      
+| * |   commit 21a065616afd2848677c038cc40a2a277416941d
+| |\ \  Merge: 89480aa a15f1cb
+| | | | Author: RevitalS <revitle@mgail.com>
+| | | | Date:   Mon Apr 25 20:08:35 2016 +0300
+| | | | 
+| | | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | | |       
+| * | |   commit 89480aa66f43b47e5be7b715d2262453aeabc5ad
+| |\ \ \  Merge: d47d385 85db5de
+| | | | | Author: RevitalS <revitle@mgail.com>
+| | | | | Date:   Mon Apr 25 19:47:53 2016 +0300
+| | | | | 
+| | | | |     a
+| | | | |      
+| * | | | commit d47d385fee7e6dd959a2801e1c0098d7b97c9141
+| | | | | Author: RevitalS <revitle@mgail.com>
+| | | | | Date:   Mon Apr 25 19:43:59 2016 +0300
+| | | | | 
+| | | | |     a
+| | | | |        
+| * | | |   commit 5a0b1899957b16b1ecd39824b2a2907ac8723eb8
+| |\ \ \ \  Merge: 125d223 ca7f2f5
+| | | | | | Author: RevitalS <revitle@mgail.com>
+| | | | | | Date:   Mon Apr 25 18:06:49 2016 +0300
+| | | | | | 
+| | | | | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | | | | |         
+| * | | | |   commit 125d2231b5f41d299b75782050d460685f339849
+| |\ \ \ \ \  Merge: 97c3005 7aba158
+| | | | | | | Author: RevitalS <revitle@mgail.com>
+| | | | | | | Date:   Mon Apr 25 18:02:11 2016 +0300
+| | | | | | | 
+| | | | | | |     1
+| | | | | | |        
+| * | | | | | commit 97c30057fffc635538216020dd1706ee33303fea
+| | | | | | | Author: RevitalS <revitle@mgail.com>
+| | | | | | | Date:   Mon Apr 25 17:55:34 2016 +0300
+| | | | | | | 
+| | | | | | |     a
+| | | | | | |          
+| * | | | | |   commit 6c23a3acf3bd5c2045e782197ac0f0d3b6e50d6a
+| |\ \ \ \ \ \  Merge: 8be79ae 2b156f2
+| | | | | | | | Author: RevitalS <revitle@mgail.com>
+| | | | | | | | Date:   Mon Apr 25 17:42:37 2016 +0300
+| | | | | | | | 
+| | | | | | | |     merge
+| | | | | | | |         
+| * | | | | | | commit 8be79ae2360af81a6e013f2d7195d940a29fc74b
+| | | | | | | | Author: RevitalS <revitle@mgail.com>
+| | | | | | | | Date:   Mon Apr 25 16:25:49 2016 +0300
+| | | | | | | | 
+| | | | | | | |     s
+| | | | | | | |         
+* | | | | | | | commit ff7f9fe6caf3b937a66e1b2d88c4aa22cfc5cec2
+| |_|_|_|_|_|/  Author: galit1321 <galit1321@gmail.com>
+|/| | | | | |   Date:   Mon Apr 25 22:00:34 2016 +0300
+| | | | | | |   
+| | | | | | |       commit
+| | | | | | |        
+* | | | | | | commit 77b40c8941e37d7671ece34bb0fb64e17cb8a5af
+| |_|_|_|_|/  Author: galit1321 <galit1321@gmail.com>
+|/| | | | |   Date:   Mon Apr 25 20:09:24 2016 +0300
+| | | | | |   
+| | | | | |       change in createMaze
+| | | | | |       
+* | | | | | commit a15f1cb0789aba1acec4dd27927cac4d8ecb0144
+| |_|_|_|/  Author: galit1321 <galit1321@gmail.com>
+|/| | | |   Date:   Mon Apr 25 20:07:26 2016 +0300
+| | | | |   
+| | | | |       commit coordinate row and col separate
+| | | | |      
+* | | | | commit 85db5dec2d7738bda9ddd0fb89cb62fd75e36ff2
+| |_|_|/  Author: galit1321 <galit1321@gmail.com>
+|/| | |   Date:   Mon Apr 25 19:04:48 2016 +0300
+| | | |   
+| | | |       commit Waiting and Warning.xaml window
+| | | |     
+* | | | commit ca7f2f53317bb4151f382513403ba5e89e21ff19
+| |_|/  Author: galit1321 <galit1321@gmail.com>
+|/| |   Date:   Mon Apr 25 18:02:13 2016 +0300
+| | |   
+| | |       commit Maze
+| | |    
+* | | commit 7aba15877d0f326a2fe48a026dea8f09ef582ff4
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Mon Apr 25 17:49:43 2016 +0300
+| |   
+| |       add passway to Multiplayer game and msn box to Back_Click
+| |     
+* |   commit 2b156f2628d1a2083e566f9cedacf5f1b3241490
+|\ \  Merge: 83daef7 d58aacc
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Mon Apr 25 15:50:22 2016 +0300
+| |   
+| |       Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| |       
+| |       # Conflicts:
+| |       #	ex2/MainWindow.xaml.cs
+| |   
+| * commit d58aacc5a682df920cba0ea5d6ddd9529683a3a6
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Mon Apr 25 14:48:06 2016 +0300
+| | 
+| |     multi
+| |   
+| * commit 24a0f667bdff1eca4d0c3fbde6ff313959aef1a6
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Mon Apr 25 14:21:40 2016 +0300
+| | 
+| |     a
+| |   
+* | commit 83daef7b341452c7f1035ad074abd108595e7968
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Mon Apr 25 15:48:17 2016 +0300
+|   
+|       commit changes
+|  
+* commit 6173eea9a08d570351ffa4e3a9454cd0c11fdd26
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Mon Apr 25 11:04:41 2016 +0300
+| 
+|     getclue in Model.cs return  lst of int
+|  
+* commit c04355166a09d7f179a5dfa370d57498220b1eb7
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Sun Apr 24 18:26:04 2016 +0300
+| 
+|     after debug SingelGame.xaml.cs works
+|  
+* commit f17705173a839062afb785dee5bac7612de9fa1a
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Sun Apr 24 15:19:12 2016 +0300
+| 
+|     start multiplayer
+|  
+* commit 0b601060632283c680b86791aaa07cf8a3a59eec
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Sun Apr 24 11:46:05 2016 +0300
+| 
+|     change names
+|  
+* commit cb6e9cc51ff289ec271a30b6ad8a7293d877d2db
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Fri Apr 22 17:56:50 2016 +0300
+| 
+|     maze
+|  
+* commit 887f069470889e6f8513d6b5039c25ff8d56453a
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Fri Apr 22 16:41:50 2016 +0300
+| 
+|     s
+|  
+* commit d4a3d21925bb582f7abab3cc8e7fb0d11f591cee
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Fri Apr 22 08:21:57 2016 +0300
+| 
+|     add event to indicate win
+|    
+*   commit 8f7f12fd240a221c57a0641fe5070e38f60e8fa0
+|\  Merge: fb52f81 6092862
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Fri Apr 22 07:38:56 2016 +0300
+| | 
+| |     Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| |     
+| |     # Conflicts:
+| |     #	ex2/ViewModel.cs
+| |   
+| * commit 6092862766929cd2b1f1ac357edb53354ddcf34c
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Fri Apr 22 01:06:34 2016 +0300
+| | 
+| |     a
+| |     
+| *   commit 7553917e92b9e53a28305f8b4893095c92463135
+| |\  Merge: b9482b1 fa8169b
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Fri Apr 22 00:46:03 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | |    
+| * | commit b9482b1fea09f658c06aaa608d636479123d2892
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Fri Apr 22 00:45:59 2016 +0300
+| | | 
+| | |     singelton
+| | |    
+* | | commit fb52f81111a52a9069412f7b6e3f274ac6b5cdc0
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Fri Apr 22 07:37:05 2016 +0300
+| |   
+| |       commit to pull
+| |   
+* | commit fa8169b53a546a3ef7a1d8b65db0021c485bdf5b
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Thu Apr 21 23:56:07 2016 +0300
+| | 
+| |     commit play.cs
+| |     
+* |   commit f76fbe7f0fb8212e914881d61a0b9785f8e89a8e
+|\ \  Merge: 486547f 63a63a4
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Thu Apr 21 23:52:11 2016 +0300
+| |   
+| |       Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| |   
+| * commit 63a63a4f951720052f9b5d8df7882f4bf1fdcb55
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Thu Apr 21 23:36:14 2016 +0300
+| | 
+| |     proprties vm
+| |     
+| *   commit 8688fe365a6232c1e981fd27994ae8730334832d
+| |\  Merge: cdeff1e 818c2aa
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Thu Apr 21 23:19:22 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | |    
+| * | commit cdeff1e4c7fb8d982c39fc223b08ed0ca74baf05
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Thu Apr 21 23:19:18 2016 +0300
+| | | 
+| | |     music
+| | |    
+* | | commit 486547fd192d56dbf63cc6ba9c740ab70a49d7ca
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Thu Apr 21 23:46:37 2016 +0300
+| |   
+| |       end with connect method
+| |   
+* | commit 818c2aaca1f8bb6768e4e3dbfc3ab799373ef312
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Thu Apr 21 22:59:29 2016 +0300
+| | 
+| |     commit Game.cs
+| |     
+* |   commit 0d57a6392f37950f9ee8050a86f0de511b9d475c
+|\ \  Merge: 5404360 7f9e549
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Thu Apr 21 22:56:49 2016 +0300
+| |   
+| |       Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| |     
+| *   commit 7f9e549fe4a2f92a0c9838cbed78865ce5a71400
+| |\  Merge: c7877c0 2fb88e0
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Thu Apr 21 22:54:05 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | |    
+| * | commit c7877c0ac1b61c134c94636652a228670d8b8e74
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Thu Apr 21 22:54:00 2016 +0300
+| | | 
+| | |     start sound still not working
+| | |      
+| * |   commit 8dbf63885eb08c27c099916a0d836efdb96d9764
+| |\ \  Merge: 0558a3f cc47066
+| | | | Author: RevitalS <revitle@mgail.com>
+| | | | Date:   Thu Apr 21 18:59:19 2016 +0300
+| | | | 
+| | | |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| | | |     
+| * | | commit 0558a3f658b44a9cf4c91775a99c48db467c0fac
+| | | | Author: RevitalS <revitle@mgail.com>
+| | | | Date:   Wed Apr 20 19:03:38 2016 +0300
+| | | | 
+| | | |     a
+| | | |     
+* | | | commit 540436041a25f0a02871bc7b5a2156cae1f57d15
+| |_|/  Author: galit1321 <galit1321@gmail.com>
+|/| |   Date:   Thu Apr 21 22:56:25 2016 +0300
+| | |   
+| | |       change Model
+| | |    
+* | | commit 2fb88e054a67de88579d0821c4adfcfda7902073
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Thu Apr 21 21:44:09 2016 +0300
+| |   
+| |       start method of constant communication
+| |   
+* | commit cc47066859bed9f86063601932f425adff3329ae
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Thu Apr 21 17:56:50 2016 +0300
+| | 
+| |     change Server/Multiplayer.cs to get indication of starter gamer
+| |   
+* | commit 3e303b7e8af46cf3b8d8aa4c4d7a67e7bfb5d2fd
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Thu Apr 21 14:10:50 2016 +0300
+| | 
+| |     begin Game.cs
+| |   
+* | commit 15b669d5c9fef221ef29af501b0b4389c292c53c
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Thu Apr 21 12:48:21 2016 +0300
+| | 
+| |     commit after pull
+| |     
+* |   commit 573530c8c25562b2d2da25cf9bb823864b64bead
+|\ \  Merge: f290e70 4047a0e
+| |/  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Thu Apr 21 12:43:02 2016 +0300
+| |   
+| |       Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| |       
+| |       # Conflicts:
+| |       #	ex2/SingalGame.xaml
+| |   
+| * commit 4047a0e8f10aa471c34bc3062f84981852a668d2
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Wed Apr 20 17:59:40 2016 +0300
+| | 
+| |     user control is working!!!!
+| |   
+* | commit f290e708a26437e41d72f04bf7f8ac4e4c8f64ec
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Thu Apr 21 12:42:05 2016 +0300
+|   
+|       commit singlegame
+|  
+* commit 25634fd8fc3603da737ead3aa45fb1389f3e7692
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Tue Apr 19 23:35:55 2016 +0300
+| 
+|     SingalGame.xaml
+|  
+* commit de2c8b1a74c4a5f393cf902c24681ef3c1ba941d
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Tue Apr 19 23:34:32 2016 +0300
+| 
+|     SingalGame
+|    
+*   commit 9aaee6bfc9f401b6ca2779b393a443300e7097de
+|\  Merge: 3585cd0 351bba9
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 19 23:31:51 2016 +0300
+| | 
+| |     Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| |     
+| *   commit 351bba9191bd1eba683ce396af9413b4ae6d7028
+| |\  Merge: 14664b4 abbed13
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue Apr 19 23:22:54 2016 +0300
+| | | 
+| | |     uc
+| | |    
+| * | commit 14664b41fde12240ddaa26fbb5e3fb1b65977443
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Tue Apr 19 23:20:48 2016 +0300
+| | | 
+| | |     a
+| | |    
+* | | commit 3585cd08a6565d23ad0dd1ace99a4ce9ca298b38
+| |/  Author: galit1321 <galit1321@gmail.com>
+|/|   Date:   Tue Apr 19 23:31:14 2016 +0300
+| |   
+| |       SingalGame
+| |   
+* | commit abbed133975bbc58a7c8bdb3e0a47a1ab3e4bebd
+|/  Author: galit1321 <galit1321@gmail.com>
+|   Date:   Tue Apr 19 23:03:24 2016 +0300
+|   
+|       Maze user control init in SingalGame
+|  
+* commit ccf3092044180d04b5d5cbb101b976c2014a6a9a
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Tue Apr 19 22:06:48 2016 +0300
+| 
+|     s
+|    
+*   commit 07b76a0b07dfc566ca737de2b75e032484860ac1
+|\  Merge: 1d05753 25b8382
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Tue Apr 19 21:46:33 2016 +0300
+| | 
+| |     s
+| |   
+| * commit 25b8382aee1136da10818820dff8ac586ce0ffeb
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 19 21:36:09 2016 +0300
+| | 
+| |     begin viewmodel from me
+| |     
+| *   commit 5ceb0dcf28be8b9ad2aa10c18eb2d16538d42428
+| |\  Merge: 89f26cc 3676e1d
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Tue Apr 19 21:23:44 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| | |     
+| | |     # Conflicts:
+| | |     #	ex2/Program.cs
+| | |    
+| * | commit 89f26cc4c0c75ac15dc93d1ef4d6c307e8dda2b3
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Tue Apr 19 21:22:04 2016 +0300
+| | | 
+| | |     end move function
+| | |    
+* | | commit 1d0575360de80efd51fea6970aff0888cb72df2f
+| |/  Author: RevitalS <revitle@mgail.com>
+|/|   Date:   Tue Apr 19 21:44:50 2016 +0300
+| |   
+| |       maze
+| |     
+* |   commit 3676e1d2c42758e22eea2472bb7c3868ecb2b7f7
+|\ \  Merge: 0e3a2cd 343532e
+| |/  Author: RevitalS <revitle@mgail.com>
+| |   Date:   Tue Apr 19 21:07:30 2016 +0300
+| |   
+| |       Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit 343532e32384134acbc7ee788092ba1c9892d478
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Tue Apr 19 20:47:27 2016 +0300
+| | 
+| |     begin move method in Model.cs
+| |   
+* | commit 0e3a2cddbc777083705f1a39285d7248c8aa5ed8
+|/  Author: RevitalS <revitle@mgail.com>
+|   Date:   Tue Apr 19 21:07:26 2016 +0300
+|   
+|       try to run
+|  
+* commit 86ec6714175bba6639b7062ac8fd4bf32adabd5b
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Tue Apr 19 20:26:34 2016 +0300
+| 
+|     try start maze uc
+|  
+* commit 47d7b3aa3a0d3569f037e63db01240608eb3e583
+| Author: galit1321 <galit1321@gmail.com>
+| Date:   Tue Apr 19 13:35:14 2016 +0300
+| 
+|     change to createMaze in Model and creating a SingleMaze.cs class
+|    
+*   commit 8e2b6053348db0864a61d6aab344a31c391f8318
+|\  Merge: ad4652c 069e39a
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Mon Apr 18 21:55:56 2016 +0300
+| | 
+| |     Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| |   
+| * commit 069e39a6e0d9940efdc4fa1f951ef7df4cc9d4d7
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon Apr 18 20:28:17 2016 +0300
+| | 
+| |     commit Model.cs
+| |     
+| *   commit fba8acc32aaa8bffc5bfa0ac2b9a7e318b31c5b4
+| |\  Merge: 6a17b20 e9a0951
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Mon Apr 18 20:27:58 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| | |    
+| * | commit 6a17b20adb78824734945937dff06a762991e2cc
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Mon Apr 18 20:26:53 2016 +0300
+| | | 
+| | |     commit Model.cs
+| | |    
+* | | commit ad4652cfd46f3fff6f1e667fb24f82201b5fef1b
+| |/  Author: RevitalS <revitle@mgail.com>
+|/|   Date:   Mon Apr 18 21:55:50 2016 +0300
+| |   
+| |       main
+| |     
+* |   commit e9a095174774de39d48f2ecad5239772da0e8fd6
+|\ \  Merge: 476acb2 564f7f4
+| |/  Author: RevitalS <revitle@mgail.com>
+| |   Date:   Mon Apr 18 18:53:44 2016 +0300
+| |   
+| |       m
+| |   
+| * commit 564f7f455f94f1a37340d2e252ae09f000615b42
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon Apr 18 18:41:07 2016 +0300
+| | 
+| |     commit imodalable
+| |     
+| *   commit aa75592bf2ea37f8f8127225a2260fef900de93a
+| |\  Merge: 5d686ed 8922802
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Mon Apr 18 17:44:59 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| | |      
+| * |   commit 5d686ed5783482c398140283216a597b5d11ba14
+| |\ \  Merge: 2cd9424 106677d
+| | | | Author: galit1321 <galit1321@gmail.com>
+| | | | Date:   Mon Apr 18 17:40:17 2016 +0300
+| | | | 
+| | | |     Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| | | |     
+| * | | commit 2cd9424be6df9b6e11c483ef1f52374aa1318eeb
+| | | | Author: galit1321 <galit1321@gmail.com>
+| | | | Date:   Mon Apr 18 17:39:49 2016 +0300
+| | | | 
+| | | |     MainWindow.xaml change to work
+| | | |     
+* | | | commit 476acb21c5ea09c2cf8b7a636e846f3779875743
+| |_|/  Author: RevitalS <revitle@mgail.com>
+|/| |   Date:   Mon Apr 18 18:51:44 2016 +0300
+| | |   
+| | |       vm
+| | |    
+* | | commit 89228021d9d9a6078c8c17747d53da45af8d46f2
+| | | Author: RevitalS <revitle@mgail.com>
+| | | Date:   Mon Apr 18 17:44:14 2016 +0300
+| | | 
+| | |     mainWindow
+| | |    
+* | | commit 9a492de64f1398d176079c7707d2addd92cdf2e6
+| |/  Author: RevitalS <revitle@mgail.com>
+|/|   Date:   Mon Apr 18 17:42:24 2016 +0300
+| |   
+| |       b
+| |   
+* | commit 106677d5f8813ab6d23a8793568495c0cce32e47
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Mon Apr 18 17:38:23 2016 +0300
+| | 
+| |     remove ex2
+| |     
+* |   commit 58345056beee91af52cf5eb0c773bb4a1868a681
+|\ \  Merge: ddc833c cbd5bb4
+| |/  Author: RevitalS <revitle@mgail.com>
+| |   Date:   Mon Apr 18 17:33:46 2016 +0300
+| |   
+| |       Merge branch 'master' of https://RevitalS@bitbucket.org/RevitalS/ap2-maze.git
+| |     
+| *   commit cbd5bb4441bb776446191b6df630e6b04ce52c85
+| |\  Merge: 70806fe 747d63c
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Mon Apr 18 17:32:11 2016 +0300
+| | | 
+| | |     Merge branch 'master' of https://bitbucket.org/RevitalS/ap2-maze
+| | |     
+| | |     # Conflicts:
+| | |     #	ex2.sln
+| | |     #	ex2/App.xaml
+| | |     #	ex2/App.xaml.cs
+| | |     #	ex2/MainWindow.xaml
+| | |     #	ex2/MainWindow.xaml.cs
+| | |    
+| * | commit 70806fe5cb149b85ebeddb1001b50d52f195f8e6
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Mon Apr 18 17:30:51 2016 +0300
+| | | 
+| | |     commit view
+| | |    
+| * | commit 509506a11537f9258fa218fb96a0ec5a7bfcb75c
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Mon Apr 18 17:29:18 2016 +0300
+| | | 
+| | |     commit view
+| | |    
+| * | commit 8370a1bccc8305dbb46280fe3fc705ebf154e777
+| | | Author: galit1321 <galit1321@gmail.com>
+| | | Date:   Mon Apr 18 17:00:29 2016 +0300
+| | | 
+| | |     first commit
+| | |    
+| * | commit 2d20d5785723069fea8928d881e7283f7f9a027e
+|  /  Author: galit1321 <galit1321@gmail.com>
+| |   Date:   Mon Apr 18 16:54:53 2016 +0300
+| |   
+| |       Initial commit to add default .gitIgnore and .gitAttribute files.
+| |   
+* | commit ddc833c45b64272557dc2461b87d6bf646fd8740
+|/  Author: RevitalS <revitle@mgail.com>
+|   Date:   Mon Apr 18 17:33:25 2016 +0300
+|   
+|       app
+|    
+*   commit 747d63cc31d4418a04eb15640b0340fc98b4ab2f
+|\  Merge: 827eb12 edc238f
+| | Author: RevitalS <revitle@mgail.com>
+| | Date:   Mon Apr 18 17:19:37 2016 +0300
+| | 
+| |     m
+| |   
+| * commit edc238ff0eaa35cf842618fdc772e6377eccd7c9
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon Apr 18 17:16:15 2016 +0300
+| | 
+| |     secod commit
+| |   
+| * commit 9ee12acf2afbd71a86d58d81035e3db1bba23022
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon Apr 18 17:08:39 2016 +0300
+| | 
+| |     EmptyMaze.cs
+| |   
+| * commit 2429c05f6bfba59f7ec84d4f2946416cb2868dae
+| | Author: galit1321 <galit1321@gmail.com>
+| | Date:   Mon Apr 18 17:01:57 2016 +0300
+| | 
+| |     commit change
+| |   
+* | commit 827eb12b18180974a50a2eee2d1af1800e334897
+|/  Author: RevitalS <revitle@mgail.com>
+|   Date:   Mon Apr 18 17:18:42 2016 +0300
+|   
+|       a
+|  
+* commit d77ec15eff6faaf4ae7c3ad243adb6c6399de0cb
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Mon Apr 18 16:35:51 2016 +0300
+| 
+|     all
+|  
+* commit f11b7340005030b02550b67fe1394bec4248e8e9
+| Author: RevitalS <revitle@mgail.com>
+| Date:   Mon Apr 18 16:34:23 2016 +0300
+| 
+|     a
+|  
+* commit 73ad95ea1c82dddb3a2e9592ba80327e00f91666
+  Author: RevitalS <revitle@mgail.com>
+  Date:   Mon Apr 18 16:33:26 2016 +0300
+  
+      a
