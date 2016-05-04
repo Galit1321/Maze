@@ -223,8 +223,10 @@ namespace ex2
             if (ans.Equals("wait"))
             {
                 Open("Only One");
-                WaitingInView();
-               
+                Thread t = new Thread(WaitingInView);
+                t.SetApartmentState(ApartmentState.STA);
+                t.Start();
+
             }
             else
             {
