@@ -75,7 +75,8 @@ namespace ex2
 
         private void OpenWin(string msn)
         {
-            
+            Window con = new LoseCon();
+            con.ShowDialog();
         }
     }
 }
