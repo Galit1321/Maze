@@ -609,12 +609,10 @@ namespace ex2
         public  void ChangeApp(string newIP,string portstr)
         {
             Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-           // configuration.AppSettings.Settings.Remove("IP");
-            configuration.AppSettings.Settings["IP"].Value= newIP;
-            //configuration.AppSettings.Settings.Remove("Port");
-            configuration.AppSettings.Settings["Port"].Value= portstr;
-            //  configuration.Save(ConfigurationSaveMode.Modified);
-            // ConfigurationManager.RefreshSection("appSettings");
+            configuration.AppSettings.Settings.Remove("IP");
+            configuration.AppSettings.Settings.Add("IP", newIP);
+            configuration.AppSettings.Settings.Remove("Port");
+            configuration.AppSettings.Settings.Add("Port", portstr);
             configuration.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
 
