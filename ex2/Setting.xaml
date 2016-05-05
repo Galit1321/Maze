@@ -12,9 +12,9 @@
             <ImageBrush ImageSource="stam.jpg"/>
         </Grid.Background>
         <TextBlock   Text="Port: " HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FFBF360E" FontSize="40" Width="105" RenderTransformOrigin="-1.909,-4.667" Margin="50,90,337,325"/>
-        <TextBox   x:Name="Port" Text="{Binding VM_Port}" Margin="160,95,132,324" Width="200" Height="50" Foreground="#FF932209" Background="Transparent" SelectionBrush="#FF531305" BorderBrush="#FFC77727" FontFamily="Cooper Black" FontSize="40"/>
+        <TextBox   x:Name="Port" Text="{Binding VM_Port,UpdateSourceTrigger=Explicit}" Margin="160,95,132,324" Width="200" Height="50" Foreground="#FF932209" Background="Transparent" SelectionBrush="#FF531305" BorderBrush="#FFC77727" FontFamily="Cooper Black" FontSize="40"/>
         <TextBlock   Text="IP: " FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFBF360E" FontSize="40" Height="55" Width="69" Margin="70,164,353,250"/>
-        <TextBox x:Name="IP" Text="{Binding VM_IP}" Width="200" Height="50" Background="Transparent" RenderTransformOrigin="1.373,0.571" Margin="160,170,132,249" Foreground="#FF992F10" SelectionBrush="#FFC77727" BorderBrush="#FFC77727" FontFamily="Cooper Black" FontSize="33.333">
+        <TextBox x:Name="IP" Text="{Binding VM_IP,UpdateSourceTrigger=Explicit}" Width="200" Height="50" Background="Transparent" RenderTransformOrigin="1.373,0.571" Margin="160,170,132,249" Foreground="#FF992F10" SelectionBrush="#FFC77727" BorderBrush="#FFC77727" FontFamily="Cooper Black" FontSize="33.333">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

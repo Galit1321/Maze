@@ -24,7 +24,7 @@ namespace ex2
             }
             set
             {
-                model.Port = value;
+               model.Port = value;
             }
         }
         public string VM_IP
@@ -35,7 +35,7 @@ namespace ex2
             }
             set
             {
-                model.IP = value;
+               model.IP = value;
             }
         }
         public void ChangeApp(string ip,string port)
@@ -117,13 +117,7 @@ namespace ex2
             }
         }
 
-        public string VM_YrivMazeName
-        {
-            get
-            {
-                return model.YrivMazeName;
-            }
-        }
+       
        public int VM_YrivRow
         {
             get

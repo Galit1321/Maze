@@ -13,7 +13,13 @@ namespace ex2
         public string MazeName { get; set; }
         public SingleMaze You { get; set; }
         public SingleMaze Other { get; set; }
-
+/// <summary>
+/// class of game
+/// </summary>
+/// <param name="name">game name</param>
+/// <param name="mazename"></param>
+/// <param name="u">my maze</param>
+/// <param name="other">yriv maze</param>
         public Game(string name, string mazename, SingleMaze u, SingleMaze other)
         {
             this.Name = name;

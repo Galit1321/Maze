@@ -61,23 +61,6 @@ namespace ex2
             return;
         }
 
-        //private void Play()
-        //{
-        //    try
-        //    {
-        //        song = new System.Media.SoundPlayer();
-        //        string path = System.IO.Path.GetFullPath(".");
-        //        path += "\\Call Me Maybe.wav";
-        //        song.SoundLocation = path;
-        //        song.Load();
-        //        song.Play();
-        //        song.PlayLooping();
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //    }
-        //}
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {

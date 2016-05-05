@@ -27,25 +27,6 @@ namespace ex2
             this.Serlize = JsonConvert.DeserializeObject<Dictionary<string, string>>(dic["Content"]);
         }
        
-        public void FindType(string type)
-        {
-            switch (type)
-            {
-                case "1":
-                    CreateMaze();
-                    break;
-                case "2":
-                    CreateMaze();
-                    break;
-                case "3":
-                    ConvertStartGame();
-                    break;
-                case "4":
-                    ConvertPlay();
-                    break;
-                
-            }
-        }
         /// <summary>
         /// create a single game by the value of serlize dictionary 
         /// </summary>
@@ -72,7 +53,11 @@ namespace ex2
             int c = int.Parse(des[1]);
             return new Pair(r, c);
         }
-         
+         /// <summary>
+         /// convert the maze in game
+         /// </summary>
+         /// <param name="game"></param>
+         /// <returns></returns>
         public SingleMaze WithoutName(string game )
         {
             Dictionary<string, string> ser = new Dictionary<string, string>();
@@ -83,6 +68,9 @@ namespace ex2
             SingleMaze sm = new SingleMaze(start, end, maze);
             return sm;
         }
+        /// <summary>
+        /// convert the msg of game
+        /// </summary>
         public void ConvertStartGame()
         {
             string name=this.Serlize["Name"];
@@ -92,6 +80,10 @@ namespace ex2
             Game g = new Game(name, mazename, u, other);
             this.g=g;
         }
+        /// <summary>
+        ///   convert a move of the yriv 
+        /// </summary>
+
         public void ConvertPlay()
         {
             string name=this.Serlize["Name"];

@@ -79,7 +79,8 @@ namespace ex2
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            song.Stop();
+            soundMulti();
+            song.Close();
             vm.Open -= OpenWin;
            vm.closeGame();
         }
@@ -89,8 +90,7 @@ namespace ex2
             MessageBoxResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                soundMulti();
-                song.Close();
+                
                 Close();
 
             }

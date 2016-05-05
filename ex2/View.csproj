@@ -205,15 +205,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="favicon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Server\Server.csproj">
-      <Project>{bd6ff908-67fd-4522-9d98-1ebd15bad0b0}</Project>
-      <Name>Server</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="A Thousand years.mp3" />
     <None Include="Resources\A Thousand years.wav" />
     <None Include="Resources\BeginAgain.wav" />
@@ -229,7 +220,8 @@
     <Resource Include="controls\hearts.jpg" />
     <Resource Include="groomRun.jpg" />
     <None Include="Resources\MKTO - Classic.mp3" />
-    <Content Include="Titanium - Pavane.mp3" />
+    <Resource Include="favicon %282%29.ico" />
+    <Resource Include="favicon.ico" />
     <Resource Include="waiting.jpg" />
     <Resource Include="weddingMaze.jpg" />
     <Resource Include="GameMenu.jpg" />

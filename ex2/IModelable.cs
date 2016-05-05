@@ -19,7 +19,6 @@ namespace ex2
             string IP { get; set; }
             string MazeString { get; set; }
             string YrivMazeString { get; set; }
-           string YrivMazeName { get; set; }
         int MyRow { get; set;  }
         int MyCol { get; set; }
         int EndRow { get; set; }

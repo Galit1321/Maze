@@ -22,12 +22,21 @@ namespace ex2
             this.Row = i;
             this.Col = j;
         }
-
+        /// <summary>
+        /// over equal to comper between curr 
+        /// pair to goal pair
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
            Pair l = obj as Pair;
             return (this.Row.Equals(l.Row)) && (this.Col.Equals(l.Col));
         }
+        /// <summary>
+        /// for equal function
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return base.GetHashCode();

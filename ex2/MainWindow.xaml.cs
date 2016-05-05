@@ -108,8 +108,12 @@ namespace ex2
         /// <param name="e"></param>
         private void Window_Close(object sender, EventArgs e)
         {
-            vm.Disconnect();
             song.Stop();
+            if (vm.VM_Connection)
+            {
+                vm.Disconnect();
+            }
+            
         }
     }
 }

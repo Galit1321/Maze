@@ -9,9 +9,16 @@ namespace ex2
 {
     public class Play
     {
+        /// <summary>
+        /// classof move the yriv made
+        /// </summary>
         public string Name { get; set; }
         public string Move { get; set; }
-        [JsonConstructor]
+        /// <summary>
+        /// constrcor 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="move"></param>
         public Play(string name,string move)
         {
             this.Name = name;

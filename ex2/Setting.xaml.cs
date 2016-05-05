@@ -25,6 +25,10 @@ namespace ex2
         ViewModel vm;
         public static event MainWindow.SoundEvent soundSettings;
         private MediaPlayer song;
+
+       /// <summary>
+        /// constructor
+        /// </summary>
         public Setting()
         {
             vm = ViewModel.Instance;
@@ -33,7 +37,9 @@ namespace ex2
             InitializeComponent();
             vm.Open += OpenWin;
         }
-
+        /// <summary>
+        /// play music
+        /// </summary>
         private void Play()
         {
             try
@@ -42,17 +48,19 @@ namespace ex2
                 string path = System.IO.Path.GetFullPath(".");
                 path += "\\Titanium - Pavane.mp3";
                 song.Open(new Uri(path));
-                //song.Load();
                 song.MediaEnded += new EventHandler(Media_Ended);
                 song.Play();
-
             }
             catch (Exception)
             {
 
             }
         }
-
+        /// <summary>
+        /// song has ended so play it from start 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Media_Ended(object sender, EventArgs e)
         {
             string path = System.IO.Path.GetFullPath(".");
@@ -60,34 +68,56 @@ namespace ex2
             song.Open(new Uri(path));
             return;
         }
-
+        /// <summary>
+        /// cancel the change in text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// save chage made and update binding
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             ViewModel vm = ViewModel.Instance;
+            
             if (vm.VM_Connection)
             {
                 vm.Disconnect();
             }
             vm.ChangeApp(IP.Text, Port.Text);
+            BindingExpression ip_be = IP.GetBindingExpression(TextBox.TextProperty);//call to update IP.text field
+            ip_be.UpdateSource();
+            BindingExpression Port_be = IP.GetBindingExpression(TextBox.TextProperty);//call to update Port.text field
+            Port_be.UpdateSource();
             this.Close();
+           
         }
-
+        /// <summary>
+        /// event of this window close
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Close_Window(object sender, EventArgs e)
         {
             song.Stop();
             soundSettings();
             vm.Open -= OpenWin;
         }
-
+        /// <summary>
+        /// open a window that connection is lost
+        /// </summary>
+        /// <param name="msn"></param>
         private void OpenWin(string msn)
         {
             Window con = new LoseCon();
             con.ShowDialog();
+            Application.Current.Shutdown();
         }
     }
 }
