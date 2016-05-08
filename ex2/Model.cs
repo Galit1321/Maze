@@ -18,7 +18,6 @@ namespace ex2
         TCPClient Client;
         volatile bool stop ;
         public SingleMaze MyMaze;
-        public event OpenMsnWin Open;
         public SingleMaze YarivMaze;
         public ConvertFromJson ser;
         int Width;  
@@ -34,7 +33,10 @@ namespace ex2
             this.Client = client;
             this.Width = Int32.Parse(ConfigurationManager.AppSettings["Width"]);
             this.Heigth = Int32.Parse(ConfigurationManager.AppSettings["Height"]);
-            Connection =false;
+            Disconnection =false;
+            Client.LostConn += delegate () {
+                this.Disconnection = true;
+            };
             NeedClue = false;//clue rec to stay hidden for now
             Client.UpdateModel += delegate ()//we receive new data and we prossening it
             {
@@ -62,6 +64,7 @@ namespace ex2
                     ser.CreateMaze();
                     MazeHelper();
                     break;
+                case "2":
 
                 case "3":
                     numOfPlayer += 1;
@@ -99,8 +102,10 @@ namespace ex2
         /// <param name="port">port number</param>
         public void connect(string ip, int port)
         {
-            Connection = Client.Connect(IP, Port);
-            start();//stast thread pool
+            if (Client.Connect(IP, Port))
+            {
+                start();//stast thread pool
+            }
         }
         Random rnd = new Random();//generate rendon num to add to maze name
         /// <summary>
@@ -144,6 +149,7 @@ namespace ex2
         {
             stop = true;
             Client.Disconnect();
+
         }
         private string Clue;
         /// <summary>
@@ -237,8 +243,8 @@ namespace ex2
             MyMaze = g.You;
             YarivMaze = g.Other;
             this.Coordinate = MyMaze.Start;
-            int r = MyMaze.Start.Row;
-            int c = MyMaze.Start.Col;
+            int r = this.Coordinate.Row;
+            int c = this.Coordinate.Col;
             StartPoint = new Pair(r, c);
             this.MyCol = this.Coordinate.Col;
             this.MyRow = this.Coordinate.Row;
@@ -313,7 +319,7 @@ namespace ex2
             Client.SendMsg("multiplayer " + name);
            while (ser == null)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
             }
             Game g = ser.g;
             if (g.Name.Equals("one player"))
@@ -637,7 +643,7 @@ namespace ex2
             }
         }
         private bool serverConnect;
-        public bool Connection
+        public bool Disconnection
         {
             get
             {
@@ -647,7 +653,7 @@ namespace ex2
             set
             {
                 serverConnect = value;
-                NotifyPropertyChanged("Connection");
+                NotifyPropertyChanged("Disconnection");
             }
         }
         ///*********************************************end properties***************************************

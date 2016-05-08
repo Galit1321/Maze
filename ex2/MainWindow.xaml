@@ -7,12 +7,24 @@
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="Menu"  Height="600" Width="800" Closed="Window_Close">
+   
     <Grid x:Name="mainWin">
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="weddingMaze.jpg"/>
         </Grid.Background>
+        <Popup x:Name="pop" IsOpen="{Binding VM_Disconnection}" VerticalAlignment="Center" HorizontalAlignment="Center" Placement="Center" StaysOpen="False" >
+            <StackPanel>
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="stam.jpg"/>
+                </StackPanel.Background>
+                <TextBlock Margin="10" FontSize="20">It seem We lost the server</TextBlock>
+                <Button Margin="10" x:Name="close" Click="popclose_Click" >Close all</Button>
+                
+            </StackPanel>
+
+        </Popup>
         <Controls:HeartButton x:Name="SinglePlayer"  Content="SinglePlayer" HorizontalAlignment="Left" Margin="234,200,0,0" VerticalAlignment="Top" Click="SinglePlayer_Click" Height="70" Width="300"/>
         <Controls:HeartButton x:Name="multiButton" Content="MultiPlayer" HorizontalAlignment="Left" Margin="234,283,0,0" VerticalAlignment="Top" Click="multiButton_Click" Height="70" Width="300"/>
         <Controls:HeartButton x:Name="Setting" Content="Setting" HorizontalAlignment="Left" Margin="234,362,0,0" VerticalAlignment="Top" Click="Setting_Click" Height="70" Width="300"/>

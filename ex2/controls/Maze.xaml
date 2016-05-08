@@ -15,7 +15,7 @@
                 <ImageBrush ImageSource="groom4.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="Clue" Grid.Column="{Binding VM_ClueCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_ClueRow, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding VM_NeedClue, Converter={StaticResource BoolToVis}, FallbackValue=Hidden}" Fill="Pink">
+        <Rectangle x:Name="Clue" Grid.Column="{Binding VM_ClueCol, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="{Binding VM_ClueRow, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding VM_NeedClue, Converter={StaticResource BoolToVis}, FallbackValue=Hidden}" Fill="Black">
             <Rectangle.Triggers>
                 <EventTrigger RoutedEvent="Grid.Loaded">
                     <BeginStoryboard>

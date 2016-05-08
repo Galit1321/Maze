@@ -41,18 +41,16 @@ namespace ex2
         public void ChangeApp(string ip,string port)
         {
             model.ChangeApp(ip, port);
-            Connect();
-            if (!(VM_Connection))
-            {
-                Open("Disconnect");
-            }
-            
         }
-        public bool VM_Connection
+        public bool VM_Disconnection
         {
             get
             {
-                return model.Connection;
+                return model.Disconnection;
+            }
+            set
+            {
+
             }
         }
         public string VM_MazeString {
@@ -176,7 +174,7 @@ namespace ex2
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
         public event PropertyChangedEventHandler PropertyChanged;
-        public void Disconnect()
+        public void Disconnect1()
         {
             model.disconnect();
         }
@@ -206,8 +204,7 @@ namespace ex2
         public void WaitingInView()
         {
             model.Waiting();
-            Close();
-           // model.start();
+            Close();   
         }
         
          public void CreateGame(string name)

@@ -76,6 +76,7 @@ namespace ex2
             string name=this.Serlize["Name"];
             string mazename=this.Serlize["MazeName"];
             SingleMaze u=WithoutName(this.Serlize["You"]);
+            u.Name= this.Serlize["MazeName"];
             SingleMaze other= WithoutName(this.Serlize["Other"]);
             Game g = new Game(name, mazename, u, other);
             this.g=g;

@@ -35,7 +35,7 @@ namespace ex2
             Play();
             DataContext = vm;
             InitializeComponent();
-            vm.Open += OpenWin;
+            
         }
         /// <summary>
         /// play music
@@ -85,16 +85,13 @@ namespace ex2
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             ViewModel vm = ViewModel.Instance;
-            
-            if (vm.VM_Connection)
-            {
-                vm.Disconnect();
-            }
+            vm.Disconnect1();
             vm.ChangeApp(IP.Text, Port.Text);
             BindingExpression ip_be = IP.GetBindingExpression(TextBox.TextProperty);//call to update IP.text field
             ip_be.UpdateSource();
             BindingExpression Port_be = IP.GetBindingExpression(TextBox.TextProperty);//call to update Port.text field
             Port_be.UpdateSource();
+            vm.Connect();
             this.Close();
            
         }
@@ -107,17 +104,8 @@ namespace ex2
         {
             song.Stop();
             soundSettings();
-            vm.Open -= OpenWin;
+
         }
-        /// <summary>
-        /// open a window that connection is lost
-        /// </summary>
-        /// <param name="msn"></param>
-        private void OpenWin(string msn)
-        {
-            Window con = new LoseCon();
-            con.ShowDialog();
-            Application.Current.Shutdown();
-        }
+        
     }
 }

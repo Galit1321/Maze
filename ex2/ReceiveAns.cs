@@ -6,6 +6,7 @@ namespace ex2
     public class ReceiveAns
     {
         public event UpdateData UpdateAnswer;
+        public event UpdateData FailToRead;
         private Socket Sock;
         volatile bool StopRec;
         private string answer;
@@ -64,7 +65,7 @@ namespace ex2
                         return;
                     }else
                     {
-                        throw socketEx;
+                        FailToRead();
                     }
                 }
                 

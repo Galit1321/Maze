@@ -18,6 +18,7 @@ namespace ex2
        
         Socket Sock;
         ReceiveAns Receive;
+        public event UpdateData LostConn;
         SendAns Send;
         List<Task> MyTasks;
         public event UpdateData UpdateModel;
@@ -49,6 +50,7 @@ namespace ex2
             catch (SocketException e)
             {
                 //didn't make connection so we need to show lostConnection Win
+                LostConn();
                 return false;
             }
 
@@ -57,7 +59,15 @@ namespace ex2
             {
                 UpdateModel();
             };
+            Receive.FailToRead += delegate ()
+             {
+                 LostConn();
+             };
             Send = new SendAns(Sock);
+            Send.FailToSend += delegate ()
+             {
+                 LostConn();
+             };
             return true;
         }
     /// <summary>
@@ -65,7 +75,7 @@ namespace ex2
     /// </summary>
         public void Start()
         {
-            List<Task> MyTasks = new List<Task>();
+           MyTasks = new List<Task>();
             MyTasks.Add(Task.Factory.StartNew(Send.DoWork));
             MyTasks.Add(Task.Factory.StartNew(Receive.DoWork));
             Task.WaitAll(MyTasks.ToArray());
@@ -95,8 +105,7 @@ namespace ex2
         {
             Send.End();//close thread
             Receive.End();//close thread
-            
-            if (Sock != null)
+            if ((Sock != null)&& Sock.Connected)
             {
                 Sock.Shutdown(SocketShutdown.Both);
                 Sock.Close();

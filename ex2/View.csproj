@@ -205,7 +205,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="A Thousand years.mp3" />
     <None Include="Resources\A Thousand years.wav" />
     <None Include="Resources\BeginAgain.wav" />
     <None Include="Resources\Call Me Maybe.wav" />

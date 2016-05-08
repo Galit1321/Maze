@@ -7,6 +7,7 @@ namespace ex2
     {
         
         private Socket Sock;
+        public event UpdateData FailToSend;
         private bool NeedUpdate;
        volatile bool StopSend;
 
@@ -59,8 +60,18 @@ namespace ex2
             {
                 if (NeedUpdate)//Thread safe to 
                 {
-                    Sock.Send(Encoding.ASCII.GetBytes(answer));
-                    NeedUpdate = false;
+                    try
+                    {
+                        Sock.Send(Encoding.ASCII.GetBytes(answer));
+                        NeedUpdate = false;
+                    }
+                    catch
+                    {
+                        FailToSend();
+                        NeedUpdate = false;
+                    }
+                    
+                   
                 }
             }
         }

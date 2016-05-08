@@ -109,11 +109,15 @@ namespace ex2
         private void Window_Close(object sender, EventArgs e)
         {
             song.Stop();
-            if (vm.VM_Connection)
-            {
-                vm.Disconnect();
-            }
-            
+            vm.Disconnect1();
+
         }
+
+        private void popclose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+       
     }
 }
