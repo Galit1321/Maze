@@ -63,9 +63,12 @@ namespace ex2
                 case "1":
                     ser.CreateMaze();
                     MazeHelper();
+                    Client.SendMsg("solve " + MyMaze.Name + " 0");
                     break;
                 case "2":
-
+                    ser.CreateMaze();
+                    MyMaze.solv = ser.maze.Maze;
+                    break;
                 case "3":
                     numOfPlayer += 1;
                     ser.ConvertStartGame();
@@ -139,6 +142,7 @@ namespace ex2
             {
                 Thread.Sleep(100);
             }
+           
             return;
 
         }
@@ -157,35 +161,56 @@ namespace ex2
         /// </summary>
         /// <returns></returns>
         public void getClue()
-        {
-            Client.SendMsg("clue " + MyMaze.Name + " " + MyRow + " " + MyCol);
-            while (Clue == null)
+        { 
+            if( MyMaze.solv == null)
             {
-                Thread.Sleep(1200);//wait to get clue from server
+                Client.SendMsg("solve " + MyMaze.Name + " 0");
             }
-            switch (Clue)
+            while (MyMaze.solv == null)
             {
-                case "up":
-                    ClueCol = MyCol;
-                    ClueRow = MyRow - 2;
-                    NeedClue = true;
-                    break;
-                case "down":
-                    ClueCol = MyCol;
-                    ClueRow = MyRow + 2;
-                    NeedClue = true;
-                    break;
-                case "left":
-                    ClueCol = MyCol - 2;
-                    ClueRow = MyRow;
-                    NeedClue = true;
-                    break;
-                case "right":
-                    ClueCol = MyCol + 2;
-                    ClueRow = MyRow;
-                    NeedClue = true;
-                    break;
+                
+            } 
+            int clue_pos;
+            int pos = this.Coordinate.GetPos(Width);
+            if (MyMaze.solv[pos] == '2')
+            {
+                clue_pos = MyMaze.GetNxtClue(this.Coordinate);
+             /*   switch (Clue)
+                {
+                    case "up":
+                        ClueCol = MyCol;
+                        ClueRow = MyRow - 2;
+                        NeedClue = true;
+                        break;
+                    case "down":
+                        ClueCol = MyCol;
+                        ClueRow = MyRow + 2;
+                        NeedClue = true;
+                        break;
+                    case "left":
+                        ClueCol = MyCol - 2;
+                        ClueRow = MyRow;
+                        NeedClue = true;
+                        break;
+                    case "right":
+                        ClueCol = MyCol + 2;
+                        ClueRow = MyRow;
+                        NeedClue = true;
+                        break;
+                    case "":
+                        getClue();
+                        break;
+                }*/       
             }
+            else
+            {
+                clue_pos = MyMaze.lastClue.Last();
+               
+            }
+            ClueCol = clue_pos % (2 * Width - 1);
+            ClueRow = clue_pos / (2 * Heigth - 1);
+            NeedClue = true;
+
             return;
         }
         /// <summary>
@@ -196,6 +221,14 @@ namespace ex2
         /// <param name="direction">which arrow key was press</param>
         public void move(string direction)
         {
+            if (MyMaze.solv == null)
+            {
+                Client.SendMsg("solve " + MyMaze.Name + " 1");
+                while (MyMaze.solv == null)
+                {
+
+                }
+            }
             NeedClue = false;
             Pair p = MyMaze.move(direction,MyRow,MyCol);
             if (this.Coordinate.Equals(p))//we didnt move at all 
@@ -206,7 +239,12 @@ namespace ex2
             MyRow = p.Row;
             MyCol = p.Col;
             this.Coordinate = p;
-            if ((this.Coordinate.Equals(MyMaze.End)))//we reach goal in maze;
+            int pos = this.Coordinate.GetPos(Width);
+            if (MyMaze.solv[pos].Equals('2'))
+            {
+                MyMaze.lastClue.Add(pos);
+            }
+                if ((this.Coordinate.Equals(MyMaze.End)))//we reach goal in maze;
             {
                 Winner = true;
             }
@@ -257,6 +295,7 @@ namespace ex2
             this.EndYrivRow = YarivMaze.End.Row;
             this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
+           
         }    
         /// <summary>
         /// move the yriv acoording to 
@@ -317,17 +356,19 @@ namespace ex2
             Winner = false;
             Loser = false;
             Client.SendMsg("multiplayer " + name);
-           while (ser == null)
+           while (ser== null)
             {
                 Thread.Sleep(100);
             }
             Game g = ser.g;
             if (g.Name.Equals("one player"))
             {
+                Client.SendMsg("solve " + MyMaze.Name + " 1");
                 return "wait";
             }
             else
             {
+                
                 return "game on";
             }
         }

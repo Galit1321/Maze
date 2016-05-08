@@ -17,6 +17,8 @@ namespace ex2
         public string Maze;
         private int Width;
         private int Height;
+        public string solv;
+        public List<int> lastClue;
 
 
         public SingleMaze(Pair start, Pair end, string maze)
@@ -27,6 +29,8 @@ namespace ex2
             this.End = end;
             this.Maze = maze;
             this.Name = "You";
+            this.lastClue = new List<int>();
+            this.lastClue.Add(start.GetPos(Width));
         }
         public SingleMaze(Pair start, Pair end,string maze,string name)
         {
@@ -36,6 +40,8 @@ namespace ex2
             this.End = end;
             this.Maze = maze;
             this.Name = name;
+            this.lastClue = new List<int>();
+            this.lastClue.Add(start.GetPos(Width));
         }
         public string GetMaze()
         {
@@ -76,6 +82,25 @@ namespace ex2
                     break;
             }
             return new Pair(row, col);
+        }
+        public int GetNxtClue(Pair cor)
+        {
+            Pair p;
+            int pos;
+            List<string> dir = new List<string>{ "up", "down", "left", "right" };
+            foreach (string d in dir)
+            {
+                p= move(d, cor.Row, cor.Col);//check the dirction
+                if (p != null)
+                {
+                   pos = p.GetPos(Width);
+                    if ((solv[pos].Equals('2')) & (!(lastClue.Contains(pos))))
+            {
+                        return pos;
+                    }
+                }
+            }  
+            return lastClue.Last(); ;
         }
     }
     }

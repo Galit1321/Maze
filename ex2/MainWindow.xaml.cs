@@ -85,7 +85,6 @@ namespace ex2
         private void SinglePlayer_Click(object sender, RoutedEventArgs e)
         {
             song.Stop();
-            vm.CreateSingle();
             Window s = new SingelGame();
             s.ShowDialog();
         }

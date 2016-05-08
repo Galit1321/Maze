@@ -41,5 +41,10 @@ namespace ex2
         {
             return base.GetHashCode();
         }
+        public int GetPos(int width)
+        {
+            return Row * (2 * width - 1) + Col;
+
+        }
     }
 }
