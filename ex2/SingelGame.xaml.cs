@@ -117,7 +117,7 @@ namespace ex2
             song.Stop();
             soundMain();
             vm.Open -= OpenWin;
-            
+            vm.CloseSingle(); 
         }
     }
 }

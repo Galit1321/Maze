@@ -214,7 +214,7 @@ namespace ex2
             string ans = model.CreateGame(name);
             if (ans.Equals("wait"))
             {
-                Open("Only One");
+                Open("You are the only player");
                 t = new Thread(WaitingInView);
                 t.SetApartmentState(ApartmentState.STA);
                 t.Start();
@@ -223,6 +223,10 @@ namespace ex2
             {
                 Close();
             }
+        }
+        public void CloseSingle()
+        {
+            model.closeSingle();
         }
         public int VM_ClueRow
         {

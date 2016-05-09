@@ -359,9 +359,13 @@ namespace ex2
             Client.SendMsg("multiplayer " + name);
            while (ser== null)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
             }
             Game g = ser.g;
+            while(g==null)
+            {
+                g = ser.g;
+            }
             if (g.Name.Equals("one player"))
             {
                 Client.SendMsg("solve " + MyMaze.Name + " 1");
@@ -387,7 +391,11 @@ namespace ex2
         /// </summary>
         public void closeGame()
         {
+            MyMaze = null;
+            MazeString = null;
+            numOfPlayer -= 1;
             this.Client.SendMsg("close " + gamename);
+
         }
         /// <summary>
         /// change the port and ip in app.conpig file
@@ -405,6 +413,12 @@ namespace ex2
             ConfigurationManager.RefreshSection("appSettings");
             this.IP = newIP;
             this.Port = int.Parse(portstr);
+        }
+
+        public void closeSingle()
+        {
+            MyMaze = null;
+            MazeString = null;
         }
         ///*********************************************Begin properties***************************************
         private string ip;

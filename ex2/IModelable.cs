@@ -46,6 +46,7 @@ namespace ex2
         void Waiting();
         void RestGame();
         void closeGame();
+        void closeSingle();
 
     }
 }
