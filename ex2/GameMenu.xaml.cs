@@ -72,8 +72,6 @@ namespace ex2
         /// <param name="e"></param>
         private void bntCnt_Click(object sender, RoutedEventArgs e)
         {
-            
-            vm.Init(new Model(new TCPClient()));
             DataContext = vm;
             string g = Game_name.ToString();
             vm.CreateGame(g);

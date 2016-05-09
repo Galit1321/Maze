@@ -30,7 +30,6 @@ namespace ex2
             InitializeComponent();
             m = new Maze();
             vm = ViewModel.Instance;
-            vm.Init(new Model(new TCPClient()));
             vm.CreateSingle();
             DataContext = vm;
             Play();
@@ -118,6 +117,7 @@ namespace ex2
             song.Stop();
             soundMain();
             vm.Open -= OpenWin;
+            
         }
     }
 }

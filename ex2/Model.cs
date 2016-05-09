@@ -153,6 +153,7 @@ namespace ex2
         {
             stop = true;
             Client.Disconnect();
+            Disconnection = true;
 
         }
         private string Clue;
@@ -255,7 +256,7 @@ namespace ex2
         /// </summary>
         public void Waiting()
         {
-            while (numOfPlayer < 2)
+            while (!(Disconnection)&&(numOfPlayer < 2) )
             {
                 //wait to second player to join
             }

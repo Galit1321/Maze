@@ -55,26 +55,16 @@ namespace ex2
         /// </summary>
         public void DoWork()
         {
-           
-            while (!StopSend)//whlie flag is false
+          while (!StopSend)//whlie flag is false
             {
                 if (NeedUpdate)//Thread safe to 
                 {
-                    try
-                    {
-                        Sock.Send(Encoding.ASCII.GetBytes(answer));
-                        NeedUpdate = false;
-                    }
-                    catch
-                    {
-                        FailToSend();
-                        NeedUpdate = false;
-                    }
-                    
-                   
+                    Sock.Send(Encoding.ASCII.GetBytes(answer));
+                    NeedUpdate = false;
                 }
+            }
             }
         }
     }
-}
+
    

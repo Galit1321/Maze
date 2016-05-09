@@ -14,8 +14,9 @@ namespace ex2
         public event OpenMsnWin Open;
         public event ClosenMsnWin Close;
         private IModelable model;
+        public Thread t;
         //proprties here
-        
+
         public int VM_Port
         {
             get
@@ -164,10 +165,9 @@ namespace ex2
             model.PropertyChanged +=
             delegate (Object sender, PropertyChangedEventArgs e) {
            NotifyPropertyChanged("VM_"+e.PropertyName);
-       };
-        
+       };  
         }
-
+ 
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
@@ -196,6 +196,7 @@ namespace ex2
                return model.NeedClue;
             }
         }
+       
         public void Connect()
         {
             model.connect(VM_IP, VM_Port);
@@ -214,10 +215,9 @@ namespace ex2
             if (ans.Equals("wait"))
             {
                 Open("Only One");
-                Thread t = new Thread(WaitingInView);
+                t = new Thread(WaitingInView);
                 t.SetApartmentState(ApartmentState.STA);
                 t.Start();
-
             }
             else
             {
@@ -262,9 +262,7 @@ namespace ex2
         }
         public void closeGame()
         {
-            model.closeGame();
-        
-           
+            model.closeGame();  
         }
     }
 }

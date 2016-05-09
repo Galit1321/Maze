@@ -98,7 +98,7 @@ namespace ex2
              song.Stop();
             Window m = new Gamename();
             m.ShowDialog();
-
+      
         }
         /// <summary>
         /// close.
