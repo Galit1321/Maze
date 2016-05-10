@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ex2"
         mc:Ignorable="d"
-        Title="Wining" Height="500" Width="500">
+        Title="Wining" Height="500" Width="500" Closed="Window_Closed">
     <Window.Resources>
         <ControlTemplate TargetType="Button" x:Key="ImageButton">
             <Image Source="couple2.gif" x:Name="image" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>

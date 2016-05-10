@@ -7,7 +7,6 @@ namespace ex2
     {
         
         private Socket Sock;
-        public event UpdateData FailToSend;
         private bool NeedUpdate;
        volatile bool StopSend;
 

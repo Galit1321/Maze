@@ -44,7 +44,7 @@ namespace ex2
             void createMaze();
             string CreateGame(string name);
         void StartGame();
-        void Waiting();
+        //void Waiting();
         void RestGame();
         void closeGame(string name);
         void closeSingle();

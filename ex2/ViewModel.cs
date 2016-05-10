@@ -12,7 +12,7 @@ namespace ex2
     {
         private static ViewModel instance;
         public event OpenMsnWin Open;
-        public event ClosenMsnWin Close;
+
         private IModelable model;
         public Thread t;
         //proprties here
@@ -210,7 +210,7 @@ namespace ex2
             }
             set
             {
-
+                model.Wait = value;
             }
         }
          public void CreateGame(string name)
@@ -240,6 +240,10 @@ namespace ex2
             get
             {
                 return model.Loser;
+            }
+            set
+            {
+
             }
         }
        public void move(string d)

@@ -37,10 +37,11 @@ namespace ex2
         }
         public void OpenWin(string msn)
         {
+            song.Stop();
             if (msn.Equals("won"))
             {
                 Window w = new Wining();
-                w.ShowDialog();
+                w.ShowDialog(); 
                 Close();
             }
             if (msn.Equals("lost"))
@@ -56,7 +57,7 @@ namespace ex2
             {
                 song = new MediaPlayer();
                  string path = System.IO.Path.GetFullPath(".");
-                 path += "\\Titanium - Pavane.mp3";
+                 path += "\\I've Just Seen a Face .mp3";
                 song.Open(new Uri(path));
                 //song.Load();
                 song.MediaEnded += new EventHandler(Media_Ended);
@@ -84,7 +85,11 @@ namespace ex2
             vm.Open -= OpenWin;
            vm.closeGame(string.Empty);
         }
-
+        /// <summary>
+        /// get back to main window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -94,12 +99,21 @@ namespace ex2
 
             }
         }
+        /// <summary>
+        /// get clue to the solution the server suggested
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Clue_Click(object sender, RoutedEventArgs e)
         {
             vm.GetClue();
         }
         
-       
+       /// <summary>
+       /// move the player 
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Down)
@@ -119,11 +133,18 @@ namespace ex2
                 vm.move("right");
             }
         }
-
+        /// <summary>
+        /// reset game to staring point
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Reset_Click_1(object sender, RoutedEventArgs e)
         {
-            vm.RestMaz();
-            vm.closeGame(string.Empty); 
+            MessageBoxResult result = MessageBox.Show("are u sure? with this action you are playing by your self", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                vm.RestMaz();
+            }            
         }
     }
 }

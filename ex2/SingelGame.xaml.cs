@@ -69,15 +69,16 @@ namespace ex2
             if (result == MessageBoxResult.Yes)
             {
               
-                Close();
-                
+                Close();      
             }
             }
 
         public void OpenWin(string msn)
         {
             Window w = new Wining();
+            song.Stop();
             w.ShowDialog() ;
+            
             Close();
         }
 

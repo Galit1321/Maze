@@ -33,9 +33,11 @@ namespace ex2
             vm.Init(new Model(new TCPClient()));
             DataContext = vm;
             Play();
+            //all cases below are in case of returning to main window -->to play music again
             SingelGame.soundMain += Play;
             ex2.Setting.soundSettings += Play;
             Multiplayer.soundMulti += Play;
+            Gamename.soundWait += Play;
         }
         /// <summary>
         /// play.

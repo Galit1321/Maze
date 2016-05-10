@@ -10,7 +10,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="GameMenu.jpg"/>
         </Grid.Background>
-        <Popup x:Name="wait" IsOpen="{Binding VM_Wait,UpdateSourceTrigger=PropertyChanged}"  Closed="wait_Closed" VerticalAlignment="Center" HorizontalAlignment="Center" Placement="Left"  >
+        <Popup x:Name="wait" IsOpen="{Binding VM_Wait,UpdateSourceTrigger=PropertyChanged}"  Closed="wait_Closed" VerticalAlignment="Center" HorizontalAlignment="Center" Placement="Left" Opened="wait_Opened"  >
             <Grid>
                 <Grid.Background>
                     <ImageBrush ImageSource="waiting.jpg"/>

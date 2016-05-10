@@ -8,6 +8,31 @@
         mc:Ignorable="d"
         Title="Multiplayer" Height="600" Width="800" Closed="Window_Closed" KeyDown="Window_KeyDown">
     <Grid Margin="0,0,0,6" >
+        <Popup IsOpen="{Binding VM_Loser,UpdateSourceTrigger=PropertyChanged}" Placement="MousePoint" Width="500" Height="500">
+            <Popup.Resources>
+                <ControlTemplate TargetType="Button" x:Key="ImageButton">
+                    <Image Source="groomRun.jpg" x:Name="image" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+                </ControlTemplate>
+            </Popup.Resources>
+            <StackPanel>
+                <TextBlock  Name="txtBox" Text="You lost her bro" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black"  Opacity="0.5"  BlurRadius="4"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Button Template="{StaticResource ImageButton}" Margin="10,40,0,0"  >
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard AutoReverse="True" RepeatBehavior="5" >
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.5" To="1" Duration="0:0:01.00"></DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+        </Popup>
         <Controls:MyButton x:Name="Reset" Content="ResetMaze" VerticalAlignment="Top" Height="50" Margin="245,20,342,0" RenderTransformOrigin="0.5,0.5" Click="Reset_Click_1"/>
         <Controls:MyButton x:Name="Clue" Grid.Row="0" Height="50" Content="Get Clue" Grid.Column="0" HorizontalAlignment="Left" Margin="29,20,0,0" VerticalAlignment="Top" Click="Clue_Click"/>
         <Controls:MyButton x:Name="Back" Content="Back" Height="50" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="top" Margin="0,20,152,0" Click="Back_Click"/>

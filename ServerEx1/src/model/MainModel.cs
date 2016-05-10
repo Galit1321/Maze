@@ -91,10 +91,10 @@ namespace ServerExe1.src.model
             /*if got to here it's meen that there is no game with the nameGame that
              *  have place to the new player*/
             this.games.Add(new Game(nameGame, forStart, forMsg, view));
-            Game g = this.games.ElementAt(this.games.Count - 1);
+          /*  Game g = this.games.ElementAt(this.games.Count - 1);
             Tuple < IMaze, IMaze > test = this.mazes.GetMazesForGame(nameGame);
             g.FirstPlayerMaze.UpdateView(new Tuple<string, Tuple<IMaze, IMaze>>("one player", (test)),
-            g.viewFirstPlayer);
+            g.viewFirstPlayer*/
         }
 
         /// <summary>

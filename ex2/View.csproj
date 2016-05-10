@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>favicon %282%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -84,9 +84,6 @@
       <DependentUpon>GameMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="ICommuntable.cs" />
-    <Compile Include="LoseCon.xaml.cs">
-      <DependentUpon>LoseCon.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LoseWindow.xaml.cs">
       <DependentUpon>LoseWindow.xaml</DependentUpon>
     </Compile>
@@ -108,9 +105,6 @@
     <Compile Include="ReceiveAns.cs" />
     <Compile Include="SendAns.cs" />
     <Compile Include="ViewModel.cs" />
-    <Compile Include="Warning.xaml.cs">
-      <DependentUpon>Warning.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Wining.xaml.cs">
       <DependentUpon>Wining.xaml</DependentUpon>
     </Compile>
@@ -131,10 +125,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LoseCon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,10 +155,6 @@
     <Page Include="SingelGame.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Warning.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Wining.xaml">
       <SubType>Designer</SubType>
@@ -227,6 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="server.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="broken.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

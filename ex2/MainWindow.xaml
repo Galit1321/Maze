@@ -17,10 +17,10 @@
         <Popup x:Name="pop" IsOpen="{Binding VM_Disconnection, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" Placement="Center" StaysOpen="False" >
             <StackPanel Height="200" Width="auto">
                 <StackPanel.Background>
-                    <ImageBrush ImageSource="server.jpg"/>
+                    <ImageBrush ImageSource="broken.jpg"/>
                 </StackPanel.Background>
-                <TextBlock Margin="10" FontSize="20">It seem We lost the server</TextBlock>
-                <Button FontSize="20" FontWeight="Bold" Width="auto" Background="White" Margin="10" x:Name="close" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="popclose_Click" >Close all</Button>
+                <TextBlock Margin="10" FontSize="20" FontWeight="Bold" FontStyle="Italic" Foreground="Wheat">It seem We lost the server</TextBlock>
+                <Button FontSize="20" FontWeight="Bold" Width="auto" Background="Salmon" Margin="0,100,10,10" x:Name="close" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Click="popclose_Click" >Close all</Button>
                 
             </StackPanel>
 

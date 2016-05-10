@@ -64,10 +64,7 @@ namespace ex2
                  LostConn();
              };
             Send = new SendAns(Sock);
-            Send.FailToSend += delegate ()
-             {
-                 LostConn();
-             };
+
             return true;
         }
     /// <summary>

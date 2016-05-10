@@ -19,6 +19,7 @@ namespace ex2
     /// </summary>
     public partial class Gamename : Window
     {
+        public static event MainWindow.SoundEvent soundWait;
         public ViewModel vm;
         public Window War;
         private MediaPlayer song;
@@ -70,7 +71,7 @@ namespace ex2
         /// <param name="e"></param>
         private void bntCnt_Click(object sender, RoutedEventArgs e)
         {
-            string g = Game_name.ToString();
+            string g = Game_name.Text;
             vm.CreateGame(g);
         }
 
@@ -96,15 +97,34 @@ namespace ex2
         /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e)
         {
-            
             song.Stop();
         }
 
-     
+     /// <summary>
+     /// we click and gave up on waiting to second player
+     /// </summary>
+     /// <param name="sender"></param>
+     /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            vm.VM_Wait = false;
             vm.closeGame(Game_name.Text);
+            soundWait();
+        }
+
+        private void wait_Opened(object sender, EventArgs e)
+        {
+            song.Stop();
+            PlayPop();
+        }
+        private void PlayPop()
+        {
+            string path = System.IO.Path.GetFullPath(".");
+            path += "\\John Mayer - Waiting On The World To Change (mp3cut.net).mp3";
+            song.Open(new Uri(path));
+            song.Play();
+            return;
         }
     }
 }
