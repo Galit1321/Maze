@@ -28,6 +28,7 @@ namespace ex2
         /// <param name="client"></param>
         public Model(TCPClient client)
         {
+            Wait = false;
             this.IP = ConfigurationManager.AppSettings["IP"];
             this.Port = Int32.Parse(ConfigurationManager.AppSettings["Port"]);
             this.Client = client;
@@ -73,6 +74,7 @@ namespace ex2
                     numOfPlayer += 1;
                     ser.ConvertStartGame();
                     StartGame();
+                    Client.SendMsg("solve " + MyMaze.Name + " 0");
                     break;
                 case "4":
                     ser.ConvertPlay();
@@ -176,32 +178,6 @@ namespace ex2
             if (MyMaze.solv[pos] == '2')
             {
                 clue_pos = MyMaze.GetNxtClue(this.Coordinate);
-             /*   switch (Clue)
-                {
-                    case "up":
-                        ClueCol = MyCol;
-                        ClueRow = MyRow - 2;
-                        NeedClue = true;
-                        break;
-                    case "down":
-                        ClueCol = MyCol;
-                        ClueRow = MyRow + 2;
-                        NeedClue = true;
-                        break;
-                    case "left":
-                        ClueCol = MyCol - 2;
-                        ClueRow = MyRow;
-                        NeedClue = true;
-                        break;
-                    case "right":
-                        ClueCol = MyCol + 2;
-                        ClueRow = MyRow;
-                        NeedClue = true;
-                        break;
-                    case "":
-                        getClue();
-                        break;
-                }*/       
             }
             else
             {
@@ -222,14 +198,7 @@ namespace ex2
         /// <param name="direction">which arrow key was press</param>
         public void move(string direction)
         {
-            if (MyMaze.solv == null)
-            {
-                Client.SendMsg("solve " + MyMaze.Name + " 1");
-                while (MyMaze.solv == null)
-                {
-
-                }
-            }
+            
             NeedClue = false;
             Pair p = MyMaze.move(direction,MyRow,MyCol);
             if (this.Coordinate.Equals(p))//we didnt move at all 
@@ -281,22 +250,28 @@ namespace ex2
             gamename = g.Name;
             MyMaze = g.You;
             YarivMaze = g.Other;
-            this.Coordinate = MyMaze.Start;
-            int r = this.Coordinate.Row;
-            int c = this.Coordinate.Col;
+
+            this.MazeString = MyMaze.GetMaze();
+            this.Coordinate = MyMaze.GetStart();
+            EndRow = MyMaze.End.Row;
+            EndCol = MyMaze.End.Col;
+            int r = MyMaze.Start.Row;
+            int c = MyMaze.Start.Col;
             StartPoint = new Pair(r, c);
-            this.MyCol = this.Coordinate.Col;
-            this.MyRow = this.Coordinate.Row;
-            this.EndCol = MyMaze.End.Col;
-            this.EndRow = MyMaze.End.Row;
+            this.MyRow = r;
+            this.MyCol = c;
+            this.MazeName = MyMaze.Name;
+           
             this.Yriv_Cor = YarivMaze.Start;
             this.YrivCol = this.Yriv_Cor.Col;
             this.YrivRow = this.Yriv_Cor.Row;
             this.EndYrivCol = YarivMaze.End.Col;
             this.EndYrivRow = YarivMaze.End.Row;
-            this.MazeString = MyMaze.Maze;
             this.YrivMazeString = YarivMaze.Maze;
+            Wait = false;
            
+
+
         }    
         /// <summary>
         /// move the yriv acoording to 
@@ -357,26 +332,10 @@ namespace ex2
             Winner = false;
             Loser = false;
             Client.SendMsg("multiplayer " + name);
-           while (ser== null)
-            {
-                Thread.Sleep(1000);
-            }
-            Game g = ser.g;
-            while(g==null)
-            {
-                g = ser.g;
-            }
-            if (g.Name.Equals("one player"))
-            {
-                Client.SendMsg("solve " + MyMaze.Name + " 1");
-                return "wait";
-            }
-            else
-            {
-                
+            Wait = true;
                 return "game on";
             }
-        }
+       
         /// <summary>
         /// reset the maze to starting point
         /// </summary>
@@ -389,12 +348,19 @@ namespace ex2
         /// <summary>
         /// close multiplayer game 
         /// </summary>
-        public void closeGame()
+        public void closeGame(string name)
         {
             MyMaze = null;
             MazeString = null;
             numOfPlayer -= 1;
-            this.Client.SendMsg("close " + gamename);
+            if (name.Length!= 0)
+            {
+                this.Client.SendMsg("close " + name);
+            }
+            else
+            {
+                this.Client.SendMsg("close " + this.gamename);
+            }
 
         }
         /// <summary>
@@ -712,6 +678,21 @@ namespace ex2
                 NotifyPropertyChanged("Disconnection");
             }
         }
+        private bool w;
+        public bool Wait
+        {
+            get
+            {
+               return w;
+            }
+
+            set
+            {
+                w = value;
+                NotifyPropertyChanged("Wait");
+            }
+        }
+
         ///*********************************************end properties***************************************
     }
 }

@@ -202,27 +202,20 @@ namespace ex2
             model.connect(VM_IP, VM_Port);
         }
        
-        public void WaitingInView()
+        public bool VM_Wait
         {
-            model.Waiting();
-            Close();   
+            get
+            {
+               return model.Wait;
+            }
+            set
+            {
+
+            }
         }
-        
          public void CreateGame(string name)
         {
-
             string ans = model.CreateGame(name);
-            if (ans.Equals("wait"))
-            {
-                Open("You are the only player");
-                t = new Thread(WaitingInView);
-                t.SetApartmentState(ApartmentState.STA);
-                t.Start();
-            }
-            else
-            {
-                Close();
-            }
         }
         public void CloseSingle()
         {
@@ -264,9 +257,9 @@ namespace ex2
         {
             model.RestGame();
         }
-        public void closeGame()
+        public void closeGame(string name)
         {
-            model.closeGame();  
+            model.closeGame(name);  
         }
     }
 }

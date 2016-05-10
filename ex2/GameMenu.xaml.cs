@@ -25,10 +25,9 @@ namespace ex2
         public Gamename()
         {
             vm = ViewModel.Instance;
+            DataContext = vm;
             InitializeComponent();
             Play();
-            vm.Open += OpenWin;
-            vm.Close += CloseWin;
     }
         /// <summary>
         /// Play song.
@@ -41,7 +40,6 @@ namespace ex2
                 string path = System.IO.Path.GetFullPath(".");
                 path += "\\Titanium - Pavane.mp3";
                 song.Open(new Uri(path));
-                //song.Load();
                 song.MediaEnded += new EventHandler(Media_Ended);
                 song.Play();
 
@@ -72,36 +70,22 @@ namespace ex2
         /// <param name="e"></param>
         private void bntCnt_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = vm;
             string g = Game_name.ToString();
             vm.CreateGame(g);
-           
-           
         }
-        /// <summary>
-        /// Open window.
-        /// </summary>
-        /// <param name="msn"></param>
-        public void OpenWin(string msn)
-        {
-            War = new Warning(msn);
-            War.Show();
 
-        }
+
         /// <summary>
-        /// close window.
+        /// close pop up window.
         /// </summary>
-        public void CloseWin()
+        private void wait_Closed(object sender, EventArgs e)
         {
-            Dispatcher.Invoke(() => {//invike the right thread to change ui
+            if (!vm.VM_Wait)
+            {
                 Window m = new Multiplayer();
                 m.Show();
-                if (War != null) {
-                    War.Close();
-                }
                 this.Close();
-            });
-            
+            }
 
         }
 
@@ -112,9 +96,15 @@ namespace ex2
         /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e)
         {
-            vm.Open -= OpenWin;
-            vm.Close -= CloseWin;
+            
             song.Stop();
+        }
+
+     
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            vm.closeGame(Game_name.Text);
         }
     }
 }

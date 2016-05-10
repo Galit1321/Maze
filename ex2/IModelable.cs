@@ -36,6 +36,7 @@ namespace ex2
         bool Winner { get; set; }
         bool Loser { get; set; }
        bool Disconnection { get; set; }
+        bool Wait { get; set; }
         //active method
         void ChangeApp(string newIP,string port);
             void move(string direction);
@@ -45,7 +46,7 @@ namespace ex2
         void StartGame();
         void Waiting();
         void RestGame();
-        void closeGame();
+        void closeGame(string name);
         void closeSingle();
 
     }

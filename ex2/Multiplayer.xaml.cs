@@ -82,7 +82,7 @@ namespace ex2
             soundMulti();
             song.Close();
             vm.Open -= OpenWin;
-           vm.closeGame();
+           vm.closeGame(string.Empty);
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -98,12 +98,7 @@ namespace ex2
         {
             vm.GetClue();
         }
-
-        private void Reset_Click(object sender, RoutedEventArgs e)
-        {
-            vm.RestMaz();
-        }
-
+        
        
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -123,6 +118,12 @@ namespace ex2
             {
                 vm.move("right");
             }
+        }
+
+        private void Reset_Click_1(object sender, RoutedEventArgs e)
+        {
+            vm.RestMaz();
+            vm.closeGame(string.Empty); 
         }
     }
 }

@@ -14,13 +14,13 @@
         <Grid.Background>
             <ImageBrush ImageSource="weddingMaze.jpg"/>
         </Grid.Background>
-        <Popup x:Name="pop" IsOpen="{Binding VM_Disconnection}" VerticalAlignment="Center" HorizontalAlignment="Center" Placement="Center" StaysOpen="False" >
-            <StackPanel>
+        <Popup x:Name="pop" IsOpen="{Binding VM_Disconnection, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" Placement="Center" StaysOpen="False" >
+            <StackPanel Height="200" Width="auto">
                 <StackPanel.Background>
-                    <ImageBrush ImageSource="stam.jpg"/>
+                    <ImageBrush ImageSource="server.jpg"/>
                 </StackPanel.Background>
                 <TextBlock Margin="10" FontSize="20">It seem We lost the server</TextBlock>
-                <Button Margin="10" x:Name="close" Click="popclose_Click" >Close all</Button>
+                <Button FontSize="20" FontWeight="Bold" Width="auto" Background="White" Margin="10" x:Name="close" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="popclose_Click" >Close all</Button>
                 
             </StackPanel>
 

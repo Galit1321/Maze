@@ -10,7 +10,22 @@
         <Grid.Background>
             <ImageBrush ImageSource="GameMenu.jpg"/>
         </Grid.Background>
-
+        <Popup x:Name="wait" IsOpen="{Binding VM_Wait,UpdateSourceTrigger=PropertyChanged}"  Closed="wait_Closed" VerticalAlignment="Center" HorizontalAlignment="Center" Placement="Left"  >
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="waiting.jpg"/>
+                </Grid.Background>
+                <Label x:Name="label" Content="only player" TextBlock.Foreground="White" FontFamily="Cooper Black"  TextBlock.FontSize="20" VerticalAlignment='Top' HorizontalAlignment="Center" Margin="20" RenderTransformOrigin="0.551,1.784" FontSize="70"/>
+                <Button x:Name="button" Content="Give Up" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Bottom" Width="190" Height="45" Foreground="#FF5C6061" FontFamily="Forte" FontSize="26.667" Click="button_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFCAECF0" Offset="0"/>
+                            <GradientStop Color="#FF2DC1D1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </Popup>
         <TextBlock Text="Game Name:  " FontWeight="Bold" FontFamily="Ravie" Margin="140,70,117,194" FontSize="26.667" />
         <TextBox x:Name="Game_name" Margin="140,125,132,144" FontSize="26.667" FontFamily="Buxton Sketch" FontWeight="Bold" >
             <TextBox.Background>

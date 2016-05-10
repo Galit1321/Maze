@@ -105,7 +105,7 @@ namespace ex2
         {
             Send.End();//close thread
             Receive.End();//close thread
-            if (Sock != null)
+            if (Sock != null&& (Sock.Connected))
             {
                 Sock.Shutdown(SocketShutdown.Both);
                 Sock.Close();

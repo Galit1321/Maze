@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Multiplayer" Height="600" Width="800" Closed="Window_Closed" KeyDown="Window_KeyDown">
     <Grid Margin="0,0,0,6" >
-        <Controls:MyButton x:Name="Reset" Content="ResetMaze" VerticalAlignment="Top" Height="50" Margin="245,20,342,0" RenderTransformOrigin="0.5,0.5"/>
+        <Controls:MyButton x:Name="Reset" Content="ResetMaze" VerticalAlignment="Top" Height="50" Margin="245,20,342,0" RenderTransformOrigin="0.5,0.5" Click="Reset_Click_1"/>
         <Controls:MyButton x:Name="Clue" Grid.Row="0" Height="50" Content="Get Clue" Grid.Column="0" HorizontalAlignment="Left" Margin="29,20,0,0" VerticalAlignment="Top" Click="Clue_Click"/>
         <Controls:MyButton x:Name="Back" Content="Back" Height="50" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="top" Margin="0,20,152,0" Click="Back_Click"/>
         <Controls:Maze  Height="390" Width="390" Margin="0,60,24,0" HorizontalAlignment="Left"/>
