@@ -48,6 +48,7 @@ namespace ServerExe1.src.view
                     int recv = client.Receive(data);
                     if (recv == 0) break;
                     string str = Encoding.ASCII.GetString(data, 0, recv);
+                    str = str.Remove(str.IndexOf("\r\n"), "\r\n".Length);
                     this.lastResv = str;
                     this.theResv(this, EventArgs.Empty);
                 }
